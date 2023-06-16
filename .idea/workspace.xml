@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20cb45d6-6369-4a7e-896c-78dda4bbea14" name="Changes" comment="704: add my own initial binary search implementations, both accepted">
+    <list default="true" id="20cb45d6-6369-4a7e-896c-78dda4bbea14" name="Changes" comment="LC-704: simplify binary search based on the book's description (understood why)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/grokking/chapter1/BinarySearch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/grokking/chapter1/BinarySearch.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/grokking/chapter1/BinarySearchKtTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/grokking/chapter1/BinarySearchKtTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +198,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686950752212</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Random studio initiated change">
+      <created>1686952427864</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686952427864</updated>
+    </task>
+    <task id="LOCAL-00004" summary="LC-704: simplify binary search based on the book's description (understood why)">
+      <created>1686952467159</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686952467159</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,6 +229,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit" />
     <MESSAGE value="704: add my own initial binary search implementations, both accepted" />
-    <option name="LAST_COMMIT_MESSAGE" value="704: add my own initial binary search implementations, both accepted" />
+    <MESSAGE value="Random studio initiated change" />
+    <MESSAGE value="LC-704: simplify binary search based on the book's description (understood why)" />
+    <option name="LAST_COMMIT_MESSAGE" value="LC-704: simplify binary search based on the book's description (understood why)" />
   </component>
 </project>

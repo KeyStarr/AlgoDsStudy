@@ -101,7 +101,7 @@ internal class BinarySearchKtTest {
         target: Int,
         expectedTargetIndex: Int,
     ) {
-        val targetIndex = search(
+        val targetIndex = searchImpl(
             sortedElementsAscending = sortedElementsAscending,
             target = target,
         )
@@ -114,7 +114,7 @@ internal class BinarySearchKtTest {
         target: Int,
         expectedPossibleTargetIndices: List<Int>,
     ) {
-        val targetIndex = search(
+        val targetIndex = searchImpl(
             sortedElementsAscending = sortedElementsAscending,
             target = target,
         )
@@ -122,7 +122,7 @@ internal class BinarySearchKtTest {
         assertTrue(expectedPossibleTargetIndices.contains(targetIndex))
     }
 
-    private fun search(sortedElementsAscending: List<Int>, target: Int): Int =
+    private fun searchImpl(sortedElementsAscending: List<Int>, target: Int): Int =
         binarySearchRecursive(
             sortedElementsAscending = sortedElementsAscending,
             target = target,
