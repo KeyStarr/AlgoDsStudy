@@ -123,7 +123,7 @@ internal class BinarySearchKtTest {
     }
 
     private fun search(sortedElementsAscending: List<Int>, target: Int): Int =
-        binarySearchWhile(
+        binarySearchRecursive(
             sortedElementsAscending = sortedElementsAscending,
             target = target,
         )
