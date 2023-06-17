@@ -1,10 +1,12 @@
 package grokking.chapter1
 
+// https://leetcode.com/problems/binary-search/description/
 fun binarySearchWhile(sortedElementsAscending: List<Int>, target: Int): Int {
     var startInd = 0
     var endInd = sortedElementsAscending.size - 1
     while (startInd <= endInd) {
         val middleInd = startInd + (endInd - startInd) / 2
+        println("hop $middleInd")
         val currentElement = sortedElementsAscending[middleInd]
         if (target == currentElement) {
             return middleInd
@@ -41,5 +43,5 @@ private fun searchRecursive(sortedElementsAscending: List<Int>, target: Int, sta
 }
 
 fun main() {
-    println("result is " + binarySearchRecursive(listOf(-1, 0, 3, 5, 9, 12), 9))
+    println("result is " + binarySearchWhile((1..2).toList(), 2))
 }

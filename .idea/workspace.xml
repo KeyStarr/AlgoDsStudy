@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20cb45d6-6369-4a7e-896c-78dda4bbea14" name="Changes" comment="LC-704: simplify binary search based on the book's description (understood why)">
+    <list default="true" id="20cb45d6-6369-4a7e-896c-78dda4bbea14" name="Changes" comment="LC-704: clarify a function in tests">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/grokking/chapter1/AliceBob.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/grokking/chapter1/BinarySearchKtTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/grokking/chapter1/BinarySearchKtTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/grokking/chapter1/BinarySearch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/grokking/chapter1/BinarySearch.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,7 @@
       <recent name="grokking.chapter1" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BinarySearchKtTest">
+  <component name="RunManager" selected="Kotlin.AliceBobKt">
     <configuration name="BinarySearchKtTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -80,29 +81,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;grokking.chapter1.BinarySearchKtTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="BinarySearchKtTest.any valid index on multiple target values present" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;grokking.chapter1.BinarySearchKtTest.any valid index on multiple target values present&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -158,6 +136,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AliceBobKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AliceBobKt" />
+      <module name="AlgoDSStudy.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BinarySearchKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grokking.chapter1.BinarySearchKt" />
       <module name="AlgoDSStudy.main" />
@@ -167,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BinarySearchKtTest" />
+        <item itemvalue="Kotlin.AliceBobKt" />
         <item itemvalue="Kotlin.BinarySearchKt" />
+        <item itemvalue="Gradle.BinarySearchKtTest" />
         <item itemvalue="Gradle.BinarySearchKtTest.return null on target below the minimum element of the collection" />
         <item itemvalue="Gradle.BinarySearchKtTest.return null on target above the maximum element of the collection" />
-        <item itemvalue="Gradle.BinarySearchKtTest.any valid index on multiple target values present" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686952467159</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="LC-704: clarify a function in tests">
+      <created>1686953223726</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686953223726</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,6 +223,7 @@
     <MESSAGE value="704: add my own initial binary search implementations, both accepted" />
     <MESSAGE value="Random studio initiated change" />
     <MESSAGE value="LC-704: simplify binary search based on the book's description (understood why)" />
-    <option name="LAST_COMMIT_MESSAGE" value="LC-704: simplify binary search based on the book's description (understood why)" />
+    <MESSAGE value="LC-704: clarify a function in tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="LC-704: clarify a function in tests" />
   </component>
 </project>
