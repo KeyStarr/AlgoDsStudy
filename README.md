@@ -10,8 +10,8 @@ Why this rep?
 2. it's a chance to get feedback should anyone like you decide to tell me exactly why my code is garbage (please, do!); 
 3. even if no one looks, I feel your eyes on my back. That hopefully will drive me to push cleaner code more regularly.
 
-Over the years I've grown to think that algorithm and data structure problems are an impenetrable foe I cannot defeat, but recently I've found new tools that might
-actually crack it. This is a very important challenge for me (coming of age, really), so, heh, let's see how this turns out.
+Over the years I've grown to think that algorithm and data structure problems are an impenetrable foe I cannot defeat, but recently I've found new tools that I might
+actually crack it with. This is a very important challenge for me (coming of age, really), so, heh, let's see how this turns out.
 
 Thanks for stopping by, and may the HashMap be with you.
 
