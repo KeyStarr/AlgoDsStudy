@@ -14,3 +14,6 @@ Over the years I've grown to think that algorithm and data structure problems ar
 actually crack it. This is a very important challenge for me (coming of age, really), so, heh, let's see how this turns out.
 
 Thanks for stopping by, and may the HashMap be with you.
+
+P.S. This code is not representative of how I do production, cause with leetcode problems there's almost no requirement 
+of maintainability. Expect some intentionally messy stuff :) *(but no true spaghetti, I promise. even though I love to eat spaghetti)*
