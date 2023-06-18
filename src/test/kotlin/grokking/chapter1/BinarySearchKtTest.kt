@@ -1,5 +1,6 @@
 package grokking.chapter1
 
+import algos.binarysearch.binarySearchRecursive
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 

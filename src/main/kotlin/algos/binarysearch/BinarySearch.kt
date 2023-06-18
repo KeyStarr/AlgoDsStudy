@@ -1,4 +1,4 @@
-package grokking.chapter1
+package algos.binarysearch
 
 // https://leetcode.com/problems/binary-search/description/
 fun binarySearchWhile(sortedElementsAscending: List<Int>, target: Int): Int {
