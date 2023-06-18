@@ -1,6 +1,8 @@
 package algos.binarysearch
 
 // https://leetcode.com/problems/binary-search/description/
+
+// O(logn)
 fun binarySearchWhile(sortedElementsAscending: List<Int>, target: Int): Int {
     var startInd = 0
     var endInd = sortedElementsAscending.size - 1
@@ -19,6 +21,7 @@ fun binarySearchWhile(sortedElementsAscending: List<Int>, target: Int): Int {
     return -1
 }
 
+// O(logn)
 fun binarySearchRecursive(sortedElementsAscending: List<Int>, target: Int): Int =
     searchRecursive(
         sortedElementsAscending = sortedElementsAscending,

@@ -21,6 +21,7 @@ fun fairCandySwapSlow(aliceSizes: IntArray, bobSizes: IntArray): IntArray {
 
 
 // O(n + n + nlogn + nlogn) = O(2n + 2nlogn) = O(n + nlogn) = O(nlogn)
+// (note - if bobSizes would've been sorted already => logn => EVENT FASTER than the Set approach)
 fun fairCandySwapBinarySearch(aliceSizes: IntArray, bobSizes: IntArray): IntArray {
     val aliceTotal = aliceSizes.sum() // O(n)
     val bobTotal = bobSizes.sum() // O(n)
