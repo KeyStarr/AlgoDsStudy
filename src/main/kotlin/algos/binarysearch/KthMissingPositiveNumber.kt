@@ -51,16 +51,16 @@ fun findKthPositiveSlow(arr: IntArray, k: Int): Int {
  */
 fun findKthPositiveFastButComplex(arr: IntArray, k: Int): Int {
     if (k < arr[0]) return k
+    val missingNumbersBeforeTheLastNumber = arr.last() - 1 - arr.lastIndex
+    if (missingNumbersBeforeTheLastNumber < k) return arr.last() + (k - missingNumbersBeforeTheLastNumber)
 
     var startInd = 0
     var endInd = arr.size - 1
-
     while (startInd <= endInd) {
         val middleInd = (startInd + endInd) / 2
         println("hop: start $startInd end $endInd and middleInd $middleInd")
         val missingNumbersCountBeforeMiddle = arr[middleInd] - 1 - middleInd
-        val missingNumbersCountBeforeMiddlePlusOne =
-            (if (middleInd == arr.size - 1) Int.MAX_VALUE else arr[middleInd + 1]) - 1 - (middleInd + 1)
+        val missingNumbersCountBeforeMiddlePlusOne = arr[middleInd + 1] - 1 - (middleInd + 1)
         if (missingNumbersCountBeforeMiddle < k) {
             if (missingNumbersCountBeforeMiddlePlusOne >= k) {
                 return arr[middleInd] + (k - missingNumbersCountBeforeMiddle)
@@ -74,6 +74,42 @@ fun findKthPositiveFastButComplex(arr: IntArray, k: Int): Int {
     throw java.lang.IllegalStateException("shouldn't be here - a bug")
 }
 
+/**
+ * As the solution above, the task is actually: to find the number of [arr] that is the lower bound of the interval,
+ * in which the [k]th missing number is contained. Or in a more calculable way: what is the largest index of a number
+ * after which the amount of missing numbers is >= [k]?
+ *
+ * The solution is different. Instead of checking the entire interval - calculating the amount of missing numbers both
+ * for the `arr[midInd]` and `arr[midInt+1]`, do the classic binary search run until startInd becomes larger than the endInd,
+ * it inevitably will!
+ *
+ * Make sure that if missingNumbersBeforeMiddle == [k] we look to the left to actually find the
+ * number that is the lower bound of the interval. If we got that equals case and there currently is only 1 number to check,
+ * it will always be (midInd - 1) and is guaranteed to be the lower bound of the target interval and it will always be stored in startInd.
+ *
+ * Final line:
+ * ```
+ *  return startInd + k:
+ * ```
+ * - startInd = index of the lower bound of the interval = the amount of actual numbers behind `arr[startInd]` number;
+ * - k = the amount of target missing numbers.
+ * - => startInd + k = always the target missing number, cause the progression is arithmetic with a step of 1.
+ */
+fun findKthPositiveFastAndSimple(arr: IntArray, k: Int): Int {
+    var startInd = 0
+    var endInd = arr.size - 1
+    while (startInd <= endInd) {
+        val midInd = (startInd + endInd) / 2
+        val missingNumbersBeforeMiddle = arr[midInd] - 1 - midInd
+        if (missingNumbersBeforeMiddle < k) {
+            startInd = midInd + 1
+        } else {
+            endInd = midInd - 1
+        }
+    }
+    return startInd + k
+}
+
 fun main() {
-    println(findKthPositiveFastButComplex(intArrayOf(1, 3), 100))
+    println(findKthPositiveFastAndSimple(intArrayOf(2, 4, 5, 6, 7), 2))
 }
