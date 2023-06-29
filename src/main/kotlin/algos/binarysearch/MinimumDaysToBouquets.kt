@@ -4,6 +4,8 @@ import java.lang.Math.abs
 import java.lang.Math.min
 
 // https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/description/
+// TODO: couldn't figure out the solution in reasonable time (like, 3 hours), gonna leav it all messy in here
+//  and come back when I'm smarter.
 
 fun minDaysForBouquets(bloomDays: IntArray, targetBouquets: Int, flowersInABouquet: Int): Int {
     val targetFlowers = targetBouquets * flowersInABouquet.toLong()
