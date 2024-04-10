@@ -1,5 +1,6 @@
-package algos.factorial
+package algos.recursion
 
+// chapter 3 grocking algos
 class SimpleFactorialFromGrockingBook {
 
     // formatting - for debug

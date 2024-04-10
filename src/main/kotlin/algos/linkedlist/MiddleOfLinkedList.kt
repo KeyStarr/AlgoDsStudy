@@ -41,7 +41,7 @@ fun main() {
     println(result?.formatToEnd())
 }
 
-private fun linkedListOf(vararg nums: Int): ListNode? {
+fun linkedListOf(vararg nums: Int): ListNode? {
     if (nums.isEmpty()) return null
     return ListNode(nums[0]).apply {
         var currentNode = this
@@ -52,7 +52,7 @@ private fun linkedListOf(vararg nums: Int): ListNode? {
     }
 }
 
-private fun ListNode.formatToEnd(output: StringBuilder = StringBuilder()): String {
+fun ListNode.formatToEnd(output: StringBuilder = StringBuilder()): String {
     output.append("$`val`, ")
     return next?.formatToEnd(output) ?: output.toString()
 }
