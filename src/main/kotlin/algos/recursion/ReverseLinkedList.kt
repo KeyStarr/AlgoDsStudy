@@ -39,9 +39,16 @@ class ReverseLinkedList {
             dumbRecursiveIteration(current, originalNext)
         } else previous // the original final node (new beginning node)
 
+    // time: O(N)
+    // space: O(1)
+    //
     // didn't get it, took some effort to understand, based upon the solution by some person,
     // elaborated on their take a bit:
     // https://leetcode.com/problems/reverse-linked-list/solutions/4905306/reverse-linked-list-easy-solution-with-explanation-iterative-recursive-100-beats/comments/2346821
+    //
+    // why did I even bother? it is 1 function instead of 2, with 1 arg instead of 2, but is SO MUCH MORE unclear,
+    // certainly the first one would be better for prod, cause here is, like, 0 asymptotic performance benefit.
+    // What am I spending my life on???
     fun elegantRecursive(current: ListNode?): ListNode? {
         if (current?.next == null) return current
 
