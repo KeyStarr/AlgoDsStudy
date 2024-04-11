@@ -4,7 +4,8 @@ import algos.linkedlist.ListNode
 import algos.linkedlist.formatToEnd
 import algos.linkedlist.linkedListOf
 
-// https://leetcode.com/problems/reverse-linked-list/submissions/1228341401/
+// LC-206
+// https://leetcode.com/problems/reverse-linked-list/
 class ReverseLinkedList {
 
     // time: O(n)
@@ -38,28 +39,17 @@ class ReverseLinkedList {
             dumbRecursiveIteration(current, originalNext)
         } else previous // the original final node (new beginning node)
 
-    // TODO: fix, doesnt work
+    // didn't get it, took some effort to understand, based upon the solution by some person,
+    // elaborated on their take a bit:
+    // https://leetcode.com/problems/reverse-linked-list/solutions/4905306/reverse-linked-list-easy-solution-with-explanation-iterative-recursive-100-beats/comments/2346821
     fun elegantRecursive(current: ListNode?): ListNode? {
         if (current?.next == null) return current
 
-        val previous = elegantRecursive(current.next)!!
+        val newHead = elegantRecursive(current.next)
 
-        previous.next = current
+        val next = current.next
+        next?.next = current
         current.next = null
-
-        return previous
-    }
-
-    // TODO: why does this work?????
-    // https://leetcode.com/problems/reverse-linked-list/solutions/4905306/reverse-linked-list-easy-solution-with-explanation-iterative-recursive-100-beats/
-    fun reverseList(head: ListNode?): ListNode? {
-        if (head?.next == null) return head
-
-        val newHead = reverseList(head.next)
-
-        val front = head.next
-        front!!.next = head
-        head.next = null
 
         return newHead
     }
@@ -68,7 +58,7 @@ class ReverseLinkedList {
 fun main() {
     println(
         ReverseLinkedList().elegantRecursive(
-            linkedListOf(1, 2, 3)
+            linkedListOf(1, 2)
         )?.formatToEnd()
     )
 }
