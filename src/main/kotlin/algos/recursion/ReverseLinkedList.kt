@@ -4,8 +4,7 @@ import algos.linkedlist.ListNode
 import algos.linkedlist.formatToEnd
 import algos.linkedlist.linkedListOf
 
-// LC-206
-// https://leetcode.com/problems/reverse-linked-list/
+// 206 https://leetcode.com/problems/reverse-linked-list/description/
 class ReverseLinkedList {
 
     // time: O(n)
