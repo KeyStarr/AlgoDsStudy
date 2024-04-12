@@ -12,8 +12,8 @@ package algos.recursion
 */
 class FindGreatestCommonDivisorOfArray {
 
-    // TODO: estimate
-    // time: ???, quite difficult to comprehend just now, smth about the golden ration
+    // TODO: estimate findGcd
+    // time: O(n) + O(n) + ???, quite difficult to comprehend just now, smth about the golden ration
     // space: ???
     fun solve(nums: IntArray): Int {
         val min = nums.findMin()
