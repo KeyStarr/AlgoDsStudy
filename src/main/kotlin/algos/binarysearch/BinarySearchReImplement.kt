@@ -4,7 +4,7 @@ package algos.binarysearch
 // https://leetcode.com/problems/binary-search/description/
 class BinarySearchReImplement {
 
-    fun search(nums: IntArray, target: Int): Int {
+    fun iterative(nums: IntArray, target: Int): Int {
         if (nums.isEmpty()) return -1
 
         var start = 0
@@ -20,8 +20,12 @@ class BinarySearchReImplement {
         }
         return -1
     }
+
+    fun recursive(nums: IntArray, target: Int): Int{
+        TODO("implement after some time has passed for spaced repetition")
+    }
 }
 
 fun main() {
-    println(BinarySearchReImplement().search(intArrayOf(3), 7))
+    println(BinarySearchReImplement().iterative(intArrayOf(3), 7))
 }
