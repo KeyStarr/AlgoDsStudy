@@ -15,18 +15,18 @@ class NumberOf1Bits {
     // space: O(1)
     // TODO: why for n = Long.MAX_VALUE does this take 8x times slower than bitwise???
     //  e.g. recursive took 10958 ns, bitwise took 1334 ns
-    fun recursive(n: Long): Long = if (n == 0L) 0 else recursiveIteration(n)
+    fun recursive(n: Int): Int = if (n == 0) 0 else recursiveIteration(n)
 
-    private fun recursiveIteration(n: Long): Long {
-        if (n == 1L) return 1
+    private fun recursiveIteration(n: Int): Int {
+        if (n == 1) return 1
         return n % 2 + recursiveIteration(n / 2)
     }
 
     // intuition - use kotlin standard tools to manipulate the already existing binary representation of the number
     // time: O(logn)
     // space: O(1)
-    fun bitwise(n: Long): Long {
-        var setBitsCount = 0L
+    fun bitwise(n: Int): Int {
+        var setBitsCount = 0
         var remainingNumber = n
         while (remainingNumber > 0) {
             setBitsCount += remainingNumber and 1
@@ -37,5 +37,5 @@ class NumberOf1Bits {
 }
 
 fun main() {
-    println(NumberOf1Bits().recursive(Long.MAX_VALUE))
+    println(NumberOf1Bits().recursive(Int.MAX_VALUE))
 }
