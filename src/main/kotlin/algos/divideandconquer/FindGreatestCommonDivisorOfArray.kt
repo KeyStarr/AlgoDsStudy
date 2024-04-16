@@ -1,8 +1,9 @@
-package algos.recursion
+package algos.divideandconquer
 
 /*
  1979 https://leetcode.com/problems/find-greatest-common-divisor-of-array/description/
  * easy
+ * constraints:
  * 2 <= nums.length <= 10^3
  * 1 <= nums[i] <= 10^3
  * no explicit time nor memory constraints

@@ -1,4 +1,4 @@
-package algos.recursion
+package algos.divideandconquer
 
 // chapter 3 grocking algos
 class SimpleFactorialFromGrockingBook {

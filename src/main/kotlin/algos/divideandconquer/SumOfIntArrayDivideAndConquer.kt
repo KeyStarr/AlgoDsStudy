@@ -1,4 +1,4 @@
-package algos.recursion
+package algos.divideandconquer
 
 // from grocking book, chapter 4 p.43
 // constraints unspecified, so guessing averagely relaxed:

@@ -1,4 +1,4 @@
-package algos.recursion
+package algos.divideandconquer
 
 import algos.linkedlist.ListNode
 import algos.linkedlist.formatToEnd
