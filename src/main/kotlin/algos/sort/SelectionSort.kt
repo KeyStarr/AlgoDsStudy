@@ -1,13 +1,14 @@
 package algos.sort
 
-// https://leetcode.com/problems/sort-an-array/description/
-class SortAnArray {
+// based on the condition of the LC-912 https://leetcode.com/problems/sort-an-array/description/
+// without the at most O(nlogn) being required time complexity
+class SelectionSort {
 
     // time: O(n^2) selection sort
     // space: O(3n) => O(n)
     // can't use it for this problem cause its required to be nlogn and checked by time limit, but just to practice
     // that particular alrogithm!
-    fun selectionSort(nums: IntArray): IntArray {
+    operator fun invoke(nums: IntArray): IntArray {
         val takenPositions = BooleanArray(nums.size)
         val newNums = IntArray(nums.size)
 
@@ -36,6 +37,6 @@ class SortAnArray {
 }
 
 fun main(){
-    val result = SortAnArray().selectionSort(intArrayOf(-1, 2, 0, 99, -99))
+    val result = SelectionSort()(intArrayOf(-1, 2, 0, 99, -99))
     println(result.joinToString(separator = ", "))
 }
