@@ -4,7 +4,7 @@ package algos.divideandconquer
 // constraints unspecified, so guessing averagely relaxed:
 // * 0 <= numbers.size < 10^5
 // * 0 <= numbers[i] < 10^9
-// no time/space constraints, just work.
+// * no time/space constraints
 class MaximumNumberDivideAndConquer {
 
     fun recursive(numbers: IntArray, startFrom: Int = 0): Int? =
