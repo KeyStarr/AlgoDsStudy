@@ -1,16 +1,17 @@
-package algos.divideandconquer
+package algos.sort
 
 import kotlin.math.abs
 
-// LC-912 https://leetcode.com/problems/sort-an-array/description/
+// Trying for LC-912 https://leetcode.com/problems/sort-an-array/description/
 // difficulty: medium
 // constraints:
 //  • 1 <= nums.length <= 5 * 10^4
 //  • -5 * 10^4 <= nums[i] <= 5 * 10^4
 //  • at most O(nlogn) time complexity
 //  • "smallest space complexity possible" - tf? well, hinting at a classic quicksort impl.
-class SortAnArray {
+class QuickSort {
 
+    // D&C
     // time:
     //  - single non-base call: O(n) (pivot calc) + O(2n) (arrays creation) + O(n) (partitioning) ≈ O(n)
     //  - depth of recursion: O(logn), cause each time we choose the pivot to be a median
@@ -19,7 +20,7 @@ class SortAnArray {
     //
     // space:
     //  - single non-base call: O(2n) (partitioning arrays) +
-    fun quicksort(nums: IntArray): IntArray = with(nums) {
+    fun naive(nums: IntArray): IntArray = with(nums) {
         println("iteration: ${nums.contentToString()}")
 
         if (size < 2) return this
@@ -44,9 +45,9 @@ class SortAnArray {
                 lessThanPivot[lessCurrentInd++] = number
             }
         }
-        return quicksort(lessThanPivot.copyOf(lessCurrentInd)) +
+        return naive(lessThanPivot.copyOf(lessCurrentInd)) +
                 intArrayOf(pivot) +
-                quicksort(greaterOrEqualToPivot.copyOf(greaterCurrentInd))
+                naive(greaterOrEqualToPivot.copyOf(greaterCurrentInd))
     }
 
     private fun IntArray.partition(): Int {
@@ -83,7 +84,7 @@ class SortAnArray {
 
 fun main() {
     println(
-        SortAnArray().quicksort(intArrayOf(5, 1, 1, 2, 0, 0)).contentToString()
+        QuickSort().naive(intArrayOf(5, 1, 1, 2, 0, 0)).contentToString()
     )
 //    println(SortAnArray().quicksort(listOf(3, 1, 2, 5, 4)))
 }
