@@ -5,14 +5,15 @@ class MergeSort {
     fun naive(numbers: IntArray): IntArray = naiveRecursion(numbers, 0, numbers.size)
 
     /**
+     * technique - divide & conquer.
+     *
      * base case:
-     *  0 => return itself
-     *  1 => itself
+     *  0 or 1 => return itself.
      *
      * recursive case:
-     *  divide: split into 2 even halves (by pointers!)
-     *  conquer: call itself on each half (by pointers!)
-     *  combine: return the result of each call together AND MERGE them.
+     *  divide: split into even halves by pointers;
+     *  conquer: call itself on each half (with correct pointers);
+     *  combine: merge halves into a single ascending array, write straight into the original array on relevant indices.
      *
      * time:
      *  log(n) iterations
