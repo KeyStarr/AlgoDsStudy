@@ -11,7 +11,7 @@ class SortIntArrayAscendingTest {
     // crude tests re-usage, works fine since we need tests in this project only while we work through
     // a single current algorithm
     private val sut = object : IntArraySorter {
-        override fun invoke(nums: IntArray): IntArray = SelectionSort().spaceEfficient(nums)
+        override fun invoke(nums: IntArray): IntArray = MergeSort().naive(nums)
     }
 
     @Test
@@ -20,7 +20,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertContentEquals(intArrayOf(), output)
+        val expected = intArrayOf()
+        assertContentEquals(expected, output)
     }
 
     @Test
@@ -29,7 +30,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertArrayEquals(intArrayOf(99), output)
+        val expected = intArrayOf(99)
+        assertArrayEquals(expected, output)
     }
 
     @Test
@@ -38,7 +40,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertArrayEquals(intArrayOf(-33333, -33333, -33333, -33333, -33333), output)
+        val expected = intArrayOf(-33333, -33333, -33333, -33333, -33333)
+        assertArrayEquals(expected, output)
     }
 
     @Test
@@ -47,7 +50,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertArrayEquals(intArrayOf(3, 5), (output))
+        val expected = intArrayOf(3, 5)
+        assertArrayEquals(expected, (output))
     }
 
     @Test
@@ -56,7 +60,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertContentEquals(intArrayOf(3, 7), output)
+        val expected = intArrayOf(3, 7)
+        assertContentEquals(expected, output)
     }
 
     @Test
@@ -65,7 +70,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertArrayEquals(intArrayOf(0, 1, 2, 6, 11, 22, 44, 55, 99), output)
+        val expected = intArrayOf(0, 1, 2, 6, 11, 22, 44, 55, 99)
+        assertArrayEquals(expected, output)
     }
 
     @Test
@@ -90,7 +96,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertArrayEquals(intArrayOf(-765, -3, 0, 1, 99, 1000, 1001, 999999999), output)
+        val expected = intArrayOf(-765, -3, 0, 1, 99, 1000, 1001, 999999999)
+        assertArrayEquals(expected, output)
     }
 
     @Test
@@ -99,7 +106,8 @@ class SortIntArrayAscendingTest {
 
         val output = sut(input)
 
-        assertArrayEquals(intArrayOf(-1, 100, 100, 100, 100), output)
+        val expected = intArrayOf(-1, 100, 100, 100, 100)
+        assertArrayEquals(expected, output)
     }
 }
 
