@@ -1,4 +1,4 @@
-package algos.binarysearch
+package algos.search.binarysearch
 
 // https://leetcode.com/problems/fair-candy-swap/description/
 

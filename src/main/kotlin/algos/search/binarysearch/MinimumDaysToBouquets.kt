@@ -1,4 +1,4 @@
-package algos.binarysearch
+package algos.search.binarysearch
 
 import java.lang.Math.abs
 import java.lang.Math.min

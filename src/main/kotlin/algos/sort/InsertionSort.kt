@@ -5,12 +5,15 @@ package algos.sort
 // then realized that in worst case we'd have to shift array every time, so it would still be by O n^2 (even for average?))
 class InsertionSort {
 
-    // based entirely on the design from CLRS
-    // the idea: move all elements that are less than the current one to the right, once left doesn't exist or
-    // is less or equal to it => write current element there (if doesn't exist - write into the first slot).
-    // time: O(n^2)
-    // space: O(1)
-    fun ascendingShiftAllGreaterThanKeyRight(nums: IntArray): IntArray {
+    /**
+     * Based entirely on the design from CLRS-2.1.
+     * The idea: move all elements that are less than the current one to the right, once left doesn't exist or
+     * is less or equal to it => write current element there (if doesn't exist - write into the first slot).
+     *
+     * Time: worst and average O(n^2), best O(n).
+     * Space: always O(1).
+     */
+    fun ascendingClassicIterative(nums: IntArray): IntArray {
         for (i in 1 until nums.size) {
             val key = nums[i]
             var j = i - 1
@@ -23,10 +26,61 @@ class InsertionSort {
         return nums
     }
 
-    // my first interpretation, implemented after only reading the cards' metaphor, before checking pseudocode
-    // the idea: swap the current element (nums[i]) with it's left neighbor every time it is less than it
-    // (each such operation - 2 writes, whereas the original algo from the book is only 1 write (for non-final while iterations))
-    fun ascendingSwapAllGreaterWithKey(nums: IntArray): IntArray {
+    /**
+     * CLRS-2.3.5
+     */
+    fun ascendingClassicRecursive(nums: IntArray): IntArray =
+        ascendingClassicRecursiveInner(nums = nums, endInd = nums.size)
+
+    /**
+     * Idea - same as [ascendingClassicIterative] but build a callstack from the end and then unwrap it in very much
+     * the same way as the iterative, that is, insert the ith element into subarray[0:i-1], first recursive call to unwrap
+     * would be the 2nd element and after it each to unwrap takes the next element.
+     *
+     * Base case: 1 element => return it as-is.
+     *
+     * Recursive case:
+     *  divide - call itself on current subarray without last element;
+     *  conquer - compare current call's last element with all elements to the left of it until an element is less or
+     *      equal to it, while copying each that is greater to right; then insert current last element into the place before
+     *      that less or equal element or 0 if we exceeded array's left boundary.
+     *  combine - return the resulting array.
+     *
+     * Time: worst and average O(n^2) cause n-1 recursive calls, each taking O(n);
+     *  best O(n) for an already ascending array (no shifts/inserts then).
+     * Space: always O(1), only local vars, passing the same array reference.
+     *
+     * @param endInd - exclusive.
+     */
+    private fun ascendingClassicRecursiveInner(nums: IntArray, endInd: Int): IntArray {
+        // TODO: endInd = 0 only if nums.size initially is 0 => where best to check for it,
+        //  here or just once in [ascendingClassicRecursive]?
+        if (endInd < 2) return nums
+
+        val elementToInsertInd = endInd - 1
+        val elementToInsert = nums[endInd - 1]
+        val sorted = ascendingClassicRecursiveInner(nums, elementToInsertInd)
+
+        for (i in ((elementToInsertInd - 1) downTo 0)) {
+            val currentElement = sorted[i]
+            if (currentElement > elementToInsert) {
+                sorted[i + 1] = currentElement
+            } else {
+                sorted[i + 1] = elementToInsert
+                return nums
+            }
+        }
+
+        sorted[0] = elementToInsert
+        return nums
+    }
+
+    /**
+     * My first interpretation, implemented after only reading the cards' metaphor, before checking pseudocode.
+     * Idea: swap the current element (nums\[i]) with it's left neighbor every time the neighbor is less than it.
+     * Each swap takes 2 writes, whereas the original algo from the book is only 1 write (for non-final while iterations).
+     */
+    fun ascendingSwapAllGreaterWithKeyIterative(nums: IntArray): IntArray {
         for (i in 1 until nums.size) {
             for (j in i downTo 1)
                 if (nums[j - 1] > nums[j]) {
@@ -38,7 +92,10 @@ class InsertionSort {
         return nums
     }
 
-    fun descending(nums: IntArray): IntArray {
+    /**
+     * Same as [ascendingClassicIterative], only change the condition for key to be greater than nums\[j].
+     */
+    fun descendingClassic(nums: IntArray): IntArray {
         for (i in 1 until nums.size) {
             val key = nums[i]
             var j = i - 1
@@ -54,7 +111,7 @@ class InsertionSort {
 
 fun main() {
     println(
-        InsertionSort().ascendingShiftAllGreaterThanKeyRight(
+        InsertionSort().ascendingClassicIterative(
             nums = intArrayOf(3, 2, 5, 1)
         ).joinToString(),
     )

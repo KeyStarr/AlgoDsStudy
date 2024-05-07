@@ -1,4 +1,4 @@
-package algos.other
+package algos.search
 
 class LinearSearchFromCLRS {
 

@@ -11,7 +11,7 @@ class SortIntArrayDescendingTest {
     // crude tests re-usage, works fine since we need tests in this project only while we work through
     // a single current algorithm
     private val sut = object : IntArraySorter {
-        override fun invoke(nums: IntArray): IntArray = InsertionSort().descending(nums)
+        override fun invoke(nums: IntArray): IntArray = InsertionSort().descendingClassic(nums)
     }
 
     @Test

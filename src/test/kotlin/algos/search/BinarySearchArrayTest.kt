@@ -1,15 +1,18 @@
-package algos.binarysearch
+package algos.search
 
+import algos.search.binarysearch.BinarySearch
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 // don't check for target int or collection elements overflow, cause task specifies all are valid integers
-internal class BinarySearchKtTest {
+internal class BinarySearchArrayTest {
+
+    private val sut = BinarySearch()
 
     @Test
     fun `-1 on an empty collection`() {
         runTest(
-            sortedElementsAscending = emptyList(),
+            sortedElementsAscending = intArrayOf(),
             target = 435324,
             expectedTargetIndex = -1,
         )
@@ -18,7 +21,7 @@ internal class BinarySearchKtTest {
     @Test
     fun `0 on a single matching element`() {
         runTest(
-            sortedElementsAscending = listOf(1),
+            sortedElementsAscending = intArrayOf(1),
             target = 1,
             expectedTargetIndex = 0,
         )
@@ -27,7 +30,7 @@ internal class BinarySearchKtTest {
     @Test
     fun `-1 on a single non matching element`() {
         runTest(
-            sortedElementsAscending = listOf(2432454),
+            sortedElementsAscending = intArrayOf(2432454),
             target = 46453635,
             expectedTargetIndex = -1,
         )
@@ -36,7 +39,7 @@ internal class BinarySearchKtTest {
     @Test
     fun `valid index on target within odd collection`() {
         runTest(
-            sortedElementsAscending = listOf(1, 2, 3, 4, 5),
+            sortedElementsAscending = intArrayOf(1, 2, 3, 4, 5),
             target = 4,
             expectedTargetIndex = 3,
         )
@@ -45,7 +48,7 @@ internal class BinarySearchKtTest {
     @Test
     fun `valid index on target within even collection`() {
         runTest(
-            sortedElementsAscending = listOf(1, 2, 3, 4),
+            sortedElementsAscending = intArrayOf(1, 2, 3, 4),
             target = 4,
             expectedTargetIndex = 3,
         )
@@ -54,7 +57,7 @@ internal class BinarySearchKtTest {
     @Test
     fun `-1 on target not within even collection`() {
         runTest(
-            sortedElementsAscending = listOf(-3, 40, 1005, 33333),
+            sortedElementsAscending = intArrayOf(-3, 40, 1005, 33333),
             target = 33335,
             expectedTargetIndex = -1,
         )
@@ -63,7 +66,7 @@ internal class BinarySearchKtTest {
     @Test
     fun `-1 on target not within odd collection`() {
         runTest(
-            sortedElementsAscending = listOf(-3, 40, 1005, 33333, 56545),
+            sortedElementsAscending = intArrayOf(-3, 40, 1005, 33333, 56545),
             target = 33335,
             expectedTargetIndex = -1,
         )
@@ -72,16 +75,16 @@ internal class BinarySearchKtTest {
     @Test
     fun `any valid index on multiple target values present`() {
         runTest(
-            sortedElementsAscending = listOf(1, 30, 30, 30, 3523, 5767, 57476),
+            sortedElementsAscending = intArrayOf(1, 30, 30, 30, 3523, 5767, 57476),
             target = 30,
-            expectedPossibleTargetIndices = listOf(1, 2, 3, 4),
+            expectedPossibleTargetIndices = intArrayOf(1, 2, 3, 4),
         )
     }
 
     @Test
     fun `return null on target below the minimum element of the collection`() {
         runTest(
-            sortedElementsAscending = listOf(7, 20, 50, 90, 1000),
+            sortedElementsAscending = intArrayOf(7, 20, 50, 90, 1000),
             target = -1,
             expectedTargetIndex = -1,
         )
@@ -90,14 +93,14 @@ internal class BinarySearchKtTest {
     @Test
     fun `return null on target above the maximum element of the collection`() {
         runTest(
-            sortedElementsAscending = listOf(455654, 3445320, 65645665, 321314435),
+            sortedElementsAscending = intArrayOf(455654, 3445320, 65645665, 321314435),
             target = 321314439,
             expectedTargetIndex = -1,
         )
     }
 
     private fun runTest(
-        sortedElementsAscending: List<Int>,
+        sortedElementsAscending: IntArray,
         target: Int,
         expectedTargetIndex: Int,
     ) {
@@ -110,9 +113,9 @@ internal class BinarySearchKtTest {
     }
 
     private fun runTest(
-        sortedElementsAscending: List<Int>,
+        sortedElementsAscending: IntArray,
         target: Int,
-        expectedPossibleTargetIndices: List<Int>,
+        expectedPossibleTargetIndices: IntArray,
     ) {
         val targetIndex = searchImpl(
             sortedElementsAscending = sortedElementsAscending,
@@ -122,9 +125,9 @@ internal class BinarySearchKtTest {
         assertTrue(expectedPossibleTargetIndices.contains(targetIndex))
     }
 
-    private fun searchImpl(sortedElementsAscending: List<Int>, target: Int): Int =
-        binarySearchRecursive(
-            sortedElementsAscending = sortedElementsAscending,
+    private fun searchImpl(sortedElementsAscending: IntArray, target: Int): Int =
+        sut.recursive(
+            nums = sortedElementsAscending,
             target = target,
         )
 }

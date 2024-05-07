@@ -1,5 +1,6 @@
 package algos.sort
 
+// algorithm design from CLRS 2.3
 class MergeSort {
 
     fun naive(numbers: IntArray): IntArray = naiveRecursion(numbers, 0, numbers.size)
@@ -44,6 +45,10 @@ class MergeSort {
         return numbers
     }
 
+    /**
+     * time: O(n + n) = O(n)
+     * space: O(n) due to left and right arrays allocation
+     */
     private fun mergeAscending(
         numbers: IntArray,
         firstLeftInd: Int,
@@ -51,6 +56,7 @@ class MergeSort {
         secondLeftInd: Int,
         secondRightInd: Int,
     ) {
+        // both copies together take O(n) time
         val left = numbers.copyOfRange(firstLeftInd, firstRightInd)
         val right = numbers.copyOfRange(secondLeftInd, secondRightInd)
 
@@ -58,6 +64,7 @@ class MergeSort {
         var rightInd = 0
         var resultInd = firstLeftInd
 
+        // both while loops together take O(n) time (we take each element from current subarray once)
         while (leftInd < left.size && rightInd < right.size) {
             val currentLeft = left[leftInd]
             val currentRight = right[rightInd]
@@ -71,11 +78,12 @@ class MergeSort {
             resultInd++
         }
 
-        val nonEmptyPile = if (leftInd == left.size) right else left
-        var nonEmptyPileInd = if (leftInd == left.size) rightInd else leftInd
-        while (nonEmptyPileInd < nonEmptyPile.size) {
-            numbers[resultInd] = nonEmptyPile[nonEmptyPileInd]
-            nonEmptyPileInd++
+        val isLeftNonEmpty = leftInd == left.size
+        val nonEmptyHalf = if (isLeftNonEmpty) right else left
+        var nonEmptyHalfInd = if (isLeftNonEmpty) rightInd else leftInd
+        while (nonEmptyHalfInd < nonEmptyHalf.size) {
+            numbers[resultInd] = nonEmptyHalf[nonEmptyHalfInd]
+            nonEmptyHalfInd++
             resultInd++
         }
     }
