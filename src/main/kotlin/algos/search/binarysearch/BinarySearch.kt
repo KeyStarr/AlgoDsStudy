@@ -36,10 +36,20 @@ class BinarySearch {
      *  combine: trivially propagate either -1 or found [target]'s middleInd as-is up the callstack.
      *
      * Time:
-     *  - worst O(logn), cause if [target] isn't present we have to divide the array in two until it's size is 1 => exactly lgn;
+     *  - worst O(logn), cause if [target] isn't present we floor divide the array in two until it's size is 0
+     *      => exactly lgn + 1 => O(logn);
      *  - average O(logn), cause on average we have to perform lgn/2 checks which growths proportional to lgn;
      *  - best O(1) if the middle element of the original array is the [target].
      * Space: always O(1), cause we only introduce local variables and no arrays.
+     *
+     * Recurrence equation for worst case time:
+     *  D(n) = 1, cause we trivially update pointers;
+     *  T(n) = T(n/2)
+     *  C(n) = 1, cause we trivially propagate the resulting index.
+     *
+     * T(n) =
+     *  { 1, n.size = 0
+     *  { T(n/2), n.size > 0
      *
      * @param nums - must be sorted ascending;
      * @param startInd - inclusive;
@@ -82,5 +92,5 @@ class BinarySearch {
 }
 
 fun main() {
-    println(BinarySearch().recursive(intArrayOf(1,2,3), 3))
+    println(BinarySearch().recursive(intArrayOf(1, 2, 3), 3))
 }

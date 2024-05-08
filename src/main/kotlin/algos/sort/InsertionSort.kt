@@ -1,5 +1,7 @@
 package algos.sort
 
+import kotlin.math.max
+
 // example from chapter 2 + exercise 2.1.3
 // (when I first read the description - wanted to use binary search for index position for each number BUT
 // then realized that in worst case we'd have to shift array every time, so it would still be by O n^2 (even for average?))
@@ -61,17 +63,13 @@ class InsertionSort {
         val elementToInsert = nums[endInd - 1]
         val sorted = ascendingClassicRecursiveInner(nums, elementToInsertInd)
 
-        for (i in ((elementToInsertInd - 1) downTo 0)) {
-            val currentElement = sorted[i]
-            if (currentElement > elementToInsert) {
-                sorted[i + 1] = currentElement
-            } else {
-                sorted[i + 1] = elementToInsert
-                return nums
-            }
+        var i = max(0, elementToInsertInd - 1)
+        while (i >= 0 && sorted[i] > elementToInsert) {
+            sorted[i + 1] = sorted[i]
+            i--
         }
+        sorted[i + 1] = elementToInsert
 
-        sorted[0] = elementToInsert
         return nums
     }
 
