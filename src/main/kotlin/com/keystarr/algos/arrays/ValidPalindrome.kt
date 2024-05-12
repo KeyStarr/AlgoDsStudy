@@ -8,6 +8,8 @@ package com.keystarr.algos.arrays
  *  • s\[i] is valid ASCII;
  *  • no definition for "alphanumeric" given in terms of different alphabets, assume only English letters and arabic digits;
  *  • no explicit for time and space.
+ *
+ * P.S. solved efficiently by myself [efficient], but not the most clean version [efficientCleaner]. Took me 40 mins.
  */
 class ValidPalindrome {
 
@@ -34,6 +36,8 @@ class ValidPalindrome {
 
     /**
      * Same as [efficient] but simplified the invalid characters skipping mechanism.
+     *
+     * Discovered that thanks to https://leetcode.com/problems/valid-palindrome/solutions/3165353/beats-96-9-well-explained-code-in-java/
      */
     fun efficientCleaner(input: String): Boolean {
         var startInd = 0
