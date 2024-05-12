@@ -32,7 +32,7 @@ class InsertionSort {
      * CLRS-2.3.5
      */
     fun ascendingClassicRecursive(nums: IntArray): IntArray =
-        ascendingClassicRecursiveInner(nums = nums, endInd = nums.size)
+        nums.apply { ascendingClassicRecursiveInner(nums = nums, endInd = nums.size) }
 
     /**
      * Idea - same as [ascendingClassicIterative] but build a callstack from the end and then unwrap it in very much
@@ -54,23 +54,21 @@ class InsertionSort {
      *
      * @param endInd - exclusive.
      */
-    private fun ascendingClassicRecursiveInner(nums: IntArray, endInd: Int): IntArray {
+    private fun ascendingClassicRecursiveInner(nums: IntArray, endInd: Int) {
         // TODO: endInd = 0 only if nums.size initially is 0 => where best to check for it,
         //  here or just once in [ascendingClassicRecursive]?
-        if (endInd < 2) return nums
+        if (endInd < 2) return
 
         val elementToInsertInd = endInd - 1
         val elementToInsert = nums[endInd - 1]
-        val sorted = ascendingClassicRecursiveInner(nums, elementToInsertInd)
+        ascendingClassicRecursiveInner(nums, elementToInsertInd)
 
         var i = max(0, elementToInsertInd - 1)
-        while (i >= 0 && sorted[i] > elementToInsert) {
-            sorted[i + 1] = sorted[i]
+        while (i >= 0 && nums[i] > elementToInsert) {
+            nums[i + 1] = nums[i]
             i--
         }
-        sorted[i + 1] = elementToInsert
-
-        return nums
+        nums[i + 1] = elementToInsert
     }
 
     /**

@@ -3,7 +3,7 @@ package algos.sort
 // algorithm design from CLRS 2.3
 class MergeSort {
 
-    fun naive(numbers: IntArray): IntArray = naiveRecursion(numbers, 0, numbers.size)
+    fun classic(numbers: IntArray): IntArray = naiveRecursion(numbers, 0, numbers.size)
 
     /**
      * technique - divide & conquer.
@@ -91,7 +91,7 @@ class MergeSort {
 
 fun main() {
     println(
-        MergeSort().naive(
+        MergeSort().classic(
             intArrayOf(3, 2, 1),
         ).contentToString()
     )
