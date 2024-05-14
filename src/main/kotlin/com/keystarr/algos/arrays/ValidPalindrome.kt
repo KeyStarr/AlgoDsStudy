@@ -9,7 +9,7 @@ package com.keystarr.algos.arrays
  *  • no definition for "alphanumeric" given in terms of different alphabets, assume only English letters and arabic digits;
  *  • no explicit for time and space.
  *
- * P.S. solved efficiently by myself [efficient], but not the most clean version [efficientCleaner]. Took me 40 mins.
+ * Final note - done an efficient solution by myself [efficient] in 40 mins, but not the most clean version [efficientCleaner].
  */
 class ValidPalindrome {
 
