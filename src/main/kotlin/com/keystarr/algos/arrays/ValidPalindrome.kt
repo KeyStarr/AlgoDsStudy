@@ -14,10 +14,10 @@ package com.keystarr.algos.arrays
 class ValidPalindrome {
 
     /**
-     * Tools: two-pointers.
+     * Tools: Two Pointers.
      *
-     * Time: O(n)
-     * Space: O(1)
+     * Time: always O(n)
+     * Space: always O(1)
      */
     fun efficient(input: String): Boolean {
         var startInd = 0

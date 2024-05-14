@@ -22,8 +22,8 @@ class TwoSum {
      *  • pass through each number and check, if it's in the map and that's not the same index we found =>
      *      2 numbers add up to target => done.
      *
-     * Time: O(n)
-     * Space: O(n)
+     * Time: always O(n)
+     * Space: always O(n)
      */
     fun efficient(nums: IntArray, target: Int): IntArray {
         val diffs = mutableMapOf<Int, Int>()
@@ -41,8 +41,8 @@ class TwoSum {
      * Same as [efficient] but do a single pass through each nums element. The idea is that when we find the
      * second number of the pair, the first one's diff from target will already be in the map, always.
      *
-     * Time: O(n)
-     * Space: O(n)
+     * Time: worst/average O(n)
+     * Space: worst/average O(n)
      *
      * Discovered thanks to https://leetcode.com/problems/two-sum/solutions/3619262/3-method-s-c-java-python-beginner-friendly/
      */
