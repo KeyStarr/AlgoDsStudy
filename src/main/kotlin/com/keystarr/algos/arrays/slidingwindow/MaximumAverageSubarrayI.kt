@@ -34,8 +34,8 @@ class MaximumAverageSubarrayI {
     fun efficient(nums: IntArray, validLength: Int): Double {
         var currentSum = 0
         for (i in 0 until validLength) currentSum += nums[i]
-        var maxSum = currentSum
 
+        var maxSum = currentSum
         for (rightInd in (validLength until nums.size)) {
             val leftInd = rightInd - validLength + 1
             currentSum = currentSum - nums[leftInd - 1] + nums[rightInd]
