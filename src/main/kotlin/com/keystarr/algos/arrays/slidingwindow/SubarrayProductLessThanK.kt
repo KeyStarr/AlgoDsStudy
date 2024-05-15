@@ -26,8 +26,8 @@ class SubarrayProductLessThanK {
      *  - k=0 => the result is always 0 (cause nums\[i] > 0)
      *  - nums.length = 1 and nums\[0] < k => result 0.
      *
-     * Time: always O(n)
-     * Space: always O(1)
+     * Time: always O(n) cause both indices check each element only once => we always have 2n total iterations (counting both cycles);
+     * Space: always O(1).
      */
     fun efficient(nums: IntArray, targetProduct: Int): Int {
         if (targetProduct <= 0) return 0
