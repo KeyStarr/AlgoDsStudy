@@ -98,6 +98,7 @@ class SquaresOfASortedArray {
      *      to above exceeding boundaries is not the problem.
      *
      * Discovered thanks to https://leetcode.com/problems/squares-of-a-sorted-array/editorial/
+     * It's a beautiful special case of merging, in that there's a single loop, no need to worry about boundary exceed.
      *
      * Time: O(n)
      * Space: O(n)
