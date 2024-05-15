@@ -17,10 +17,13 @@ class SubarrayProductLessThanK {
     /**
      * Tools: Sliding Window.
      *
+     *
      * Idea: at each iteration move `right` pointer by 1 position. If subarray is valid, then add to the
      * total subarrays sum all subarrays that contain that new value and all previous element down to `left` pointer.
      * If not valid, shrink left until it becomes valid and do that logic above.
-     * Gradual summing.
+     *
+     * Key: everytime the window is valid, at most once per current rightInd value, count all valid subarrays of the
+     *  window but only including nums\[rightInd] - that is, only NEW valid subarrays!
      *
      * Edge cases:
      *  - k=0 => the result is always 0 (cause nums\[i] > 0)
