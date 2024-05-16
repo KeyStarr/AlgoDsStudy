@@ -58,8 +58,6 @@ class KRadiusSubarrayAverages {
             averages[i] = (sum / (radius * 2 + 1)).toInt()
         }
 
-        StringBuilder().toString()
-
         return averages
     }
 
