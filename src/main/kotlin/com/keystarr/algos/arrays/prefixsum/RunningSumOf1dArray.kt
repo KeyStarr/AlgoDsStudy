@@ -18,8 +18,8 @@ class RunningSumOf1dArray {
      * Edge cases:
      *  - greatest sum possible is 10^6*10^3 = 10^9 fits into int.
      *
-     * Time: O(n)
-     * Space: O(n)
+     * Time: always O(n)
+     * Space: always O(n)
      */
     fun timeEfficient(nums: IntArray): IntArray {
         val prefixSum = IntArray(size = nums.size)
@@ -31,8 +31,8 @@ class RunningSumOf1dArray {
     /**
      * Same as [efficient] but use the input array as output.
      *
-     * Time: O(n)
-     * Space: O(1)
+     * Time: always O(n)
+     * Space: always O(1)
      *
      * Discovered thanks to https://leetcode.com/problems/running-sum-of-1d-array/
      */

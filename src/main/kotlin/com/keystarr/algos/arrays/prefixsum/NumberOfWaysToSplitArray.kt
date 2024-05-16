@@ -29,8 +29,8 @@ class NumberOfWaysToSplitArray {
      *  - nums\[i] negative => simple summing is enough;
      *  - prefixSum array must contain Long, cause the largest sum is 10^5*10^5=10^10 which exceeds Int.
      *
-     * Time: O(n)
-     * Space: O(n)
+     * Time: always O(n)
+     * Space: always O(n)
      */
     fun timeEfficient(nums: IntArray): Int {
         val prefixSum = LongArray(nums.size)
