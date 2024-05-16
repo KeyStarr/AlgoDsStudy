@@ -10,7 +10,7 @@ package com.keystarr.datastructure.hashtable
  * Final notes:
  *  • a weird problem, cause:
  *      • no real hashtable implementation would simply overwrite values on collisions, right?
- *      • allocating 10^6 space always is extremely impactical either.
+ *      • allocating 10^6 space always is extremely impractical either.
  *      • doesn't have more useful methods like `containsValue(..)`.
  *  • I should either implement a closer to "the real thing" hashtable myself or find a similar problem on another platform.
  */
@@ -36,7 +36,6 @@ class DesignHashMap {
     }
 
     /**
-     * Must be:
      * Time: always O(1)
      * Space: always O(1)
      */
