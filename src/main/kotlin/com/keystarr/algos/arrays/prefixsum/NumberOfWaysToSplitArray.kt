@@ -9,7 +9,7 @@ package com.keystarr.algos.arrays.prefixsum
  *  • no explicit time/space.
  *
  * Final notes:
- *  - solved via [efficient] by myself with hints from the DSA course (as an example problem to theory, so no time record);
+ *  - solved via [timeEfficient] by myself with hints from the DSA course (as an example problem to theory, so no time record);
  *  - failed 1 submission, missed a corner case of sum exceeding Int!! Figured the problem out myself.
  */
 class NumberOfWaysToSplitArray {
@@ -32,7 +32,7 @@ class NumberOfWaysToSplitArray {
      * Time: O(n)
      * Space: O(n)
      */
-    fun efficient(nums: IntArray): Int {
+    fun timeEfficient(nums: IntArray): Int {
         val prefixSum = LongArray(nums.size)
         prefixSum[0] = nums[0].toLong()
         for (i in (1 until nums.size)) prefixSum[i] = prefixSum[i - 1] + nums[i]
@@ -46,11 +46,15 @@ class NumberOfWaysToSplitArray {
 
         return validSplitCount
     }
+
+    fun efficient(nums: IntArray): Int {
+        TODO("There is a solution with space O(1), not so important rn - revisit and optimize later")
+    }
 }
 
 fun main() {
     println(
-        NumberOfWaysToSplitArray().efficient(
+        NumberOfWaysToSplitArray().timeEfficient(
             nums = intArrayOf(10, 4, -8, 7),
         )
     )
