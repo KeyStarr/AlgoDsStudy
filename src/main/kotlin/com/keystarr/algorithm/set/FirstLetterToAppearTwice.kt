@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.set
 
 /**
  * LC-2351 https://leetcode.com/problems/first-letter-to-appear-twice/description/
@@ -17,7 +17,7 @@ class FirstLetterToAppearTwice {
      * Time: O(n)
      * Space: O(1) cause only 26 chars in alphabet.
      */
-    fun solution(input: String): Char {
+    fun efficient(input: String): Char {
         val occurredLettersSet = mutableSetOf<Char>()
         input.forEach {
             if (occurredLettersSet.contains(it)) return it
