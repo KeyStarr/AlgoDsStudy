@@ -43,7 +43,8 @@ class CheckIfTheSentenceIsPangram {
      * Idea - we need to know whether each character is present + we know all characters in advance => check for each
      * character whether it is present.
      *
-     * Time: O(n) but the const is quite big compared to other solutions here, it's 26n.
+     * Time: O(n) but the const is quite big compared to other solutions here, it's 26n
+     *  (though maybe compared to hash function const not that bad?)
      * Space: O(1)
      *
      * Discovered thanks to https://leetcode.com/problems/check-if-the-sentence-is-pangram/
