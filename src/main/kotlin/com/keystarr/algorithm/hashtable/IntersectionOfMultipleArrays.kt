@@ -12,7 +12,7 @@ package com.keystarr.algorithm.hashtable
  *  • all three solutions have the same asymptotic complexity within ;
  *  • in real cases if input size is randomized than on average [array] would work faster than others, but take more memory;
  *   [hashmap] would work slower but take less memory; [hashset] would take less memory but perform the slowest
- *   due to GC caused by the creation of the set object every ith iteration (?).
+ *   due to either GC caused by the creation of the set object every ith iteration or clearing the set after each iteration.
  */
 class IntersectionOfMultipleArrays {
 
