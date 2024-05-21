@@ -12,7 +12,8 @@ package com.keystarr.algorithm.hashtable
  *  • problem ontology simplification (rephrasing) is a super valuable technique! makes it so much cleaner consistently
  *      to speed up solution tools pattern matching;
  *  • there is a pattern that sometimes the first instinct is to track/save all M indices/occurrences and do 2n cycles
- *      but in fact we can merge both loops, track only the most recent/valuable occurrence => do it cleaner and by a single n cycle.
+ *      but in fact we can merge both loops, track only the most recent/valuable occurrence => do it cleaner and by a single n cycle;
+ *  • practiced used a HashMap to not count, but TRACK occurrences of the item (it's indices in the original array!).
  */
 class MinimumConsecutiveCardsToPickUp {
 
