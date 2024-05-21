@@ -65,6 +65,8 @@ class MinimumConsecutiveCardsToPickUp {
      *
      * Time: always O(n)
      * Space: average/worse O(n) but with a const less than [efficient]
+     *
+     * Discovered thanks to https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/705/hashing/4645/
      */
     fun efficientCleaner(cards: IntArray): Int {
         if (cards.size == 1) return -1
