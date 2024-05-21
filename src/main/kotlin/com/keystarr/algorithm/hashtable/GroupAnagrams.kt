@@ -11,6 +11,7 @@ package com.keystarr.algorithm.hashtable
  * Value gained:
  *  • recalled that Array.hashcode() in Kotlin/Java is done by reference, in Kotlin only `Array.contentHashcode()`
  *      computes hashcode of all elements;
+ *  • practiced HashMap for a case when key is a collection;
  *  • practiced HashMap for counting in a case where counting isn't explicit in the problem statement;
  *  • apparently it's useful to implement some solutions in a more general way, if that doesn't give an asymptotic improvement,
  *      don't make const arrays/hardcoded string patterns. "more resistant to follow-ups" - interesting!
