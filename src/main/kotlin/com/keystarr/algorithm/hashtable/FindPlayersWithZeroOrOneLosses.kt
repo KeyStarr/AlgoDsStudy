@@ -15,8 +15,8 @@ package com.keystarr.algorithm.hashtable
  *  • implemented [suboptimal] in 25 mins;
  *  • "return both lists in sorted order" is the trick in this problem, being the bottleneck;
  *  • again, as before with counting via hashmap problem, the faster time-wise is to use array.size = maxPossibleItemsCount
- *      and simply use indices as playerIds and values as losses count. But that's so ugly though. It is always the way
- *      with counting via HashMap problems where items size is a reasonable number??
+ *      and simply use indices as playerIds and values as losses count. But the trade off is space for real world uses.
+ *      Is it always the way with counting via HashMap problems where items size is a reasonable number??
  */
 class FindPlayersWithZeroOrOneLosses {
 
