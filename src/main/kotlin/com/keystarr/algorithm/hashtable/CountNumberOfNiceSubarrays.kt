@@ -11,7 +11,7 @@ package com.keystarr.algorithm.hashtable
 class CountNumberOfNiceSubarrays {
 
     /**
-     * Tools: Prefix sum, hashmap;
+     * Tools: Prefix Sum, HashMap.
      *
      * Idea:
      *  - allocate the prefixOddCount map, fill it with map[0] = 1 to count subarrays including the first element easier;

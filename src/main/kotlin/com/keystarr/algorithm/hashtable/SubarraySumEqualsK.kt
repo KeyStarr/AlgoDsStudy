@@ -12,6 +12,8 @@ package com.keystarr.algorithm.hashtable
 class SubarraySumEqualsK {
 
     /**
+     * Tools: a variant of Prefix Sum, HashMap.
+     *
      * Hints:
      *  - count the number of valid subarrays by sum => prefix sum;
      *  - strict validity constraint + negative numbers in the array => hashmap.
