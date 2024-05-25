@@ -74,6 +74,6 @@ class RansomNote {
     }
 }
 
-fun main(){
+fun main() {
     println(RansomNote().efficientCleaner("fffbfg", "effjfggbffjdgbjjhhdegh"))
 }
