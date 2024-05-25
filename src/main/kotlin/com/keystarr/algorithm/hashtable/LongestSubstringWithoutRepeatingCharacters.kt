@@ -25,7 +25,9 @@ import java.util.LinkedList
  *
  * Value gained:
  *  • even if I'm tired try to dry-run AT LEAST the mediums??? and try to REALLY think of ALL key major cases;
- *  • practiced sliding window for finding the best valid subarray.
+ *  • practiced sliding window for finding the best valid subarray. Learnt that, apparently, even if we can predict
+ *      the leftInd position such that the array is valid again in a const (by a const formula), still, we might have to
+ *      shrink the window gradually, one-by-one.
  */
 class LongestSubstringWithoutRepeatingCharacters {
 
