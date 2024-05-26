@@ -8,7 +8,7 @@ package com.keystarr.algorithm.arrays
  *  • space: O(1);
  *  • no explicit time.
  *
- *  Final note - done an efficient solution myself in 5 mins.
+ * Final note - done an efficient solution myself in 5 mins.
  */
 class ReverseString {
 
