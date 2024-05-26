@@ -13,6 +13,10 @@ package com.keystarr.datastructure.linkedlist
  *      and delete find a previous node to the desired index first, it's super important to think of these edge cases
  *      and catch them in early returns (for singly linked list. but maybe useful for actual problems as well);
  *  • interesting, would using "sentinel" nodes simplify the implementation by any means?
+ *
+ * Final notes:
+ *  • ofc, I still have ways to go to really master the subject, might consider implementing a more real prod-like
+ *      singly linked list like java's (does it have it? or only doubly?) with more methods and optimizations.
  */
 class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
 
@@ -23,8 +27,7 @@ class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
     override fun get(index: Int): Int = findNode(index)?.value ?: -1
 
     override fun addAtHead(value: Int) {
-        head = Node(value = value, next = head)
-        size++
+        increaseSize { head = Node(value = value, next = head) }
     }
 
     override fun addAtTail(value: Int) {
@@ -37,9 +40,10 @@ class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
             return
         }
 
-        val prevNode = findNode(index - 1) ?: return // once again, weird specification, exception would be better
-        prevNode.next = Node(value = value, next = prevNode.next)
-        size++
+        increaseSize {
+            val prevNode = findNode(index - 1) ?: return // once again, weird specification, exception would be better
+            prevNode.next = Node(value = value, next = prevNode.next)
+        }
     }
 
     override fun deleteAtIndex(index: Int) {
@@ -50,14 +54,14 @@ class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
             return
         }
 
-        val prevNode = findNode(index - 1) ?: return // weird specification
-        prevNode.next = prevNode.next?.next
-        size--
+        decreaseSize {
+            val prevNode = findNode(index - 1) ?: return // weird specification
+            prevNode.next = prevNode.next?.next
+        }
     }
 
     private fun deleteAtHead() {
-        head = head?.next
-        size--
+        decreaseSize { head = head?.next }
     }
 
     private fun findNode(index: Int): Node? {
@@ -66,6 +70,16 @@ class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
         var currentNode = head
         repeat(index) { currentNode = currentNode!!.next }
         return currentNode!!
+    }
+
+    private inline fun increaseSize(block: () -> Unit) {
+        block()
+        size++
+    }
+
+    private inline fun decreaseSize(block: () -> Unit) {
+        block()
+        size--
     }
 
     private data class Node(
