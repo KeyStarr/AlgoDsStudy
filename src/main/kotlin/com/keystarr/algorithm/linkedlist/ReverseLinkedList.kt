@@ -47,6 +47,10 @@ class ReverseLinkedList {
      *
      * Time: O(n)
      * Space: O(1), though the const is impacted by the callstack.
+     * ---
+     * Cool, instead of using a temp buffer reference variable to remember the originalNext node like in [iterativeCleaner]
+     * we don't have that problem here at all. When  we unwrap the callstack, we always arrive precisely at the original
+     * previous node and can freely manipulate `node.next` links without messing up the order.
      */
     fun recursive(head: ListNode?): ListNode? = recursiveInternal(head).also { head?.next = null }
 
