@@ -53,12 +53,14 @@ fun linkedListOf(vararg nums: Int): ListNode? {
 }
 
 fun ListNode.formatToEnd(output: StringBuilder = StringBuilder()): String {
-    output.append("$`val`, ")
+    output.append("$value, ")
     return next?.formatToEnd(output) ?: output.toString()
 }
 
-class ListNode(var `val`: Int) {
+class ListNode(
+    var value: Int,
     var next: ListNode? = null
+) {
 
-    override fun toString() = `val`.toString()
+    override fun toString() = value.toString()
 }
