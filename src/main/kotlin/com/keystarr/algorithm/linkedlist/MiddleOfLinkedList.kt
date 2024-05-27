@@ -62,5 +62,5 @@ class ListNode(
     var next: ListNode? = null
 ) {
 
-    override fun toString() = value.toString()
+    override fun toString() = "$value, n=${next?.value}"
 }
