@@ -124,7 +124,7 @@ fun main() {
     ).debugPrintContents()
 }
 
-private fun ListNode?.debugPrintContents() {
+fun ListNode?.debugPrintContents() {
     var currentNode = this
     while (currentNode != null) {
         println(currentNode)
