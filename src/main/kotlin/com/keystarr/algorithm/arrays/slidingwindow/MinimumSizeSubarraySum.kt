@@ -12,7 +12,9 @@ import kotlin.math.min
  *  • no explicit time/space.
  *
  * Final notes:
- *  • solved via [efficient] by myself in 30 mins.
+ *  • solved via [efficient] by myself in 30 mins;
+ *  • leftInd can never exceed the array.size-1 because if and when leftInd=array.size-1 => subarraySum=0 and target>0
+ *      => while condition always fails => we never get to array[array.size-1].
  *
  * Value gained:
  *  • this task subverts the trope of classic sliding window "shrink when the array is invalid" => instead we shrink
@@ -67,27 +69,24 @@ class MinimumSizeSubarraySum {
     fun efficient(target: Int, nums: IntArray): Int {
         var minLength = Int.MAX_VALUE
         var currentSubarraySum = 0
-
         var leftInd = 0
-        var rightInd = 0
-        while (leftInd < nums.size && rightInd < nums.size) {
-            val newNumber = nums[rightInd]
+        nums.forEachIndexed { rightInd, newNumber ->
             currentSubarraySum += newNumber
-            val isValid = currentSubarraySum >= target
-            if (isValid) {
-                while (currentSubarraySum >= target) {
-                    val currentSubarrayLength = rightInd - leftInd + 1
-                    if (currentSubarrayLength < minLength) minLength = currentSubarrayLength
+            if (currentSubarraySum < target) return@forEachIndexed
 
-                    currentSubarraySum -= nums[leftInd]
-                    leftInd++
-                }
+            while (currentSubarraySum >= target) {
+                val currentSubarrayLength = rightInd - leftInd + 1
+                if (currentSubarrayLength < minLength) minLength = currentSubarrayLength
+
+                currentSubarraySum -= nums[leftInd]
+                leftInd++
             }
-
-            rightInd++
         }
+
         return if (minLength == Int.MAX_VALUE) 0 else minLength
     }
+
+    // TODO: solve the follow up, come up with O(nlogn) time (decided isnt worth it atm)
 }
 
 fun main() {
