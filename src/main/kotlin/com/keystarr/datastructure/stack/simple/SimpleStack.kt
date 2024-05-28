@@ -1,5 +1,8 @@
 package com.keystarr.datastructure.stack.simple
 
+/**
+ * All time
+ */
 interface SimpleStack<T : Any> {
 
     /**

@@ -5,6 +5,7 @@ package com.keystarr.datastructure.stack.simple
  * All operations must perform with O(1) time, the stack itself must take exactly O(n) space.
  *
  * My favorite one out of current [SimpleStack] implementations, extremely elegant!
+ * UPD: apparently I made things a bit overcomplicated and the same can be achieved using a classic [SinglyLinkedListStack]
  */
 class BackwardsSinglyLinkedListStack<T : Any> : SimpleStack<T> {
 
@@ -14,11 +15,7 @@ class BackwardsSinglyLinkedListStack<T : Any> : SimpleStack<T> {
         tail = Node(value = value, prev = tail)
     }
 
-    override fun pop(): T? {
-        val oldTail = tail ?: return null
-        tail = tail?.prev
-        return oldTail.value
-    }
+    override fun pop(): T? = tail?.value.apply { tail = tail?.prev }
 
     override fun peek(): T? = tail?.value
 
