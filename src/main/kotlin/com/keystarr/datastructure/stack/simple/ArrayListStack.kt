@@ -12,11 +12,11 @@ package com.keystarr.datastructure.stack.simple
  */
 class ArrayListStack<T : Any>(initialCapacity: Int? = null) : SimpleStack<T> {
 
-    private val array: ArrayList<T?> = initialCapacity?.let { ArrayList(it) } ?: ArrayList()
+    private val items: ArrayList<T?> = initialCapacity?.let { ArrayList(it) } ?: ArrayList()
     private var currentInd = EMPTY_CURRENT_IND
 
     override fun push(value: T) {
-        array.add(value)
+        items.add(value)
         currentInd++
     }
 
@@ -24,13 +24,17 @@ class ArrayListStack<T : Any>(initialCapacity: Int? = null) : SimpleStack<T> {
         if (currentInd == EMPTY_CURRENT_IND) {
             null
         } else {
-            array[currentInd].apply {
-                array[currentInd] = null
+            items[currentInd].apply {
+                items[currentInd] = null
                 currentInd--
             }
         }
 
-    override fun peek(): T? = array[currentInd]
+    override fun peek(): T? = items[currentInd]
+
+    override fun clear() {
+        items.clear()
+    }
 }
 
 private const val EMPTY_CURRENT_IND = -1

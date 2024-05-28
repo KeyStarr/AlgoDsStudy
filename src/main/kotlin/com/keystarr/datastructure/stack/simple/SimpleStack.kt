@@ -3,7 +3,7 @@ package com.keystarr.datastructure.stack.simple
 interface SimpleStack<T : Any> {
 
     /**
-     * Time: always O(1)
+     * Time: always O(1), amortized O(1) allowed
      */
     fun push(value: T)
 
@@ -18,6 +18,8 @@ interface SimpleStack<T : Any> {
      * @returns null if empty
      */
     fun peek(): T?
+
+    fun clear()
 }
 
 fun <T : Any> SimpleStack<T>.withPeekDebug(action: () -> Unit) {

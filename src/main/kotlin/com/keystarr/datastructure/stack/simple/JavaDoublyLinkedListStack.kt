@@ -27,6 +27,10 @@ class JavaDoublyLinkedListStack<T : Any> : SimpleStack<T> {
     override fun pop(): T? = if (peek() != null) items.pop() else null
 
     override fun peek(): T? = items.peek()
+
+    override fun clear() {
+        items.clear()
+    }
 }
 
 fun main() {

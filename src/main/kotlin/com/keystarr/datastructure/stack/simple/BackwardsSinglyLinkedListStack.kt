@@ -22,6 +22,10 @@ class BackwardsSinglyLinkedListStack<T : Any> : SimpleStack<T> {
 
     override fun peek(): T? = tail?.value
 
+    override fun clear() {
+        tail = null
+    }
+
     private class Node<T>(
         val value: T,
         var prev: Node<T>? = null,
