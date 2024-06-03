@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.stack
 
+import kotlin.math.abs
+
 /**
  * LC-1544 https://leetcode.com/problems/make-the-string-great/description/
  * difficulty: easy
@@ -15,7 +17,8 @@ package com.keystarr.algorithm.stack
  *  • practiced StringBuilder as Stack, the algo pattern is same as [RemoveAllAdjacentDuplicatesInString];
  *  • FAILED A SUBMISSION, though about BUT when implementing missed the case that when adjacent chars are same letter
  *      with same case THAT'S A VALID PAIR! Done sorta muscle-memory both lowercase()... pay ATTENTION to specifics of
- *      the task at hand, MAKE IT SPECIAL even if it seems like you know it all! (use phenomenology!)
+ *      the task at hand, MAKE IT SPECIAL even if it seems like you know it all! (use phenomenology!);
+ *  • MISSED the ASCII code base reverse case check optimization, though it only impacts const of time.
  */
 class MakeTheStringGreat {
 
@@ -48,7 +51,7 @@ class MakeTheStringGreat {
     fun suboptimal(input: String): String {
         val result = StringBuilder()
         input.forEach { char ->
-            if (result.isNotEmpty() && char.reverseCase() == result.last()) {
+            if (result.isNotEmpty() && abs(char - result.last()) == ASCII_ENGLISH_LOWER_UPPER_CASE_DIFF) {
                 result.deleteCharAt(result.length - 1)
             } else {
                 result.append(char)
@@ -57,7 +60,7 @@ class MakeTheStringGreat {
         return result.toString()
     }
 
-    private fun Char.reverseCase() = if (isUpperCase()) lowercaseChar() else uppercaseChar()
-
     // TODO: implement an efficient time O(n) space O(1) solution (not a focus now)
 }
+
+private const val ASCII_ENGLISH_LOWER_UPPER_CASE_DIFF = 32
