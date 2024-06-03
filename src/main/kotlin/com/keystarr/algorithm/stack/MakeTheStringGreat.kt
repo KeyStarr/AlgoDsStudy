@@ -8,7 +8,7 @@ package com.keystarr.algorithm.stack
  *  • input contains only lower and upper case English.
  *
  * Final notes:
- *  • done [efficient] in 15 mins (why so long???).
+ *  • done [suboptimal] in 15 mins (why so long???).
  *
  * Value gained:
  *  • practiced recognizing problems with LIFO;
@@ -45,7 +45,7 @@ class MakeTheStringGreat {
      * Time: always O(n)
      * Space: worst/average O(n)
      */
-    fun efficient(input: String): String {
+    fun suboptimal(input: String): String {
         val result = StringBuilder()
         input.forEach { char ->
             if (result.isNotEmpty() && char.reverseCase() == result.last()) {
@@ -58,4 +58,6 @@ class MakeTheStringGreat {
     }
 
     private fun Char.reverseCase() = if (isUpperCase()) lowercaseChar() else uppercaseChar()
+
+    // TODO: implement an efficient time O(n) space O(1) solution (not a focus now)
 }
