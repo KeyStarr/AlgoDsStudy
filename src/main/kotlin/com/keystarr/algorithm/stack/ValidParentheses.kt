@@ -1,7 +1,5 @@
 package com.keystarr.algorithm.stack
 
-import com.keystarr.datastructure.stack.simple.BackwardsSinglyLinkedListStack
-
 /**
  * LC-20 https://leetcode.com/problems/valid-parentheses/description/
  * difficulty: easy
@@ -35,21 +33,21 @@ class ValidParentheses {
     fun efficient(input: String): Boolean {
         if (input.length % 2 == 1) return false
 
-        val stack = BackwardsSinglyLinkedListStack<Char>()
-        val openingBrackets = mapOf('(' to ')', '[' to ']', '{' to '}')
+        val dequeue = ArrayDeque<Char>()
+        val openToCloseBracketMap = mapOf('(' to ')', '[' to ']', '{' to '}')
         input.forEach { char ->
-            if (openingBrackets.contains(char)) {
-                stack.push(char)
+            if (openToCloseBracketMap.contains(char)) {
+                dequeue.add(char)
             } else {
-                val lastOpenedBracket = stack.pop()
-                val requiredClosingBracket = openingBrackets[lastOpenedBracket]
+                val lastOpenedBracket = if (dequeue.isNotEmpty()) dequeue.removeLast() else null
+                val requiredClosingBracket = openToCloseBracketMap[lastOpenedBracket]
                 if (char != requiredClosingBracket) return false
             }
         }
-        return stack.peek() == null
+        return dequeue.isEmpty()
     }
 }
 
 fun main() {
-    println(ValidParentheses().efficient("()"))
+    println(ValidParentheses().efficient(")("))
 }
