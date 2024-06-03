@@ -16,25 +16,26 @@ package com.keystarr.datastructure.linkedlist
  *
  * Final notes:
  *  • ofc, I still have ways to go to really master the subject, might consider implementing a more real prod-like
- *      singly linked list like java's (does it have it? or only doubly?) with more methods and optimizations.
+ *      singly linked list like java's (does it have it? or only doubly?) with more methods and optimizations;
+ *  • extended the implementation a bit outside the initial problem's scope.
  */
-class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
+class SinglySimpleLinkedList<E : Any> : SinglyLinkedList<E> {
 
-    private var head: Node? = null
+    private var head: Node<E>? = null
     private var size: Int = 0
 
-    // weird specification, once again we'd probably throw an exception in case the index is invalid
-    override fun get(index: Int): Int = findNode(index)?.value ?: -1
+    override fun getHead(): E? = head?.value
 
-    override fun addAtHead(value: Int) {
+    // weird specification, once again we'd probably throw an exception in case the index is invalid
+    override fun get(index: Int): E? = findNode(index)?.value
+
+    override fun addAtHead(value: E) {
         increaseSize { head = Node(value = value, next = head) }
     }
 
-    override fun addAtTail(value: Int) {
-        if (size == 0) addAtHead(value) else addAtIndex(index = size, value = value)
-    }
+    override fun addAtIndex(index: Int, value: E) {
+        if (index > size) throw IllegalArgumentException("$index is out of bounds")
 
-    override fun addAtIndex(index: Int, value: Int) {
         if (index == 0) {
             addAtHead(value)
             return
@@ -46,25 +47,18 @@ class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
         }
     }
 
-    override fun deleteAtIndex(index: Int) {
-        if (size == 0 || index == size) return
-
-        if (index == 0) {
-            deleteAtHead()
-            return
-        }
-
-        decreaseSize {
-            val prevNode = findNode(index - 1) ?: return // weird specification
-            prevNode.next = prevNode.next?.next
+    override fun removeAtIndex(index: Int): E? {
+        if (size == 0 || index == size) throw IllegalArgumentException("$index is out of bounds")
+        return if (index == 0) {
+            removeHead()
+        } else {
+            decreaseSize { findNode(index - 1)!!.also { it.next = it.next?.next } }.value
         }
     }
 
-    private fun deleteAtHead() {
-        decreaseSize { head = head?.next }
-    }
+    override fun removeHead(): E? = decreaseSize { head?.next?.also { head = it } }?.value
 
-    private fun findNode(index: Int): Node? {
+    private fun findNode(index: Int): Node<E>? {
         if (index >= size) return null
 
         var currentNode = head
@@ -77,39 +71,36 @@ class SinglyLeetcodeLinkedList : LeetcodeLinkedList {
         size++
     }
 
-    private inline fun decreaseSize(block: () -> Unit) {
-        block()
-        size--
-    }
+    private inline fun <R : Any?> decreaseSize(block: () -> R) = block().also { size-- }
 
-    private data class Node(
-        val value: Int,
-        var next: Node? = null,
+    private data class Node<E : Any>(
+        val value: E,
+        var next: Node<E>? = null,
     )
 }
 
 fun main() {
-    val list: LeetcodeLinkedList = SinglyLeetcodeLinkedList()
+    val list: SinglyLinkedList<Int> = SinglySimpleLinkedList()
     list.apply {
         debugPrint { addAtHead(2) }
-        debugPrint { deleteAtIndex(1) }
-        debugPrint { addAtHead(2) }
+        debugPrint { removeAtIndex(0) }
+        debugPrint { addAtHead(4) }
         debugPrint { addAtHead(7) }
         debugPrint { addAtHead(3) }
         debugPrint { addAtHead(2) }
         debugPrint { addAtHead(5) }
-        debugPrint { addAtTail(5) }
+        debugPrint { removeHead() }
+        debugPrint { addAtHead(10) }
         println(get(5))
     }
 }
 
-
-private fun LeetcodeLinkedList.debugPrint(action: () -> Unit) {
+private fun SinglyLinkedList<Int>.debugPrint(action: () -> Unit) {
     action()
 
     var ind = 0
     var value = get(ind)
-    while (value != -1) {
+    while (value != null) {
         println(value)
         ind++
         value = get(ind)

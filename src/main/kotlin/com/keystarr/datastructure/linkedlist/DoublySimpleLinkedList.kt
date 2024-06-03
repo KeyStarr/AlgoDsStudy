@@ -2,13 +2,13 @@ package com.keystarr.datastructure.linkedlist
 
 /**
  * LC-707 https://leetcode.com/problems/design-linked-list/description/
- * constraints same as in [SinglyLeetcodeLinkedList]
+ * constraints same as in [SinglySimpleLinkedList]
  *
  * Final notes:
  *  • a real implementation would probably expose first/last nodes too! as public val fields or via public methods
  *
  * Value gained:
- *  • cool, so the implementation, however basic mine is, is considerably more complicated than [SinglyLeetcodeLinkedList],
+ *  • cool, so the implementation, however basic mine is, is considerably more complicated than [SinglySimpleLinkedList],
  *      however has not that much of a bigger const compared to [SinglyLeetcodeLinkedList], and same asymptotic complexities;
  *      but really allows that sweet n/2 iterations eliminations for accessing elements on positions [n/2;n) and
  *      a const access for the last element;
@@ -18,35 +18,26 @@ package com.keystarr.datastructure.linkedlist
  *
  * Final notes:
  *  • ofc, I still have ways to go to really master the subject, might consider implementing a more real prod-like
- *      doubly linked list like java's with more methods and optimizations.
+ *      doubly linked list like java's with more methods and optimizations;
+ *  • extended the implementation a bit outside the initial problem's scope.
  */
-class DoublyLeetcodeLinkedList : LeetcodeLinkedList {
+class DoublySimpleLinkedList<E : Any> : DoublyLinkedList<E> {
 
-    private var head: Node? = null
-    private var tail: Node? = null
+    private var head: Node<E>? = null
+    private var tail: Node<E>? = null
     private var size: Int = 0
 
-    override fun get(index: Int): Int = findNode(index)?.value ?: -1
+    override fun getHead(): E? = head?.value
 
-    internal fun getNode(index: Int): Node? = findNode(index)
+    override fun getTail(): E? = tail?.value
 
-    override fun addAtHead(value: Int) {
-        increaseSize {
-            head = Node(value = value, prev = null, next = head)
-            head?.next?.prev = head
-            if (size == 0) tail = head
-        }
-    }
+    override fun get(index: Int): E? = findNode(index)?.value
 
-    override fun addAtTail(value: Int) {
-        increaseSize {
-            tail = Node(value = value, prev = tail, next = null)
-            tail?.prev?.next = tail
-            if (size == 0) head = tail
-        }
-    }
+    internal fun getNode(index: Int): Node<E>? = findNode(index)
 
-    override fun addAtIndex(index: Int, value: Int) {
+    override fun addAtIndex(index: Int, value: E) {
+        if (index > size) throw IllegalArgumentException("$index is out of bounds")
+
         if (index == 0) {
             addAtHead(value)
             return
@@ -57,8 +48,6 @@ class DoublyLeetcodeLinkedList : LeetcodeLinkedList {
             return
         }
 
-        if (index > size) return // weird specification, I'd throw an exception instead
-
         increaseSize {
             val prevNode = findNode(index - 1)
             val currentNode = prevNode?.next
@@ -68,33 +57,50 @@ class DoublyLeetcodeLinkedList : LeetcodeLinkedList {
         }
     }
 
-    override fun deleteAtIndex(index: Int) {
-        if (size == 0 || index >= size) return
-
-        if (index == 0) {
-            decreaseSize {
-                head = head?.next
-                head?.prev = null
-            }
-            return
-        }
-
-        if (index == size - 1) {
-            decreaseSize {
-                tail = tail?.prev
-                tail?.next = null
-            }
-            return
-        }
-
-        decreaseSize {
-            val node = findNode(index)!!
-            node.prev!!.next = node.next
-            node.next!!.prev = node.prev
+    override fun addAtHead(value: E) {
+        increaseSize {
+            head = Node(value = value, prev = null, next = head)
+            head?.next?.prev = head
+            if (size == 0) tail = head
         }
     }
 
-    private fun findNode(index: Int): Node? {
+    override fun addAtTail(value: E) {
+        increaseSize {
+            tail = Node(value = value, prev = tail, next = null)
+            tail?.prev?.next = tail
+            if (size == 0) head = tail
+        }
+    }
+
+    override fun removeAtIndex(index: Int): E? {
+        if (size == 0 || index >= size) throw IllegalArgumentException("$index is out of bounds")
+        if (index == 0) return removeHead()
+        if (index == size - 1) return removeTail()
+
+        return decreaseSize {
+            val node: Node<E> = findNode(index)!!
+            node.prev!!.next = node.next
+            node.next!!.prev = node.prev
+            node.value
+        }
+    }
+
+    override fun removeHead(): E? = head?.apply {
+        decreaseSize {
+            head = head?.next
+            head?.prev = null
+        }
+    }?.value
+
+    override fun removeTail(): E? = tail?.apply {
+        decreaseSize {
+            tail = tail?.prev
+            tail?.next = null
+        }
+    }?.value
+
+    private fun findNode(index: Int): Node<E>? {
         if (index >= size) return null
 
         return if (index < size / 2) {
@@ -113,33 +119,34 @@ class DoublyLeetcodeLinkedList : LeetcodeLinkedList {
         size++
     }
 
-    private inline fun decreaseSize(block: () -> Unit) {
-        block()
-        size--
-    }
+    private inline fun <R> decreaseSize(block: () -> R): R = block().also { size-- }
 
-    internal class Node(
-        val value: Int,
-        var prev: Node? = null,
-        var next: Node? = null,
+    internal class Node<E : Any>(
+        val value: E,
+        var prev: Node<E>? = null,
+        var next: Node<E>? = null,
     ) {
         override fun toString(): String = "${value}, n=${next?.value}, p=${prev?.value}"
     }
 }
 
 fun main() {
-    val list = DoublyLeetcodeLinkedList()
+    val list = DoublySimpleLinkedList<Int>()
     list.apply {
         debugPrint { addAtHead(1) }
         debugPrint { addAtTail(3) }
         debugPrint { addAtIndex(1, 2) }
-        println(get(1))
-        debugPrint { deleteAtIndex(1) }
-        println(get(1))
+        get(1)
+        debugPrint { removeAtIndex(1) }
+        get(1)
+        debugPrint { removeHead() }
+        debugPrint { addAtTail(80) }
+        debugPrint { addAtHead(90) }
+        debugPrint { removeTail() }
     }
 }
 
-private fun DoublyLeetcodeLinkedList.debugPrint(action: () -> Unit) {
+private fun DoublySimpleLinkedList<Int>.debugPrint(action: () -> Unit) {
     action()
 
     var ind = 0
