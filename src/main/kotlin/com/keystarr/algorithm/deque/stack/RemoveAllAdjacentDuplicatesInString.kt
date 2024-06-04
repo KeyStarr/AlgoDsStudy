@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.stack
+package com.keystarr.algorithm.deque.stack
 
 /**
  * LC-1047 https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/description/

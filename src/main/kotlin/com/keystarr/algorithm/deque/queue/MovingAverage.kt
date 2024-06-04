@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.queue
+package com.keystarr.algorithm.deque.queue
 
 /**
  * LC-346 https://leetcode.com/problems/moving-average-from-data-stream/description/

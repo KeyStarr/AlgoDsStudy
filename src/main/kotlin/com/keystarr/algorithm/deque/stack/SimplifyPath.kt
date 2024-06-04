@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.stack
+package com.keystarr.algorithm.deque.stack
 
 import java.util.ArrayList
 import java.util.LinkedList

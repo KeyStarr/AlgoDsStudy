@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.stack
+package com.keystarr.algorithm.deque.stack
 
 /**
  * LC-239 https://leetcode.com/problems/sliding-window-maximum/description/
@@ -10,6 +10,7 @@ package com.keystarr.algorithm.stack
  *
  * Final notes:
  *  • solved via [efficient] in 1-1.5h, only knowing the hint to use the mon. sorted stack/deque/queue. Still quite some time!
+ *  • took me, like, 5-6 actual RUNS to fix all the errors on 2 basic test cases, but actual submit took 1 attempt.
  *
  * Value gained:
  *  • I FIRST MA FIRST HARD PROBLEM ON LEETCODE, YAAAAY BABYYY!!!
@@ -67,22 +68,21 @@ class SlidingWindowMaximum {
      *   - maxNumbers[0] = deque.first()
      *   - iterate through startInd=1..nums.size-windowSize:
      *      - if (dequeue.first() == startInd - 1) deque.removeFirst()
-     *      - currentNumber = nums[startInd]
-     *      - while deque.isNotEmpty() && deque.last() < currentNumber:
+     *      - while deque.isNotEmpty() && deque.last() < nums[startInd]:
      *          - deque.removeLast()
      *      - deque.addLast(startInd)
      *      - maxNumbers[startInd] = deque.first()
      *  - return maxNumbers
      *
-     * Why:
+     * Intuition:
      * ---
-     * 1. if the currentNumber is greater than M last numbers in the deque, then, for each valid window left to check
-     * including all those M numbers, currentNumber will always be in the window alongside them and will always be larger
+     * 1. if the newNumber is greater than M last numbers in the deque, then, for each valid window left to check
+     * (that has those M numbers), newNumber will always be in the window alongside them and will always be larger
      * than all those M numbers => discard M numbers from the deque.
      * ---
-     * 2. If currentNumber is less or equal to the last number of the deque, then keep it, because once all current numbers
+     * 2. If newNumber is less or equal to the last number of the deque, then keep it, because once all current numbers
      * in the deque are popped due to window being moved => currentNumber will be the max IF numbers in nums\[currentInd:currentInd+windowSize]
-     * will all be less than currentNumber.
+     * will all be less than newNumber.
      *
      * DS operations required:
      *  - remove head
@@ -126,6 +126,8 @@ class SlidingWindowMaximum {
 
         return maxNumbers
     }
+
+    // TODO: simplify, refactor into a single loop
 }
 
 fun main() {

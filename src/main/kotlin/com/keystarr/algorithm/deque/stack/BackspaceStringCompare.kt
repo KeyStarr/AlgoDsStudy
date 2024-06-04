@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.stack
+package com.keystarr.algorithm.deque.stack
 
 /**
  * LC-844 https://leetcode.com/problems/backspace-string-compare/description/

@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.stack
+package com.keystarr.algorithm.deque.stack
 
 /**
  * LC-739 https://leetcode.com/problems/daily-temperatures/description/

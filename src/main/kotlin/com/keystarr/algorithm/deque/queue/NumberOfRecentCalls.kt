@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.queue
+package com.keystarr.algorithm.deque.queue
 
 /**
  * LC-933 https://leetcode.com/problems/number-of-recent-calls/description/
