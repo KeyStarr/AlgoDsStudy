@@ -98,7 +98,8 @@ class LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit {
     }
 
     // TODO: refactor later, try merging last to while loops together and make it such that we don't need to check
-    //  for emptiness of both deques
+    //  for emptiness of both deques OR even replace last two whiles with only ifs and prove why that is correct!
+    //  (check https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/solutions/609771/java-c-python-deques-o-n/)
 }
 
 fun main() {
