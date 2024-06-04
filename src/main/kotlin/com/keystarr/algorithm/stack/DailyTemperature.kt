@@ -14,7 +14,9 @@ package com.keystarr.algorithm.stack
  * Value gained:
  *  • practiced applying the "monotonically sorted stack" algo-pattern;
  *  • practiced applying as quickly as possible, while understanding as deeply as necessary, a pattern as soon as
- *   I've read about it.
+ *   I've read about it;
+ *  • thanks to Leetcode DSA course explanation I've realized that we don't need to store the number itself in the stack,
+ *      only the index, since, obviously, we can get it by index via O(1) from the original array.
  */
 class DailyTemperature {
 
@@ -55,17 +57,15 @@ class DailyTemperature {
      * Space: average/worst O(n) where n=temperatures.size
      */
     fun efficient(temperatures: IntArray): IntArray {
-        val stack = ArrayDeque<StackEntry>()
+        val stack = ArrayDeque<Int>()
         val result = IntArray(size = temperatures.size) { 0 }
         temperatures.forEachIndexed { currentInd, currentTemp ->
-            while (stack.isNotEmpty() && stack.first().temperature < currentTemp) {
-                val entry = stack.removeFirst()
-                result[entry.originalInd] = currentInd - entry.originalInd
+            while (stack.isNotEmpty() && temperatures[stack.first()] < currentTemp) {
+                val poppedTempInd = stack.removeFirst()
+                result[poppedTempInd] = currentInd - poppedTempInd
             }
-            stack.addFirst(StackEntry(temperature = currentTemp, originalInd = currentInd))
+            stack.addFirst(currentInd)
         }
         return result
     }
-
-    class StackEntry(val temperature: Int, val originalInd: Int)
 }
