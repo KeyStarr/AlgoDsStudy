@@ -23,7 +23,7 @@ class RecentCounter {
      *      - iterate from the end of the list and count each element until element.requestTime > requestTime-3000;
      *      - return counter.
      *
-     * Time: O(n^2) where n = number of calls due to inner counting iteration
+     * Time: O(n^2) where n = number of calls, due to inner counting iteration
      * Space: O(n)
      *
      * How to improve time?
