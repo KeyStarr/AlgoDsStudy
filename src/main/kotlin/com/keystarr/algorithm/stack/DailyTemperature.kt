@@ -32,7 +32,7 @@ class DailyTemperature {
      * space: O(n) if we count the result array.
      *
      * how to improve time to O(n)?
-     * use a monotonically decreasing stack algo pattern
+     * use a monotonically non-increasing stack algo pattern
      * (what would be the hint here though in real world scenario? now I just know)
      *
      * Idea:
