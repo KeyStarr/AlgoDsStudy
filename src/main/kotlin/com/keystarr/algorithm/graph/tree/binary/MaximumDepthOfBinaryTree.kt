@@ -31,6 +31,10 @@ class MaximumDepthOfBinaryTree {
      *  - worst when the rightmost leaf has the maximum depth;
      *  - average is all in between.
      * Space: always O(m), where m=maximum depth in the tree.
+     *  - worst case m=n if the tree is just a single line (basically a singlylinkedlist lol).
+     *  - upd: average is O(n) too then
+     *  - best: the tree is full, then its max depth is O(logn), cause each layer except leaves adds x2 nodes
+     *      (2 for each at the previous layer)
      *
      * ---
      *
@@ -59,14 +63,18 @@ class MaximumDepthOfBinaryTree {
     }
 
     /**
+     * intuition: for each node we compute its depth as if it's farthest leaf was the root.
+     *
      * this is a POSTorder DFS => start incrementing `currentDepth` at leaves, increment it each time we backtrack
      *   => we will have actual maximum depth only at root at the last backtracking (and, during both
      *   traversing and backtracking, we have at no node the length of any leaf unless its depth equals the max depth)
      *
+     * same time/space complexity as [preOrderRecursive]
+     *
      * compared to [preOrderRecursive]:
      *  + more idiomatic (?), a single param and the result is passed via return only;
-     *  - less intuitive (?), cause we basically at each node we get its depth counting from the leaves, and only
-     *      at the root note we get the maximum leaf depth (which is OK cause that's the answer).
+     *  - less intuitive (only to inexperienced graph-enjoyers?), cause, for a laymen (me), getting the depth at each
+     *      node from the actual root makes more sense.
      */
     fun postOrderRecursive(root: IntTreeNode?): Int = postOrderRecursiveInternal(root)
 
@@ -78,13 +86,54 @@ class MaximumDepthOfBinaryTree {
 
         return max(leftDepthFromLeaves, rightDepthFromLeaves) + 1
     }
+
+    /**
+     * Check right children first implementation (visiting the right subtree first).
+     * If we push right to stack first and then left, then the order of traversal would be the same as [preOrderRecursive]
+     * and [postOrderRecursive], that is, check left children first (vice versa we could swap left and right calls in
+     * recursive to get behavior same as in here).
+     *
+     * Basically same order of traversal as the recursive DFS (noting the above) BUT no backtracking through all previous
+     * nodes, one could say, we jump from one branch to another.
+     *
+     * Time: always O(n)
+     * Space: O(m) (if precisely, here m = max depth - 1)
+     * where n & m are same as [preOrderRecursive]
+     *
+     * TODO: understand, why so much slower on average than both recursive solutions here on leetcode runtime?
+     *  is stack based on ArrayDeque so much slower than the callstack (including backtracking through all previous nodes
+     *  in the current branch once we reach leaves for recursion)
+     */
+    fun iterative(root: IntTreeNode?): Int {
+        if (root == null) return 0
+
+        val stack = ArrayDeque<NodeToDepth>().apply { addLast(root to ROOT_DEPTH) }
+        var maxDepth = ROOT_DEPTH
+        while (stack.isNotEmpty()) {
+            val currentPair = stack.removeLast()
+            val childrenDepth = currentPair.depth + 1
+            maxDepth = max(currentPair.depth, maxDepth)
+            currentPair.node.left?.let { stack.addLast(it to childrenDepth) }
+            currentPair.node.right?.let { stack.addLast(it to childrenDepth) }
+        }
+        return maxDepth
+    }
 }
+
+private const val ROOT_DEPTH = 1
 
 class IntTreeNode(
     var value: Int,
     var left: IntTreeNode? = null,
     var right: IntTreeNode? = null,
 )
+
+private class NodeToDepth(
+    val node: IntTreeNode,
+    val depth: Int,
+)
+
+private infix fun IntTreeNode.to(depth: Int) = NodeToDepth(this, depth)
 
 fun main() {
     println(
