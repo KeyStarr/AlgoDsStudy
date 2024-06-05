@@ -31,20 +31,52 @@ class MaximumDepthOfBinaryTree {
      *  - worst when the rightmost leaf has the maximum depth;
      *  - average is all in between.
      * Space: always O(m), where m=maximum depth in the tree.
+     *
+     * ---
+     *
+     * this is a PREorder traversal => start incrementing `currentDepth` at root, and just always increment
+     *   before traversing down the tree => upon visiting any leaf we already have its depth. Then just propagate it
+     *   upwards but don't forget to decrement on leaves
+     *
+     * compared to [postOrderRecursive]:
+     *  + more intuitive, since we simply get each node's actual depth during it's call's combination phase;
+     *  +- at each leaf we have it's actual depth (if we needed it for other algo, here it doesn't matter, so excessive?)
+     *  - a bit ugly to pass a second param `currentDepth` when we can do without it?
      */
-    fun recursiveInternal(root: IntTreeNode?): Int = recursiveInternal(root, currentDepth = 1)
+    fun preOrderRecursive(root: IntTreeNode?): Int = preOrderRecursiveInternal(root, currentDepth = 1)
 
-    private fun recursiveInternal(node: IntTreeNode?, currentDepth: Int): Int {
+    private fun preOrderRecursiveInternal(node: IntTreeNode?, currentDepth: Int): Int {
         // base case
-        if (node == null) return currentDepth - 1
+        if (node == null) return currentDepth - 1 // actual leaf depth on current branch
 
         // recursive case
         // divide is just node.left and node.right
         val nextDepth = currentDepth + 1 // conquer current node
-        val leftDepth = recursiveInternal(node.left, nextDepth) // conquer left subtree
-        val rightDepth = recursiveInternal(node.right, nextDepth) // conquer right subtree
+        val leftDepth = preOrderRecursiveInternal(node.left, nextDepth) // conquer left subtree
+        val rightDepth = preOrderRecursiveInternal(node.right, nextDepth) // conquer right subtree
 
         return max(leftDepth, rightDepth) // combine
+    }
+
+    /**
+     * this is a POSTorder traversal => start incrementing `currentDepth` at leaves, increment it each time we backtrack
+     *   => we will have actual maximum depth only at root at the last backtracking (and, during both
+     *   traversing and backtracking, we have at no node the length of any leaf unless its depth equals the max depth)
+     *
+     * compared to [preOrderRecursive]:
+     *  + more idiomatic (?), a single param and the result is passed via return only;
+     *  - less intuitive (?), cause we basically at each node we get its depth counting from the leaves, and only
+     *      at the root note we get the maximum leaf depth (which is OK cause that's the answer).
+     */
+    fun postOrderRecursive(root: IntTreeNode?): Int = postOrderRecursiveInternal(root)
+
+    private fun postOrderRecursiveInternal(node: IntTreeNode?): Int {
+        if (node == null) return 0 // as we backtrack once, we get leaf depth counting from leaves and starting from 1
+
+        val leftDepthFromLeaves = postOrderRecursiveInternal(node.left)
+        val rightDepthFromLeaves = postOrderRecursiveInternal(node.right)
+
+        return max(leftDepthFromLeaves, rightDepthFromLeaves) + 1
     }
 }
 
@@ -56,7 +88,7 @@ class IntTreeNode(
 
 fun main() {
     println(
-        MaximumDepthOfBinaryTree().recursiveInternal(
+        MaximumDepthOfBinaryTree().preOrderRecursive(
             IntTreeNode(
                 value = 1,
                 left = IntTreeNode(
