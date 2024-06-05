@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.deque
+package com.keystarr.algorithm.deque.stack
 
 /**
  * LC-496 https://leetcode.com/problems/next-greater-element-i/description/
@@ -68,6 +68,10 @@ class NextGreaterElementI {
      * Edge cases:
      *  - nums1.size=1 && nums2.size=1 => correct;
      *  - nums1.size == nums2.size => correct.
+     *
+     * Tools:
+     *  - monotonic stack
+     *  - hashmap
      *
      * Time: always O(n), cause we add and pop each number in nums2 to the stack only once, the inner loop is amortized O(1).
      *  the second outer while is just dealing with numbers which were not popped following the same rule, so in a way it's
