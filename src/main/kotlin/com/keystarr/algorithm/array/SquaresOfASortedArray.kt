@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.arrays
+package com.keystarr.algorithm.array
 
 import kotlin.math.abs
 

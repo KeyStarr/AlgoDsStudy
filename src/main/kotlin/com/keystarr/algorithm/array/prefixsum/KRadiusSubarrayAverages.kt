@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.arrays.prefixsum
+package com.keystarr.algorithm.array.prefixsum
 
 /**
  * LC-2090 https://leetcode.com/problems/k-radius-subarray-averages/description/

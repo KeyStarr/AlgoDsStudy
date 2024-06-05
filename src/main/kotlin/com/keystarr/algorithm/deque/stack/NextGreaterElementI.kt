@@ -18,7 +18,10 @@ package com.keystarr.algorithm.deque.stack
  *      • 2nd: FORGOT THAT nums2 may have numbers that ARE NOT present in nums1;
  *      • 3rd & 4th: INCORRECTLY decided to NOT add to stack numbers that nums1 doesn't contain - it turns out, these are
  *          still needed as possible answers for previous numbers that nums1 does contain. BUT we indeed to handle a
- *          case when the number popped from the stack IS NOT present in nums1 => simply don't calculate an answer for it then;
+ *          case when the number popped from the stack IS NOT present in nums1 => simply don't calculate an answer for it then.
+ *  • solved in 50 mins!! (may need more practice with that type. though since it's allegedly not that common in interviews,
+ *      it's acceptable for current prep target);
+ *  • I felt veeery slow thinking. 2h of gym and no dinner yet. perhaps I should before learning/work then after the gym.
  *
  * Value gained:
  *  • practiced recognizing/implementing the monotonically sorted stack pattern;

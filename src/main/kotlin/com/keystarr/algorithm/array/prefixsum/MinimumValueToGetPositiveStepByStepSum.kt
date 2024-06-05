@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.arrays.prefixsum
+package com.keystarr.algorithm.array.prefixsum
 
 /**
  * LC-1413 https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/description/

@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.arrays.slidingwindow
+package com.keystarr.algorithm.array.slidingwindow
 
 /**
  * LC-643 https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/4594/

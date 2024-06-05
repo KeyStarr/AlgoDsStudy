@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.arrays.prefixsum
+package com.keystarr.algorithm.array.prefixsum
 
 /**
  * LC-2270 https://leetcode.com/problems/number-of-ways-to-split-array/description/

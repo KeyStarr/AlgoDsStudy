@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.arrays
+package com.keystarr.algorithm.array
 
 /**
  * LC-392 https://leetcode.com/problems/is-subsequence/description/

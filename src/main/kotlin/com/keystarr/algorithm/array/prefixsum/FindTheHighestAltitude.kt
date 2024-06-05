@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.arrays.prefixsum
+package com.keystarr.algorithm.array.prefixsum
 
 /**
  * LC-1732 https://leetcode.com/problems/find-the-highest-altitude/description/

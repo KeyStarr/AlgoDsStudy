@@ -1,6 +1,4 @@
-package com.keystarr.algorithm.arrays.slidingwindow
-
-import kotlin.math.min
+package com.keystarr.algorithm.array.slidingwindow
 
 /**
  * LC-209 https://leetcode.com/problems/minimum-size-subarray-sum/description/
