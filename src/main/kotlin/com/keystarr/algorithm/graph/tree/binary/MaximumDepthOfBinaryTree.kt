@@ -34,7 +34,7 @@ class MaximumDepthOfBinaryTree {
      *
      * ---
      *
-     * this is a PREorder traversal => start incrementing `currentDepth` at root, and just always increment
+     * this is a PREorder DFS => start incrementing `currentDepth` at root, and just always increment
      *   before traversing down the tree => upon visiting any leaf we already have its depth. Then just propagate it
      *   upwards but don't forget to decrement on leaves
      *
@@ -59,7 +59,7 @@ class MaximumDepthOfBinaryTree {
     }
 
     /**
-     * this is a POSTorder traversal => start incrementing `currentDepth` at leaves, increment it each time we backtrack
+     * this is a POSTorder DFS => start incrementing `currentDepth` at leaves, increment it each time we backtrack
      *   => we will have actual maximum depth only at root at the last backtracking (and, during both
      *   traversing and backtracking, we have at no node the length of any leaf unless its depth equals the max depth)
      *
