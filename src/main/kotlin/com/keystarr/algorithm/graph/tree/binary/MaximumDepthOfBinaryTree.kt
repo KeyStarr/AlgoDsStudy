@@ -110,11 +110,15 @@ class MaximumDepthOfBinaryTree {
         val stack = ArrayDeque<NodeToDepth>().apply { addLast(root to ROOT_DEPTH) }
         var maxDepth = ROOT_DEPTH
         while (stack.isNotEmpty()) {
+            // could use destructive declaration and merge 3 lines into 1, but don't want to use data classes here just for this
             val currentPair = stack.removeLast()
-            val childrenDepth = currentPair.depth + 1
-            maxDepth = max(currentPair.depth, maxDepth)
-            currentPair.node.left?.let { stack.addLast(it to childrenDepth) }
-            currentPair.node.right?.let { stack.addLast(it to childrenDepth) }
+            val currentNode = currentPair.node
+            val currentDepth = currentPair.depth
+
+            val childrenDepth = currentDepth + 1
+            maxDepth = max(currentDepth, maxDepth)
+            currentNode.left?.let { stack.addLast(it to childrenDepth) }
+            currentNode.right?.let { stack.addLast(it to childrenDepth) }
         }
         return maxDepth
     }
