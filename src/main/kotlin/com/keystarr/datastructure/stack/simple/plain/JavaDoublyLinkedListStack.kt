@@ -1,5 +1,7 @@
-package com.keystarr.datastructure.stack.simple
+package com.keystarr.datastructure.stack.simple.plain
 
+import com.keystarr.datastructure.stack.simple.SimpleStack
+import com.keystarr.datastructure.stack.simple.debugWithPeek
 import java.util.LinkedList
 
 /**
@@ -20,6 +22,9 @@ class JavaDoublyLinkedListStack<T : Any> : SimpleStack<T> {
 
     private val items = LinkedList<T>()
 
+    override val size: Int
+        get() = items.size
+
     override fun push(value: T) {
         items.addLast(value)
     }
@@ -36,8 +41,8 @@ class JavaDoublyLinkedListStack<T : Any> : SimpleStack<T> {
 fun main() {
     val stack: SimpleStack<Int> = JavaDoublyLinkedListStack()
     stack.apply {
-        withPeekDebug { push(3) }
-        withPeekDebug { push(8) }
+        debugWithPeek { push(3) }
+        debugWithPeek { push(8) }
         println(pop())
         println(pop())
         println(pop())

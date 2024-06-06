@@ -1,4 +1,7 @@
-package com.keystarr.datastructure.stack.simple
+package com.keystarr.datastructure.stack.simple.plain
+
+import com.keystarr.datastructure.stack.simple.SimpleStack
+import com.keystarr.datastructure.stack.simple.debugWithPeek
 
 /**
  * Goal - implement the stack using the classic singly linked list, with each node linked to the NEXT one.
@@ -7,12 +10,17 @@ package com.keystarr.datastructure.stack.simple
 class SinglyLinkedListStack<T : Any> : SimpleStack<T> {
 
     private var head: Node<T>? = null
+    private var _size = 0
+
+    override val size: Int
+        get() = _size
 
     override fun push(value: T) {
         head = Node(value = value, next = head)
+        _size ++
     }
 
-    override fun pop(): T? = head?.value.apply { head = head?.next }
+    override fun pop(): T? = head?.value.apply { head = head?.next }.also { _size-- }
 
     override fun peek(): T? = head?.value
 
@@ -29,8 +37,8 @@ class SinglyLinkedListStack<T : Any> : SimpleStack<T> {
 fun main() {
     val stack: SimpleStack<Int> = SinglyLinkedListStack()
     stack.apply {
-        withPeekDebug { push(3) }
-        withPeekDebug { push(8) }
+        debugWithPeek { push(3) }
+        debugWithPeek { push(8) }
         println(pop())
         println(pop())
         println(pop())

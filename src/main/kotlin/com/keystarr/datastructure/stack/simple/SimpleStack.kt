@@ -5,6 +5,8 @@ package com.keystarr.datastructure.stack.simple
  */
 interface SimpleStack<T : Any> {
 
+    val size: Int
+
     /**
      * Time: always O(1), amortized O(1) allowed
      */
@@ -25,7 +27,16 @@ interface SimpleStack<T : Any> {
     fun clear()
 }
 
-fun <T : Any> SimpleStack<T>.withPeekDebug(action: () -> Unit) {
+inline fun <T : Any> SimpleStack<T>.debugWithPeek(action: () -> Unit) {
     action()
     println(peek())
 }
+
+inline fun <reified T : Any> SimpleStack<T>.debugPrintAll() {
+    val elements = Array<T?>(size = size) { null }
+    var ind = size - 1
+    while (isNotEmpty()) elements[ind--] = pop()
+    println(elements.contentToString())
+}
+
+fun <T : Any> SimpleStack<T>.isNotEmpty() = size != 0
