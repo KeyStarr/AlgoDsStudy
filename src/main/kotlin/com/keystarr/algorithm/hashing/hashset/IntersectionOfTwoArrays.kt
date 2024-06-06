@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.set
+package com.keystarr.algorithm.hashing.hashset
 
 import java.lang.Integer.min
 

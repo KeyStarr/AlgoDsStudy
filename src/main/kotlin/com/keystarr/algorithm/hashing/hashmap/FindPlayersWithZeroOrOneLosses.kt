@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 /**
  * LC-2225 https://leetcode.com/problems/find-players-with-zero-or-one-losses/description/

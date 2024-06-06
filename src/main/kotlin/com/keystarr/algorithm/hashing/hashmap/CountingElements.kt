@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 /**
  * LC-1426 https://leetcode.com/problems/counting-elements/description/

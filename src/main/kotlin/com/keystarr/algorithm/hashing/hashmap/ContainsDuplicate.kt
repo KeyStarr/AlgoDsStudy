@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 /**
  * LC-217 https://leetcode.com/problems/contains-duplicate/description/

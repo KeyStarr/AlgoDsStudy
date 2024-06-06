@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.set
+package com.keystarr.algorithm.hashing.hashset
 
 /**
  * LC-268 https://leetcode.com/problems/missing-number/description/

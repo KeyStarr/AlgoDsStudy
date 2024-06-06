@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 // from grocking book, chapter 5 p.64
 // optional fun experiment, ignoring uppercase though

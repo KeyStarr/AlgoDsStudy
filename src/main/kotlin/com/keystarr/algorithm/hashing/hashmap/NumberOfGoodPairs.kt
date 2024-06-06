@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 // LC-1512 https://leetcode.com/problems/number-of-good-pairs/description/
 // difficulty: easy

@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.set
+package com.keystarr.algorithm.hashing.hashset
 
 /**
  * LC-2351 https://leetcode.com/problems/first-letter-to-appear-twice/description/

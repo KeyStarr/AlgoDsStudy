@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 /**
  * LC-2342 https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/description/

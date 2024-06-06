@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 /**
  * LC-1248 https://leetcode.com/problems/count-number-of-nice-subarrays/description/

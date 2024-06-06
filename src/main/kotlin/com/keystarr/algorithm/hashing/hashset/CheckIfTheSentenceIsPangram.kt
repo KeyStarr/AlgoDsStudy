@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.set
+package com.keystarr.algorithm.hashing.hashset
 
 /**
  * LC-1832 https://leetcode.com/problems/check-if-the-sentence-is-pangram/description/

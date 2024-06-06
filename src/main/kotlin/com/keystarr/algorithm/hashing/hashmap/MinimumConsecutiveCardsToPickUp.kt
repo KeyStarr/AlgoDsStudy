@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.hashtable
+package com.keystarr.algorithm.hashing.hashmap
 
 /**
  * LC-2260 https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/description/
