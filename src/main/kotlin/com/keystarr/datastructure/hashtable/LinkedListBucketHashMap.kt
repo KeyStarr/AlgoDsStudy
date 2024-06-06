@@ -9,7 +9,7 @@ package com.keystarr.datastructure.hashtable
  *  That is, solve most of the challenges the real production HashMap implementation faces, but maybe just in suboptimal way
  *  (no sense now to go for a full on java.util.HashMap idea by idea).
  */
-class LinkedListHashMap : HashMap {
+class LinkedListBucketHashMap : HashMap {
 
     override fun put(key: String, value: Any) {
         TODO("Not yet implemented")
