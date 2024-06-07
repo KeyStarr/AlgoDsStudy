@@ -126,11 +126,19 @@ class MaximumDepthOfBinaryTree {
 
 private const val ROOT_DEPTH = 1
 
+// WARNING - leetcode's environment uses a version of this DS but with different names AND EQUALITY BY IDENTITY
+// => before submitting => adapt.
 class IntTreeNode(
     var value: Int,
     var left: IntTreeNode? = null,
     var right: IntTreeNode? = null,
-)
+){
+    override fun equals(other: Any?) = other is IntTreeNode && value == other.value
+
+    override fun toString() = "$value"
+
+    override fun hashCode() = value
+}
 
 private class NodeToDepth(
     val node: IntTreeNode,
