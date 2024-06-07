@@ -22,7 +22,10 @@ package com.keystarr.algorithm.graph.tree.binary
  *  • apparently IT IS OKAY if deep in the recursion RECURSIVE FUNCTION'S GOAL MIGHT BE NOT TO FIND THE ACTUAL RESULT
  *      (relative to the current subtree, not the original one), AND if the first call always returns the required result
  *      (relative to the original tree), IT IS A VALID TECHNIQUE.
- *      Фух.
+ *      Фух;
+ *  • maybe, to save time, ALWAYS UNDERSTAND FIRST the explanation of the solution during the article-phase of the topic?
+ *      don't just attempt to solve it yourself based on a few hints? Maybe it will not compromise the quality of the
+ *      studying but just save A LOT OF TIME?
  */
 class LowestCommonAncestorOfABinaryTree {
 
