@@ -19,10 +19,9 @@ import kotlin.math.min
  * Value gained:
  *  • I do understand why [postOrderRecursive] fails with a specific category of input data, but can't formally model it.
  *   TODO: revisit later, prove why [postOrderRecursive] is incorrect, really understand!
- *  • => apparently, not all tree problems even have a post-order solution? I dunno this [preOrderRecursive] seems
- *   a bit unnatural for a recursion. A bit ugly, if I may. Like, we can do without these temp variables somehow. But
- *   haven't found any evidence in reasonable time that would support this hypothesis
- *      => settling for additional temp variable in recursive solutions of trees/graphs is OK?
+ *  • => apparently, sometimes a specific X-order solution might be better than others/
+ *  • => settling for additional temp variable in recursive solutions of trees/graphs is OK? seems so. editorial
+ *      goes like this, and, ahem, gpt chipped in to confirm this.
  */
 class MaximumDifferenceBetweenNodeAndAncestor {
 
