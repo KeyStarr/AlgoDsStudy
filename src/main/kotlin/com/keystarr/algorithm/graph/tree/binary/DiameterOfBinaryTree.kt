@@ -15,7 +15,7 @@ import kotlin.math.max
  *  • for some reason though that pre-order would be the best approach, tried it => that lead to nowhere, so I abandoned
  *      the idea entirely after (I guess, didn't mark it) 15-25 mins;
  *  • from scratch tried a post-order and implemented [diameterBrute], totalling at about 45 mins;
- *  • improved to [diameterEfficient], totalling at about 1 hour (FOR AN EASY TASK!!!);
+ *  • improved to [diameterEfficient], totalling at about 1 hour;
  *  • some people in the comments also voice that O(n) time solution is more like a leet-medium!
  *
  * Value gained:
