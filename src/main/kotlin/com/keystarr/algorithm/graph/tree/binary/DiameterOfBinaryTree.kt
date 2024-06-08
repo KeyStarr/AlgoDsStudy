@@ -38,6 +38,15 @@ import kotlin.math.max
  *    I think THE BEST STRATEGY would be to try to come up with the efficient approach straight ahead in, like, 10 mins,
  *    if I don't see "the light at the end of the tunnel" and interviewer seems stiff
  *      => try to do brute first, and then optimize it (or think of a different way altogether if efficient is different;
+ *
+ * BEST Value of above summary:
+ *  • probably the best problem-solving strategy for interviews:
+ *      • ask desired time/complexity, IF MOST EFFICIENT, aim for the efficient solution straight ahead;
+ *      • if under 10-15 mins I don't feel that an efficient solution is close, abandon and first try to implement brute-force
+ *          (perhaps, ask interview if it's ok, maybe he'd better hint at efficient);
+ *      • when done brute, try to optimize it, cause sometimes the efficient will be just reducing the time of the inner iteration
+ *          / recursive call (like in this problem). If not, try a different solution altogether, but you've already at least
+ *          done something, that's better than no solution at all, right?
  */
 class DiameterOfBinaryTree {
 
