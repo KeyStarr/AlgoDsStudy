@@ -46,7 +46,7 @@ class MinimumDepthBinaryTree {
      * Time: always O(n), we always visit each node once;
      * Space: O(n) due to callstack (actually, at most the height of original tree)
      */
-    fun recursive(root: IntTreeNode?): Int {
+    fun recursive(root: IntBinaryTreeNode?): Int {
         if (root == null) return 0
         if (root.left == null && root.right == null) return 1
 

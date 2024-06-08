@@ -47,9 +47,9 @@ class MaximumDepthOfBinaryTree {
      *  +- at each leaf we have it's actual depth (if we needed it for other algo, here it doesn't matter, so excessive?)
      *  - a bit ugly to pass a second param `currentDepth` when we can do without it?
      */
-    fun preOrderRecursive(root: IntTreeNode?): Int = preOrderRecursiveInternal(root, currentDepth = 1)
+    fun preOrderRecursive(root: IntBinaryTreeNode?): Int = preOrderRecursiveInternal(root, currentDepth = 1)
 
-    private fun preOrderRecursiveInternal(node: IntTreeNode?, currentDepth: Int): Int {
+    private fun preOrderRecursiveInternal(node: IntBinaryTreeNode?, currentDepth: Int): Int {
         // base case
         if (node == null) return currentDepth - 1 // actual leaf depth on current branch
 
@@ -76,9 +76,9 @@ class MaximumDepthOfBinaryTree {
      *  - less intuitive (only to inexperienced graph-enjoyers?), cause, for a laymen (me), getting the depth at each
      *      node from the actual root makes more sense.
      */
-    fun postOrderRecursive(root: IntTreeNode?): Int = postOrderRecursiveInternal(root)
+    fun postOrderRecursive(root: IntBinaryTreeNode?): Int = postOrderRecursiveInternal(root)
 
-    private fun postOrderRecursiveInternal(node: IntTreeNode?): Int {
+    private fun postOrderRecursiveInternal(node: IntBinaryTreeNode?): Int {
         if (node == null) return 0 // as we backtrack once, we get leaf depth counting from leaves and starting from 1
 
         val leftDepthFromLeaves = postOrderRecursiveInternal(node.left)
@@ -104,7 +104,7 @@ class MaximumDepthOfBinaryTree {
      *  is stack based on ArrayDeque so much slower than the callstack (including backtracking through all previous nodes
      *  in the current branch once we reach leaves for recursion)
      */
-    fun iterative(root: IntTreeNode?): Int {
+    fun iterative(root: IntBinaryTreeNode?): Int {
         if (root == null) return 0
 
         val stack = ArrayDeque<NodeToDepth>().apply { addLast(root to ROOT_DEPTH) }
@@ -128,12 +128,12 @@ private const val ROOT_DEPTH = 1
 
 // WARNING - leetcode's environment uses a version of this DS but with different names AND EQUALITY BY IDENTITY
 // => before submitting => adapt.
-class IntTreeNode(
+class IntBinaryTreeNode(
     var value: Int,
-    var left: IntTreeNode? = null,
-    var right: IntTreeNode? = null,
+    var left: IntBinaryTreeNode? = null,
+    var right: IntBinaryTreeNode? = null,
 ){
-    override fun equals(other: Any?) = other is IntTreeNode && value == other.value
+    override fun equals(other: Any?) = other is IntBinaryTreeNode && value == other.value
 
     override fun toString() = "$value"
 
@@ -141,28 +141,28 @@ class IntTreeNode(
 }
 
 private class NodeToDepth(
-    val node: IntTreeNode,
+    val node: IntBinaryTreeNode,
     val depth: Int,
 )
 
-private infix fun IntTreeNode.to(depth: Int) = NodeToDepth(this, depth)
+private infix fun IntBinaryTreeNode.to(depth: Int) = NodeToDepth(this, depth)
 
 fun main() {
     println(
         MaximumDepthOfBinaryTree().preOrderRecursive(
-            IntTreeNode(
+            IntBinaryTreeNode(
                 value = 1,
-                left = IntTreeNode(
+                left = IntBinaryTreeNode(
                     value = 2,
-                    right = IntTreeNode(
+                    right = IntBinaryTreeNode(
                         value = 4,
                     )
                 ),
-                right = IntTreeNode(
+                right = IntBinaryTreeNode(
                     value = 3,
-                    left = IntTreeNode(
+                    left = IntBinaryTreeNode(
                         value = 5,
-                        left = IntTreeNode(
+                        left = IntBinaryTreeNode(
                             value = 6,
                         )
                     )

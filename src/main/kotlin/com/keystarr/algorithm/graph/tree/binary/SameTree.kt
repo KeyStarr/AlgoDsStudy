@@ -9,7 +9,7 @@ package com.keystarr.algorithm.graph.tree.binary
  *  • no explicit time/space.
  *
  * Final notes:
- *  • FAILED the 1st run BECAUSE FORGOT THAT [IntTreeNode] (which I basically remove to use leetcode's required in-built
+ *  • FAILED the 1st run BECAUSE FORGOT THAT [IntBinaryTreeNode] (which I basically remove to use leetcode's required in-built
  *      node DS) DOESN'T OVERRIDE EQUALS => compares by identity!
  *
  * Value gained:
@@ -41,7 +41,7 @@ class SameTree {
      * Time: O(n), where n=number of nodes in either tree
      * Space: O(n) due to callstack
      */
-    fun isSameTreeRecursive(first: IntTreeNode?, second: IntTreeNode?): Boolean {
+    fun isSameTreeRecursive(first: IntBinaryTreeNode?, second: IntBinaryTreeNode?): Boolean {
         if (first == null && second == null) return true // both are a non-existent node after leaf
         if (first?.value != second?.value) return false
 
@@ -54,8 +54,8 @@ class SameTree {
     /**
      * Same core idea, same complexities, same order of visiting but no backtracking (as usual with iterative re-implementation).
      */
-    fun isSameTreeIterative(firstRoot: IntTreeNode?, secondRoot: IntTreeNode?): Boolean {
-        val stack = ArrayDeque<Pair<IntTreeNode?, IntTreeNode?>>()
+    fun isSameTreeIterative(firstRoot: IntBinaryTreeNode?, secondRoot: IntBinaryTreeNode?): Boolean {
+        val stack = ArrayDeque<Pair<IntBinaryTreeNode?, IntBinaryTreeNode?>>()
         stack.addLast(firstRoot to secondRoot)
         while (stack.isNotEmpty()) {
             val (first, second) = stack.removeLast()
@@ -75,15 +75,15 @@ class SameTree {
 fun main() {
     println(
         SameTree().isSameTreeRecursive(
-            first = IntTreeNode(
+            first = IntBinaryTreeNode(
                 value = 1,
-                left = IntTreeNode(value = 2),
-                right = IntTreeNode(value = 3),
+                left = IntBinaryTreeNode(value = 2),
+                right = IntBinaryTreeNode(value = 3),
             ),
-            second = IntTreeNode(
+            second = IntBinaryTreeNode(
                 value = 1,
-                left = IntTreeNode(value = 2),
-                right = IntTreeNode(value = 3),
+                left = IntBinaryTreeNode(value = 2),
+                right = IntBinaryTreeNode(value = 3),
             ),
         )
     )

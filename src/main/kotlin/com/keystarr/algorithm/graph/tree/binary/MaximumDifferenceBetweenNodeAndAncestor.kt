@@ -61,7 +61,7 @@ class MaximumDifferenceBetweenNodeAndAncestor {
      * Time: always O(n), we have to visit each node once;
      * Space: O(n) due to callstack.
      */
-    fun preOrderRecursive(root: IntTreeNode?): Int = preOrderRecursiveInternal(
+    fun preOrderRecursive(root: IntBinaryTreeNode?): Int = preOrderRecursiveInternal(
         root = root!!,
         prevMin = Int.MAX_VALUE,
         prevMax = Int.MIN_VALUE,
@@ -70,7 +70,7 @@ class MaximumDifferenceBetweenNodeAndAncestor {
     /**
      * Goal - find the maximum ancestor difference between the current subtree and the difference ([prevMax] - [prevMin]).
      */
-    private fun preOrderRecursiveInternal(root: IntTreeNode?, prevMin: Int, prevMax: Int): Int {
+    private fun preOrderRecursiveInternal(root: IntBinaryTreeNode?, prevMin: Int, prevMax: Int): Int {
         if (root == null) return prevMax - prevMin  // base case #1
 
         val newMax = max(prevMax, root.value)
@@ -83,12 +83,12 @@ class MaximumDifferenceBetweenNodeAndAncestor {
 
     // TODO: why does that work? ChatGPT 4o made it when I explained the requirements. Why does [postOrderRecursive] fail
     //  and this works?
-    fun maxAncestorDiff(root: IntTreeNode?): Int {
+    fun maxAncestorDiff(root: IntBinaryTreeNode?): Int {
         if (root == null) return 0
         return postOrderRecursiveInternal(root).maxDiff
     }
 
-    private fun postOrderRecursiveInternal(root: IntTreeNode?): Result {
+    private fun postOrderRecursiveInternal(root: IntBinaryTreeNode?): Result {
         if (root == null) return Result(Int.MAX_VALUE, Int.MIN_VALUE, 0)
 
         val leftResult = postOrderRecursiveInternal(root.left)
@@ -111,7 +111,7 @@ class MaximumDifferenceBetweenNodeAndAncestor {
 
 
     // submit fail
-    fun postOrderRecursive(root: IntTreeNode?): Int {
+    fun postOrderRecursive(root: IntBinaryTreeNode?): Int {
         val (min, max) = findMaxAndMin(root)
         return max - min
     }
@@ -133,7 +133,7 @@ class MaximumDifferenceBetweenNodeAndAncestor {
      *
      * But for each subtree (a single call) we compute max and min for time O(1) space O(1).
      */
-    private fun findMaxAndMin(root: IntTreeNode?): Pair<Int, Int> {
+    private fun findMaxAndMin(root: IntBinaryTreeNode?): Pair<Int, Int> {
         if (root == null) return -1 to -1
         if (root.left == null && root.right == null) return 0 to root.value
 

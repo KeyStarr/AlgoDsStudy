@@ -40,12 +40,12 @@ class CountGoodNodesInBinaryTree {
      * Time: always O(n) cause we have to visit each node always;
      * Space: always O(n) because of the callstack.
      */
-    fun efficient(root: IntTreeNode): Int {
+    fun efficient(root: IntBinaryTreeNode): Int {
         preOrderRecursive(node = root, currentMaxValue = Int.MIN_VALUE)
         return goodNodesCount
     }
 
-    private fun preOrderRecursive(node: IntTreeNode?, currentMaxValue: Int) {
+    private fun preOrderRecursive(node: IntBinaryTreeNode?, currentMaxValue: Int) {
         if (node == null) return // a non-existing node after the leaf
 
         var newMax = currentMaxValue
@@ -66,9 +66,9 @@ class CountGoodNodesInBinaryTree {
      * Actually, it's like a mix of preorder (find new max val at current node so far) AND preorder (add +1 for current node
      * once we've visited both children) DFS.
      */
-    fun efficientCleaner(root: IntTreeNode): Int = postOrderRecursive(root, Int.MIN_VALUE)
+    fun efficientCleaner(root: IntBinaryTreeNode): Int = postOrderRecursive(root, Int.MIN_VALUE)
 
-    private fun postOrderRecursive(node: IntTreeNode?, currentMax: Int): Int {
+    private fun postOrderRecursive(node: IntBinaryTreeNode?, currentMax: Int): Int {
         if (node == null) return 0 // a non-existing node after a leaf
 
         val newMax = max(node.value, currentMax)

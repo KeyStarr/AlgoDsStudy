@@ -31,10 +31,10 @@ class PathSum {
      * Space: average/worst O(n)
      *
      */
-    fun efficient(root: IntTreeNode?, targetSum: Int) =
+    fun efficient(root: IntBinaryTreeNode?, targetSum: Int) =
         if (root == null) false else internalRecursive(root, targetSum, 0)
 
-    private fun internalRecursive(node: IntTreeNode, targetSum: Int, previousSum: Int): Boolean {
+    private fun internalRecursive(node: IntBinaryTreeNode, targetSum: Int, previousSum: Int): Boolean {
         val currentSum = previousSum + node.value
         if (node.left == null && node.right == null) return currentSum == targetSum // leaf, base case
 
@@ -58,10 +58,10 @@ class PathSum {
      *       then at the leaves, if current branch's sum equals targetSum, currentSum would be 0;
      *  - don't use local variables to check for whether the left or the right subtrees lead to the target branch.
      */
-    fun efficientCleaner(root: IntTreeNode?, targetSum: Int): Boolean =
+    fun efficientCleaner(root: IntBinaryTreeNode?, targetSum: Int): Boolean =
         efficientCleanerRecursive(node = root, remainderAfterParent = targetSum)
 
-    private fun efficientCleanerRecursive(node: IntTreeNode?, remainderAfterParent: Int): Boolean =
+    private fun efficientCleanerRecursive(node: IntBinaryTreeNode?, remainderAfterParent: Int): Boolean =
         when {
             node == null -> false // base case #1, either root or the non-existing node after a leaf
             node.left == null && node.right == null -> remainderAfterParent - node.value == 0 // base case #2, leaf
@@ -75,9 +75,9 @@ class PathSum {
 fun main() {
     println(
         PathSum().efficient(
-            root = IntTreeNode(
+            root = IntBinaryTreeNode(
                 value = 1,
-                left = IntTreeNode(value = 2)
+                left = IntBinaryTreeNode(value = 2)
             ),
             targetSum = 1,
         )

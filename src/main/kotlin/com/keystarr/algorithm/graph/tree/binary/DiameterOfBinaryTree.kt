@@ -100,7 +100,7 @@ class DiameterOfBinaryTree {
      * Space: O(n)
      */
 
-    fun diameterBrute(root: IntTreeNode?): Int {
+    fun diameterBrute(root: IntBinaryTreeNode?): Int {
         if (root?.left == null && root?.right == null) return 0 // number of nodes either 1 (root is a leaf) or 0
 
         val diameterLeft = diameterBrute(root.left)
@@ -115,7 +115,7 @@ class DiameterOfBinaryTree {
         return max(max(diameterLeft, diameterRight), currentDiameter)
     }
 
-    private fun treeHeight(root: IntTreeNode?): Int {
+    private fun treeHeight(root: IntBinaryTreeNode?): Int {
         if (root?.left == null && root?.right == null) return 0
 
         val leftSubtreeHeight = treeHeight(root.left)
@@ -131,9 +131,9 @@ class DiameterOfBinaryTree {
      * Time: always O(n), cause we visit each node once, and to handle 1 node time is O(1)
      * Space: always O(n), the height of tree rooted at [root].
      */
-    fun diameterEfficient(root: IntTreeNode?): Int = diameterEfficientCleanerRecursive(root).diameter
+    fun diameterEfficient(root: IntBinaryTreeNode?): Int = diameterEfficientCleanerRecursive(root).diameter
 
-    private fun diameterEfficientRecursive(root: IntTreeNode?): Result {
+    private fun diameterEfficientRecursive(root: IntBinaryTreeNode?): Result {
         // number of nodes either 1 (root is a leaf) or 0
         if (root?.left == null && root?.right == null) return Result(height = 0, diameter = 0)
 
@@ -155,7 +155,7 @@ class DiameterOfBinaryTree {
      *   leaf a base case! it is automatically correctly handled by the logic
      *   => the leaf base case IS REDUNDANT, simply remove it.
      */
-    private fun diameterEfficientCleanerRecursive(root: IntTreeNode?): Result {
+    private fun diameterEfficientCleanerRecursive(root: IntBinaryTreeNode?): Result {
         if (root == null) return Result(height = 0, diameter = 0)
 
         val (leftHeight, leftDiameter) = diameterEfficientCleanerRecursive(root.left)
@@ -176,7 +176,7 @@ class DiameterOfBinaryTree {
     // nasty code style, but it's convenient here
     private var maxDiameter: Int = -1
 
-    fun diameterEfficientClassField(root: IntTreeNode?): Int =
+    fun diameterEfficientClassField(root: IntBinaryTreeNode?): Int =
         diameterEfficientClassFieldRecursive(root).let { maxDiameter }
 
     /**
@@ -186,7 +186,7 @@ class DiameterOfBinaryTree {
      * Function goal - still determine the diameter of the original [root] BUT the answer is in [maxDiameter] this time,
      * and the return value is an intermediate internal value (height of the tree).
      */
-    private fun diameterEfficientClassFieldRecursive(root: IntTreeNode?): Int {
+    private fun diameterEfficientClassFieldRecursive(root: IntBinaryTreeNode?): Int {
         if (root == null) return 0
 
         val leftHeight = diameterEfficientClassFieldRecursive(root.left)
@@ -203,15 +203,15 @@ class DiameterOfBinaryTree {
 fun main() {
     println(
         DiameterOfBinaryTree().diameterEfficient(
-            IntTreeNode(
+            IntBinaryTreeNode(
                 value = 2,
-                left = IntTreeNode(
+                left = IntBinaryTreeNode(
                     value = 1,
-                    left = IntTreeNode(3),
+                    left = IntBinaryTreeNode(3),
                 ),
-                right = IntTreeNode(
+                right = IntBinaryTreeNode(
                     value = 4,
-                    left = IntTreeNode(5),
+                    left = IntBinaryTreeNode(5),
                 )
             )
         )

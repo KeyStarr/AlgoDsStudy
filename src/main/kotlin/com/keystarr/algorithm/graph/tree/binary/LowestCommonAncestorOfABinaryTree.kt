@@ -73,7 +73,7 @@ class LowestCommonAncestorOfABinaryTree {
      *  (where n=number of nodes in the tree)
      * Space: average/worst O(n) due to callstack.
      */
-    fun recursive(root: IntTreeNode?, first: IntTreeNode?, second: IntTreeNode?): IntTreeNode? {
+    fun recursive(root: IntBinaryTreeNode?, first: IntBinaryTreeNode?, second: IntBinaryTreeNode?): IntBinaryTreeNode? {
         if (root == null) return null // a non-existing tree, LCA trivially doesn't exist
         if (root == first || root == second) return root // ?????
 
@@ -95,32 +95,32 @@ fun main() {
 }
 
 private fun LowestCommonAncestorOfABinaryTree.directChildrenCase() = recursive(
-    root = IntTreeNode(
+    root = IntBinaryTreeNode(
         value = 3,
-        left = IntTreeNode(
+        left = IntBinaryTreeNode(
             5,
-            left = IntTreeNode(value = 6),
-            right = IntTreeNode(
+            left = IntBinaryTreeNode(value = 6),
+            right = IntBinaryTreeNode(
                 value = 2,
-                left = IntTreeNode(value = 7),
-                right = IntTreeNode(value = 4)
+                left = IntBinaryTreeNode(value = 7),
+                right = IntBinaryTreeNode(value = 4)
             )
         ),
-        right = IntTreeNode(
+        right = IntBinaryTreeNode(
             value = 1,
-            left = IntTreeNode(0),
-            right = IntTreeNode(8),
+            left = IntBinaryTreeNode(0),
+            right = IntBinaryTreeNode(8),
         )
     ),
-    first = IntTreeNode(5),
-    second = IntTreeNode(1),
+    first = IntBinaryTreeNode(5),
+    second = IntBinaryTreeNode(1),
 )?.value
 
 private fun LowestCommonAncestorOfABinaryTree.directChildrenMinNodes() = recursive(
-    root = IntTreeNode(
+    root = IntBinaryTreeNode(
         value = 1,
-        left = IntTreeNode(2)
+        left = IntBinaryTreeNode(2)
     ),
-    first = IntTreeNode(1),
-    second = IntTreeNode(2),
+    first = IntBinaryTreeNode(1),
+    second = IntBinaryTreeNode(2),
 )?.value
