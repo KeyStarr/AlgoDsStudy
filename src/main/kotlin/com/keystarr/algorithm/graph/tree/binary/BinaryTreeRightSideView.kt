@@ -69,7 +69,7 @@ class BinaryTreeRightSideView {
         val queue: Queue<IntBinaryTreeNode> = ArrayDeque<IntBinaryTreeNode>().apply { add(root) }
         while (queue.isNotEmpty()) {
             val currentLevelNodesAmount = queue.size
-            result.add(queue.first().value)
+            result.add(queue.first().`val`)
             repeat(currentLevelNodesAmount) {
                 val currentNode = queue.remove()
                 currentNode.right?.let(queue::add)
@@ -128,7 +128,7 @@ class BinaryTreeRightSideView {
         if (root == null) return
 
         val currentDepth = prevDepth + 1
-        if (currentDepth == results.size) results.add(root.value)
+        if (currentDepth == results.size) results.add(root.`val`)
         dfsRecursive(root.right, currentDepth, results)
         dfsRecursive(root.left, currentDepth, results)
     }

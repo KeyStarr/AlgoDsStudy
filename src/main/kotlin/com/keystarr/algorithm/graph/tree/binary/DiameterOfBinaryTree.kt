@@ -204,13 +204,13 @@ fun main() {
     println(
         DiameterOfBinaryTree().diameterEfficient(
             IntBinaryTreeNode(
-                value = 2,
+                `val` = 2,
                 left = IntBinaryTreeNode(
-                    value = 1,
+                    `val` = 1,
                     left = IntBinaryTreeNode(3),
                 ),
                 right = IntBinaryTreeNode(
-                    value = 4,
+                    `val` = 4,
                     left = IntBinaryTreeNode(5),
                 )
             )

@@ -49,7 +49,7 @@ class DeepestLeavesSum {
             latestLevelValuesSum = 0
             repeat(currentLevelNodesQueue.size) {
                 val currentNode = currentLevelNodesQueue.remove()
-                latestLevelValuesSum += currentNode.value
+                latestLevelValuesSum += currentNode.`val`
                 currentNode.left?.let(currentLevelNodesQueue::add)
                 currentNode.right?.let(currentLevelNodesQueue::add)
             }
@@ -78,7 +78,7 @@ class DeepestLeavesSum {
         }
 
         var latestLevelValuesSum = 0
-        while (previousLevelNodesQueue.isNotEmpty()) latestLevelValuesSum += previousLevelNodesQueue.remove().value
+        while (previousLevelNodesQueue.isNotEmpty()) latestLevelValuesSum += previousLevelNodesQueue.remove().`val`
         return latestLevelValuesSum
     }
 

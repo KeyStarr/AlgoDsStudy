@@ -43,7 +43,7 @@ class SameTree {
      */
     fun isSameTreeRecursive(first: IntBinaryTreeNode?, second: IntBinaryTreeNode?): Boolean {
         if (first == null && second == null) return true // both are a non-existent node after leaf
-        if (first?.value != second?.value) return false
+        if (first?.`val` != second?.`val`) return false
 
         if (!isSameTreeRecursive(first?.left, second?.left)) return false
         if (!isSameTreeRecursive(first?.right, second?.right)) return false
@@ -62,7 +62,7 @@ class SameTree {
 
             // base cases
             if (first == null && second == null) continue // each is a non-existent node after a leaf
-            if (first?.value != second?.value) return false
+            if (first?.`val` != second?.`val`) return false
 
             // subdivision case?
             stack.addLast(first!!.right to second!!.right)
@@ -76,14 +76,14 @@ fun main() {
     println(
         SameTree().isSameTreeRecursive(
             first = IntBinaryTreeNode(
-                value = 1,
-                left = IntBinaryTreeNode(value = 2),
-                right = IntBinaryTreeNode(value = 3),
+                `val` = 1,
+                left = IntBinaryTreeNode(`val` = 2),
+                right = IntBinaryTreeNode(`val` = 3),
             ),
             second = IntBinaryTreeNode(
-                value = 1,
-                left = IntBinaryTreeNode(value = 2),
-                right = IntBinaryTreeNode(value = 3),
+                `val` = 1,
+                left = IntBinaryTreeNode(`val` = 2),
+                right = IntBinaryTreeNode(`val` = 3),
             ),
         )
     )

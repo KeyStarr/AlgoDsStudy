@@ -96,31 +96,31 @@ fun main() {
 
 private fun LowestCommonAncestorOfABinaryTree.directChildrenCase() = recursive(
     root = IntBinaryTreeNode(
-        value = 3,
+        `val` = 3,
         left = IntBinaryTreeNode(
             5,
-            left = IntBinaryTreeNode(value = 6),
+            left = IntBinaryTreeNode(`val` = 6),
             right = IntBinaryTreeNode(
-                value = 2,
-                left = IntBinaryTreeNode(value = 7),
-                right = IntBinaryTreeNode(value = 4)
+                `val` = 2,
+                left = IntBinaryTreeNode(`val` = 7),
+                right = IntBinaryTreeNode(`val` = 4)
             )
         ),
         right = IntBinaryTreeNode(
-            value = 1,
+            `val` = 1,
             left = IntBinaryTreeNode(0),
             right = IntBinaryTreeNode(8),
         )
     ),
     first = IntBinaryTreeNode(5),
     second = IntBinaryTreeNode(1),
-)?.value
+)?.`val`
 
 private fun LowestCommonAncestorOfABinaryTree.directChildrenMinNodes() = recursive(
     root = IntBinaryTreeNode(
-        value = 1,
+        `val` = 1,
         left = IntBinaryTreeNode(2)
     ),
     first = IntBinaryTreeNode(1),
     second = IntBinaryTreeNode(2),
-)?.value
+)?.`val`

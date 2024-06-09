@@ -126,18 +126,19 @@ class MaximumDepthOfBinaryTree {
 
 private const val ROOT_DEPTH = 1
 
-// WARNING - leetcode's environment uses a version of this DS but with different names AND EQUALITY BY IDENTITY
+// WARNING - leetcode's environment uses a version of this DS AND EQUALITY BY IDENTITY
 // => before submitting => adapt.
+// TODO: remove equals/hashcode and fix solutions which relied on it?
 class IntBinaryTreeNode(
-    var value: Int,
+    var `val`: Int,
     var left: IntBinaryTreeNode? = null,
     var right: IntBinaryTreeNode? = null,
-){
-    override fun equals(other: Any?) = other is IntBinaryTreeNode && value == other.value
+) {
+    override fun equals(other: Any?) = other is IntBinaryTreeNode && `val` == other.`val`
 
-    override fun toString() = "$value"
+    override fun toString() = "$`val`"
 
-    override fun hashCode() = value
+    override fun hashCode() = `val`
 }
 
 private class NodeToDepth(
@@ -151,19 +152,19 @@ fun main() {
     println(
         MaximumDepthOfBinaryTree().preOrderRecursive(
             IntBinaryTreeNode(
-                value = 1,
+                `val` = 1,
                 left = IntBinaryTreeNode(
-                    value = 2,
+                    `val` = 2,
                     right = IntBinaryTreeNode(
-                        value = 4,
+                        `val` = 4,
                     )
                 ),
                 right = IntBinaryTreeNode(
-                    value = 3,
+                    `val` = 3,
                     left = IntBinaryTreeNode(
-                        value = 5,
+                        `val` = 5,
                         left = IntBinaryTreeNode(
-                            value = 6,
+                            `val` = 6,
                         )
                     )
                 )

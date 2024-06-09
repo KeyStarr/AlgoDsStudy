@@ -73,8 +73,8 @@ class MaximumDifferenceBetweenNodeAndAncestor {
     private fun preOrderRecursiveInternal(root: IntBinaryTreeNode?, prevMin: Int, prevMax: Int): Int {
         if (root == null) return prevMax - prevMin  // base case #1
 
-        val newMax = max(prevMax, root.value)
-        val newMin = min(prevMin, root.value)
+        val newMax = max(prevMax, root.`val`)
+        val newMin = min(prevMin, root.`val`)
         val leftSubtreeMaxDiff = preOrderRecursiveInternal(root.left, newMin, newMax)
         val rightSubtreeMaxDiff = preOrderRecursiveInternal(root.right, newMin, newMax)
         return max(leftSubtreeMaxDiff, rightSubtreeMaxDiff)
@@ -94,12 +94,12 @@ class MaximumDifferenceBetweenNodeAndAncestor {
         val leftResult = postOrderRecursiveInternal(root.left)
         val rightResult = postOrderRecursiveInternal(root.right)
 
-        val currentMin = min(root.value, min(leftResult.minVal, rightResult.minVal))
-        val currentMax = max(root.value, max(leftResult.maxVal, rightResult.maxVal))
+        val currentMin = min(root.`val`, min(leftResult.minVal, rightResult.minVal))
+        val currentMax = max(root.`val`, max(leftResult.maxVal, rightResult.maxVal))
 
         val currentDiff = max(
-            root.value - currentMin,
-            currentMax - root.value
+            root.`val` - currentMin,
+            currentMax - root.`val`
         )
 
         val maxDiff = max(currentDiff, max(leftResult.maxDiff, rightResult.maxDiff))
@@ -135,7 +135,7 @@ class MaximumDifferenceBetweenNodeAndAncestor {
      */
     private fun findMaxAndMin(root: IntBinaryTreeNode?): Pair<Int, Int> {
         if (root == null) return -1 to -1
-        if (root.left == null && root.right == null) return 0 to root.value
+        if (root.left == null && root.right == null) return 0 to root.`val`
 
         val leftMinMax = findMaxAndMin(root.left)
         val rightMinMax = findMaxAndMin(root.right)
@@ -143,7 +143,7 @@ class MaximumDifferenceBetweenNodeAndAncestor {
         val rightDiff = rightMinMax.diff()
         val bestMinMax = if (max(leftDiff, rightDiff) == leftDiff) leftMinMax else rightMinMax
 
-        return min(bestMinMax.first, root.value) to max(bestMinMax.second, root.value)
+        return min(bestMinMax.first, root.`val`) to max(bestMinMax.second, root.`val`)
     }
 
     private fun Pair<Int, Int>.diff() = second - first

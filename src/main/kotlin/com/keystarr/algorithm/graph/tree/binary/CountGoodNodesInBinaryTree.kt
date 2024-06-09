@@ -49,9 +49,9 @@ class CountGoodNodesInBinaryTree {
         if (node == null) return // a non-existing node after the leaf
 
         var newMax = currentMaxValue
-        if (node.value >= currentMaxValue) {
+        if (node.`val` >= currentMaxValue) {
             goodNodesCount++
-            newMax = node.value
+            newMax = node.`val`
         }
 
         preOrderRecursive(node.left, newMax)
@@ -71,12 +71,12 @@ class CountGoodNodesInBinaryTree {
     private fun postOrderRecursive(node: IntBinaryTreeNode?, currentMax: Int): Int {
         if (node == null) return 0 // a non-existing node after a leaf
 
-        val newMax = max(node.value, currentMax)
+        val newMax = max(node.`val`, currentMax)
         val goodNodesLeft = postOrderRecursive(node.left, newMax)
         val goodNodesRight = postOrderRecursive(node.right, newMax)
 
         var goodNodesInCurrentSubtree = goodNodesLeft + goodNodesRight
-        if (node.value >= currentMax) goodNodesInCurrentSubtree += 1
+        if (node.`val` >= currentMax) goodNodesInCurrentSubtree += 1
 
         return goodNodesInCurrentSubtree
     }

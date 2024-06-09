@@ -56,7 +56,7 @@ class FindLargestValueInEachTreeRow {
             var currentLevelMaxValue = Int.MIN_VALUE
             repeat(currentLevelNodesAmount) {
                 val currentNode = queue.remove()
-                if (currentNode.value > currentLevelMaxValue) currentLevelMaxValue = currentNode.value
+                if (currentNode.`val` > currentLevelMaxValue) currentLevelMaxValue = currentNode.`val`
                 currentNode?.left?.let(queue::add)
                 currentNode?.right?.let(queue::add)
             }
