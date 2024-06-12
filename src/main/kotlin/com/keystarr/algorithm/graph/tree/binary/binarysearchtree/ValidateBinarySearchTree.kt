@@ -25,6 +25,9 @@ import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
  *  • I had a strong intuition that -2^31 and 2^31-1 ARE indeed int.min and int.max (haven't touched these in a while)
  *      but didn't check it and failed with [isValidBstViaDefinition]! I guess I got confused by the power of 2's representation,
  *      => check extremes in any form in the future, it's easy if you just sit down and focus on it (4 bytes lol).
+ *  • technically, [isValidBstViaDefinition] has a better const, cause in case of [isValidBstViaSortedProp] we will check
+ *   the entire left subtree when it's root violates the criteria, but in [isValidBstViaDefinition] we will catch that
+ *   straight away (imagine root.left being invalid and root.left.left subtree consisting of millions of nodes!)
  */
 class ValidateBinarySearchTree {
 
