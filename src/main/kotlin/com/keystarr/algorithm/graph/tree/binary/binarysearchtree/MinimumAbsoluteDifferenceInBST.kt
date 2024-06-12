@@ -17,6 +17,10 @@ import kotlin.math.min
  * Value gained:
  *  • if problem input is a BST => consider leveraging its DFS in-order traversing property;
  *  • if I can't find a solution using local vars recursive DFS => try public variables, class fields! That might be OK!
+ *  • apparently adding nodes to an array is ok too, like the official solution goes in the leet DSA course. But it looks
+ *      quite ugly though, like, is it really OK to solve tree/graph related problems by adding all nodes to an array
+ *      first with correct order and then processing them? Doesn't feel that way.
+ *      TODO: clarify that
  */
 class MinimumAbsoluteDifferenceInBST {
 
