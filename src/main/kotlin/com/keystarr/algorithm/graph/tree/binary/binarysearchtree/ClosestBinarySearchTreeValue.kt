@@ -70,6 +70,10 @@ class ClosestBinarySearchTreeValue {
         ) root.`val` to currentDiff else closestValueToDiff
     }
 
+    /**
+     * Attempted to untangle that [recursiveInternal] conditions mess, but it ain't much better.
+     * Same core idea and complexities.
+     */
     fun solutionCleaner(root: IntBinaryTreeNode?, target: Double): Int = recursiveCleanerInternal(root!!, target).first
 
     private fun recursiveCleanerInternal(root: IntBinaryTreeNode, target: Double): Pair<Int, Double> {
