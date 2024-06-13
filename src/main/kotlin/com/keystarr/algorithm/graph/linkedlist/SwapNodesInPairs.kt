@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.linkedlist
+package com.keystarr.algorithm.graph.linkedlist
 
 /**
  * LC-24 https://leetcode.com/problems/swap-nodes-in-pairs/description/

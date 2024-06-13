@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.linkedlist
+package com.keystarr.algorithm.graph.linkedlist
 
 /**
  * LC-876 https://leetcode.com/problems/middle-of-the-linked-list/description/

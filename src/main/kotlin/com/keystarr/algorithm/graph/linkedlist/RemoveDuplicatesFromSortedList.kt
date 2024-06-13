@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.linkedlist
+package com.keystarr.algorithm.graph.linkedlist
 
 /**
  * LC-83 https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/

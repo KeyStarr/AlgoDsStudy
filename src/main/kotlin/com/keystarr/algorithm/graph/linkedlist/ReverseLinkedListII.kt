@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.linkedlist
+package com.keystarr.algorithm.graph.linkedlist
 
 /**
  * LC-92 https://leetcode.com/problems/reverse-linked-list-ii/description/

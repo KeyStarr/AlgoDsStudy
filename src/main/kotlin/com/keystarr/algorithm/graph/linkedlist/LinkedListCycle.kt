@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.linkedlist
+package com.keystarr.algorithm.graph.linkedlist
 
 /**
  * LC-141 https://leetcode.com/problems/linked-list-cycle/description/
