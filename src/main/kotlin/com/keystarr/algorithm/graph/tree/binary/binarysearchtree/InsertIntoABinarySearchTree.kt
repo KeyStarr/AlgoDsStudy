@@ -6,23 +6,23 @@ import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
  * LC-701 https://leetcode.com/problems/insert-into-a-binary-search-tree/
  * difficulty: medium
  * constraints:
- *  - 0 <= number of nodes <= 10^4;
- *  - -10^8 <= node.value, valueToInsert <= 10^8;
- *  - root is a valid BST;
- *  - valueToInsert doesn't exist in the tree rooted at root.
+ *  • 0 <= number of nodes <= 10^4;
+ *  • -10^8 <= node.value, valueToInsert <= 10^8;
+ *  • root is a valid BST;
+ *  • valueToInsert doesn't exist in the tree rooted at root.
  *
  * Final notes:
- *  - failed both rightmost and leftmost leaves edge cases :DD basically outlined them both but checked none and submitted...
- *  - took me ~1h for [slow], did [efficient] only after reading the editorial.
+ *  • failed both rightmost and leftmost leaves edge cases :DD basically outlined them both but checked none and submitted...
+ *  • took me ~1h for [slow], did [efficient] only after reading the editorial.
  *
  * Value gained:
- *  - mediums do tend to have like 100% at least 1 edge case that requires specific logic to handle it => don't rush!
+ *  • mediums do tend to have like 100% at least 1 edge case that requires specific logic to handle it => don't rush!
  *      slow down and dry-run edge cases, even if you're exasperated;
- *  - funny, as in [ValidateBinarySearchTree] in-order DFS gave a solution, but NOT THE BEST ONE IN EITHER CASES!
+ *  • funny, as in [ValidateBinarySearchTree] in-order DFS gave a solution, but NOT THE BEST ONE IN EITHER CASES!
  *   in [ValidateBinarySearchTree] the best one was by just following the definition of the tree, and here the same.
  *   There it did affect the const but not the big O time complexity, here it basically gives O(logn) on average
  *   which is a HUGE performance boost!
- *  - lots of people commenting on how this task was easy. Why did I struggle so much??
+ *  • lots of people commenting on how this task was easy. Why did I struggle so much??
  */
 class InsertIntoABinarySearchTree {
 
