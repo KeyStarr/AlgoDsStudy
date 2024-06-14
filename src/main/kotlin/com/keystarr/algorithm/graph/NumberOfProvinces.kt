@@ -52,6 +52,7 @@ class NumberOfProvinces {
      *  - since node with itself has a 1 in the matrix => don't add the node itself as an edge for itself when pre-processing.
      *
      * Total Time: always O(n^2 + e) = O(n^2)
+     *  (technically it's O(n*m) but m=n in this problem. n = width of the matrix, m = height)
      *  (worst e=n^2, that is, each element in the [isConnected] is 1 => still O(n^2))
      *  (best e=0, that is, graph consists of as many components as there are nodes, there are no edges => still O(n^2))
      *
@@ -76,7 +77,7 @@ class NumberOfProvinces {
      *   exactly once in an array of some node's entry in the map.
      */
     private fun adjacentMatrixToMap(adjacentMatrix: Array<IntArray>): Map<Int, List<Int>> {
-        val nodesToEdges = HashMap<Int, MutableList<Int>>(initialCapacity = adjacentMatrix.size)
+        val nodesToEdges = HashMap<Int, MutableList<Int>>(adjacentMatrix.size)
         adjacentMatrix.forEachIndexed { nodeInd, potentialNeighbors ->
             nodesToEdges[nodeInd] = ArrayList()
             potentialNeighbors.forEachIndexed { otherNodeInd, isNeighbor ->
