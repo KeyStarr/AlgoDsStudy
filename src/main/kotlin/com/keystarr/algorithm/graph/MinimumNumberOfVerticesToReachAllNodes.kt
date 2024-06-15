@@ -17,7 +17,7 @@ package com.keystarr.algorithm.graph
  * Value gained:
  *  • uh-huh, so DFS + seen is not always the answer :))))
  *  • a very smart use of in-degree here - sometimes the key to an efficient solution it seems could be an effective use
- *   of a key property, solid understanding and a unique perspective relevant to the problem;
+ *   of a KEY DS PROPERTY: solid understanding and a unique perspective relevant to the problem;
  *  • connected components in the graph
  */
 class MinimumNumberOfVerticesToReachAllNodes {
@@ -44,8 +44,8 @@ class MinimumNumberOfVerticesToReachAllNodes {
      *  - a single connected component => ok, since the graph is acyclic there must be a "root", in this case,
      *   a single node with in-degree of 1.
      *
-     * Time: O(n)
-     * Space: O(n)
+     * Time: average/worst O(n+e): worst O(n^2) with e~=n^2, average O(n)
+     * Space: always O(n)
      */
     fun efficient(numberOfNodes: Int, edges: List<List<Int>>): List<Int> {
         val nodesWithInDegree = BooleanArray(size = numberOfNodes)
