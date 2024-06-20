@@ -14,6 +14,7 @@ import java.util.Queue
  * Value gained:
  *  • (!!) practiced and reinforced the pattern of that a node can be visited multiple times, BUT only with different states
  *   of the context specific to the path. Same idea as in [ShortestPathInAGridWithObstaclesElimination];
+ *  • (!!!) practiced BFS with multiple starting points;
  *  • practiced graph BFS with tracking distance to each node via [NodeVariant] state in the Queue instead of the out of
  *   `while` single variable like `currentDistance` and no inner for loop.
  */
@@ -37,6 +38,9 @@ class ShortestPathWithAlternatingColors {
      *  - pre-process 2 arrays into a single map node->edges, HashMap<Int,Edge>, where Edge=(targetNode: Int, isRed: Boolean)
      *  - start BFS at 0:
      *      - the first time we reach a node we set result[node]=currentDistance
+     *          cause it's BFS, meaning, if we've reached the node before, then now we're guaranteed on the path with either
+     *          the same amount of distance from the start node or more (each time we go further by distance, once done
+     *          with all the nodes at the current distance level!)
      *      - seen is a 2D array, 3rd dimension being the color of the last edge that we've used to get there. Cause it is
      *      a new state then and limits the future path differently.
      *      - for each node in a queue we store distance distance=the number of edges it took to get there AND the last edge's color.
@@ -66,16 +70,8 @@ class ShortestPathWithAlternatingColors {
             zeroNodeStates[1] = true
         }
 
-        val edgesFromZero = nodeToEdgesMap[0] ?: return result
-        edgesFromZero.forEach { edge ->
-            queue.add(
-                NodeVariant(
-                    edge.targetNode,
-                    edgesTaken = 1,
-                    wasLastEdgeRed = edge.isRed
-                )
-            )
-        }
+        queue.add(NodeVariant(node = 0, edgesTaken = 0, wasLastEdgeRed = false))
+        queue.add(NodeVariant(node = 0, edgesTaken = 0, wasLastEdgeRed = true))
 
         while (queue.isNotEmpty()) {
             val nodeVariant = queue.remove()
