@@ -18,7 +18,8 @@ import java.util.Queue
  *   step in the path is defined not only by the coordinates of the node, BUT also with some path metric value!!!!
  *   Like here, it is the amount of some specific types of nodes we encountered which has a constraint set on it
  *   => seen can become a 3D array of seen states of nodes/stepping stone via all paths!
- *  • practiced graph BFS with tracking of the distance via the state variable.
+ *  • practiced graph BFS with tracking of the distance via the state variable;
+ *  • solved my 2nd hard problem on leetcode ever, yea, baby! (:D)
  */
 class ShortestPathInAGridWithObstaclesElimination {
 
