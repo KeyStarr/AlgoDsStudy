@@ -4,11 +4,11 @@ package com.keystarr.algorithm.graph
  * LC-1466 https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/
  * difficulty: medium
  * constraints:
- *  - 2 <= 5 * 10^4;
- *  - edges.length == n-1;
- *  - edges\[i].length == 2;
- *  - 0 <= a_i, b_i <= n-1;
- *  - a_i != b_i.
+ *  • 2 <= 5 * 10^4;
+ *  • edges.length == n-1;
+ *  • edges\[i].length == 2;
+ *  • 0 <= a_i, b_i <= n-1;
+ *  • a_i != b_i.
  *
  * Final notes:
  *  • was exhausted, almost arrived at the correct solution by myself in 1h, had all the major components right, BUT

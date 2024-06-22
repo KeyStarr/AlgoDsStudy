@@ -3,11 +3,35 @@ package com.keystarr.algorithm.graph
 import java.util.*
 
 /**
+ * LC-909 https://leetcode.com/problems/snakes-and-ladders/description/
+ * difficulty: medium
  * constraints:
- *  - n == board.length == board\[i].length
- *  - 2 <= n <= 20 (at least 4, most 400 nodes)
- *  - board\[i]\[j] is either -1 or in [1,n^2]
- *  - the squares labeled as 1 and n^2 do not have any ladders or snakes
+ *  • n == board.length == board\[i].length
+ *  • 2 <= n <= 20 (at least 4, most 400 nodes)
+ *  • board\[i]\[j] is either -1 or in [1,n^2]
+ *  • the squares labeled as 1 and n^2 do not have any ladders or snakes
+ *
+ * Final notes:
+ *  • the input is actually one of the most popular ones for graph problems, may be categorized as "matrix where nodes are
+ *   its elements and edges are defined via problem description". Though here are 2 major differences:
+ *      - while some edges are defined via description, particularly, that each node has edges to 6 next ones, if such exist,
+ *       there are also edges defined by the elements of the matrix themselves: snakes and ladders define another type of edge;
+ *      - the order of labeling nodes is atypical, instead of starting from (0,0) and labeling right-down, here we start
+ *       from (n-1,0) and label left-top/right-top in alternating reverse order.
+ *  • so while the problem itself is simple once boiled down to a graph, that is, with nodes and edges clearly defined,
+ *   the understanding of all the conditions and the technicalities of modelling graph's traversal in this input form
+ *   are a major challenge;
+ *  • I've invested ~1.5h in two session to solve the problem by myself and failed, didn't even understand the issue
+ *   or where to look. Read the editorial solution, looked at the top solution and didn't understand it at first either,
+ *   it looked to complex on the details (though to be fair, rather skimmed). Only after watching the premise of https://www.youtube.com/watch?v=6lH4nO3JfLk&ab_channel=NeetCode
+ *   was I able to implement my own solution focusing on coordinates, which was efficient but overcomplicated. Then
+ *   I watched the implementation part and finally refactored the solution into operating node labels rather than the
+ *   coordinates.
+ *
+ * Value gained:
+ *  • even default input types of graph problems may have challenging intricacies and require minute attention to actually
+ *   map the input into correct graph traversal;
+ *  • practiced BFS on a directed graph.
  */
 class SnakesAndLadders {
 
