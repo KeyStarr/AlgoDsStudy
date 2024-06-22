@@ -6,20 +6,20 @@ import java.util.*
  * LC-1926 https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/description/
  * difficulty: medium
  * constraints:
- *  - maze.length == m
- *  - maze\[i].length == n
- *  - 1 <= m,n <= 100
- *  - maze\[i]\[j] is either '.' or '+'
- *  - entrance will always be an empty cell
+ *  • maze.length == m
+ *  • maze\[i].length == n
+ *  • 1 <= m,n <= 100
+ *  • maze\[i]\[j] is either '.' or '+'
+ *  • entrance will always be an empty cell
  *
  * Final notes:
- *  - done by myself via [solution] in 30 mins;
- *  - 2nd submit, cause MISTYPED AGAIN (!!!!! at least 3rd time) the size of seen, this time, to be not maze[0].size but
+ *  • done by myself via [efficient] in 30 mins;
+ *  • 2nd submit, cause MISTYPED AGAIN (!!!!! at least 3rd time) the size of seen, this time, to be not maze[0].size but
  *      accidentally maze.size.
  *
  * Value gained:
- *  - practiced BFS for finding the shortest valid path in a graph;
- *  - from now on in every matrix problem declare explicit `m` and `n` variables for matrix size???
+ *  • practiced BFS for finding the shortest valid path in a graph;
+ *  • from now on in every matrix problem declare explicit `m` and `n` variables for matrix size???
  *      to counter that problem with accidental wrong size? idk [isExit] looks bad.
  */
 class NearestExitFromEntranceInMaze {
@@ -66,7 +66,7 @@ class NearestExitFromEntranceInMaze {
      * Time: average/worst O(n*m + e)
      * Space: O(n*m)
      */
-    fun solution(maze: Array<CharArray>, entrance: IntArray): Int {
+    fun efficient(maze: Array<CharArray>, entrance: IntArray): Int {
         val rows = maze.size
         val columns = maze[0].size
 
