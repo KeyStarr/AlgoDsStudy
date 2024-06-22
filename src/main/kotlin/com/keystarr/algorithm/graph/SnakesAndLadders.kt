@@ -243,11 +243,12 @@ class SnakesAndLadders {
      * tricks:
      *  - when we encounter a ladder or a snake, don't add the node to the queue as-is but instead add the ladder/snake
      *   destination coords straight away (that way we'll not use the ladder/snake at the destination if there are some);
-     *  -
+     *  - visit each cell at most 1 regardless of the path context, because what nodes we've travelled so far does not
+     *   impact at all our future path (we've taken care of not using the current node if its a snake/ladder if previous
+     *   one was snake/ladder already).
      *
      * Edge cases:
-     *  - if n == 2 => return 1
-     *  -
+     *  - if n == 2 => return 1, works correctly as is.
      *
      * Time: average/worst O(n*n + e) but with a better const than idea#1
      * Space: O(n*n) for seen
@@ -291,36 +292,22 @@ class SnakesAndLadders {
     private fun Array<IntArray>.generateNextCoords(currentCoords: IntArray): List<IntArray> {
         val nextCoords = mutableListOf<IntArray>()
         val n = size
-        var baseRowInd = currentCoords[0]
-        var baseColumnInd = currentCoords[1]
+        var lastRowInd = currentCoords[0]
+        var lastColumnInd = currentCoords[1]
         repeat(6) {
-            val isCurrentReversed = baseRowInd.isRowReversed(n)
-            val nextRowInd: Int
-            val nextColumnInd: Int
-            if (isCurrentReversed) {
-                if (baseColumnInd == 0) {
-                    nextRowInd = baseRowInd - 1
-                    nextColumnInd = 0
-                } else {
-                    nextRowInd = baseRowInd
-                    nextColumnInd = baseColumnInd - 1
-                }
-            } else {
-                if (baseColumnInd == n - 1) {
-                    nextRowInd = baseRowInd - 1
-                    nextColumnInd = n - 1
-                } else {
-                    nextRowInd = baseRowInd
-                    nextColumnInd = baseColumnInd + 1
-                }
-            }
+            val isCurrentReversed = lastRowInd.isRowReversed(n)
+            var nextRowInd = lastRowInd
+            var nextColumnInd = lastColumnInd
+            val columnDiff = if (isCurrentReversed) -1 else 1
+            val maxColumn = if (isCurrentReversed) 0 else n - 1
+            if (lastColumnInd == maxColumn) nextRowInd = lastRowInd - 1 else nextColumnInd = lastColumnInd + columnDiff
+
             if (nextRowInd == -1) return@repeat
-            val nextDirection = this[nextRowInd][nextColumnInd]
-            val newCoords =
-                if (nextDirection != -1) nextDirection.toCoordinates(n) else intArrayOf(nextRowInd, nextColumnInd)
-            nextCoords.add(newCoords)
-            baseRowInd = nextRowInd
-            baseColumnInd = nextColumnInd
+            val nextNodeLabel = this[nextRowInd][nextColumnInd]
+            val actualNewCoords = if (nextNodeLabel != -1) nextNodeLabel.toCoordinates(n) else intArrayOf(nextRowInd, nextColumnInd)
+            nextCoords.add(actualNewCoords)
+            lastRowInd = nextRowInd
+            lastColumnInd = nextColumnInd
         }
         return nextCoords
     }
@@ -350,8 +337,8 @@ fun main() {
 //                intArrayOf(-1, 15, -1, -1, -1, -1)
 //            )
             arrayOf(
-                intArrayOf(-1,-1),
-                intArrayOf(-1,-1),
+                intArrayOf(-1, -1),
+                intArrayOf(-1, -1),
             )
         )
     )
