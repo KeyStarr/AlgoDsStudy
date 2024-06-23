@@ -3,27 +3,31 @@ package com.keystarr.algorithm.graph.implicit
 import kotlin.math.pow
 
 /**
- * LC-2101 https://leetcode.com/problems/detonate-the-maximum-bombs/
+ * ⭐️LC-2101 https://leetcode.com/problems/detonate•the•maximum•bombs/
  * difficulty: medium
  * constraints:
- *  - 1 <= bombs.length <= 300
- *  - bombs\[i].length == 3
- *  - 1 <= xi, yi, ri <= 10^5
+ *  • 1 <= bombs.length <= 300
+ *  • bombs\[i].length == 3
+ *  • 1 <= xi, yi, ri <= 10^5
  *
  * Final notes:
- *  - I didn't see the problem as a graph, EVEN THOUGH I HAD A HINT the efficient solution involved a graph, so tried
+ *  • done [efficient] by myself in ~1h;
+ *  • I didn't see the problem as a graph, EVEN THOUGH I HAD A HINT the efficient solution involved a graph, so tried
  *   a few other approaches first to no avail;
- *  - it is only when I've sketched what could be the nodes and what could be the edges, and realized the trick is here
- *   is following the detonation chain-reaction, that bombs directly in radius of the first one blown may actually detonate
+ *  • it is only when I've sketched what could be the nodes and what could be the edges, and realized the trick is here
+ *   is following the detonation chain•reaction, that bombs directly in radius of the first one blown may actually detonate
  *   other bombs in their proximity, then it started to make sense as chain reaction => graph traversal;
- *  - other than that, designed decomposed into pre-processing and actual DFS implementation and got it figured out.
+ *  • other than that, designed decomposed into pre•processing and actual DFS implementation and got it figured out.
  *   Chose DFS cause its faster to implement and gives same complexities, and here I think theres no benefit it BFS
  *   cause we have to visit each node when traversing without any same distance based logic;
- *  - couldn't come up with the [containsInCircle] formula, didn't even try (but wouldnt be able to). I hope in real
- *   interviews such things will be provided.
+ *  • couldn't come up with the [containsInCircle] formula, didn't even try (but wouldnt be able to). I hope in real
+ *   interviews such things will be provided;
+ *  • FAILED WITH BOTH TIME AND SPACE ESTIMATION BY A FACTOR OF n!!!! Decided worst number of edges (e) = n (bombs.size), but
+ *   really it is n^2, cause each bomb may have an edge to each! Say, if their centers are the same point.
  *
  * Value gained:
- *  -
+ *  • practiced solving an implicit graph problem with recursive DFS;
+ *  • I should understand better and practice the Euclidean distance algorithm.
  */
 class DetonateTheMaximumBombs {
 
@@ -92,14 +96,14 @@ class DetonateTheMaximumBombs {
      *   each call dfs for bomb \[currentBomb] counts itself as detonated)
      *  - some bomb's center lies directly ON the circle of another bomb => in [containsInCircle] less OR EQUAL.
      *
-     * Time: O(n^2)
+     * Time: average/worst O(n^3)
      *  - pre-process: always O(n^2), cause checking intersection is O(1) and adding into map/arraylist creation and adding to it is amortized O(1)
-     *  - calculation is O(n*(n+e)) = O(n^2)
-     *      - dfs average/worst O(n+e), worst n=bombs.size, worst e~=bombs.size
-     * Space: O(n + n + e) = O(n)
+     *  - calculation is O(n*(n+e)) = O(n*(n+n^2))= O(n^3)
+     *      - dfs average/worst O(n+e), worst n=bombs.size, worst e~=n^2 (each bomb detonated each)
+     * Space: average/worst O(n + n + e)  = O(2n + n^2) = O(n^2)
      *  - map bombsToDirectNeighbors O(n+e)
      *  - seen O(n)
-     *
+     *  - dfs callstack height is the max amount of bombs detonated in a single path
      *
      * -------
      *
@@ -118,11 +122,13 @@ class DetonateTheMaximumBombs {
         }
 
         var maxBombsDetonated = 0
+        val detonated = mutableSetOf<Int>()
         for (i in bombs.indices) {
-            val detonated = BooleanArray(size = bombs.size)
-            detonated[i] = true
-            val bombsDetonated = dfs(currentBomb = i, bombsToDirectNeighbors, detonated)
+            detonated.add(i)
+            dfs(currentBomb = i, bombsToDirectNeighbors, detonated)
+            val bombsDetonated = detonated.size
             if (bombsDetonated > maxBombsDetonated) maxBombsDetonated = bombsDetonated
+            detonated.clear()
         }
         return maxBombsDetonated
     }
@@ -134,15 +140,13 @@ class DetonateTheMaximumBombs {
      * Goal: calculate the total amount of bombs detonated by a chain reaction started with the detonation of [currentBomb],
      *  that were not already detonated (not marked as true in [detonated])
      */
-    private fun dfs(currentBomb: Int, bombsToDirectNeighbors: Map<Int, List<Int>>, detonated: BooleanArray): Int {
+    private fun dfs(currentBomb: Int, bombsToDirectNeighbors: Map<Int, List<Int>>, detonated: MutableSet<Int>) {
         val neighbors = bombsToDirectNeighbors[currentBomb]
-        var totalDetonations = 1
         neighbors?.forEach { neighbor ->
-            if (detonated[neighbor]) return@forEach
+            if (detonated.contains(neighbor)) return@forEach
 
-            detonated[neighbor] = true
-            totalDetonations += dfs(currentBomb = neighbor, bombsToDirectNeighbors, detonated)
+            detonated.add(neighbor)
+            dfs(currentBomb = neighbor, bombsToDirectNeighbors, detonated)
         }
-        return totalDetonations
     }
 }
