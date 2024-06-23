@@ -1,8 +1,7 @@
 package com.keystarr.algorithm.graph.implicit
 
 /**
- * LC-399 https://leetcode.com/problems/evaluate-division/description/
- * ⭐️one of my favs
+ * ⭐️LC-399 https://leetcode.com/problems/evaluate-division/description/
  * difficulty: medium
  * constraints:
  *  • 1 <= equations.length <= 20
