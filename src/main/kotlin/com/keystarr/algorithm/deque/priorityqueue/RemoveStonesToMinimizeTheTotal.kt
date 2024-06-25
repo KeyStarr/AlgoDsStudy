@@ -18,7 +18,8 @@ import java.util.PriorityQueue
  *   a trick, and just I fell into that (before submitting), cause the previous problem was exactly like that and we
  *   put back the remainder (personal momentary context issue?);
  *  - also its funny that we could just return without doing k operations if maxPile == 1 => did that trick get me
- *   beats 100% in kotlin? Nah, probably just this problem+kotlin is too niche.
+ *   beats 100% in kotlin? Nah, probably just this problem+kotlin is too niche;
+ *  - done in ~20-25 mins (didn't record the exact time).
  *
  * Value gained:
  *  - practiced recognizing and solving a problem efficiently with MaxHeap.
