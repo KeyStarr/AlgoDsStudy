@@ -64,14 +64,12 @@ class MinimumOperationsToHalveArraySum {
      * Space: O(n) for the heap
      */
     fun efficient(nums: IntArray): Int {
-        if (nums.size == 1) return 1
-
         val queue = PriorityQueue<Float>(Comparator.reverseOrder())
-        nums.forEach { queue.add(it.toFloat()) }
-
         var currentSum = 0.0
-        nums.forEach { currentSum += it }
-
+        nums.forEach {
+            currentSum += it
+            queue.add(it.toFloat())
+        }
         val target = currentSum / 2
         var operationsCount = 0
         while (currentSum > target) {
