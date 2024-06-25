@@ -10,7 +10,7 @@ package com.keystarr.algorithm.deque.queue
  *  • no explicit time/space;
  *  • single thread.
  */
-class RecentCounter {
+class NumberOfRecentCalls {
 
     private val queue = ArrayDeque<Int>()
     private var recentRequestsCounter = 0
