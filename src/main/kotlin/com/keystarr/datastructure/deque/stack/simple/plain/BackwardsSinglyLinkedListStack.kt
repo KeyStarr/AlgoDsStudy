@@ -1,7 +1,7 @@
-package com.keystarr.datastructure.stack.simple.plain
+package com.keystarr.datastructure.deque.stack.simple.plain
 
-import com.keystarr.datastructure.stack.simple.SimpleStack
-import com.keystarr.datastructure.stack.simple.debugWithPeek
+import com.keystarr.datastructure.deque.stack.simple.SimpleStack
+import com.keystarr.datastructure.deque.stack.simple.debugWithPeek
 
 /**
  * Goal - implement the basic stack using a backwards singly linked list, meaning each node has only a `prev` reference.

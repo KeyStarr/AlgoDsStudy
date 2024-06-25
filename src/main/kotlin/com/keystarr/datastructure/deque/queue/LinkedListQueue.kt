@@ -1,6 +1,6 @@
-package com.keystarr.datastructure.queue
+package com.keystarr.datastructure.deque.queue
 
-import com.keystarr.datastructure.linkedlist.DoublySimpleLinkedList
+import com.keystarr.datastructure.graph.linkedlist.DoublySimpleLinkedList
 
 class LinkedListQueue<E : Any> : SimpleQueue<E> {
 

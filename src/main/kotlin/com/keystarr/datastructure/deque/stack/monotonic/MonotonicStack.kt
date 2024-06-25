@@ -1,11 +1,11 @@
-package com.keystarr.datastructure.stack.monotonic
+package com.keystarr.datastructure.deque.stack.monotonic
 
-import com.keystarr.datastructure.stack.monotonic.MonotonicStack.Type.*
-import com.keystarr.datastructure.stack.simple.SimpleStack
-import com.keystarr.datastructure.stack.simple.debugPrintAll
-import com.keystarr.datastructure.stack.simple.debugWithPeek
-import com.keystarr.datastructure.stack.simple.isNotEmpty
-import com.keystarr.datastructure.stack.simple.plain.ArrayListStack
+import com.keystarr.datastructure.deque.stack.monotonic.MonotonicStack.Type.*
+import com.keystarr.datastructure.deque.stack.simple.SimpleStack
+import com.keystarr.datastructure.deque.stack.simple.debugPrintAll
+import com.keystarr.datastructure.deque.stack.simple.debugWithPeek
+import com.keystarr.datastructure.deque.stack.simple.isNotEmpty
+import com.keystarr.datastructure.deque.stack.simple.plain.ArrayListStack
 
 /**
  * Concept - a stack the order of elements in which is always sorted monotonically.

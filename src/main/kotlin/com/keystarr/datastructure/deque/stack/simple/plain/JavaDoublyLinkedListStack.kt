@@ -1,7 +1,7 @@
-package com.keystarr.datastructure.stack.simple.plain
+package com.keystarr.datastructure.deque.stack.simple.plain
 
-import com.keystarr.datastructure.stack.simple.SimpleStack
-import com.keystarr.datastructure.stack.simple.debugWithPeek
+import com.keystarr.datastructure.deque.stack.simple.SimpleStack
+import com.keystarr.datastructure.deque.stack.simple.debugWithPeek
 import java.util.LinkedList
 
 /**

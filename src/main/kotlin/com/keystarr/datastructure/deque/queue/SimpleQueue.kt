@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.queue
+package com.keystarr.datastructure.deque.queue
 
 interface SimpleQueue<E> {
 

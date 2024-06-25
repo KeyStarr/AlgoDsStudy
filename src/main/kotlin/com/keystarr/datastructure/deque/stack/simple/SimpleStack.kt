@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.stack.simple
+package com.keystarr.datastructure.deque.stack.simple
 
 /**
  * All time

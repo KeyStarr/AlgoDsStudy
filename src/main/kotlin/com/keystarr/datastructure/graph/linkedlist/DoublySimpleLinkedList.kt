@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.linkedlist
+package com.keystarr.datastructure.graph.linkedlist
 
 /**
  * LC-707 https://leetcode.com/problems/design-linked-list/description/

@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.linkedlist
+package com.keystarr.datastructure.graph.linkedlist
 
 /**
  * Task and general implementation same as [SinglySimpleLinkedList], but use 'sentinel nodes' => in a case of

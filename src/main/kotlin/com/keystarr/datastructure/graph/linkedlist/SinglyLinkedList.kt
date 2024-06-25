@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.linkedlist
+package com.keystarr.datastructure.graph.linkedlist
 
 interface SinglyLinkedList<E : Any> {
 

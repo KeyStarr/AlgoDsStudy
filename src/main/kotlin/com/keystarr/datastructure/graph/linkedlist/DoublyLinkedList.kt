@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.linkedlist
+package com.keystarr.datastructure.graph.linkedlist
 
 /**
  * Specification based on https://leetcode.com/problems/design-linked-list/ plus more convenience methods like [removeTail].

@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.stack
+package com.keystarr.datastructure.deque.stack
 
 /**
  * LC-155 https://leetcode.com/problems/min-stack/
