@@ -3,40 +3,40 @@ package com.keystarr.algorithm.deque.priorityqueue.topk
 import java.util.*
 
 /**
- * 🚨LC-347 https://leetcode.com/problems/top-k-frequent-elements/description/
+ * 🚨LC-347 https://leetcode.com/problems/top•k•frequent•elements/description/
  * difficulty: medium
  * constraints:
- *  - 1 <= nums.length <= 10^5
- *  - -10^4 <= nums\[i] <= 10^4
- *  - k in range [1, number of unique elements in the array]
- *  - answer is always unique
+ *  • 1 <= nums.length <= 10^5
+ *  • •10^4 <= nums\[i] <= 10^4
+ *  • k in range [1, number of unique elements in the array]
+ *  • answer is always unique
  *
  * Final notes:
- *  - cool, just read about the pattern, never done it before (besides just using a heap) and nailed it by myself 1st submit
+ *  • cool, just read about the pattern, never done it before (besides just using a heap) and nailed it by myself 1st submit
  *   in 40 mins, including carefully considering everything for the first time;
- *  - indeed, to use the top k heap pattern we must have a finalized state of the elements, because each time the heap
- *   size exceeds k we remove elements (so, if an element state would change mid-run, and we have already deleted it thinking
+ *  • indeed, to use the top k heap pattern we must have a finalized state of the elements, because each time the heap
+ *   size exceeds k we remove elements (so, if an element state would change mid•run, and we have already deleted it thinking
  *   it was X, we can't go back and modify it again to be Y, that doesn't make sense);
- *  - here the sub-problem to get the finalized elements collection required to count the elements frequency, which is
+ *  • here the sub•problem to get the finalized elements collection required to count the elements frequency, which is
  *   a typical hashmap use case => so used a hashmap for it for O(n) time and O(n) space;
- *  - then just performed the pattern of the top k heap, which really goes like this:
+ *  • then just performed the pattern of the top k heap, which really goes like this:
  *   "if we have a finalized collection of elements and need to get top k elements out of it according to some criteria,
- *   simply add all elements one-by-one into the minHeap => and when heap.size reaches k+1, remove an element (basically
+ *   simply add all elements one•by•one into the minHeap => and when heap.size reaches k+1, remove an element (basically
  *   remove the minimum according to the criteria, which is just what we need, since top k means max k elements)"
- *  - what a weird trick though. Intuition tells me it's excessive while it appears that in reality that does allow to
+ *  • what a weird trick though. Intuition tells me it's excessive while it appears that in reality that does allow to
  *   save some time (though I wonder what would benefits really be in real production, if there would be any. Maybe, like,
  *   on billions of data points for something like Facebook?)
  *
  * Value gained:
- *  - I loved it, just learnt about the top k heap pattern and havent even paraphrased it, just when straight ahead and
+ *  • I loved it, just learnt about the top k heap pattern and havent even paraphrased it, just when straight ahead and
  *   built it, used it to get the job done => understood it way better. That's the way to go with learning anything
  *   engineering!
- *  - "heap top k" pattern:
- *      - prerequisite: the collection is finalized relating to the optimization criteria
- *      - a bit counterintuitive at first: use a minHeap in order to remove the minimum and finish with top k maximums
- *      - add all elements into the heap, even if the heap size limit is exceeded, but if it was, remove the minimum element
+ *  • "heap top k" pattern:
+ *      • prerequisite: the collection is finalized relating to the optimization criteria
+ *      • a bit counterintuitive at first: use a minHeap in order to remove the minimum and finish with top k maximums
+ *      • add all elements into the heap, even if the heap size limit is exceeded, but if it was, remove the minimum element
  *       (which may have been updated with the inserted one, but maybe the inserted one actually was one of current top k)
- *      - reduces time O(n*logn) to O(n*logk), which is small but important at least for interviews (and perhaps real
+ *      • reduces time O(n*logn) to O(n*logk), which is small but important at least for interviews (and perhaps real
  *      highload production, huge datasets).
  */
 class TopKFrequentElements {

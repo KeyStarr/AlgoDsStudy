@@ -2,22 +2,29 @@ package com.keystarr.algorithm.deque.priorityqueue.topk
 
 import java.util.*
 import kotlin.math.abs
-import kotlin.math.max
 
 /**
- *
+ * LC-658 https://leetcode.com/problems/find•k•closest•elements/description/
+ * difficulty: medium
  * constraints:
- *  - 1 <= k <= arr.length
- *  - 1 <= arr.length <= 10^4
- *  - arr SORTED ASCENDING
- *  - -10^4 <= arr\[i], x <= 10^4
- *  - whats the constraint on x??????????????? no one to ask => assume same as arr\[i]
+ *  • 1 <= k <= arr.length
+ *  • 1 <= arr.length <= 10^4
+ *  • arr SORTED ASCENDING
+ *  • •10^4 <= arr\[i], x <= 10^4
+ *  • whats the constraint on x??????????????? no one to ask => assume same as arr\[i]
  *
  * Final notes:
- *  -
+ *  • missed a crucial condition
+ *  • use comparator for all heap conditions? which may be plenty, succinct
+ *  • comparator use minus is more succinct!!
  *
  * Value gained:
- *  -
+ *  • heap is not always the efficient solution for top k elements, here we have a sorted input array and can simply
+ *   leverage that into a binary search / a sliding window for better time complexity! => so consider heap for top k,
+ *   but by default still at least consider it;
+ *  • I think that all heap prioritization logic should be put into a comparator for clarity. It seems that the main loop
+ *   logic would probably (hypothesis from 2 problems so far) stay the same in most problems;
+ *  • practiced using a Heap to solve top k problem WITH NON•SINGLE logic conditions, though here its not an efficient solution.
  */
 class FindKClosestElements {
 
@@ -50,30 +57,32 @@ class FindKClosestElements {
      *  - O(n) for the diffs array
      *  - O(k) for the heap
      */
-    fun solution(numbers: IntArray, k: Int, x: Int): List<Int> {
+    fun suboptimal(numbers: IntArray, k: Int, x: Int): List<Int> {
         val diffsToX = IntArray(size = numbers.size)
         numbers.forEachIndexed { ind, num -> diffsToX[ind] = abs(num - x) }
 
-        val maxHeap = PriorityQueue<Pair<Int, Int>> { o1, o2 -> o2.second - o1.second }
+        val maxHeap = PriorityQueue<Pair<Int, Int>> { o1, o2 ->
+            if (o1.second == o2.second) o2.first - o1.first else o2.second - o1.second
+        }
         diffsToX.forEachIndexed { ind, diff ->
-            if (maxHeap.size < k) {
-                maxHeap.add(ind to diff)
-            } else {
-                if (maxHeap.peek()?.second != diff) maxHeap.add(ind to diff)
-                if (maxHeap.size > k) maxHeap.remove()
-            }
+            maxHeap.add(numbers[ind] to diff)
+            if (maxHeap.size > k) maxHeap.remove()
         }
 
-        return maxHeap.map { numbers[it.first] }.sorted()
+        return maxHeap.map { it.first }.sorted()
     }
+
+    // TODO: solve via:
+    //  1) binary search
+    //  2) sliding window
 }
 
 fun main() {
     println(
-        FindKClosestElements().solution(
-            numbers = intArrayOf(0, 1, 1, 1, 2, 3, 6, 7, 8, 9),
-            k = 9,
-            x = 4,
+        FindKClosestElements().suboptimal(
+            numbers = intArrayOf(1,2,3,4,5),
+            k = 4,
+            x = 3,
         )
     )
 }
