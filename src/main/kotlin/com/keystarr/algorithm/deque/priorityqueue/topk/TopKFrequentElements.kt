@@ -72,7 +72,7 @@ class TopKFrequentElements {
      *   valid choices.
      *
      * Time: average/worst O(n*logk), worst is k=n O(nlogn)
-     * Space: O(n)
+     * Space: always O(n+k), worst k=n, so O(n)
      */
     fun efficient(nums: IntArray, k: Int): IntArray {
         val numberToOccursMap = mutableMapOf<Int, NumberWithOccurrences>()
@@ -80,9 +80,7 @@ class TopKFrequentElements {
             numberToOccursMap.getOrPut(number) { NumberWithOccurrences(number) }.occurCount++
         }
 
-        val minHeap = PriorityQueue<NumberWithOccurrences> { o1, o2 ->
-            if (o1.occurCount == o2.occurCount) 0 else if (o1.occurCount > o2.occurCount) 1 else -1
-        }
+        val minHeap = PriorityQueue<NumberWithOccurrences> { o1, o2 -> o1.occurCount - o2.occurCount }
         numberToOccursMap.values.forEach { // O(n*logk)
             minHeap.add(it)
             if (minHeap.size > k) minHeap.remove()
