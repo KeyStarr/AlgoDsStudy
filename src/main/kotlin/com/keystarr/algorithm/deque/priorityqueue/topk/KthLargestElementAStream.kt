@@ -1,7 +1,6 @@
 package com.keystarr.algorithm.deque.priorityqueue.topk
 
 import java.util.PriorityQueue
-import kotlin.math.min
 
 /**
  * LC-703 https://leetcode.com/problems/kth-largest-element-in-a-stream/description/
