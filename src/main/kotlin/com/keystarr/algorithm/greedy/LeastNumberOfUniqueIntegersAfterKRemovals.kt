@@ -6,26 +6,26 @@ import java.util.PriorityQueue
  * LC-1484 https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/description/
  * difficulty: medium
  * constraints:
- *  - 1 <= arr.length <= 10^5
- *  - 1 <= arr\[i] <= 10^9
- *  - 0 <= k <= arr.length
+ *  • 1 <= arr.length <= 10^5
+ *  • 1 <= arr\[i] <= 10^9
+ *  • 0 <= k <= arr.length
  *
  * Final notes:
- *  - I interpreted at first the problem statement "Find the least number of unique integers..", unique meaning that
+ *  • I interpreted at first the problem statement "Find the least number of unique integers..", unique meaning that
  *   the answer is the amount of integers with frequency exactly 1! Spent ~40m designing the algorithm for that,
  *   got through 3 failed submissions (!!) and only then realized that actually the goal is to get the number of ALL
  *   DISTINCT numbers in the array... wow.
- *   from there on the solution was obvious, took me like 10-15 mins to design and implement it, 1st time submit.
- *  - actual best wording for the greedy strategy here is simply: "we improve the answer only by removing all duplicates
- *   of a number" => "each move remove all instances of the number with the lowest frequency, if not possible - finish"
+ *   from there on the solution was obvious, took me like 10•15 mins to design and implement it, 1st time submit.
+ *  • actual best wording for the greedy strategy here is simply: "we improve the answer only by removing all duplicates
+ *   of a number" => "each move remove all instances of the number with the lowest frequency, if not possible • finish"
  *
  * Value gained:
- *  - dunno even what to do better in the future to avoid misinterpreting the problem like that. In interviews hopefully
+ *  • dunno even what to do better in the future to avoid misinterpreting the problem like that. In interviews hopefully
  *   the interviewer would catch that and correct me earlier, but they might not. Hm;
- *  - practiced recognizing and designing a greedy algorithm;
- *  - counting => hashmap, practiced that thought-hook. Not an array here cause we have 10^9 elements potentially and
+ *  • practiced recognizing and designing a greedy algorithm;
+ *  • counting => hashmap, practiced that thought•hook. Not an array here cause we have 10^9 elements potentially and
  *   don't know in advance, exactly how many distinct elements there are in the collection (we might end up allocating
- *   the array of 10^9, only to find out there's 1 number with 10^9-1 duplicates, and use exactly one slot of it!
+ *   the array of 10^9, only to find out there's 1 number with 10^9•1 duplicates, and use exactly one slot of it!
  *   so on average a hashmap here is cleaner to use and probably more optimal even with the hashing bearing down the time const)
  */
 class LeastNumberOfUniqueIntegersAfterKRemovals {
