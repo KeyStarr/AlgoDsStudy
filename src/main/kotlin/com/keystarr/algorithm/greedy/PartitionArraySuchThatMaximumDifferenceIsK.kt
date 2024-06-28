@@ -10,12 +10,14 @@ package com.keystarr.algorithm.greedy
  *  
  * Final notes:
  *  • done [efficient] by myself in 20 mins, pretty intuitive. Realized the proof for why the sorting is a correct move
- *   half the way into designing the code :D 
+ *   half the way into designing the code :D
  *  • Why is that a medium? 
  *  
  * Value gained:
  *  • practiced recognizing a greedy approach to the problem (asking for a min, huh), designing and implementing it
  *   (indeed, pre•processing the input via sorting seems to be a common tool for greedy algorithms)
+ *  • funny, the problem mentioned "subsequences" but actually with other constraints combined we ended up looking for
+ *   the "subsets - the original order doesn't matter => be wary of such cases in other problems.
  */
 class PartitionArraySuchThatMaximumDifferenceIsK {
 

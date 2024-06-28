@@ -171,6 +171,9 @@ class IPO {
         return currentCapital
     }
 
+    // TODO: why do the most efficient solutions have ~200 ms less time? Is there an even more efficient solution?
+    //  could using an IntArray instead of the [Project] give that much better time? (really doubt it)
+
     class Project(val minCapital: Int, val profit: Int)
 }
 
