@@ -31,7 +31,7 @@ import java.util.PriorityQueue
  *  • 3rd: fixed the sorting, but finally failed at the major design flaw, as I have not taken into account that, once we
  *   hit the block and start doing projects we must select the maximum profitable ones out of the affordable (seen so far),
  *   and not just backwards by the order of projects being seen! (cause profits have no correlation to capital (by which we sorted)
- *   what•so•ever!)
+ *   what-so-ever!)
  *
  * Value gained:
  *  • what a beautiful, almost a quintessential problem for a greedy solution. A lot of nuance yet a great metaphor, so understandable;
