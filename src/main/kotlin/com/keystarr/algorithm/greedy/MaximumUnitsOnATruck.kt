@@ -18,7 +18,9 @@ import kotlin.math.min
  *   whatsoever?
  *
  * Value gained:
- *  • practiced recognizing and solving a greedy problem;
+ *  • practiced recognizing and solving a greedy problem, a very straightforward one here, yet I still managed to miss
+ *   returning the units and NOT the boxes at first :D pay more attention to what is the requested result in multi-parameterized
+ *   problems. Had same situation I think with another greedy one with 2 params [IPO], but in sorting!;
  *  • 💡try describing the algo in the docs ONLY via words and 1-2 abstraction levels higher than now, see if it will give
  *   sufficient precision for the communication with the interviewer/complexities approximation and faster implementation,
  *   yet save time on both coding and correcting errors.
