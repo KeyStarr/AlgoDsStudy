@@ -11,6 +11,7 @@ package com.keystarr.algorithm.greedy
  * Final notes:
  *  - why is that a medium? Very similar to [HowManyApplesCanYouPutIntoTheBasket] which is marked as easy.
  *   For the bucket sort solution for O(n) time?
+ *  - solved in 20-25 mins: ⚠️why so slow?? Might need more practice with greedy problems;
  *  - seems like not rarely some of these greedy problems can be solved for O(n) time via a bucket/count sort.
      Might make it a priority in the future to learn these, sounds like a legit follow-up during the interview.
  *
@@ -32,6 +33,7 @@ class ReduceArraySizeToTheHalf {
      * most optimal local strategy for a step?
      *  locally, we'd reduce the [numbers] size by the max amount if we remove all occurs of a number with the max
      *  amount of occurrences.
+     * => each step greedily remove the number with the max amount of occurrences (out of those remaining)
      *
      * Algorithm:
      *  - pre-process, count the numbers frequencies using a HashMap;
