@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.hashtable
+package com.keystarr.datastructure.map.hashmap
 
 /**
  * TODO:

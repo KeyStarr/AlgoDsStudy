@@ -1,4 +1,4 @@
-package com.keystarr.datastructure.hashtable
+package com.keystarr.datastructure.map.hashmap
 
 /**
  * LC-706: https://leetcode.com/problems/design-hashmap/
