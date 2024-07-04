@@ -74,8 +74,6 @@ class BinarySearch {
      * => time and space complexity is the same also.
      */
     fun iterative(nums: IntArray, target: Int): Int {
-        if (nums.isEmpty()) return -1
-
         var start = 0
         var end = nums.size - 1
         while (start <= end) {
