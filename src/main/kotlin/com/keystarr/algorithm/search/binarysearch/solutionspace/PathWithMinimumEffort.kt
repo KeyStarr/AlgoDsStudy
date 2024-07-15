@@ -8,8 +8,8 @@ import kotlin.math.max
  * ⭐️LC-1631 https://leetcode.com/problems/path-with-minimum-effort/description/
  * difficulty: medium
  * constraints:
- *  - 1 <= rows, columns <= 100
- *  - 1 <= heights\[i]\[j] <= 10^6
+ *  • 1 <= rows, columns <= 100
+ *  • 1 <= heights\[i]\[j] <= 10^6
  *
  * Final notes:
  *  • done [firstAttemptTLE] first, failed a submit due to TLE;
@@ -19,7 +19,7 @@ import kotlin.math.max
  *  • I would've never in a million years thought of even attempting a binary search in that kind of problem. It's a graph,
  *   right? Let's do BFS or DFS and optimize visiting nodes based on the path metric. Turns out there's more to it;
  *  • interesting [efficientDijkstra] apparently resembles the classic Dijkstra's algorithm for shortest path within a 
- *   weight graph. Need to look into that later and master it better;
+ *   weight graph. Need to look into that later and master it better.
  *
  * Value gained:
  *  • learnt a grand surprise lesson: binary search can be applied even to graph problems to get the efficient solution;
