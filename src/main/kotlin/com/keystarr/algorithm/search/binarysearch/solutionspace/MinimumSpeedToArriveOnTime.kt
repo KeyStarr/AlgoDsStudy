@@ -84,12 +84,12 @@ class MinimumSpeedToArriveOnTime {
         var left = 1
         var right = max(trainDistances.maxOf { it }, trainDistances.last() * 100) + 1
         var lastValidSpeed = -1
-        while (left < right) {
+        while (left <= right) {
             val middle = left + (right - left) / 2
             val isValid = trainDistances.isSpeedValid(speed = middle.toDouble(), maxHours = maxHours)
             if (isValid) {
                 lastValidSpeed = middle
-                right = middle
+                right = middle - 1
             } else {
                 left = middle + 1
             }
