@@ -88,7 +88,8 @@ class DivideChocolate {
      * How to find the maximum possible minimum subarray sum with a valid split?
      * Try binary search on that solution space:
      *  min boundary = sweetness.min(), cause theres no valid possible subarray with the total sum less than that;
-     *  max boundary = sweetness.sum() (actually only if friendsCount = 0, but it's ok in general due to log)
+     *  max boundary = sweetness.sum() / (friendsCount + 1), cause each friend must have some and we must have less than
+     *   everybody => max possible sweetness we can have is guaranteed no greater than that value!
      *  elimination properties:
      *   - if [sweetness] can be split such that all subarrays sums are no less than X => that very split is valid
      *    for any value less than X;
@@ -119,11 +120,10 @@ class DivideChocolate {
      * Space: O(1)
      */
     fun efficient(sweetness: IntArray, friendsCount: Int): Int {
-        var left = 1
-        var right = sweetness.sum()
-        if (friendsCount == 0) return right
-
+        var left = sweetness.minOf { it }
         val targetSubarraysCount = friendsCount + 1
+        var right = sweetness.sum() / targetSubarraysCount
+
         while (left <= right) {
             val mid = left + (right - left) / 2
             if (sweetness.isValidSplit(mid, targetSubarraysCount)) left = mid + 1 else right = mid - 1
