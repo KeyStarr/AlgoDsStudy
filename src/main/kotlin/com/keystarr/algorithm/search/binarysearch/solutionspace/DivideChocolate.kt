@@ -21,7 +21,7 @@ package com.keystarr.algorithm.search.binarysearch.solutionspace
  *   for an intermediate candidate X value, since we will terminate with the real max possible answer (the max valid
  *   min subarray sum always equals to a valid sum after split, because any value after it will be invalid, and since
  *   we go right if the split is valid, we will end up exactly at this real border);
- * • practiced applying binary search on solution spaces.
+ *  • practiced binary search on solution spaces with the goal on maximization.
  */
 class DivideChocolate {
 
