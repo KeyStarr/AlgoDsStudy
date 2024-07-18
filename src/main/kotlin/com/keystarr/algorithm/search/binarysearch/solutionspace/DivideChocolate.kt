@@ -4,14 +4,24 @@ package com.keystarr.algorithm.search.binarysearch.solutionspace
  * ⭐️LC-1231 https://leetcode.com/problems/divide-chocolate/
  * difficulty: HARD
  * constraints:
- *  - 0 <= k < sweetness.length <= 10^4
- *  - 1 <= sweetness\[i] <= 10^5
+ *  • 0 <= k < sweetness.length <= 10^4;
+ *  • 1 <= sweetness\[i] <= 10^5.
  *
  * Final notes:
- *  - latch on and understand weird conditions
+ *  • couldn't find a solution, even a brute force one, by myself in ~1.5h. Failed to figure out how to check whether
+ *   for the value X it's possible to  split the array into valid subarrays;
+ *  • solved via [efficient] after learning the key ideas from the Editorial (great explanation there btw!);
+ *  • turns out that checking whether there is a valid split available is a super simple algorithm, intuitively I feel
+ *   that it is correct, but rationally though I still can't explain really why it works, can't prove it (haven't
+ *   deliberately tried though).
  *
  * Value gained:
- *  -
+ *  • learnt of that new idea about the applicability of binary search on solution spaces - apparently we may guess
+ *   approximate answers, and it's ok, like here. Like, it doesn't matter that there might be no actual min subarray sum
+ *   for an intermediate candidate X value, since we will terminate with the real max possible answer (the max valid
+ *   min subarray sum always equals to a valid sum after split, because any value after it will be invalid, and since
+ *   we go right if the split is valid, we will end up exactly at this real border);
+ * • practiced applying binary search on solution spaces.
  */
 class DivideChocolate {
 
