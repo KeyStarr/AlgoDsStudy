@@ -5,7 +5,7 @@ package com.keystarr.algorithm.graph.tree.backtracking
  * difficulty: medium
  * constraints:
  *  • 1 <= nums.length <=  6
- *  • •10 <= nums\[i] <= 10
+ *  • -10 <= nums\[i] <= 10
  *  • all integers of nums are unique
  *  
  * Final notes:  
@@ -13,11 +13,14 @@ package com.keystarr.algorithm.graph.tree.backtracking
  *  • time complexity is really hard to estimate, at least right now for me;
  *  • [naive] is definitely slower than [efficient] cause in [naive] we perform multiple right-shift of elements = array copies
  *   when inserting the new number in the middle, and [efficient] we only append to the end / remove from the end which
- *   never requires an array copy.
+ *   never requires an array copy;
+ *  • so, here we "PRUNE" the paths which lead to non-distinct or even just combinations (with duplicate values) permutations
+ *   by `if (usedNums[ind]) return@forEachIndexed`, i.o. adding to the current permutation only numbers which not were
+ *   not yet used in the current path!!!
  * 
  * Value gained:
  *  • awesome, so basically the "backtracking" pattern is a special case of tree DFS;
- *  • practiced recognizing and using backtracking to solve a problem efficiently.
+ *  • practiced recognizing and using backtracking to solve a problem efficiently;
  */
 class Permutations {
 
