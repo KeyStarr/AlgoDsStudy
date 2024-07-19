@@ -16,7 +16,8 @@ import kotlin.math.pow
  *  • so in [backtracking] indeed the same backtracking pattern fits, with:
  *   • pruning being traversing only to the nodes-numbers that come after the current number in the original array;
  *   • adding subsets at each node, each subset is the current state of the subset we keep track of;
- *   • indeed the same as in [Permutations], add the current number on the forward movement and remove on backtracking.
+ *   • indeed the same as in [Permutations], add the current number on the forward movement and remove on backtracking;
+ *  • [bitwise] is more efficient than [backtracking], but it seems that iterative probably will be even more efficient here.
  *
  * Value gained:
  *  • learnt a model of reasoning about subsets such that we either take each element or not => a binary decision, 2 properties follow:
