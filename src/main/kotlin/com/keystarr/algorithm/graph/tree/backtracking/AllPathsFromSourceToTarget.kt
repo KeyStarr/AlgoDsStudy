@@ -4,28 +4,28 @@ package com.keystarr.algorithm.graph.tree.backtracking
  * ⭐LC-7797 https://leetcode.com/problems/all-paths-from-source-to-target/description/
  * difficulty: medium
  * constraints:
- *  - n == graph.length
- *  - 2 <= n <= 15
- *  - 0 <= graph\[i]\[j] < n
- *  - graph\[i]\[j] != i (no self edges)
- *  - all elements in graph\[i] are unique
- *  - the input graph is always a DAG.
+ *  • n == graph.length
+ *  • 2 <= n <= 15
+ *  • 0 <= graph\[i]\[j] < n
+ *  • graph\[i]\[j] != i (no self edges)
+ *  • all elements in graph\[i] are unique
+ *  • the input graph is always a DAG.
  *
  * Final notes:
- *  - oh, DFS without seen! Here the problem asks for all paths from one node to another => every time there's an edge
+ *  • oh, DFS without seen! Here the problem asks for all paths from one node to another => every time there's an edge
  *   to some node, we must take it, no matter how many times we've visited that node previously. Coz every such time the
- *   path-context is different, and the path-context in this problem is which nodes we had visited so far, with the
+ *   path•context is different, and the path-context in this problem is which nodes we had visited so far, with the
  *   original visit order => it's always different. Never seen such a problem before;
- *  - moreover, the problem asks to return all paths and not just, say, a number of paths => we need to actually construct
+ *  • moreover, the problem asks to return all paths and not just, say, a number of paths => we need to actually construct
  *   the path as we traverse nodes. And the efficient way to do this is to use only one instance of the current path
  *   and copy it to the result once the end is reached => i.o. backtracking;
- *  - as in [Combinations], [Permutations] and [Subsets] estimating the time here is hard. Actually here time estimation
+ *  • as in [Combinations], [Permutations] and [Subsets] estimating the time here is hard. Actually here time estimation
  *   is even harder than designing the solution itself for me right now D::::
  *
  * Value gained:
- *  - cool, sometimes it's efficient to use DFS/BFS without seen, sometimes path-context is different for every node visit;
- *  - indeed, backtracking generalizes to graphs, it's a good tool not just for trees;
- *  - practiced recognizing and designing a backtracking solution on an abstract directed acyclic graph problem.
+ *  • cool, sometimes it's efficient to use DFS/BFS without seen, sometimes path•context is different for every node visit;
+ *  • indeed, backtracking generalizes to graphs, it's a good tool not just for trees;
+ *  • practiced recognizing and designing a backtracking solution on an abstract directed acyclic graph problem.
  */
 class AllPathsFromSourceToTarget {
 
@@ -35,17 +35,8 @@ class AllPathsFromSourceToTarget {
      *
      * all valid paths in a DIRECTED ACYCLIC graph (no loops!) => try DFS without seen.
      *
-     * Time: (n+n!)
-     *  lets reason
-     *  its not just O(n+e) cause we may visit a node multiple times and each time we visit it we consider all edges from it
-     *  =>
-     *  the WORST time is when each node has an edge to each while the graph remains acyclic
-     *  then the amount of edges = (n-1)+(n-2)+(n-3)+...+0 (end node)
-     *  => node 1 can be visited once, node 2 can be visited twice, node 3 thrice, and from each visit we got through all edges that that node has
-     *  => the total amount of times we traverse via an edge = (n-1)*(n-2)*(n-3)*..*1 => n!
-     * Space:
-     *  - the callstack height is k=the size of the longest path in the graph
-     *  - the worst (max) amount of result paths = ????
+     * Time: O(2^n*n) TODO: why exactly? understand deeper / try to actually prove
+     * Space: O(numberOfPaths) = O(2^n)
      */
     fun solution(graph: Array<IntArray>) = mutableListOf<List<Int>>().apply {
         dfs(
