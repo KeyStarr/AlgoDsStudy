@@ -73,6 +73,7 @@ class MonotonicStack<T : Comparable<T>>(
     }
 }
 
+// too lazy for unit test here for now :D
 fun main() {
     println("-------- non increasing --------")
     runNonIncreasing()
