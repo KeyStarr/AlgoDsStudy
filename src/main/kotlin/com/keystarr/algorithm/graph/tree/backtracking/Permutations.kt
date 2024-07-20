@@ -9,10 +9,10 @@ package com.keystarr.algorithm.graph.tree.backtracking
  *  • all integers of nums are unique
  *  
  * Final notes:  
- *  • done [naive] to understand better what the optimization with [efficient] would be => didn't get it :D
+ *  • done [bfs] to understand better what the optimization with [dfs] would be => didn't get it :D
  *  • time complexity is really hard to estimate, at least right now for me;
- *  • [naive] is definitely slower than [efficient] cause in [naive] we perform multiple right-shift of elements = array copies
- *   when inserting the new number in the middle, and [efficient] we only append to the end / remove from the end which
+ *  • [bfs] is definitely slower than [dfs] cause in [bfs] we perform multiple right-shift of elements = array copies
+ *   when inserting the new number in the middle, and [dfs] we only append to the end / remove from the end which
  *   never requires an array copy;
  *  • so, here we "PRUNE" the paths which lead to non-distinct or even just combinations (with duplicate values) permutations
  *   by `if (usedNums[ind]) return@forEachIndexed`, i.o. adding to the current permutation only numbers which not were
@@ -44,7 +44,7 @@ class Permutations {
      *
      * (couldn't figure out by myself in reasonable time, so learnt the idea from https://leetcode.com/problems/permutations/solutions/18255/share-my-short-iterative-java-solution/)
      */
-    fun naive(nums: IntArray): List<List<Int>> {
+    fun bfs(nums: IntArray): List<List<Int>> {
         val intermediateResults = ArrayDeque<List<Int>>()
         intermediateResults.add(listOf(nums[0]))
         for (i in 1 until nums.size) {
@@ -87,7 +87,7 @@ class Permutations {
      *  - total results lists size is n! and each list takes n space = O(n!*n)
      *  - recursion stack = height of the tree = n+1
      */
-    fun efficient(nums: IntArray): List<List<Int>> = mutableListOf<List<Int>>().apply {
+    fun dfs(nums: IntArray): List<List<Int>> = mutableListOf<List<Int>>().apply {
         backtrack(
             current = ArrayList(nums.size),
             usedNums = BooleanArray(size = nums.size),
@@ -120,7 +120,7 @@ class Permutations {
 
 fun main() {
     println(
-        Permutations().efficient(
+        Permutations().dfs(
             intArrayOf(1, 2, 3)
         )
     )
