@@ -50,14 +50,13 @@ class NQueensII {
      *  - n == 1 => 1, correct as-is
      *  - n == 2 => 0, correct
      *
-     * Time: TODO: prove, why is true time/space estimation unknown?
+     * Time: O(n!) TODO: prove, why is true time/space estimation unknown? why is approximate n! exactly?
      * Space:
      */
     fun efficient(n: Int): Int = backtrack(
         n = n,
         currentRow = -1,
         currentColumn = 0,
-        rowsAttacked = mutableSetOf(),
         columnsAttacked = mutableSetOf(),
         diagonalsAttacked = mutableSetOf(),
         antiDiagonalsAttacked = mutableSetOf(),
@@ -67,15 +66,13 @@ class NQueensII {
         n: Int,
         currentRow: Int,
         currentColumn: Int,
-        rowsAttacked: MutableSet<Int>,
         columnsAttacked: MutableSet<Int>,
         diagonalsAttacked: MutableSet<Int>,
         antiDiagonalsAttacked: MutableSet<Int>,
     ): Int {
         val diagonalDiff = currentRow - currentColumn
         val antiDiagonalSum = currentRow + currentColumn
-        if (rowsAttacked.contains(currentRow)
-            || columnsAttacked.contains(currentColumn)
+        if (columnsAttacked.contains(currentColumn)
             || diagonalsAttacked.contains(diagonalDiff)
             || antiDiagonalsAttacked.contains(antiDiagonalSum)
         ) return 0 // that cell is attacked => can't place a queen there
@@ -84,7 +81,6 @@ class NQueensII {
         if (currentRow == n - 1) return 1
 
         if (currentRow != -1) {
-            rowsAttacked.add(currentRow)
             columnsAttacked.add(currentColumn)
             diagonalsAttacked.add(diagonalDiff)
             antiDiagonalsAttacked.add(antiDiagonalSum)
@@ -97,14 +93,12 @@ class NQueensII {
                 n = n,
                 currentRow = newRow,
                 currentColumn = newColumn,
-                rowsAttacked = rowsAttacked,
                 columnsAttacked = columnsAttacked,
                 diagonalsAttacked = diagonalsAttacked,
                 antiDiagonalsAttacked = antiDiagonalsAttacked,
             )
         }
 
-        rowsAttacked.remove(currentRow)
         columnsAttacked.remove(currentColumn)
         diagonalsAttacked.remove(diagonalDiff)
         antiDiagonalsAttacked.remove(antiDiagonalSum)
