@@ -24,6 +24,7 @@ class ProblemsByTopicShuffler {
         additional problems to shuffle in:
             - https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/
             - https://leetcode.com/problems/sliding-window-median/description/
+            - https://leetcode.com/problems/build-a-matrix-with-conditions/description/?envType=daily-question&envId=2024-07-21
          */
     }
 }
