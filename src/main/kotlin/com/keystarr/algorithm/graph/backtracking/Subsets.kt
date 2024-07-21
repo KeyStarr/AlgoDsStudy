@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.graph.tree.backtracking
+package com.keystarr.algorithm.graph.backtracking
 
 import kotlin.math.pow
 

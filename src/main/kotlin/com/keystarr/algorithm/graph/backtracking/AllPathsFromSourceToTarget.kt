@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.graph.tree.backtracking
+package com.keystarr.algorithm.graph.backtracking
 
 /**
  * ⭐LC-7797 https://leetcode.com/problems/all-paths-from-source-to-target/description/

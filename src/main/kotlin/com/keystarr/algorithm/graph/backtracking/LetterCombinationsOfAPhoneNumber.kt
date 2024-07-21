@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.graph.tree.backtracking
+package com.keystarr.algorithm.graph.backtracking
 
 /**
  * LC-17 https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/

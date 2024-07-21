@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.graph.tree.backtracking
+package com.keystarr.algorithm.graph.backtracking
 
 /**
  * ⭐️ LC-52 https://leetcode.com/problems/n-queens-ii/description/
