@@ -1,6 +1,7 @@
 package com.keystarr.algorithm.graph.backtracking
 
 /**
+ * ⭐️ (a weaker star, but still - good example for valid numbers generation)
  * LC-967 https://leetcode.com/problems/numbers-with-same-consecutive-differences/description/
  * difficulty: medium
  * constraints:
@@ -9,6 +10,17 @@ package com.keystarr.algorithm.graph.backtracking
  *
  * Final notes:
  *  • MISSED a GLARING edge case
+ *
+ *
+ *
+ *  feiofgjiogoijregjeiorv iotojnjnJN%$NJ@%NJK #%NJ#@NJKJN #@N%JK5j35%@#$%%#%
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  *  • interesting, so, constructing the number from left to right (higher to lower digits) was much easier than from
  *   right to left, AND we could just store the current intermediate number as Int, no lists required => optimal solution!
  *   we could use Int for lower-to-higher digits construction too, but we'd need 10^currentDigitInd or to carry over
