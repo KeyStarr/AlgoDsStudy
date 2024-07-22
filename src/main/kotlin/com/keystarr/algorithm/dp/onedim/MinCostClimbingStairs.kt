@@ -6,18 +6,20 @@ import kotlin.math.min
  * LC-746 https://leetcode.com/problems/min-cost-climbing-stairs/description/
  * difficulty: easy
  * constraints:
- *  - 2 <= cost.length <= 10^3
- *  - 0 <= cost\[i] <= 999
+ *  • 2 <= cost.length <= 10^3
+ *  • 0 <= cost\[i] <= 999
  *
  * Final notes:
- *  -
+ *  • consciously solved my 1st DP problem ever, yaaaaay!!!!! :D
+ *  • bottom up might (hypothesis) generally be just what we do with recursion, but on the backtracking way when
+ *   we are actually returning and finishing calls, popping from the callstack;
+ *  • the pattern for both the top-down DP and to bottom-up conversion fits fine here as-is.
  *
  * Value gained:
- *  -
+ *  • practiced DP both top-down and bottom-up;
+ *  • is bottom-up DP always basically the same as what we do with top-down when backtracking and popping calls from the stack?
  */
 class MinCostClimbingStairs {
-
-    private val stepToMinCostCache = mutableMapOf<Int, Int>()
 
     /**
      * notable problem characteristics:
@@ -55,6 +57,8 @@ class MinCostClimbingStairs {
      *   - minCost(0) = 0
      * 4. memoization?
      *  HashMap<Int,Int>, base case for retrieval + store the result of the recursive case before returning it
+     *  since we pre-hand know exactly the amount of states and its fairly small (worst is 1000) => we could optimize using
+     *  simply the IntArray, where index is the step and cache\[currentStepInd] is the minCost to get to said step.
      *
      * Edge cases:
      *  - all cost\[i] == 0 => always return 0, works correctly; (could do an early return for O(n));
@@ -66,37 +70,58 @@ class MinCostClimbingStairs {
      * Space: always O(n)
      *  - memoization cache takes O(n), since it caches each [topDownDp] call and there are exactly n calls.
      */
-    fun topDownDp(costs: IntArray): Int = topDownDp(currentStepInd = costs.size, costs = costs)
+    fun topDownDp(costs: IntArray): Int = topDownDp(
+        currentStepInd = costs.size,
+        stepToMinCostCache = IntArray(size = costs.size + 1) { -1 },
+        costs = costs
+    )
 
     private fun topDownDp(
         currentStepInd: Int,
+        stepToMinCostCache: IntArray,
         costs: IntArray,
     ): Int {
         if (currentStepInd == 1 || currentStepInd == 0) return 0
-        val cache = stepToMinCostCache[currentStepInd]
-        if (cache != null) return cache
+        val cachedCost = stepToMinCostCache[currentStepInd]
+        if (cachedCost != -1) return cachedCost
 
         val stepA = currentStepInd - 1
         val stepB = currentStepInd - 2
         val minCost = min(
-            topDownDp(stepA, costs) + costs[stepA],
-            topDownDp(stepB, costs) + costs[stepB],
+            topDownDp(stepA, stepToMinCostCache, costs) + costs[stepA],
+            topDownDp(stepB, stepToMinCostCache, costs) + costs[stepB],
         )
         stepToMinCostCache[currentStepInd] = minCost
         return minCost
     }
 
     /**
-     *
+     * Same core idea, just computing min cost for reach step iteratively starting from the bottom (first steps).
+     * Basically its exactly what we do when we backtracked computing the recursive tree from bottom to top.
      */
-    fun bottomUpDp() {
+    fun bottomUpDp(costs: IntArray): Int {
+        val minCostPerStep = IntArray(size = costs.size + 1) { 0 }
+        for (stepInd in 2 until minCostPerStep.size) {
+            val stepA = stepInd - 1
+            val stepB = stepInd - 2
+            minCostPerStep[stepInd] = min(
+                minCostPerStep[stepA] + costs[stepA],
+                minCostPerStep[stepB] + costs[stepB],
+            )
+        }
 
+        return minCostPerStep[costs.size]
     }
 
-    /**
-     *
-     */
     fun weightedDfs() {
-
+        // TODO: try doing, for funsies
     }
+}
+
+fun main() {
+    println(
+        MinCostClimbingStairs().bottomUpDp(
+            intArrayOf(10, 15, 20),
+        )
+    )
 }
