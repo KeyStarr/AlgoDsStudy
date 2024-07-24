@@ -6,14 +6,22 @@ import kotlin.math.max
  * LC-198 https://leetcode.com/problems/house-robber/description/
  * difficulty: medium
  * constraints:
- *  - 1 <= nums.length <= 100
- *  - 0 <= nums\[i] <= 400
+ *  • 1 <= nums.length <= 100
+ *  • 0 <= nums\[i] <= 400
  *
  * Final notes:
- *  -
+ *  • hm, still, the author of the course designed the solution basically from bottom-up, and so did I. Why implement
+ *   top-down then preferred though? Here I'd say bottom-up would've been even easier to translate from the design to the
+ *   implementation;
+ *  • I feel SO GREAT drawing 'em cases on the digital. Wow. Same satisfaction when I hit the pen and see a highlight
+ *   circle drawn around the number as I've had with watching these problem solutions reviews, only better!
+ *  • curious, this problem's recurrence equation is almost exactly like the [MinCostClimbingStairs]: looking either
+ *   1 or 2 options behind and finding max/min with the added cost of the current step. Do most DP problems share that
+ *   structure, or is it like just the tiny bit?
  *
  * Value gained:
- *  -
+ *  • practiced both top-down and bottom-up DP on an intro problem to the subject with only 2 cumulative paths options
+ *   to choose from when looking backward.
  */
 class HouseRobber {
 
@@ -65,5 +73,21 @@ class HouseRobber {
             topDownDp(rightInd - 1, houseProfits),
             topDownDp(rightInd - 2, houseProfits) + houseProfits[rightInd]
         ).also { result -> rightIndToMaxProfitMap[rightInd] = result }
+    }
+
+    fun bottomUp(houseProfits: IntArray): Int {
+        if (houseProfits.size == 1) return houseProfits[0]
+
+        val maxProfitPerRightInd = IntArray(size = houseProfits.size).apply {
+            set(0, houseProfits[0])
+            set(1, max(houseProfits[0], houseProfits[1]))
+        }
+        for (rightInd in 1 until houseProfits.size) {
+            maxProfitPerRightInd[rightInd] = max(
+                maxProfitPerRightInd[rightInd - 1],
+                maxProfitPerRightInd[rightInd - 2] + houseProfits[rightInd],
+            )
+        }
+        return maxProfitPerRightInd[houseProfits.size - 1]
     }
 }
