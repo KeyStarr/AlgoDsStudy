@@ -75,19 +75,21 @@ class HouseRobber {
         ).also { result -> rightIndToMaxProfitMap[rightInd] = result }
     }
 
+    /**
+     * Since we need only the results from 2 previous calls => use variables to store these, no need for the entire cache
+     * of n calls (could also optimize [topDownDp] like that, but decided to skip for now)
+     */
     fun bottomUp(houseProfits: IntArray): Int {
-        if (houseProfits.size == 1) return houseProfits[0]
+        val firstHouse = houseProfits.first()
+        if (houseProfits.size == 1) return firstHouse
 
-        val maxProfitPerRightInd = IntArray(size = houseProfits.size).apply {
-            set(0, houseProfits[0])
-            set(1, max(houseProfits[0], houseProfits[1]))
+        var prevPrev = firstHouse
+        var prev = max(firstHouse, houseProfits[1])
+        for (rightInd in 2 until houseProfits.size) {
+            val buffer = prev
+            prev = max(prev, prevPrev + houseProfits[rightInd])
+            prevPrev = buffer
         }
-        for (rightInd in 1 until houseProfits.size) {
-            maxProfitPerRightInd[rightInd] = max(
-                maxProfitPerRightInd[rightInd - 1],
-                maxProfitPerRightInd[rightInd - 2] + houseProfits[rightInd],
-            )
-        }
-        return maxProfitPerRightInd[houseProfits.size - 1]
+        return prev
     }
 }
