@@ -51,13 +51,13 @@ class LongestIncreasingSubsequence {
      * "find" THE LIS, find the longest among them, and add the current number to it. Edge case - there is no previous
      * number with which the current number forms a subsequence => just 1 then.
      * =>
-     * to avoid redundant computations, as always, use memoization and save each the LIS for each number into a HashMap.
+     * to avoid redundant computations, as always, use memoization and save the LIS for each number into a HashMap.
      * we could use IntArray(size=2500), but I wager the map would be a better choice generally due to how much space we'd
-     * waste on lower input sizes.
+     * waste on smaller input sizes.
      *
      * Same complexities as [bottomUpDp]:
-     * Time: O(n^2)
-     * Space: O(n) even with the callstack, obv.
+     *  Time: O(n^2)
+     *  Space: O(n) even with the callstack, obv.
      */
     fun topDownDp(nums: IntArray): Int {
         var maxLisLength = 0
