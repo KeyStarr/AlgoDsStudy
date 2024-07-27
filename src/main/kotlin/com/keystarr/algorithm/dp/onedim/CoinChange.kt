@@ -49,6 +49,74 @@ package com.keystarr.algorithm.dp.onedim
 class CoinChange {
 
     /**
+     * WRONG SOLUTION, WRONG APPROACH
+     * like in [SolvingQuestionsWithBrainpower], decided to leave it for further retrospection
+     *
+     * ---------------
+     *
+     * goal: if it's possible to combine coins to reach the exact [amount], return the minimum amount of coins, otherwise -1.
+     * given: all possible denominations of coins, each of which may be used infinite number of times.
+     *
+     * what to use?
+     *  - multiple steps
+     *  - end goal is the best (->min) combination
+     *  - each step affects future choices (cause amount-=chosenCoin), BUT we can still take any coin that fits under
+     *   the left amount => more like pure greedy than DP?
+     *
+     * try "greedy":
+     *  - sort the coins
+     *  - for maxCoinInd = coins.size-1 downTo 0:
+     *   - maxCoinsMax = left / coins\[maxCoinInd]
+     *   - for maxCoinsTaken = maxCoinsMax downTo 1:
+     *    - left = amount - maxCoinsTaken*coins[maxCoinInd]
+     *    - if (left == 0) return maxCoinsTaken
+     *    - iterate through rightInd = maxCoinInd-1 downTo 0:
+     *     - currentCoin = coins[rightInd]
+     *     - takeCoins = left / currentCoin
+     *     - if takeCoins == 0:
+     *      - break
+     *     - coinsCount += takeCoins
+     *     - left -= takeCoins * currentCoin
+     *     - if left == 0:
+     *      - return coinsCount
+     * - return -1
+     *
+     * Edge cases:
+     *  - amount == 0 => minCoin==1 => always return 0 => early return check;
+     *  - coins.length == 1 => answer is amount/coins[0] division remainder is 0, otherwise-1 => correct, the first answer condition
+     *   in the maxCoinTaken loop will be met.
+     *
+     * Time: O(nlogn+n*k*n)=O(nlogn + k*n^2) = O(k*n^2)
+     *  - sort the coins O(logn)
+     *  - maxCoinInd has n states
+     *   - maxCoinsTaken has average/worst k = amount/coins.max() states
+     *   - otherCoins have maxCoinInd-1 states for each iteration => average/worst n states
+     * Space: O(1)
+     */
+    fun greedyWrong(coins: IntArray, amount: Int): Int {
+        if (amount == 0) return 0
+
+        coins.sort()
+        for (maxCoinInd in coins.size - 1 downTo 0) {
+            val maxCoinsMax = amount / coins[maxCoinInd]
+            for (maxCoinsTaken in maxCoinsMax downTo 1) {
+                var left = amount - maxCoinsTaken * coins[maxCoinInd]
+                if (left == 0) return maxCoinsTaken
+                var coinsTaken = maxCoinsTaken
+                for (otherCoinInd in maxCoinInd - 1 downTo 0) {
+                    val currentCoin = coins[otherCoinInd]
+                    val takeCoins = left / currentCoin
+                    if (takeCoins == 0) continue // even 1 currentCoin exceeds [amount], try smaller coins then
+                    coinsTaken += takeCoins
+                    left -= takeCoins * currentCoin
+                    if (left == 0) return coinsTaken
+                }
+            }
+        }
+        return -1
+    }
+
+    /**
      * find the best (min) combination + subproblems may overlap => DP
      *
      * - what is a step? to reach the [amount] we can take exactly 1 of ANY coin (they're infinite)
@@ -117,73 +185,5 @@ class CoinChange {
             amountToMinCoins[currentAmount] = if (minCoins == Int.MAX_VALUE) -1 else minCoins + 1
         }
         return amountToMinCoins[amount]
-    }
-
-    /**
-     * WRONG SOLUTION, WRONG APPROACH
-     * like in [SolvingQuestionsWithBrainpower], decided to leave it for further retrospection
-     *
-     * ---------------
-     *
-     * goal: if it's possible to combine coins to reach the exact [amount], return the minimum amount of coins, otherwise -1.
-     * given: all possible denominations of coins, each of which may be used infinite number of times.
-     *
-     * what to use?
-     *  - multiple steps
-     *  - end goal is the best (->min) combination
-     *  - each step affects future choices (cause amount-=chosenCoin), BUT we can still take any coin that fits under
-     *   the left amount => more like pure greedy than DP?
-     *
-     * try "greedy":
-     *  - sort the coins
-     *  - for maxCoinInd = coins.size-1 downTo 0:
-     *   - maxCoinsMax = left / coins\[maxCoinInd]
-     *   - for maxCoinsTaken = maxCoinsMax downTo 1:
-     *    - left = amount - maxCoinsTaken*coins[maxCoinInd]
-     *    - if (left == 0) return maxCoinsTaken
-     *    - iterate through rightInd = maxCoinInd-1 downTo 0:
-     *     - currentCoin = coins[rightInd]
-     *     - takeCoins = left / currentCoin
-     *     - if takeCoins == 0:
-     *      - break
-     *     - coinsCount += takeCoins
-     *     - left -= takeCoins * currentCoin
-     *     - if left == 0:
-     *      - return coinsCount
-     * - return -1
-     *
-     * Edge cases:
-     *  - amount == 0 => minCoin==1 => always return 0 => early return check;
-     *  - coins.length == 1 => answer is amount/coins[0] division remainder is 0, otherwise-1 => correct, the first answer condition
-     *   in the maxCoinTaken loop will be met.
-     *
-     * Time: O(nlogn+n*k*n)=O(nlogn + k*n^2) = O(k*n^2)
-     *  - sort the coins O(logn)
-     *  - maxCoinInd has n states
-     *   - maxCoinsTaken has average/worst k = amount/coins.max() states
-     *   - otherCoins have maxCoinInd-1 states for each iteration => average/worst n states
-     * Space: O(1)
-     */
-    fun greedyWrong(coins: IntArray, amount: Int): Int {
-        if (amount == 0) return 0
-
-        coins.sort()
-        for (maxCoinInd in coins.size - 1 downTo 0) {
-            val maxCoinsMax = amount / coins[maxCoinInd]
-            for (maxCoinsTaken in maxCoinsMax downTo 1) {
-                var left = amount - maxCoinsTaken * coins[maxCoinInd]
-                if (left == 0) return maxCoinsTaken
-                var coinsTaken = maxCoinsTaken
-                for (otherCoinInd in maxCoinInd - 1 downTo 0) {
-                    val currentCoin = coins[otherCoinInd]
-                    val takeCoins = left / currentCoin
-                    if (takeCoins == 0) continue // even 1 currentCoin exceeds [amount], try smaller coins then
-                    coinsTaken += takeCoins
-                    left -= takeCoins * currentCoin
-                    if (left == 0) return coinsTaken
-                }
-            }
-        }
-        return -1
     }
 }
