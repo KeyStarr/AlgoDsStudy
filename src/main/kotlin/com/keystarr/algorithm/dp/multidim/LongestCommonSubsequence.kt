@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.dp.onedim
+package com.keystarr.algorithm.dp.multidim
 
 import kotlin.math.max
 
