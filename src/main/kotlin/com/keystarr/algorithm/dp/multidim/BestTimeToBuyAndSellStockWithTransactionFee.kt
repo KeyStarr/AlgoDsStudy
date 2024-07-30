@@ -18,11 +18,19 @@ import kotlin.math.max
  *  • indeed, having worked through the [BestTimeToBuyAndSellStockIV] here I could clearly see the solution including
  *   the trick that got me last time, for only reducing to subproblems with `isHolding: Boolean` instead of the actual
  *   `boughtPrice` in order to guarantee efficient memoization and O(n) time. In fact, I didn't even need to dry-run this
- *   one, to draw the decision tree, just had it in my head 💡.
+ *   one, to draw the decision tree, just had it in my head 💡;
+ *  • ⚠️ hm, forgot to check whether the bottom-up space could be optimized;
+ *  • 🔥curious that the Editorial started bottom-up from the 0th index, with base cases:
+ *   - cache[0][hold=true] = -prices[0]
+ *   - cache[0][hold=false] = 0
+ *   and basically subproblem is then prices[1:(prices.size-1)]
  *
  * Value gained:
  *  • practiced both top-down and bottom-up multidim DP;
- *  • reinforced efficient subproblem reduction for optimal memoization.
+ *  • reinforced efficient subproblem reduction for optimal memoization;
+ *  • practiced optimizing bottom-up space => REMEMBER to ALWAYS check BOTTOM-UP DP space for optimization after it's initial
+ *   implementation (basically, like, exactly how many steps back do we need to access);
+ *  • 🔥apparently, after all, DP could be (maybe not always) start from both-ends on either approach?
  */
 class BestTimeToBuyAndSellStockWithTransactionFee {
 
