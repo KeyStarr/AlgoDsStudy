@@ -148,4 +148,33 @@ class BestTimeToBuyAndSellStockWithTransactionFee {
         }
         return resultCache[0][0]
     }
+
+    /**
+     * Notice that in order to compute the answer for the current step (resultCache\[nextInd]) we need to know only
+     * the result of the next step, with both isHolding false/true
+     * + we need to know the results of the next step for both isHolding=f/t with currentLeftInd
+     * => use for memoization an array of Array(size=2) { IntArray(size=2) }, to simply cache the current and the next steps
+     *
+     * Time: O(n)
+     * Space: O(1)
+     */
+    private fun bottomUpSpaceOptimized(prices: IntArray, fee: Int): Int {
+        val cache = Array(size = 2) { IntArray(size = 2) }
+        for (leftInd in prices.size - 1 downTo 0) {
+            val currentIndCache = leftInd % 2
+            for (isHolding in 0..1) {
+                val nextIndCache = (leftInd + 1) % 2
+                val currentPrice = prices[leftInd]
+                cache[currentIndCache][isHolding] = max(
+                    cache[nextIndCache][isHolding], // skip
+                    if (isHolding == 1) {
+                        if (currentPrice > fee) cache[nextIndCache][0] + currentPrice - fee else 0 // sell
+                    } else {
+                        cache[nextIndCache][1] - currentPrice // buy
+                    },
+                )
+            }
+        }
+        return cache[0][0]
+    }
 }
