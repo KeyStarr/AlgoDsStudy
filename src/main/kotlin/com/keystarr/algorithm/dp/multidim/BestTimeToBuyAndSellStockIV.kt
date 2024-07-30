@@ -239,7 +239,7 @@ class BestTimeToBuyAndSellStockIV {
         return dp[0][0][maxTransactions]
     }
 
-    // TODO: simplify, the top bar time solution is much more succinct - understand why and implement
+    // TODO: simplify, the top submissions solution is much more succinct - understand why and implement
 }
 
 fun main() {

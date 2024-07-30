@@ -185,4 +185,6 @@ class BestTimeToBuyAndSellStockWithTransactionFee {
         }
         return cache[0][0]
     }
+
+    // TODO: refactor into an easier to read solution without using the array for cache, just the variables (look up top submissions)
 }
