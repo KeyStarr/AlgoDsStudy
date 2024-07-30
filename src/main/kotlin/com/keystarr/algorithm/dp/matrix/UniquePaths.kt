@@ -17,7 +17,8 @@ package com.keystarr.algorithm.dp.matrix
  *    (even thought about it during design-phase) => visually it was obvious to check.
  *  • study & practice really paid off here with graph given as a matrix traversal, and the pattern for allowedDirections;
  *  • hm, [bottomUp] here actually didn't come naturally, I had to check the answer cause I got confused how to start it,
- *   how to really implement it and what was the core idea. These >0 inside for loops are quite unusual.
+ *   how to really implement it and what was the core idea. These >0 inside for loops are quite unusual;
+ *  • for some reason it was sooooo satisfying to draw/dry run exactly on the graph tablet.
  *
  * Value gained:
  *  • 🏆solved my first ever DP matrix problem;
