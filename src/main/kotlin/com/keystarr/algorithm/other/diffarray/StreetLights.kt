@@ -20,6 +20,10 @@ package com.keystarr.algorithm.other.diffarray
  *  • learnt that the diff array no number line pattern basically is the same idea as the original diff array, just, ahem,
  *   with sorting and no number line.
  */
+
+
+//скачай книгу АЛИСЫ!!!!!!!!!!
+
 class StreetLights {
 
     /**
