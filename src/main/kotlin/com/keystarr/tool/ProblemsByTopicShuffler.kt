@@ -1,4 +1,4 @@
-package com.keystarr.tools
+package com.keystarr.tool
 
 /**
  * Need:
