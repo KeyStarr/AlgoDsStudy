@@ -9,7 +9,9 @@ package com.keystarr.algorithm.other.diffarray
  * Final notes:
  *  • went for the first diff array approach and failed with array size 10^18 exceeding the allowed max array size (~int max);
  *  • technically don't know if the solution is fully correct, cause there were no constraints for 2 variables and no
- *   official test cases. But it's good enough for the concept.
+ *   official test cases. But it's good enough for the concept;
+ *  • missed the +1 edge case on the interval's right bound, cause due to the prefix sum logic we need to do that to
+ *   count that rightmost position as a part of that interval => don't subtract that diff just yet.
  *
  * Value gained:
  *  • 🏆 solved my first problem with efficient solution being diff array with sorting, no number line array;
@@ -83,7 +85,7 @@ class StreetLights {
         val changes = mutableListOf<Change>()
         lights.forEach { light ->
             changes.add(Change(light.position - light.radius, 1))
-            changes.add(Change(light.position + light.radius, -1))
+            changes.add(Change(light.position + light.radius + 1, -1))
         }
         changes.sortWith { o1, o2 -> (o1.position - o2.position).toInt() }
 
