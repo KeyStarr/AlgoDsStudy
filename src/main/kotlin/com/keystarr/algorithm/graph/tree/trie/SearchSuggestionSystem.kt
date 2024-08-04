@@ -7,30 +7,30 @@ import kotlin.math.min
  * LC-1268 https://leetcode.com/problems/search-suggestions-system/description/
  * difficulty: medium
  * constraints:
- *  - 1 <= products.length <= 10^3;
- *  - 1 <= products\[i].length <= 3 * 10^3;
- *  - 1 <= sum(products\[i].length) <= 2*10^4;
- *  - 1 <= searchWord.length <= 10^3;
- *  - all the strings of products are unique;
- *  - products\[i] and searchWord consist of lowercase English.
+ *  • 1 <= products.length <= 10^3;
+ *  • 1 <= products\[i].length <= 3 * 10^3;
+ *  • 1 <= sum(products\[i].length) <= 2*10^4;
+ *  • 1 <= searchWord.length <= 10^3;
+ *  • all the strings of products are unique;
+ *  • products\[i] and searchWord consist of lowercase English.
  *
  * Final notes:
- *  - failed a run didn't catch that thing that 3 mins within the result must be sorted lexicographically => the problem
+ *  • failed a run didn't catch that thing that 3 mins within the result must be sorted lexicographically => the problem
  *   statement said return "return the three lexicographically minimums products", but didn't specify the order of these!
  *   in a live interview I would better clarify that, which order is required;
- *  - 1st submit fail => missed an obvious case with a word's length being less than searchWord's length, a smart optimization
+ *  • 1st submit fail => missed an obvious case with a word's length being less than searchWord's length, a smart optimization
  *   I did for building a trie 🙂;
- *  - 2nd submit fail => missed an obvious edge case, after Xth char no common prefix for the searchWord in words
+ *  • 2nd submit fail => missed an obvious edge case, after Xth char no common prefix for the searchWord in words
  *   => per the problem statement, add emptyList() to the results;
- *  - 🔥 [justTopK] makes so much sense here, totally no need for a Trie, even though initially this problem looks like a perfect
+ *  • 🔥 [justTopK] makes so much sense here, totally no need for a Trie, even though initially this problem looks like a perfect
  *   candidate for a Trie o_O. So weird the course's author picked it, why not pick some other problem which actually showcases
  *   a must-have Trie for an optimal solution??
  *
  * Value gained:
- *  - 🏆 first problem I've ever solved with a Trie, wo-hoo!
- *  - practiced using a Trie with pre-processing, data at each node being an actual result, should that node be required
+ *  • 🏆 first problem I've ever solved with a Trie, wo-hoo!
+ *  • practiced using a Trie with pre-processing, data at each node being an actual result, should that node be required
  *   in the final answer;
- *  - proved that this problem actually doesn't need a Trie for an efficient solution via [justTopK].
+ *  • proved that this problem actually doesn't need a Trie for an efficient solution via [justTopK].
  */
 class SearchSuggestionSystem {
 

@@ -4,15 +4,18 @@ package com.keystarr.algorithm.graph.tree.trie
  * LC-208 https://leetcode.com/problems/implement-trie-prefix-tree/description/
  * difficulty: medium
  * constraints:
- *  - 1 <= word.length <= prefix.length <= 2 * 10^3;
- *  - word and prefix are only lowercase English;
- *  - at most 3 * 10^4 calls in total to [insert], [search] and [startsWith].
+ *  • 1 <= word.length <= prefix.length <= 2 * 10^3;
+ *  • word and prefix are only lowercase English;
+ *  • at most 3 * 10^4 calls in total to [insert], [search] and [startsWith].
  *
  * Final notes:
- *  -
+ *  • at first (read it at night) the problem looked kinda daunting, but on the next day when actually sat to solve it,
+ *   done it in a very straight-forward way;
+ *  • it turns out that `isEnd: Boolean` denoting whether there's a word that ends at a given node is actually a common
+ *   practice with Tries (https://en.wikipedia.org/wiki/Trie)
  *
  * Value gained:
- *  -
+ *  • practiced building a simple Trie.
  */
 class ImplementTrie {
 
@@ -28,8 +31,9 @@ class ImplementTrie {
     fun insert(word: String) {
         var currentNode = root
         word.forEach { char ->
-            if (!currentNode.children.contains(char)) currentNode.children[char] = TrieNode()
-            currentNode = currentNode.children.getValue(char)
+            val charKey = char - 'a'
+            if (currentNode.children[charKey] == null) currentNode.children[charKey] = TrieNode()
+            currentNode = currentNode.children[charKey]!!
         }
         currentNode.doesEndWord = true
     }
@@ -55,12 +59,12 @@ class ImplementTrie {
 
     private fun findLastCharNode(word: String): TrieNode? {
         var currentNode = root
-        word.forEach { char -> currentNode = currentNode.children[char] ?: return null }
+        word.forEach { char -> currentNode = currentNode.children[char - 'a'] ?: return null }
         return currentNode
     }
 
     private class TrieNode(
-        val children: MutableMap<Char, TrieNode> = mutableMapOf(),
+        val children: Array<TrieNode?> = Array(size = 26) { null },
         var doesEndWord: Boolean = false,
     )
 }
