@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.other.diffarray
+package com.keystarr.algorithm.array.diffarray
 
 import java.util.*
 

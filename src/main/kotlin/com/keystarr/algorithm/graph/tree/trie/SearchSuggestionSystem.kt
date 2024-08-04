@@ -129,6 +129,8 @@ class SearchSuggestionSystem {
         }
     }
 
+    // TODO: for practice implement a solution with a Trie with only isEnd: Boolean, and DFS it for actual words & return the best words
+
     /**
      * skipped implementation, Trie is better, but left for future retro
      *

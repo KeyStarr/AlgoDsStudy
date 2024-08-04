@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.other.diffarray
+package com.keystarr.algorithm.array.diffarray
 
 /**
  * custom example from the leet DSA course
