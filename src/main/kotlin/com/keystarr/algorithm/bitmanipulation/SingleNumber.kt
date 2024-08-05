@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.other.bitmanipulation
+package com.keystarr.algorithm.bitmanipulation
 
 /**
  * LC-136 https://leetcode.com/problems/single-number/description/

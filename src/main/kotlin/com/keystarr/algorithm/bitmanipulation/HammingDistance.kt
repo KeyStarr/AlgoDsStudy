@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.other.bitmanipulation
+package com.keystarr.algorithm.bitmanipulation
 
 /**
  * ⭐️ what a beautiful bit manipulation problem so many approaches are applicable here
