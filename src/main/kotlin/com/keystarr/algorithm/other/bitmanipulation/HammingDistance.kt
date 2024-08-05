@@ -1,6 +1,7 @@
 package com.keystarr.algorithm.other.bitmanipulation
 
 /**
+ * ⭐️ what a beautiful bit manipulation problem so many approaches are applicable here
  * LC-461 https://leetcode.com/problems/hamming-distance/
  * difficulty: easy
  * constraints:
@@ -8,7 +9,7 @@ package com.keystarr.algorithm.other.bitmanipulation
  *
  * Final notes:
  *  • a very straightforward problem for manual implementation, however there's a more efficient way with
- *   Integer.bitCount(x xor y), cause java's bitCount has significantly less const than [efficient], but given the
+ *   Integer.bitCount(x xor y), cause java's bitCount has significantly less const than [shiftBoth], but given the
  *   Int 32 bits asymptotically the same.
  *
  * Value gained:
@@ -32,7 +33,7 @@ class HammingDistance {
      * Time: O(k), where k=number of bits in max(x,y), here since both are Int => O(k=32) => O(1)
      * Space: O(1)
      */
-    fun efficient(x: Int, y: Int): Int {
+    fun shiftBoth(x: Int, y: Int): Int {
         var xRemain = x
         var yRemain = y
         var distance = 0
@@ -45,8 +46,31 @@ class HammingDistance {
         }
         return distance
     }
+
+    /**
+     * 1. xor [x] and [y] to get the number with all significant bits where [x] and [y] were different;
+     * 2. shr the xor result until its 0, count all 1's.
+     *
+     * asymptotically the complexities are same as [shiftBoth], but a time const should be slightly better, since we
+     * perform a single xor and shr/and only half the time then [shiftBoth]. Plus it's much more concise and elegant!
+     */
+    fun shiftXor(x: Int, y: Int): Int {
+        var bitDiff = x xor y
+        var distance = 0
+        while (bitDiff != 0) {
+            distance += bitDiff and 1
+            bitDiff = bitDiff shr 1
+        }
+        return distance
+    }
+
+    /**
+     * 1. get the bit diff via [x] xor [y];
+     * 2. use the efficient implementation of Integer.bitCount to count the bits of that.
+     */
+    fun builtIn(x: Int, y: Int): Int = Integer.bitCount(x xor y)
 }
 
 fun main() {
-    println(HammingDistance().efficient(x = 8, y = 3))
+    println(HammingDistance().shiftXor(x = 1, y = 2))
 }
