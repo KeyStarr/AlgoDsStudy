@@ -105,6 +105,69 @@ class NQueensII {
 
         return totalSolutions
     }
+
+    /**
+     * we have at most 9 columns => can utilize a single Int with bitwise operations to keep track of `seen` nodes
+     * => improve time const and space const (but space is O(n) anyway cause of the callstack)
+     *
+     * - we have columns in the range of [0,9];
+     * - diagonals => we store via a diff, and depending on whether we choose row-column or column-row it can go negative,
+     *  with a total range of (0,9)=-9 to (9,0)=9, so [-9,9] => we can add +9 to the ith bit, so -9 is the 0th bit and 9 is the 18th bit;
+     * - anti-diagonals => we store the sum, spanning from (0,0)=0 to (9,9)=18, so [0,18].
+     *
+     * TL;DR; same complexities as [efficient], but better both time and space const.
+     */
+    fun efficientBitwise(n: Int): Int = backtrackWithBitwise(
+        n = n,
+        currentRow = -1,
+        currentColumn = 0,
+        columnsAttacked = 0,
+        diagonalsAttacked = 0,
+        antiDiagonalsAttacked = 0,
+    )
+
+    private fun backtrackWithBitwise(
+        n: Int,
+        currentRow: Int,
+        currentColumn: Int,
+        columnsAttacked: Int,
+        diagonalsAttacked: Int,
+        antiDiagonalsAttacked: Int,
+    ): Int {
+        val diagonalDiff = currentRow - currentColumn
+        val antiDiagonalSum = currentRow + currentColumn
+        if (columnsAttacked and (1 shl currentColumn) != 0
+            || diagonalsAttacked and (1 shl diagonalDiff + 9) != 0
+            || antiDiagonalsAttacked and (1 shl antiDiagonalSum) != 0
+        ) return 0 // that cell is attacked => can't place a queen there
+
+        // current cell is unoccupied => we placed the queen there, and we placed 1 queen on each previous row guaranteed
+        if (currentRow == n - 1) return 1
+
+        var newColumnsAttacked = columnsAttacked
+        var newDiagonalsAttacked = diagonalsAttacked
+        var newAntiDiagonalsAttacked = antiDiagonalsAttacked
+        if (currentRow != -1) {
+            newColumnsAttacked = columnsAttacked.xor(1 shl currentColumn)
+            newDiagonalsAttacked = diagonalsAttacked.xor(1 shl (diagonalDiff + 9))
+            newAntiDiagonalsAttacked = antiDiagonalsAttacked.xor(1 shl antiDiagonalSum)
+        }
+
+        var totalSolutions = 0
+        val newRow = currentRow + 1
+        for (newColumn in 0 until n) {
+            totalSolutions += backtrackWithBitwise(
+                n = n,
+                currentRow = newRow,
+                currentColumn = newColumn,
+                columnsAttacked = newColumnsAttacked,
+                diagonalsAttacked = newDiagonalsAttacked,
+                antiDiagonalsAttacked = newAntiDiagonalsAttacked,
+            )
+        }
+
+        return totalSolutions
+    }
 }
 
 fun main() {
