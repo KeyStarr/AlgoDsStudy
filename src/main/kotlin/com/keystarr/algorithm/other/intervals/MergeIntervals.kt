@@ -7,20 +7,20 @@ import kotlin.math.max
  * LC-56 https://leetcode.com/problems/merge-intervals/submissions/1345923223/
  * difficulty: medium
  * constraints:
- *  - 1 <= intervals.length <= 10^4;
- *  - intervals\[i].length == 2;
- *  - 0 <= start ith <= end ith <= 10^4.
+ *  • 1 <= intervals.length <= 10^4;
+ *  • intervals\[i].length == 2;
+ *  • 0 <= start ith <= end ith <= 10^4.
  *
  * Final notes:
- *  - I made an assumption about the input WITHOUT dry-running the given test cases => CODED FULLY AN INCORRECT SOLUTION;
- *  - rofl, 4 failed attempts, a match for my DP experience! But seriously, a wonderful opportunity to learn:
- *   - 1st: tried a number line diff array solution which was super overcomplicated and wrong (or I just didn't finish it);
- *   - 2nd: tried to update the 1st one, failed;
- *   - 3rd: tried the sorting approach but failed, cause missed completely that we consider intervals overlapping even if i1.end == i2.start;
- *   - 4th: fixed the 3rd, but miserably failed to understand that we might merge multiple intervals sorted by the start point,
+ *  • I made an assumption about the input WITHOUT dry-running the given test cases => CODED FULLY AN INCORRECT SOLUTION;
+ *  • rofl, 4 failed attempts, a match for my DP experience! But seriously, a wonderful opportunity to learn:
+ *   • 1st: tried a number line diff array solution which was super overcomplicated and wrong (or I just didn't finish it);
+ *   • 2nd: tried to update the 1st one, failed;
+ *   • 3rd: tried the sorting approach but failed, cause missed completely that we consider intervals overlapping even if i1.end == i2.start;
+ *   • 4th: fixed the 3rd, but miserably failed to understand that we might merge multiple intervals sorted by the start point,
  *    but the end points of all are unsorted => we must keep track of the max one, and update it on each new interval merge,
  *    instead of just taking the previous one's end upon a gap.
- *  - I spent wayy to much time on this. Basically framing this problem as a straight diff array was wrong! Even though the
+ *  • I spent wayy to much time on this. Basically framing this problem as a straight diff array was wrong! Even though the
  *   actual efficient approach is very much diff array #2 technique => sort and then perform logic, here, overlapping. What
  *   set me off the most was me failing to understand that we might have multiple overlapping intervals with, like, equal or
  *   increasing sorted start points, but with different and essentially unsorted end points => when merging we need to
@@ -28,7 +28,9 @@ import kotlin.math.max
  *   interval upon encountering the gap.
  *
  * Value gained:
- *  -
+ *  • practiced solving an intervals problem;
+ *  • learned that diff array is indeed wrong for some interval problems;
+ *  • learned the hard-hard way that when merging overlapping intervals one must keep track of the max end :))))
  */
 class MergeIntervals {
 
