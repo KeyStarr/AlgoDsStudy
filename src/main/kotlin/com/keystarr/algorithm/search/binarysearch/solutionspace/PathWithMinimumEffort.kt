@@ -243,7 +243,7 @@ class PathWithMinimumEffort {
      *  - minEfforts array O(nodes)
      *  - heap worst O(nodes)
      */
-    fun realDijkstras(heights: Array<IntArray>): Int {
+    fun actualDijkstras(heights: Array<IntArray>): Int {
         val m = heights.size
         val n = heights[0].size
         if (m == 1 && n == 1) return 0
@@ -383,7 +383,7 @@ class PathWithMinimumEffort {
 
 fun main() {
     println(
-        PathWithMinimumEffort().realDijkstras(
+        PathWithMinimumEffort().actualDijkstras(
             heights = arrayOf(
                 intArrayOf(1, 2, 2),
                 intArrayOf(3, 8, 2),
