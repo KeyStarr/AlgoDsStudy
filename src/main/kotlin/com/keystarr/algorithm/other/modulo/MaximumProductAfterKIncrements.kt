@@ -13,7 +13,9 @@ import java.util.PriorityQueue
  * Final notes:
  *  • at the first thought considered incrementing the max number to be the best strategy (after incrementing all 0's).
  *   Turns out that's wrong, the best choice is to repeatedly increment the minimum number (after each increment finding
- *   the next min);
+ *   the next min). Learned that only after reading the solution, but sorta guessed it by myself after failing the 1st
+ *   submit, without the proof though, intuitively (though at first thought about finding the min number once and incrementing
+ *   it for all operations, and failed a submit too)) only then thought about repeatedly finding the min);
  *  • the hook I've placed earlier on "repeatedly finding the next min/max, especially with live collection modification => heap"
  *   worked surprisingly, as soon as I've seen the need for "the next min", the heap came to mind;
  *  • it's literal brain-candy how elegant the proof for why we choose the next min to increment is (basically just coz
