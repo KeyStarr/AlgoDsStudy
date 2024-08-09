@@ -14,17 +14,18 @@ import kotlin.math.max
  * Final notes:
  *  • done [firstAttemptTLE] first, failed a submit due to TLE;
  *  • read one of the solutions, optimized to [suboptimal];
- *  • read further, optimized to [efficientDijkstra];
+ *  • read further, optimized to [sonWeHaveDijkstrasAtHome];
  *  • finally read the DSA course solution and done [efficientViaBinarySearch];
  *  • I would've never in a million years thought of even attempting a binary search in that kind of problem. It's a graph,
  *   right? Let's do BFS or DFS and optimize visiting nodes based on the path metric. Turns out there's more to it;
- *  • interesting [efficientDijkstra] apparently resembles the classic Dijkstra's algorithm for shortest path within a 
+ *  • interesting [sonWeHaveDijkstrasAtHome] apparently resembles the classic Dijkstra's algorithm for shortest path within a
  *   weight graph. Need to look into that later and master it better.
  *
  * Value gained:
  *  • learnt a grand surprise lesson: binary search can be applied even to graph problems to get the efficient solution;
  *  • practiced applying binary search on the solution space of the graph best path metric;
- *  • experimented with algorithm close to Dijkstra's, +1 priority to mastering the original one.
+ *  • practiced Dijkstra's to solve a problem with unusual path weight calculation rule.
+ *
  */
 class PathWithMinimumEffort {
 
@@ -151,6 +152,16 @@ class PathWithMinimumEffort {
     }
 
     /**
+     * retrospective: only Dijkstra's inspired, cause we do indeed prune if effort to reach a node is greater/equals to
+     *  the effort we've already encountered to reach that node, BUT we don't use min heap => pop out the min node each time, just the next one in the order of insertion.
+     *
+     * so this is just a BFS with multi-path context and quite a complicated time complexity, coz we could technically
+     *  traverse from the same node multiple times! At first we'd visit it with some effort X, and later with effort Y<X etc
+     *
+     * so this is not efficient, its not Dijkstra's
+     *
+     * -----
+     *
      * Further optimization from [suboptimal] => at each step consider remove only the node with the best path context
      * metric. It doesn't mean though that the first time we arrive at the end node it'll be by the shortest path,
      * cause the best path effort locally may later turn into even the worst one, and the worse one locally can become
@@ -163,7 +174,7 @@ class PathWithMinimumEffort {
      * Time: ??? TODO: how to even estimate that here?
      * Space: ???
      */
-    fun efficientDijkstra(heights: Array<IntArray>): Int {
+    fun sonWeHaveDijkstrasAtHome(heights: Array<IntArray>): Int {
         val m = heights.size
         val n = heights[0].size
         if (m == 1 && n == 1) return 0
@@ -199,6 +210,85 @@ class PathWithMinimumEffort {
 
         return minPathEffort
     }
+
+    /**
+     * - single source node, single end node;
+     * - when we reach the ith node, the only metric of the path before that actually matters what is the current path's effort?
+     *  the further directions=edges we can take are always the same (except pruning by minEffort, but that's irrelevant now);
+     * - goal: a path with minimum characteristic reminiscent of a weight.
+     * => try Dijkstra's?
+     *
+     * Algorithm:
+     *  - init:
+     *   - minHeap with node->effort;
+     *   - minEfforts, where minEfforts\[i] is the min effort encountered for the ith node across all paths.
+     *  - at each step minHeap.pop() and add only those neighbors into the heap to which the path effort is less than
+     *   the path effort previously encountered;
+     *   - after popping check first that the current node's path effort is still the least encountered by comparing the one
+     *    from the heap with `minEfforts[i]`. If not - prune current path;
+     *   - if we encounter the end node => don't continue.
+     * - return minEfforts\[endNode]
+     *
+     * Edge cases:
+     *  - max path effort = maxHeight - minHeight = 10^6 - 0 = 10^6 < Int.MAX_VALUE, could init minEfforts array with MAX_VALUE's;
+     *  - m==n==1, i.o. a single node graph => we'd fail, cause we'd have no neighbors to go to and never update minEfforts
+     *   array => always early return 0.
+     *
+     * Time: O((nodes + edges) * log(nodes))
+     *  - we check all nodes exactly once, and we try each edge exactly once => O(nodes + edges);
+     *  - try edge = add node to heap if current path effort is the least we've seen for that node = adding/removing
+     *   costs O(logk), worst k=nodes (each node has an edge to each), and at first we'd add all nodes to the heap for O(nlogn),
+     *   on average the amount of nodes we'd actually add into the heap at each node varies, but depends on O(nodes).
+     * Space: O(nodes)
+     *  - minEfforts array O(nodes)
+     *  - heap worst O(nodes)
+     */
+    fun realDijkstras(heights: Array<IntArray>): Int {
+        val m = heights.size
+        val n = heights[0].size
+        if (m == 1 && n == 1) return 0
+
+        val minHeap = PriorityQueue<NodeVisitDijkstra> { o1, o2 -> o1.effort - o2.effort }.apply {
+            add(NodeVisitDijkstra(row = 0, column = 0, effort = 0, lastHeight = heights[0][0]))
+        }
+
+        val minEfforts = Array(size = m) { IntArray(size = n) { Int.MAX_VALUE } }
+        while (minHeap.isNotEmpty()) {
+            val visit = minHeap.remove()
+            if (visit.effort > minEfforts[visit.row][visit.column]) continue
+
+            allowedDirections.forEach { direction ->
+                val newRow = visit.row + direction[0]
+                val newColumn = visit.column + direction[1]
+
+                if (newRow !in heights.indices || newColumn !in heights[0].indices) return@forEach
+
+                val newHeight = heights[newRow][newColumn]
+                val newEffort = max(abs(newHeight - visit.lastHeight), visit.effort)
+                if (newEffort >= minEfforts[newRow][newColumn]) return@forEach
+                minEfforts[newRow][newColumn] = newEffort
+
+                if (newRow == m - 1 && newColumn == n - 1) return@forEach
+                minHeap.add(
+                    NodeVisitDijkstra(
+                        row = newRow,
+                        column = newColumn,
+                        effort = newEffort,
+                        lastHeight = newHeight,
+                    )
+                )
+            }
+        }
+
+        return minEfforts[m - 1][n - 1]
+    }
+
+    private class NodeVisitDijkstra(
+        val row: Int,
+        val column: Int,
+        val effort: Int,
+        val lastHeight: Int,
+    )
 
     // TODO: solve VIA A PURE DIJKSTRA'S AFTER FINISHING THE COURSE. or is efficientDijkstra exactly that? if so - why? prove
 
@@ -293,19 +383,19 @@ class PathWithMinimumEffort {
 
 fun main() {
     println(
-        PathWithMinimumEffort().efficientViaBinarySearch(
-//            heights = arrayOf(
-//                intArrayOf(1, 2, 2),
-//                intArrayOf(3, 8, 2),
-//                intArrayOf(5, 3, 5),
-//            )
+        PathWithMinimumEffort().realDijkstras(
             heights = arrayOf(
-                intArrayOf(1, 2, 1, 1, 1),
-                intArrayOf(1, 2, 1, 2, 1),
-                intArrayOf(1, 2, 1, 2, 1),
-                intArrayOf(1, 2, 1, 2, 1),
-                intArrayOf(1, 1, 1, 2, 1),
+                intArrayOf(1, 2, 2),
+                intArrayOf(3, 8, 2),
+                intArrayOf(5, 3, 5),
             )
+//            heights = arrayOf(
+//                intArrayOf(1, 2, 1, 1, 1),
+//                intArrayOf(1, 2, 1, 2, 1),
+//                intArrayOf(1, 2, 1, 2, 1),
+//                intArrayOf(1, 2, 1, 2, 1),
+//                intArrayOf(1, 1, 1, 2, 1),
+//            )
         )
     )
 }
