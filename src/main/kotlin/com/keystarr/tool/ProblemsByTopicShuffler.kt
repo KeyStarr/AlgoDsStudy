@@ -1,30 +1,32 @@
 package com.keystarr.tool
 
+import java.io.File
+
 /**
- * Need:
+ * Context - in Leetcode's DSA course there are bonus problems for practice on each topic.
+ * Purpose - shuffle the bonus problems from all course's topics for the interleaving final practice at the end of the course.
+ *  Since I practiced all tools specifically one-by-one, I didn't have to recognize which exact pattern to use for algo design,
+ *  mostly just how to adapt it to the problem => now is the time to finally learn to recognize exactly when which tool
+ *  to use best AND, of course, to practice tools themselves further.
  *
- * Concept -
- *
- * Requirements:
- *  -
+ * problem sets:
+ * - leet_bonus_problems_easy_medium.txt - the original Leet DSA course bonus problems easy-medium (except those I've done already + a couple new on top)
+ * -
  */
 class ProblemsByTopicShuffler {
 
-    /**
-     * Tools:
-     *
-     * Idea:
-     *
-     * Time (for lolz):
-     * Space:
-     */
-    operator fun invoke() {
-        // TODO: design and implement after the 2nd or 3rd interleaving practice session
-        /*
-        additional problems to shuffle in:
-            - https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/
-            - https://leetcode.com/problems/sliding-window-median/description/
-            - https://leetcode.com/problems/build-a-matrix-with-conditions/description/?envType=daily-question&envId=2024-07-21
-         */
+    operator fun invoke(problemSetFilePath: String, outputFilePath: String) {
+        val problems = mutableListOf<String>()
+        File(problemSetFilePath).forEachLine { line -> problems.add(line) }
+
+        problems.shuffle()
+        File(outputFilePath).writer().use { writer -> problems.forEach { writer.write("$it\n") } }
     }
+}
+
+fun main() {
+    ProblemsByTopicShuffler()(
+        problemSetFilePath = "",
+        outputFilePath = ""
+    )
 }
