@@ -11,7 +11,7 @@ import java.io.File
  *
  * problem sets:
  * - leet_bonus_problems_easy_medium.txt - the original Leet DSA course bonus problems easy-medium (except those I've done already + a couple new on top)
- * -
+ * - leet_bonus_problems_hard.txt - same, but only hard ones.
  */
 class ProblemsByTopicShuffler {
 
