@@ -13,6 +13,7 @@ package com.keystarr.algorithm.deque.stack
  * Final notes:
  *  • done [efficientFromPopped] by myself in 40 mins ⚠️⚠️. First problem of the day, maybe? Got entangled into conditions
  *   and dry-running a bit. Still, then I need to practice Stacks more!
+ *  • 2nd time submit, failed 1 attempt due to a logic outofbounds array index error;
  *  • a cool problem, just a Stack simulation basically.
  *
  * Value gained:
