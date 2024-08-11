@@ -4,24 +4,25 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * 💣 RETRY LATER, failed by myself
+ * 💣⭐️ RETRY LATER, failed by myself. Great problem for the best pair of 2 elements on 2 pointers.
  * LC-11 https://leetcode.com/problems/container-with-most-water/description/
  * difficulty: medium
  * constraints:
- *  - 2 <= heights.sizes <= 10^5
- *  - 0 <= height\[i] <= 10^4
+ *  • 2 <= heights.sizes <= 10^5
+ *  • 0 <= height\[i] <= 10^4
  *
  * Final notes:
- *  - ⚠️ came up with a brute-force on the spot, but couldn't find an efficient solution in 50 mins => gave up and read the solution
+ *  • ⚠️ came up with a brute-force on the spot, but couldn't find an efficient solution in 50 mins => gave up and read the solution
  *   => didn't even understand it => spent another 1h with breaks for diffused thinking to understand it. A combination of
  *   trying 5-6 different explanations and dry-running the solution algorithm helped to FINALLY clearly understand why the
  *   core idea of the solution works 🔥;
- *  - correctly evaluated that problem to require a solution of finding the best combination=pair of elements +
+ *  • correctly evaluated that problem to require a solution of finding the best combination=pair of elements +
  *   tried all known techniques to me for optimizing that BUT FORGOT ABOUT 2 POINTERS, TO EVEN TRY IT HERE!
  *
  * Value gained:
- *  - reinforced that 2 pointers is a good candidate approach to try for problems asking for "the best pair" of elements;
- *  - practiced solving a 2 pointers problem
+ *  • reinforced that 2 pointers is a good candidate approach to try for problems asking for "the best pair" of elements;
+ *   => in the future when faced with "find the best pair of elements", consider giving "2 pointers" a try, a priority.
+ *  • practiced solving a 2 pointers problem.
  */
 class ContainerWithMostWater {
 
