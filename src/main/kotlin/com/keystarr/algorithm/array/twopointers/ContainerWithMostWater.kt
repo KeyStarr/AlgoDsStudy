@@ -18,6 +18,7 @@ import kotlin.math.min
  *   core idea of the solution works 🔥;
  *  • correctly evaluated that problem to require a solution of finding the best combination=pair of elements +
  *   tried all known techniques to me for optimizing that BUT FORGOT ABOUT 2 POINTERS, TO EVEN TRY IT HERE!
+ *  • in total with understanding the right solution invested 2h.
  *
  * Value gained:
  *  • reinforced that 2 pointers is a good candidate approach to try for problems asking for "the best pair" of elements;
@@ -26,7 +27,7 @@ import kotlin.math.min
  */
 class ContainerWithMostWater {
 
-    // TODO: retry solving by myself in 1-2 weeks
+    // TODO: retry solving by myself in 1-2 weeks, the intuition is there already
 
     /**
      * problem rephrase:
