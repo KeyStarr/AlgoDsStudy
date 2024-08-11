@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.array
+package com.keystarr.algorithm.array.twopointers
 
 /**
  * LC-125 https://leetcode.com/problems/valid-palindrome/description/

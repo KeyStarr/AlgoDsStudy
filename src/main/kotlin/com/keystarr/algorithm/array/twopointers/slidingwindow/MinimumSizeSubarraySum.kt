@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.array.slidingwindow
+package com.keystarr.algorithm.array.twopointers.slidingwindow
 
 /**
  * LC-209 https://leetcode.com/problems/minimum-size-subarray-sum/description/

@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.array.slidingwindow
+package com.keystarr.algorithm.array.twopointers.slidingwindow
 
 /**
  * LC-713 https://leetcode.com/problems/subarray-product-less-than-k/

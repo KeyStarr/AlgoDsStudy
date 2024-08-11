@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.array
+package com.keystarr.algorithm.array.twopointers
 
 /**
  * LC-344 https://leetcode.com/problems/reverse-string/description/

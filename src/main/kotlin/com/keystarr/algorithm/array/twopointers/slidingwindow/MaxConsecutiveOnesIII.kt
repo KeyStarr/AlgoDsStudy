@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.array.slidingwindow
+package com.keystarr.algorithm.array.twopointers.slidingwindow
 
 /**
  * LC-1004 https://leetcode.com/problems/max-consecutive-ones-iii/description/
