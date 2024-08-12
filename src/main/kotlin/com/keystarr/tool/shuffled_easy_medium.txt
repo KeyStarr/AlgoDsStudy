@@ -2,8 +2,8 @@
 + https://leetcode.com/problems/maximum-matching-of-players-with-trainers/description/
 ~ RETRY https://leetcode.com/problems/container-with-most-water/description/
 ~ RETRY https://leetcode.com/problems/single-element-in-a-sorted-array/description/
-- https://leetcode.com/problems/time-needed-to-inform-all-employees/description/
-- https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
++ https://leetcode.com/problems/time-needed-to-inform-all-employees/description/
++~ https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
 - https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree/description/
 - https://leetcode.com/problems/video-stitching/
 - https://leetcode.com/problems/longest-palindrome/description/
