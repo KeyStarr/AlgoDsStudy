@@ -1,6 +1,5 @@
-package com.keystarr.algorithm
+package com.keystarr.algorithm.graph.tree.binary
 
-import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
 import kotlin.math.max
 
 /**
