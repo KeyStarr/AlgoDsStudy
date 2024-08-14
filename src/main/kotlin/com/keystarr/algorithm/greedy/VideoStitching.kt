@@ -31,6 +31,8 @@ import kotlin.math.min
  *  • overcomplicated solutions ARE NEVER useful. Not usable in production, obviously, not feasible during interviews
  *   AND DON'T HELP LEARNING! A waste of time;
  *  • practiced greedy on intervals!
+ *  • ⭐️ what a great example of how an incorrect initial approach "let's find unique intervals first!" that actually leads
+ *   to a CORRECT solution traps the design into the never-ending cycle of overcomplicated mess.
  */
 class VideoStitching {
 
