@@ -46,11 +46,10 @@ class PathSumII {
             emptyList()
         } else {
             mutableListOf<List<Int>>().apply {
-                dfs(
+                dfsCleaner(
                     root = root,
-                    targetSum = targetSum,
+                    remainingSum = targetSum,
                     currentPath = mutableListOf(),
-                    currentPathSum = 0,
                     validPaths = this,
                 )
             }
@@ -73,6 +72,33 @@ class PathSumII {
 
         root.left?.let { dfs(root = it, targetSum, currentPath, newSum, validPaths) }
         root.right?.let { dfs(root = it, targetSum, currentPath, newSum, validPaths) }
+        currentPath.removeLast()
+    }
+
+    /**
+     * Same core idea as [dfs], but keep track of the path sum by using just one variable [remainingSum]:
+     *  - initialize it with targetSum;
+     *  - subtract at each node.
+     * => at a leaf, if the path sum matches the targetSum, remainingSum will always be 0.
+     *
+     * Cleaner, 1 less variable to keep track of.
+     */
+    private fun dfsCleaner(
+        root: IntBinaryTreeNode,
+        remainingSum: Int,
+        currentPath: MutableList<Int>,
+        validPaths: MutableList<List<Int>>,
+    ) {
+        currentPath.add(root.`val`)
+        val newRemaining = remainingSum - root.`val`
+        if (root.left == null && root.right == null) {
+            if (newRemaining == 0) validPaths.add(ArrayList(currentPath))
+            currentPath.removeLast()
+            return
+        }
+
+        root.left?.let { dfsCleaner(root = it, newRemaining, currentPath, validPaths) }
+        root.right?.let { dfsCleaner(root = it, newRemaining, currentPath, validPaths) }
         currentPath.removeLast()
     }
 }
