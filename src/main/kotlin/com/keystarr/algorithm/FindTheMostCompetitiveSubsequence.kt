@@ -30,7 +30,9 @@ package com.keystarr.algorithm
  *  • now that I wrote "repeatedly finding mins" I thought about using a heap for that, but here actually the order of the
  *   answer matters, and heap doesn't guarantee the order, and making it work would not be trivial + it's time complexity
  *   would add a factor of either (log subsequenceSize) or even (log nums.size) to O(n) time, so it's not worth considering,
- *   neither was it an optimal stepping stone.
+ *   neither was it an optimal stepping stone;
+ *  • 🏆 monotonic stack - what gave it away was the fact that we needed repeated minimums, but only up to a point,
+ *   and then the rest of the numbers, plus all of that IN ORDER => repeated mins + in order => monotonic stack, not the heap.
  *
  * Value gained:
  *  • practiced recognizing and solving a problem efficiently with a monotonic stack with additional constraint on top.
