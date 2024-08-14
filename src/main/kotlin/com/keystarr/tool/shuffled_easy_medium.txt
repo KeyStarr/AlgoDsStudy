@@ -8,7 +8,7 @@
 ~ https://leetcode.com/problems/video-stitching/
 + https://leetcode.com/problems/longest-palindrome/description/
 ++~ https://leetcode.com/problems/find-the-most-competitive-subsequence/description/
-- https://leetcode.com/problems/path-sum-ii/description/
++ https://leetcode.com/problems/path-sum-ii/description/
 - https://leetcode.com/problems/maximum-erasure-value/description/
 - https://leetcode.com/problems/all-elements-in-two-binary-search-trees/description/
 - https://leetcode.com/problems/smallest-number-in-infinite-set/
