@@ -21,6 +21,7 @@ import kotlin.math.min
  *  • actual greedy approach is super great, intuitive and simple. I should've reconsidered my initial approach when
  *   it got too complicated, should've dropped the idea of finding the "unique" parts and come up with a solution via
  *   a single loop after sorting => greedy is usually like that.
+ *   done [greedy] after learning it from https://leetcode.com/problems/video-stitching/solutions/269988/c-java-6-lines-o-n-log-n/
  *
  * Value gained:
  *  • 🔥🔥lesson learned, new strategy updates:
@@ -133,8 +134,9 @@ class VideoStitching {
      *    the remaining interval with the minimum value, by 1 + we had no unique intervals => we do exactly one iteration
      *    for 1 unit of length of the even interval => O(eventLength)
      *   - find the biggest interval that overlaps with the remaining O(n)
-     * Space: O(n)
-     *  - used array marker O(n)
+     * Space: average O(n + eventDuration)
+     *  - worst uniqueIntervals is n
+     *  - worst missing intervals is c*eventDuration
      */
     fun abomination(clips: Array<IntArray>, eventDuration: Int): Int {
         clips.sortBy { it[0] }
