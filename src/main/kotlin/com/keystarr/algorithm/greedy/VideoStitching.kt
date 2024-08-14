@@ -31,10 +31,13 @@ import kotlin.math.min
  *  • overcomplicated solutions ARE NEVER useful. Not usable in production, obviously, not feasible during interviews
  *   AND DON'T HELP LEARNING! A waste of time;
  *  • practiced greedy on intervals!
- *  • ⭐️ what a great example of how an incorrect initial approach "let's find unique intervals first!" that actually leads
+ *  • ⭐️ [abomination] is a great example of how an incorrect initial approach "let's find unique intervals first!" that actually leads
  *   to a CORRECT solution traps the design into the never-ending cycle of overcomplicated mess.
  */
 class VideoStitching {
+
+    // TODO: retry fully
+    // TODO: understand O(n) time https://leetcode.com/problems/video-stitching/solutions/270680/c-o-n-no-sorting-greedy-explained/
 
     /**
      * A simple greedy approach:
