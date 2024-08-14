@@ -1,4 +1,4 @@
-package com.keystarr
+package com.keystarr.algorithm.hashing.hashmap
 
 /**
  * LC-406 https://leetcode.com/problems/longest-palindrome/description/
