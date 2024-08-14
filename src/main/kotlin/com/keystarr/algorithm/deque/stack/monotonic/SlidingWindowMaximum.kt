@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.deque
+package com.keystarr.algorithm.deque.stack.monotonic
 
 /**
  * LC-239 https://leetcode.com/problems/sliding-window-maximum/description/

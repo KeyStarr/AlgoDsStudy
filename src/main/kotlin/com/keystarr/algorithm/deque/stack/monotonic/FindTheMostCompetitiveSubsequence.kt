@@ -1,4 +1,4 @@
-package com.keystarr.algorithm
+package com.keystarr.algorithm.deque.stack.monotonic
 
 /**
  * 💣 retry - reinforce, spent too much time on recognizing the approach

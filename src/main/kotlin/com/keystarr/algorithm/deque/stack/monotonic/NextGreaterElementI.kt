@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.deque.stack
+package com.keystarr.algorithm.deque.stack.monotonic
 
 /**
  * LC-496 https://leetcode.com/problems/next-greater-element-i/description/

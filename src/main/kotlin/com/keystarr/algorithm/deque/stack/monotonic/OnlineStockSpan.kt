@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.deque.stack
+package com.keystarr.algorithm.deque.stack.monotonic
 
 import kotlin.collections.ArrayDeque
 
