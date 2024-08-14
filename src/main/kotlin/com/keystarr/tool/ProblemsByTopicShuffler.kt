@@ -20,7 +20,7 @@ class ProblemsByTopicShuffler {
         File(problemSetFilePath).forEachLine { line -> problems.add(line) }
 
         problems.shuffle()
-        File(outputFilePath).writer().use { writer -> problems.forEach { writer.write("$it\n") } }
+        File(outputFilePath).writer().use { writer -> problems.forEach { writer.write("- $it\n") } }
     }
 }
 
