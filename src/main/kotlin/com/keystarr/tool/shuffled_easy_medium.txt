@@ -11,7 +11,7 @@
 + https://leetcode.com/problems/path-sum-ii/description/
 + https://leetcode.com/problems/maximum-erasure-value/description/
 ++~ https://leetcode.com/problems/all-elements-in-two-binary-search-trees/description/
-- https://leetcode.com/problems/smallest-number-in-infinite-set/
++ https://leetcode.com/problems/smallest-number-in-infinite-set/
 - https://leetcode.com/problems/permutation-in-string/description/
 - https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
 - https://leetcode.com/problems/maximum-tastiness-of-candy-basket/
