@@ -17,7 +17,7 @@ Legend:
 + https://leetcode.com/problems/smallest-number-in-infinite-set/
 ~+ https://leetcode.com/problems/permutation-in-string/description/
 + https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
-- https://leetcode.com/problems/maximum-tastiness-of-candy-basket/
+~ https://leetcode.com/problems/maximum-tastiness-of-candy-basket/
 - https://leetcode.com/problems/number-of-enclaves/description/
 - https://leetcode.com/problems/largest-divisible-subset/description/
 - https://leetcode.com/problems/unique-number-of-occurrences/
