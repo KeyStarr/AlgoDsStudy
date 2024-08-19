@@ -1,3 +1,6 @@
+Legend:
+ - after 1-2 weeks => shuffle or problems marked with "~" and reinforce-solve them.
+
 + https://leetcode.com/problems/validate-stack-sequences/description/
 + https://leetcode.com/problems/maximum-matching-of-players-with-trainers/description/
 ~ RETRY https://leetcode.com/problems/container-with-most-water/description/
@@ -12,7 +15,7 @@
 + https://leetcode.com/problems/maximum-erasure-value/description/
 ++~ https://leetcode.com/problems/all-elements-in-two-binary-search-trees/description/
 + https://leetcode.com/problems/smallest-number-in-infinite-set/
-- https://leetcode.com/problems/permutation-in-string/description/
+~+ https://leetcode.com/problems/permutation-in-string/description/
 - https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
 - https://leetcode.com/problems/maximum-tastiness-of-candy-basket/
 - https://leetcode.com/problems/number-of-enclaves/description/
