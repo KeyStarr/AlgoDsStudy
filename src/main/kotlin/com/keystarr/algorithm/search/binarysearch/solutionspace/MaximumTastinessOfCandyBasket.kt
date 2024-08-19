@@ -1,4 +1,4 @@
-package com.keystarr.algorithm
+package com.keystarr.algorithm.search.binarysearch.solutionspace
 
 /**
  * 💣 failed to recognize and EVEN struggled to design given the approach => full reinforce later
