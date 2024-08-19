@@ -1,13 +1,13 @@
 Legend:
- - after 1-2 weeks => shuffle or problems marked with "~" and reinforce-solve them.
+ - after 1-2 weeks => shuffle or problems marked with "~" and reinforce-solve them (RETRY).
 
 + https://leetcode.com/problems/validate-stack-sequences/description/
 + https://leetcode.com/problems/maximum-matching-of-players-with-trainers/description/
-~ RETRY https://leetcode.com/problems/container-with-most-water/description/
-~ RETRY https://leetcode.com/problems/single-element-in-a-sorted-array/description/
+~ https://leetcode.com/problems/container-with-most-water/description/
+~ https://leetcode.com/problems/single-element-in-a-sorted-array/description/
 + https://leetcode.com/problems/time-needed-to-inform-all-employees/description/
 +~ https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
-~~~ RETRY https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree/description/
+~~~ https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree/description/
 ~ https://leetcode.com/problems/video-stitching/
 + https://leetcode.com/problems/longest-palindrome/description/
 ++~ https://leetcode.com/problems/find-the-most-competitive-subsequence/description/
@@ -18,7 +18,7 @@ Legend:
 ~+ https://leetcode.com/problems/permutation-in-string/description/
 + https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
 ~ https://leetcode.com/problems/maximum-tastiness-of-candy-basket/
-- https://leetcode.com/problems/number-of-enclaves/description/
++ https://leetcode.com/problems/number-of-enclaves/description/
 - https://leetcode.com/problems/largest-divisible-subset/description/
 - https://leetcode.com/problems/unique-number-of-occurrences/
 - https://leetcode.com/problems/restore-ip-addresses/description/
