@@ -23,9 +23,9 @@ Legend:
 + https://leetcode.com/problems/unique-number-of-occurrences/
 + https://leetcode.com/problems/restore-ip-addresses/description/
 ~+ https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/description/
-- https://leetcode.com/problems/even-odd-tree/description/
-- https://leetcode.com/problems/find-the-index-of-the-large-integer/
-- https://leetcode.com/problems/determine-if-two-strings-are-close/description/
++ https://leetcode.com/problems/even-odd-tree/description/
+LOCKED- https://leetcode.com/problems/find-the-index-of-the-large-integer/
++ (maybe retry for fun later, surprised me) https://leetcode.com/problems/determine-if-two-strings-are-close/description/
 - https://leetcode.com/problems/n-th-tribonacci-number/
 - https://leetcode.com/problems/design-add-and-search-words-data-structure/
 - https://leetcode.com/problems/path-crossing/description/
