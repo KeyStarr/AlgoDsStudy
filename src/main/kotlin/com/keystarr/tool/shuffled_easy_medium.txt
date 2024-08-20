@@ -27,7 +27,7 @@ Legend:
 LOCKED- https://leetcode.com/problems/find-the-index-of-the-large-integer/
 + (maybe retry for fun later, surprised me) https://leetcode.com/problems/determine-if-two-strings-are-close/description/
 + https://leetcode.com/problems/n-th-tribonacci-number/
-- https://leetcode.com/problems/design-add-and-search-words-data-structure/
++ https://leetcode.com/problems/design-add-and-search-words-data-structure/
 - https://leetcode.com/problems/path-crossing/description/
 - https://leetcode.com/problems/sum-of-subarray-ranges/description/
 - https://leetcode.com/problems/implement-queue-using-stacks/
