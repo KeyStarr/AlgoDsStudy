@@ -22,7 +22,7 @@ Legend:
 + https://leetcode.com/problems/largest-divisible-subset/description/
 + https://leetcode.com/problems/unique-number-of-occurrences/
 + https://leetcode.com/problems/restore-ip-addresses/description/
-- https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/description/
+~+ https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/description/
 - https://leetcode.com/problems/even-odd-tree/description/
 - https://leetcode.com/problems/find-the-index-of-the-large-integer/
 - https://leetcode.com/problems/determine-if-two-strings-are-close/description/
