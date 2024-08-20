@@ -28,6 +28,7 @@ package com.keystarr.algorithm.hashing.hashmap
 class DetermineIfTwoStringsAreClose {
 
     // TODO: optionally, retry in 1-2 weeks, I got the solution correct and quick, but was surprised still :D
+    //  try out sorting instead of the meta-frequency
 
     /**
      * Problem rephrase:
