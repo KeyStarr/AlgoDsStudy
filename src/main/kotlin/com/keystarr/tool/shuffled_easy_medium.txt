@@ -34,7 +34,7 @@ LOCKED- https://leetcode.com/problems/find-the-index-of-the-large-integer/
 + https://leetcode.com/problems/implement-queue-using-stacks/
 ~ https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 +~ https://leetcode.com/problems/reverse-only-letters/description/
-- https://leetcode.com/problems/maximum-ice-cream-bars/description/
++ https://leetcode.com/problems/maximum-ice-cream-bars/description/
 - https://leetcode.com/problems/sum-of-subarray-minimums/
 - https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/
 - https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/description/

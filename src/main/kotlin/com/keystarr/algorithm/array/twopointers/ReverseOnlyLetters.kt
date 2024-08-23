@@ -23,7 +23,7 @@ package com.keystarr.algorithm.array.twopointers
  */
 class ReverseOnlyLetters {
 
-    // TODO: retry two pointers in 1-2 weeks
+    // TODO: retry two pointers in 1-2 weeks. Thought of 2 pointers correctly, but failed to quickly design the clean approach.
 
     // could've also used a hashset with all these characters added
     private val targetRanges = arrayOf(
