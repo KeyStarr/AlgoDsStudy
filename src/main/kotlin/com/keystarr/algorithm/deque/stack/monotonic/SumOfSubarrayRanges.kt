@@ -1,6 +1,7 @@
 package com.keystarr.algorithm.deque.stack.monotonic
 
 /**
+ * ⭐ WOW, a great example of a problem, if one had never encountered anything close to that pattern before => one would never have solved during an interview
  * LC-2104 https://leetcode.com/problems/sum-of-subarray-ranges/description/
  * difficulty: medium (HAH, easily leet-hard!)
  * constraints:
