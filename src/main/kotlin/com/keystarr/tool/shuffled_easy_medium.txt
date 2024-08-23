@@ -32,7 +32,7 @@ LOCKED- https://leetcode.com/problems/find-the-index-of-the-large-integer/
 ~~~ https://leetcode.com/problems/sum-of-subarray-ranges/description/
  ~ (added later as a side step to understand the main one) https://leetcode.com/problems/sum-of-subarray-minimums/submissions/1365910751/
 + https://leetcode.com/problems/implement-queue-using-stacks/
-- https://leetcode.com/problems/search-in-rotated-sorted-array/description/
+~ https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 - https://leetcode.com/problems/reverse-only-letters/description/
 - https://leetcode.com/problems/maximum-ice-cream-bars/description/
 - https://leetcode.com/problems/sum-of-subarray-minimums/
