@@ -21,7 +21,8 @@ package com.keystarr.algorithm.deque.stack.monotonic
  *   • but miserably failed to come up with a formula for subarray counting! Even after
  *    watching https://www.youtube.com/watch?v=aX1F2-DrBkQ struggled to understand it, then finally got it a few days later
  *    (maybe me being sick influenced the process);
- *   • cause I failed with the formula, didn't proceed to actually design the monotonic stack application.
+ *   • cause I failed with the formula, didn't proceed to actually design the monotonic stack application;
+ *   • [SumOfSubarrayRanges] is a literal build-up on top of this entire problem.
  *
  * Value gained:
  *  • learned for the first time and learned to derive the formula for counting exactly how many subarrays of array Y contain element X;
