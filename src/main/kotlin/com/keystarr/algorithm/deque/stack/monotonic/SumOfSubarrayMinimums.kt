@@ -73,7 +73,7 @@ class SumOfSubarrayMinimums {
      *  => standard modular sum.
      *
      *
-     * Learned from https://www.youtube.com/watch?v=aX1F2-DrBkQ.
+     * Learned the core ideas from https://www.youtube.com/watch?v=aX1F2-DrBkQ, designed and implemented the rest myself.
      *
      * ----------------
      *
@@ -81,7 +81,7 @@ class SumOfSubarrayMinimums {
      *  - given: an array of integers
      *  Goal: return the modulo of the sum of minimums across all subarrays.
      *
-     * 3 1 2 4
+     * 3 1 2 4 3 0
      *
      *
      * 5 4 3 2 1
@@ -120,7 +120,8 @@ class SumOfSubarrayMinimums {
         val stack = ArrayList<Item>() // non-decreasing monotonic stack
         var result = 0
         nums.forEachIndexed { ind, number ->
-            var leftInd = ind // the left index (inclusive) of a subarray of nums in which we count all subarrays that include the [number]
+            var leftInd =
+                ind // the left index (inclusive) of a subarray of nums in which we count all subarrays that include the [number]
             while (stack.isNotEmpty() && number < stack.last().number) {
                 val removedItem = stack.removeLast()
                 result = result.updateResult(removedItem, rightIndExclusive = ind)
@@ -144,12 +145,53 @@ class SumOfSubarrayMinimums {
         return ((this + numOfSubs * removedItem.number) % DIVISOR).toInt()
     }
 
+    /**
+     * 3 1 2 4 3 0
+     *
+     * Core tools are same as [efficient], but 2 neat hacks on top:
+     *  1. iterate including nums.size index => if reached it, just pop all from the stack, don't check the nums
+     *   => no need for the second while, same execution;
+     *  2. track only the element's index => no need for `leftInd`.
+     *   By definition of the monotonic stack, the FIRST LEFTMOST number which is LESS than or equal to the current number
+     *   will be ALWAYS the PREVIOUS number in the stack. If the stack is empty, then all elements in the array left
+     *   of the current are greater than it => that index is 0.
+     *
+     * We could also push -1 to the stack initially =>
+     *  - check stack.peek() == -1 for emptiness;
+     *  - the condition in elementsToLeft and always count it as = removedNumInd - stack.last()
+     *   then elementsToLeft would always contain the current number as counted
+     *   => no need to reduce the result by 1, and no need for if cause there'll always be -1 in the stack, since
+     *    the min possible element in [nums] is 1.
+     *  - count numOfSubs just as = elementsToRightWithRemoved * elementsToLeft.toLong()
+     *   coz the current number is counted, that gives an extra +1 to the number of repetitions of the right elements
+     *    subarrays we have, that way we count exactly that extra elementsToRightWithRemoved we used to explicitly specify.
+     *
+     * But I think its much cleaner for understanding without the initial -1 push trick.
+     */
+    fun efficientCleaner(nums: IntArray): Int {
+        val stack = ArrayList<Int>() // non-decreasing monotonic stack
+        var result = 0L
+        for (rightInd in 0..nums.size) {
+            while (stack.isNotEmpty() && (rightInd == nums.size || nums[rightInd] < nums[stack.last()])) {
+                val removedNumInd = stack.removeLast()
+                val removedNum = nums[removedNumInd]
+                val elementsToRightWithRemoved = rightInd - removedNumInd
+                val elementsToLeft = removedNumInd - if (stack.isEmpty()) 0 else (stack.last() + 1)
+                val numOfSubs = elementsToRightWithRemoved + elementsToRightWithRemoved * elementsToLeft.toLong()
+                result = (result + numOfSubs * removedNum) % DIVISOR
+            }
+            stack.add(rightInd)
+        }
+        return result.toInt()
+    }
+
     private class Item(
         val number: Int,
         val index: Int,
         // the leftmost boundary (inclusive) of the subarray of [nums] in which the [number] is the min element
         val leftInd: Int,
     )
+
 }
 
 private const val DIVISOR: Int = 1_000_000_000 + 7
@@ -167,8 +209,8 @@ exp ans 3+4+3=10
 */
 fun main() {
     println(
-        SumOfSubarrayMinimums().efficient(
-            intArrayOf(3, 2, 1),
+        SumOfSubarrayMinimums().efficientCleaner(
+            intArrayOf(3, 2, 1, 4),
         )
     )
 }
