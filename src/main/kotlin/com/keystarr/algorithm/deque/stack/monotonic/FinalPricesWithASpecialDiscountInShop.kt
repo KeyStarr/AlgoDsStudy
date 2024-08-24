@@ -2,7 +2,7 @@ package com.keystarr.algorithm.deque.stack.monotonic
 
 /**
  * LC-1475 https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/description/
- * difficulty: medium
+ * difficulty: easy (imho, O(n) is leet-medium just coz the concept requires advanced understanding. but O(n^2) is also accepted so its understandable)
  * constraints:
  *  • 1 <= prices.length <= 500;
  *  • 1 <= prices\[i] <= 1000.
