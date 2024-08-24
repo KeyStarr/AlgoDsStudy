@@ -1,0 +1,207 @@
+// "The problems within each topic are roughly ordered by difficulty."
+
+// Arrays and strings
+
+// Two pointers
+557. Reverse Words in a String III
+917. Reverse Only Letters
+2540. Minimum Common Value
+283. Move Zeroes
+2000. Reverse Prefix of Word
+
+// Sliding window
+209. Minimum Size Subarray Sum
+// predone 1456. Maximum Number of Vowels in a Substring of Given Length
+1208. Get Equal Substrings Within Budget
+
+// Prefix sum
+1732. Find the Highest Altitude
+724. Find Pivot Index
+303. Range Sum Query - Immutable
+
+
+// Hashing
+
+// Checking for existence
+217. Contains Duplicate
+1436. Destination City
+// predone 1496. Path Crossing
+
+// Counting
+1748. Sum of Unique Elements
+3005. Count Elements With Maximum Frequency
+1394. Find Lucky Integer in an Array
+// predone 1207. Unique Number of Occurrences
+451. Sort Characters By Frequency
+2958. Length of Longest Subarray With at Most K Frequency
+1512. Number of Good Pairs
+930. Binary Subarrays With Sum
+// predone 1695. Maximum Erasure Value
+567. Permutation in String
+
+// General
+205. Isomorphic Strings
+290. Word Pattern
+791. Custom Sort String
+1657. Determine if Two Strings Are Close
+
+
+// Linked Lists
+
+// Fast and slow pointers
+
+2095. Delete the Middle Node of a Linked List
+19. Remove Nth Node From End of List
+82. Remove Duplicates from Sorted List II
+1721. Swapping Nodes in a Linked List
+
+// Reversing a linked list
+234. Palindrome Linked List
+2074. Reverse Nodes in Even Length Groups
+2130. Maximum Twin Sum of a Linked List
+
+// General
+203. Remove Linked List Elements
+1290. Convert Binary Number in a Linked List to Integer
+328. Odd Even Linked List
+707. Design Linked List
+
+
+// Stacks and queues
+
+// Stacks
+2390. Removing Stars From a String
+// predone 232. Implement Queue using Stacks
+2434. Using a Robot to Print the Lexicographically Smallest String
+// predone 946. Validate Stack Sequences
+735. Asteroid Collision
+155. Min Stack
+
+// Queues
+225. Implement Stack using Queues
+649. Dota2 Senate
+
+// Monotonic (original warning: these problems aren't easy!)
+1475. Final Prices With a Special Discount in a Shop
+1063. Number of Valid Subarrays
+1673. Find the Most Competitive Subsequence
+1944. Number of Visible People in a Queue
+907. Sum of Subarray Minimums
+2104. Sum of Subarray Ranges
+2398. Maximum Number of Robots Within Budget
+
+
+// Trees and graphs
+
+// Binary trees
+100. Same Tree
+872. Leaf-Similar Trees
+226. Invert Binary Tree
+101. Symmetric Tree
+// predone 113. Path Sum II
+1325. Delete Leaves With a Given Value
+437. Path Sum III
+1372. Longest ZigZag Path in a Binary Tree
+
+// Binary trees: BFS
+102. Binary Tree Level Order Traversal
+1161. Maximum Level Sum of a Binary Tree
+637. Average of Levels in Binary Tree
+// predone 1609. Even Odd Tree
+
+// Binary search trees
+700. Search in a Binary Search Tree
+1305. All Elements in Two Binary Search Trees
+235. Lowest Common Ancestor of a Binary Search Tree
+450. Delete Node in a BST
+
+// Graphs
+997. Find the Town Judge
+1615. Maximal Network Rank
+463. Island Perimeter
+// predone 1020. Number of Enclaves
+// predone 1376. Time Needed to Inform All Employees
+2192. All Ancestors of a Node in a Directed Acyclic Graph
+990. Satisfiability of Equality Equations
+994. Rotting Oranges
+
+
+// Heaps
+692. Top K Frequent Words
+1845. Seat Reservation Manager
+// predone 2336. Smallest Number in Infinite Set
+2182. Construct String With Repeat Limit
+2462. Total Cost to Hire K Workers
+373. Find K Pairs with Smallest Sums
+2402. Meeting Rooms III
+632. Smallest Range Covering Elements from K Lists
+
+
+// Greedy
+// predone 1833. Maximum Ice Cream Bars
+// predone 409. Longest Palindrome
+455. Assign Cookies
+1005. Maximize Sum Of Array After K Negations
+// predone 2410. Maximum Matching of Players With Trainers
+1663. Smallest String With A Given Numeric Value
+2486. Append Characters to String to Make Subsequence
+2405. Optimal Partition of String
+11. Container With Most Water
+2384. Largest Palindromic Number
+2178. Maximum Split of Positive Even Integers
+2139. Minimum Moves to Reach Target Score
+2457. Minimum Addition to Make Integer Beautiful
+1024. Video Stitching
+2136. Earliest Possible Day of Full Bloom
+1326. Minimum Number of Taps to Open to Water a Garden
+
+
+// Binary Search
+
+// On arrays
+374. Guess Number Higher or Lower
+1855. Maximum Distance Between a Pair of Values
+2476. Closest Nodes Queries in a Binary Search Tree
+2250. Count Number of Rectangles Containing Each Point
+1533. Find the Index of the Large Integer
+540. Single Element in a Sorted Array
+33. Search in Rotated Sorted Array
+2251. Number of Flowers in Full Bloom
+
+// On solution spaces
+2187. Minimum Time to Complete Trips
+2226. Maximum Candies Allocated to K Children
+2517. Maximum Tastiness of Candy Basket
+2141. Maximum Running Time of N Computers
+1482. Minimum Number of Days to Make m Bouquets
+778. Swim in Rising Water
+1970. Last Day Where You Can Still Cross
+2258. Escape the Spreading Fire
+
+
+// Backtracking
+47. Permutations II
+40. Combination Sum II
+2305. Fair Distribution of Cookies
+1415. The k-th Lexicographical String of All Happy Strings of Length n
+491. Non-decreasing Subsequences
+// predone 93. Restore IP Addresses
+131. Palindrome Partitioning
+980. Unique Paths III
+
+// Dynamic Programming
+// predone 1137. N-th Tribonacci Number
+118. Pascal's Triangle
+494. Target Sum
+213. House Robber II
+1218. Longest Arithmetic Subsequence of Given Difference
+1035. Uncrossed Lines
+518. Coin Change II
+139. Word Break
+337. House Robber III
+1155. Number of Dice Rolls With Target Sum
+1027. Longest Arithmetic Subsequence
+// predone 368. Largest Divisible Subset
+221. Maximal Square
+474. Ones and Zeroes
+1406. Stone Game III
