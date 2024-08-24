@@ -1,5 +1,5 @@
 Legend:
- - after 1-2 weeks => shuffle or problems marked with "~" and reinforce-solve them (RETRY).
+    - after 1-2 weeks => shuffle or problems marked with "~" and reinforce-solve them (RETRY).
 
 + https://leetcode.com/problems/validate-stack-sequences/description/
 + https://leetcode.com/problems/maximum-matching-of-players-with-trainers/description/

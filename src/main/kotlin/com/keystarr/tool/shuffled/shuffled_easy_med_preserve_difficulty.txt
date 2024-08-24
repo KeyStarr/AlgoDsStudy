@@ -1,4 +1,7 @@
-- 221. Maximal Square
+Legend:
+    - after 1-2 weeks => shuffle or problems marked with "~" and reinforce-solve them (RETRY).
+
+~ 221. Maximal Square
 ~+ 567. Permutation in String
 - 225. Implement Stack using Queues
 - 2095. Delete the Middle Node of a Linked List
