@@ -9,6 +9,7 @@ package com.keystarr.algorithm.search.binarysearch.solutionspace
  *
  * Final notes:
  *  • 🏅 done [efficient] by myself in 40 mins, 1st try submit;
+ *   recognized a BSoSS in a simulation type problem myself 🏅! (been having trouble with recognition of BSoSS in general lately)
  *   ⚠️ should do faster though, like 20 mins is a target for binary search on solution space mediums. But is OK for now.
  *    spent a lot of time understanding the half elimination properties, like what these should be, no less or no greater and why,
  *    and exactly what the checking resul would be, which side to go => definitely need more practice designing binary
