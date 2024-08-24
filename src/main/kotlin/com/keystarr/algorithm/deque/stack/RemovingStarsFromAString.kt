@@ -8,12 +8,16 @@ package com.keystarr.algorithm.deque.stack
  *  • text consists of lowercase English and *.
  *
  * Final notes:
- *  • done [solution] by myself in ~5 mins.
+ *  • done [solution] by myself in ~5 mins;
+ *  • core observation was that: we only need to remove the last non-removed character prior to the *
+ *   then simple conclusion => if we iterate through the string and add all non-* chars into a stack, as we encounter *
+ *   we might simply pop from the stack.
+ *   It was very trivial to make, somehow. Done it almost instinctively, can't really retrace the process, jumped to it straight.
  *
  * Value gained:
- *  - practiced solving a string modification problem efficiently using a stack.
+ *  • practiced solving a string modification problem efficiently using a stack.
  */
-class RemovingStartFromAString {
+class RemovingStarsFromAString {
 
     /**
      *
