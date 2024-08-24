@@ -30,7 +30,7 @@ class MiddleOfTheLinkedList {
      *  - number of nodes = 2 (e.g. 100 33) => return the second (33), correct.
      *
      */
-    fun solution(head: LinkedListNode): LinkedListNode {
+    fun twoPointers1(head: LinkedListNode): LinkedListNode {
         var slow = head
         var fast = head
         while (fast.next?.next != null) {
@@ -38,5 +38,29 @@ class MiddleOfTheLinkedList {
             fast = fast.next!!.next!!
         }
         return if (fast.next == null) slow else slow.next!!
+    }
+}
+
+fun LinkedListNode.formatToEnd(output: StringBuilder = StringBuilder()): String {
+    output.append("$value, ")
+    return next?.formatToEnd(output) ?: output.toString()
+}
+
+class LinkedListNode(
+    var value: Int,
+    var next: LinkedListNode? = null
+) {
+
+    override fun toString() = "$value, n=${next?.value}"
+}
+
+fun linkedListOf(vararg nums: Int): LinkedListNode? {
+    if (nums.isEmpty()) return null
+    return LinkedListNode(nums[0]).apply {
+        var currentNode = this
+        (1 until nums.size).forEach { ind ->
+            currentNode.next = LinkedListNode(nums[ind])
+            currentNode = currentNode.next!!
+        }
     }
 }
