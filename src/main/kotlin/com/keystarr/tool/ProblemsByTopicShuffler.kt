@@ -74,7 +74,7 @@ class ProblemsByTopicShuffler {
 
 fun main() {
     ProblemsByTopicShuffler().preserveOrderByTopics(
-        topicsFilePath = "/Users/kirillstarostin/Study/AlgoDSStudy/src/main/kotlin/com/keystarr/tool/problemset/leet_bonus_easy_med_topics.txt",
-        outputFilePath = "/Users/kirillstarostin/Study/AlgoDSStudy/src/main/kotlin/com/keystarr/tool/shuffled/shuffled_easy_med_preserve_difficulty.txt",
+        topicsFilePath = "",
+        outputFilePath = "",
     )
 }
