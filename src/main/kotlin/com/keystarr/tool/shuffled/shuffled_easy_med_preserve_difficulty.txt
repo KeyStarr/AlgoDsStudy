@@ -10,7 +10,7 @@ Legend:
 ++~ 1325. Delete Leaves With a Given Value
 + 2390. Removing Stars From a String
 + 2187. Minimum Time to Complete Trips
-- 455. Assign Cookies
++~ 455. Assign Cookies
 - 47. Permutations II
 - 692. Top K Frequent Words
 - 1845. Seat Reservation Manager
