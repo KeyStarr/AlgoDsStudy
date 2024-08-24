@@ -5,7 +5,7 @@ Legend:
 ~+ 567. Permutation in String
 + 225. Implement Stack using Queues
 ++~ 2095. Delete the Middle Node of a Linked List
-- 19. Remove Nth Node From End of List
+~ 19. Remove Nth Node From End of List
 - 1475. Final Prices With a Special Discount in a Shop
 - 1325. Delete Leaves With a Given Value
 - 2390. Removing Stars From a String
