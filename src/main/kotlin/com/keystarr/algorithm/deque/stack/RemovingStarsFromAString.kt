@@ -13,6 +13,7 @@ package com.keystarr.algorithm.deque.stack
  *   then simple conclusion => if we iterate through the string and add all non-* chars into a stack, as we encounter *
  *   we might simply pop from the stack.
  *   It was very trivial to make, somehow. Done it almost instinctively, can't really retrace the process, jumped to it straight.
+ *   (just simulated it in my head I guess and here it was. OK im defo overthinking this, STOP)))))
  *
  * Value gained:
  *  • practiced solving a string modification problem efficiently using a stack.
