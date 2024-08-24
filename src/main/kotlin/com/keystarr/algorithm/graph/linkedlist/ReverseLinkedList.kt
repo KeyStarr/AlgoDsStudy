@@ -52,9 +52,9 @@ class ReverseLinkedList {
      * we don't have that problem here at all. When  we unwrap the callstack, we always arrive precisely at the original
      * previous node and can freely manipulate `node.next` links without messing up the order.
      */
-    fun recursive(head: ListNode?): ListNode? = recursiveInternal(head).also { head?.next = null }
+    fun recursive(head: LinkedListNode?): LinkedListNode? = recursiveInternal(head).also { head?.next = null }
 
-    private fun recursiveInternal(current: ListNode?): ListNode? {
+    private fun recursiveInternal(current: LinkedListNode?): LinkedListNode? {
         if (current?.next == null) return current
 
         val newHead = recursiveInternal(current.next)!!
@@ -93,7 +93,7 @@ class ReverseLinkedList {
      * Time: always O(n)
      * Space: always O(1)
      */
-    fun iterative(head: ListNode?): ListNode? {
+    fun iterative(head: LinkedListNode?): LinkedListNode? {
         var currentNode = head
         var originalNext = head?.next
 
@@ -136,8 +136,8 @@ class ReverseLinkedList {
      * Time: O(n)
      * Space: O(1)
      */
-    fun iterativeCleaner(head: ListNode?): ListNode? {
-        var previous: ListNode? = null
+    fun iterativeCleaner(head: LinkedListNode?): LinkedListNode? {
+        var previous: LinkedListNode? = null
         var current = head
         while (current != null) {
             val originalNext = current.next
@@ -151,13 +151,13 @@ class ReverseLinkedList {
 
 fun main() {
     ReverseLinkedList().iterative(
-        ListNode(
+        LinkedListNode(
             value = 1,
-            next = ListNode(
+            next = LinkedListNode(
                 value = 2,
-                next = ListNode(
+                next = LinkedListNode(
                     value = 3,
-                    next = ListNode(
+                    next = LinkedListNode(
                         value = 4,
                         next = null,
                     )

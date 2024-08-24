@@ -57,7 +57,7 @@ class SwapNodesInPairs {
      * Time: always O(n)
      * Space: always O(1)
      */
-    fun efficient(head: ListNode?): ListNode? {
+    fun efficient(head: LinkedListNode?): LinkedListNode? {
         if (head == null) return null
         if (head.next == null) return head
 
@@ -79,11 +79,11 @@ class SwapNodesInPairs {
 
 fun main() {
     SwapNodesInPairs().efficient(
-        ListNode(
+        LinkedListNode(
             value = 1,
-            next = ListNode(
+            next = LinkedListNode(
                 value = 2,
-                next = ListNode(
+                next = LinkedListNode(
                     value = 3,
                     next = null,
 //                    next = ListNode(

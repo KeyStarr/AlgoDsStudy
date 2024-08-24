@@ -67,15 +67,15 @@ class ReverseLinkedListII {
      * Time: O(n)
      * Space: O(1)
      */
-    fun solution(head: ListNode, left: Int, right: Int): ListNode {
+    fun solution(head: LinkedListNode, left: Int, right: Int): LinkedListNode {
         if (head.next == null) return head
         if (left == right) return head
 
         val leftInd = left - 1
         val rightInd = right - 1
 
-        var current: ListNode? = head
-        var prev: ListNode? = null
+        var current: LinkedListNode? = head
+        var prev: LinkedListNode? = null
         var currentInd = 0
 
         // find leftInd node
@@ -109,13 +109,13 @@ class ReverseLinkedListII {
 
 fun main() {
     ReverseLinkedListII().solution(
-        head = ListNode(
+        head = LinkedListNode(
             value = 1,
-            next = ListNode(
+            next = LinkedListNode(
                 value = 2,
-                next = ListNode(
+                next = LinkedListNode(
                     value = 3,
-                    next = ListNode(
+                    next = LinkedListNode(
                         value = 4,
                         next = null,
                     )

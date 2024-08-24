@@ -30,7 +30,7 @@ class MiddleOfTheLinkedList {
      *  - number of nodes = 2 (e.g. 100 33) => return the second (33), correct.
      *
      */
-    fun solution(head: ListNode): ListNode {
+    fun solution(head: LinkedListNode): LinkedListNode {
         var slow = head
         var fast = head
         while (fast.next?.next != null) {

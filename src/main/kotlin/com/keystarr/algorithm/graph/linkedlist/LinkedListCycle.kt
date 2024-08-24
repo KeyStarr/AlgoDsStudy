@@ -41,8 +41,8 @@ class LinkedListCycle {
      * Time: O(n)
      * Space: O(n)
      */
-    fun suboptimal(head: ListNode?): Boolean {
-        val set = mutableSetOf<ListNode>()
+    fun suboptimal(head: LinkedListNode?): Boolean {
+        val set = mutableSetOf<LinkedListNode>()
         var currentNode = head
         while (currentNode != null && currentNode.next != null) {
             set.add(currentNode)
@@ -74,7 +74,7 @@ class LinkedListCycle {
      *
      * TODO: prove and come up and really understand the formula of detection, after how many iterations will slow and fast meet.
      */
-    fun efficient(head: ListNode?): Boolean {
+    fun efficient(head: LinkedListNode?): Boolean {
         var fast = head?.next?.next
         var slow = head?.next
         while (fast?.next?.next != null) {
@@ -87,19 +87,19 @@ class LinkedListCycle {
 }
 
 fun main() {
-    val fourth = ListNode(
+    val fourth = LinkedListNode(
         value = -4,
         next = null,
     )
-    val third = ListNode(
+    val third = LinkedListNode(
         value = 0,
         next = fourth,
     )
-    val second = ListNode(
+    val second = LinkedListNode(
         value = 2,
         next = third,
     )
-    val first = ListNode(
+    val first = LinkedListNode(
         value = 3,
         next = second,
     )

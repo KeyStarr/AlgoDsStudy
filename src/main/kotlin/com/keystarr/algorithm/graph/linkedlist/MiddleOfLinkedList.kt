@@ -9,20 +9,20 @@ class MiddleOfLinkedList {
 
     // intuition: simply count the size of the list => calculate the second middle index, and then do sequential search
     // time: O(n), space: O(1)
-    fun slow(head: ListNode?): ListNode? {
+    fun slow(head: LinkedListNode?): LinkedListNode? {
         if (head == null) return null
 
         val size = head.countSize()
         return head.findNode(index = size / 2)
     }
 
-    private fun ListNode.countSize(currentSize: Int = 1): Int =
+    private fun LinkedListNode.countSize(currentSize: Int = 1): Int =
         next?.let { next?.countSize(currentSize + 1) } ?: currentSize
 
-    private fun ListNode.findNode(index: Int, currentIndex: Int = 0): ListNode? =
+    private fun LinkedListNode.findNode(index: Int, currentIndex: Int = 0): LinkedListNode? =
         if (currentIndex == index) this else next?.findNode(index, currentIndex + 1)
 
-    fun fast(head: ListNode?): ListNode? {
+    fun fast(head: LinkedListNode?): LinkedListNode? {
         // takes from a leetcode contributor. TODO: HOW DOES IT WORK????
         var p1 = head
         var p2 = head
@@ -41,25 +41,25 @@ fun main() {
     println(result?.formatToEnd())
 }
 
-fun linkedListOf(vararg nums: Int): ListNode? {
+fun linkedListOf(vararg nums: Int): LinkedListNode? {
     if (nums.isEmpty()) return null
-    return ListNode(nums[0]).apply {
+    return LinkedListNode(nums[0]).apply {
         var currentNode = this
         (1 until nums.size).forEach { ind ->
-            currentNode.next = ListNode(nums[ind])
+            currentNode.next = LinkedListNode(nums[ind])
             currentNode = currentNode.next!!
         }
     }
 }
 
-fun ListNode.formatToEnd(output: StringBuilder = StringBuilder()): String {
+fun LinkedListNode.formatToEnd(output: StringBuilder = StringBuilder()): String {
     output.append("$value, ")
     return next?.formatToEnd(output) ?: output.toString()
 }
 
-class ListNode(
+class LinkedListNode(
     var value: Int,
-    var next: ListNode? = null
+    var next: LinkedListNode? = null
 ) {
 
     override fun toString() = "$value, n=${next?.value}"

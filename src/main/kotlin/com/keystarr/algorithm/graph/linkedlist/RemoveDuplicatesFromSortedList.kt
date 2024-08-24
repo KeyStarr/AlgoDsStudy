@@ -69,10 +69,10 @@ class RemoveDuplicatesFromSortedList {
      * Time: O(n)
      * Space: O(1)
      */
-    fun efficient(head: ListNode?): ListNode? {
+    fun efficient(head: LinkedListNode?): LinkedListNode? {
         if (head == null) return null
 
-        var slow: ListNode? = head
+        var slow: LinkedListNode? = head
         var fast = head.next
         while (fast != null) {
             // delete duplicates, fast is still always 1 node ahead of slow
@@ -96,7 +96,7 @@ class RemoveDuplicatesFromSortedList {
      * Discovered thanks to:
      * https://leetcode.com/problems/remove-duplicates-from-sorted-list/editorial/
      */
-    fun efficientCleaner(head: ListNode?): ListNode? {
+    fun efficientCleaner(head: LinkedListNode?): LinkedListNode? {
         var currentNode = head
         while (currentNode?.next != null) {
             if (currentNode.value == currentNode.next!!.value) {
@@ -111,11 +111,11 @@ class RemoveDuplicatesFromSortedList {
 
 fun main() {
     RemoveDuplicatesFromSortedList().efficient(
-        ListNode(
+        LinkedListNode(
             value = 1,
-            next = ListNode(
+            next = LinkedListNode(
                 value = 1,
-                next = ListNode(
+                next = LinkedListNode(
                     value = 2,
                     next = null,
                 )
@@ -124,7 +124,7 @@ fun main() {
     ).debugPrintContents()
 }
 
-fun ListNode?.debugPrintContents() {
+fun LinkedListNode?.debugPrintContents() {
     var currentNode = this
     while (currentNode != null) {
         println(currentNode)

@@ -1,6 +1,6 @@
 package com.keystarr.algorithm.divideandconquer
 
-import com.keystarr.algorithm.graph.linkedlist.ListNode
+import com.keystarr.algorithm.graph.linkedlist.LinkedListNode
 import com.keystarr.algorithm.graph.linkedlist.formatToEnd
 import com.keystarr.algorithm.graph.linkedlist.linkedListOf
 
@@ -9,8 +9,8 @@ class ReverseLinkedList {
 
     // time: O(n)
     // space: O(1)
-    fun iterative(head: ListNode?): ListNode? {
-        var previous: ListNode? = null
+    fun iterative(head: LinkedListNode?): LinkedListNode? {
+        var previous: LinkedListNode? = null
         var current = head
         while (current != null) {
             val originalNext = current.next
@@ -29,9 +29,9 @@ class ReverseLinkedList {
     //
     // basically just keeping the "previous" and "current" variables of the iterative solution in the callstack
     // even though we don't need those at all after the execution.
-    fun dumbRecursive(head: ListNode?): ListNode? = dumbRecursiveIteration(previous = null, current = head)
+    fun dumbRecursive(head: LinkedListNode?): LinkedListNode? = dumbRecursiveIteration(previous = null, current = head)
 
-    private fun dumbRecursiveIteration(previous: ListNode?, current: ListNode?): ListNode? =
+    private fun dumbRecursiveIteration(previous: LinkedListNode?, current: LinkedListNode?): LinkedListNode? =
         if (current != null) {
             val originalNext = current.next
             current.next = previous
@@ -48,7 +48,7 @@ class ReverseLinkedList {
     // why did I even bother? it is 1 function instead of 2, with 1 arg instead of 2, but is SO MUCH MORE unclear,
     // certainly the first one would be better for prod, cause here is, like, 0 asymptotic performance benefit.
     // What am I spending my life on???
-    fun elegantRecursive(current: ListNode?): ListNode? {
+    fun elegantRecursive(current: LinkedListNode?): LinkedListNode? {
         if (current?.next == null) return current
 
         val newHead = elegantRecursive(current.next)
