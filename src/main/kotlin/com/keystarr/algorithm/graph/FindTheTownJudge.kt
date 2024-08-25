@@ -25,6 +25,8 @@ package com.keystarr.algorithm.graph
  *   did [efficient] when finally catching the answer to that question. Would've went straight for it if seen it at first.
  *  • 🏆 found the only edge case by myself correctly straight-away, hehe. Its always good checking
  *   🔥 the input constraint-based  edges just in case at least, aside from the problem-specific input edge states.
+ *  • should've understood the goal and constraints faster and done the solution faster, in like 15 mins (in total with all
+ *   re-reads spent ~35 mins).
  *
  * Value gained:
  *  • practiced solving a directed graph problem efficiently using just counting the inbound/outbound edges.
