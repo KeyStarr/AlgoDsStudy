@@ -96,7 +96,7 @@ fun main() {
 
 /**
  * Didn't see I've already done that one before => done it in a clean slate! Decided to keep both notes.
- * 30 min => 10 min, nice speed improve, bro!
+ * 30 min => 10 min, nice speed improve, bro! and 1st time submit, only 1-2 failed runs, definitely better.
  *
  * 🔥 And I didn't even remember at all that I've already done this particular problem, not even a though, wow.
  * 3 months ago.
@@ -111,7 +111,7 @@ fun main() {
  *  - 1 <= targetSum <= 10^9.
  *
  * Final notes:
- *  - done [efficient] by myself in 10 mins;
+ *  - done [efficient] by myself in 10 mins, 1st time submit;
  *  - postponed the time O(nlogn) one, cause I feel like in near future the probability of such follow-ups for me is minimal.
  *
  * Value gained:
