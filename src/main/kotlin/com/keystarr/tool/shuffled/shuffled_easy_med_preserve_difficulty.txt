@@ -13,7 +13,7 @@ Legend:
 +~ 455. Assign Cookies
 + 47. Permutations II
 + 692. Top K Frequent Words
-- 1845. Seat Reservation Manager
++ 1845. Seat Reservation Manager
 - 217. Contains Duplicate
 - 40. Combination Sum II
 - 209. Minimum Size Subarray Sum
