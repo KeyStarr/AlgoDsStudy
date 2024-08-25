@@ -14,8 +14,8 @@ Legend:
 + 47. Permutations II
 + 692. Top K Frequent Words
 + 1845. Seat Reservation Manager
-- 217. Contains Duplicate
-- 40. Combination Sum II
++ 217. Contains Duplicate
+~ 40. Combination Sum II
 - 209. Minimum Size Subarray Sum
 - 997. Find the Town Judge
 ~+ 2434. Using a Robot to Print the Lexicographically Smallest String
