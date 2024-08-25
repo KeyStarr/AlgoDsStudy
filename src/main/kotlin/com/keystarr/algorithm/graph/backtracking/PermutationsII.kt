@@ -10,7 +10,7 @@ package com.keystarr.algorithm.graph.backtracking
  * Final notes:
  *  • done [efficient] by myself in 30 mins;
  *  • a very straight forward backtracking problem with a single core observation = that we must consider only unique numbers
- *   not used in the current combinations for the current position.
+ *   not used in the current combination for the current position.
  *
  * Value gained:
  *  • practiced recognizing and solving a permutations problem efficiently via backtracking DFS.
