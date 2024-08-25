@@ -19,7 +19,7 @@ Legend:
 + 209. Minimum Size Subarray Sum
 ++~ 997. Find the Town Judge
 ~+ 2434. Using a Robot to Print the Lexicographically Smallest String
-- 1005. Maximize Sum Of Array After K Negations
++ 1005. Maximize Sum Of Array After K Negations
 - 203. Remove Linked List Elements
 - 102. Binary Tree Level Order Traversal
 - 118. Pascal's Triangle
