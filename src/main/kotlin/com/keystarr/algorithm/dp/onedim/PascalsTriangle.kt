@@ -12,7 +12,8 @@ package com.keystarr.algorithm.dp.onedim
  *  • didn't realize the [efficient] was DP until read it in solutions. Indeed, I jumped straight to bottom-up DP,
  *   we start at base case row=1 being just listOf(1), and then increase the subproblem by adding one more element, and computing
  *   each element of that row using the solutions to 1-2 subproblems of the previous row! Crystal clear bottom-up DP, where
- *   the goal is to compute the pascal's triangle for a given row X. (base case is X=1, X=2 uses the solution to X=1, X=3 for X=2 etc)
+ *   the goal is to compute the pascal's triangle for a given row X. (base case is X=1, X=2 uses the solution to X=1, X=3 for X=2 etc);
+ *  • very much an into DP problem only a step above [NthTribonacciNumber] with an intuitive bottom-up solution.
  *
  * Value gained:
  *  • practiced solving a special 2D list generation type problem using bottom-up DP (without even realizing it was DP :D
