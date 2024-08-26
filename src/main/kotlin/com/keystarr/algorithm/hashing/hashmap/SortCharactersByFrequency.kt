@@ -12,7 +12,9 @@ package com.keystarr.algorithm.hashing.hashmap
  *  • ⚠️ failed 1 test case for 2nd order sorting, but, imho, the problem wasn't clear on this with "if multiple answers,
  *   return in any order" and "sort only by desc freq";
  *  • 💡 quite a lot of counting type problems which are efficiently solved only using counting/bucket sort, huh. Then
- *   it's very valuable to master these tools as well.
+ *   it's very valuable to master these tools as well;
+ *  • ⚠️ should've first thought of using a map+stringbuilder like [suboptimalMap], instead done this super dirty [suboptimalArray],
+ *   no good and too slow.
  *
  * Value gained:
  *  • practiced both map and array counting approaches, [suboptimalMap] map is much better here imho, cleaner and better times/space const.
@@ -20,6 +22,8 @@ package com.keystarr.algorithm.hashing.hashmap
 class SortCharactersByFrequency {
 
     // TODO: solve efficiently for O(n) time via bucket sort, after learning it
+
+    // TODO: repeat nlogn in 1-2 weeks
 
     /**
      * goal: sort [text] in decreasing order based on the frequency of characters.
