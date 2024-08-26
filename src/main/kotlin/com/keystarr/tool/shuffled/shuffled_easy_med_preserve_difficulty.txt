@@ -26,7 +26,7 @@ Legend:
 ++~ 451. Sort Characters By Frequency
 ~+ 557. Reverse Words in a String III
 +~ 2226. Maximum Candies Allocated to K Children
-- 1436. Destination City
++~ 1436. Destination City
 - 1615. Maximal Network Rank
 +~ 917. Reverse Only Letters
 - 205. Isomorphic Strings

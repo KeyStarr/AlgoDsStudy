@@ -1,6 +1,13 @@
 package com.keystarr.algorithm.search.binarysearch.solutionspace
 
 /**
+ * ⭐️ not a notable problem, but a great case of retrospective value => noticed I'm solving BSoSS problems too slow
+ *  (~50 mins for meds instead of target 20-30 mins) and asked myself why. Found that bottlenecks are property checks,
+ *   I do too much reasoning there => this suggests not enough practice, since I'll look into the right directions
+ *   faster and compute properties checks faster => the path to target time is more practice with that tool!
+ *
+ *   🔥 Retrospective and learning from mistakes pays off, though we'll put the theory to test and see for sure.
+ *
  * LC-2226 https://leetcode.com/problems/maximum-candies-allocated-to-k-children/description/
  * difficulty: medium
  * constraints:
