@@ -76,7 +76,7 @@ class RemoveDuplicatesFromSortedList {
         var fast = head.next
         while (fast != null) {
             // delete duplicates, fast is still always 1 node ahead of slow
-            while (slow!!.value == fast?.value) {
+            while (slow!!.`val` == fast?.`val`) {
                 slow.next = fast.next
                 fast = fast.next
             }
@@ -99,7 +99,7 @@ class RemoveDuplicatesFromSortedList {
     fun efficientCleaner(head: LinkedListNode?): LinkedListNode? {
         var currentNode = head
         while (currentNode?.next != null) {
-            if (currentNode.value == currentNode.next!!.value) {
+            if (currentNode.`val` == currentNode.next!!.`val`) {
                 currentNode.next = currentNode.next?.next
             } else {
                 currentNode = currentNode.next
@@ -112,11 +112,11 @@ class RemoveDuplicatesFromSortedList {
 fun main() {
     RemoveDuplicatesFromSortedList().efficient(
         LinkedListNode(
-            value = 1,
+            `val` = 1,
             next = LinkedListNode(
-                value = 1,
+                `val` = 1,
                 next = LinkedListNode(
-                    value = 2,
+                    `val` = 2,
                     next = null,
                 )
             )

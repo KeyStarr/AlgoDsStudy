@@ -110,13 +110,13 @@ class ReverseLinkedListII {
 fun main() {
     ReverseLinkedListII().solution(
         head = LinkedListNode(
-            value = 1,
+            `val` = 1,
             next = LinkedListNode(
-                value = 2,
+                `val` = 2,
                 next = LinkedListNode(
-                    value = 3,
+                    `val` = 3,
                     next = LinkedListNode(
-                        value = 4,
+                        `val` = 4,
                         next = null,
                     )
                 )

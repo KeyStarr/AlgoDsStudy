@@ -57,7 +57,7 @@ class MaximumTwinSumOfALinkedList {
         if (current == null) return head to 0
 
         val (twinFromBeginning, lastMaxSum) = recursiveInternal(current.next, head)
-        val currentSum = twinFromBeginning!!.value + current.value
+        val currentSum = twinFromBeginning!!.`val` + current.`val`
         val maxSum = max(currentSum, lastMaxSum)
         return twinFromBeginning.next to maxSum
     }
@@ -103,7 +103,7 @@ class MaximumTwinSumOfALinkedList {
         var twinFromEnd: LinkedListNode? = secondHalfNewHead!!
         var maxSum = 0
         while (twinFromStart != null && twinFromEnd != null) {
-            val sum = twinFromStart.value + twinFromEnd.value
+            val sum = twinFromStart.`val` + twinFromEnd.`val`
             if (sum > maxSum) maxSum = sum
             twinFromStart = twinFromStart.next
             twinFromEnd = twinFromEnd.next
@@ -116,9 +116,9 @@ fun main() {
     println(
         MaximumTwinSumOfALinkedList().iterativeEfficient(
             LinkedListNode(
-                value = 1,
+                `val` = 1,
                 next = LinkedListNode(
-                    value = 2,
+                    `val` = 2,
                 )
             )
         )

@@ -88,19 +88,19 @@ class LinkedListCycle {
 
 fun main() {
     val fourth = LinkedListNode(
-        value = -4,
+        `val` = -4,
         next = null,
     )
     val third = LinkedListNode(
-        value = 0,
+        `val` = 0,
         next = fourth,
     )
     val second = LinkedListNode(
-        value = 2,
+        `val` = 2,
         next = third,
     )
     val first = LinkedListNode(
-        value = 3,
+        `val` = 3,
         next = second,
     )
 //    fourth.next = second

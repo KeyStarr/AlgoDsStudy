@@ -42,16 +42,16 @@ class MiddleOfTheLinkedList {
 }
 
 fun LinkedListNode.formatToEnd(output: StringBuilder = StringBuilder()): String {
-    output.append("$value, ")
+    output.append("$`val`, ")
     return next?.formatToEnd(output) ?: output.toString()
 }
 
 class LinkedListNode(
-    var value: Int,
+    var `val`: Int,
     var next: LinkedListNode? = null
 ) {
 
-    override fun toString() = "$value, n=${next?.value}"
+    override fun toString() = "$`val`, n=${next?.`val`}"
 }
 
 fun linkedListOf(vararg nums: Int): LinkedListNode? {
