@@ -55,16 +55,15 @@ class ProblemsByTopicShuffler {
     }
 
     private fun List<List<String>>.shufflePreserveTopicOrder(): List<String> {
-        val leftTopics = mutableListOf<TopicProgress>()
+        val leftTopics = mutableSetOf<TopicProgress>()
         repeat(size) { leftTopics.add(TopicProgress(topicInd = it, currentInd = 0)) }
 
         val shuffled = mutableListOf<String>()
         while (leftTopics.isNotEmpty()) {
-            val topicInd = leftTopics.indices.random()
-            val topic = leftTopics[topicInd]
+            val topic = leftTopics.random()
             val problems = get(topic.topicInd)
             shuffled.add(problems[topic.currentInd++])
-            if (topic.currentInd == problems.size) leftTopics.removeAt(topicInd)
+            if (topic.currentInd == problems.size) leftTopics.remove(topic)
         }
         return shuffled
     }
