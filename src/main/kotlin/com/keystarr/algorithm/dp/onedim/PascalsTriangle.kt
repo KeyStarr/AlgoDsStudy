@@ -3,6 +3,7 @@ package com.keystarr.algorithm.dp.onedim
 /**
  * ⭐️ a unique obvious-solution "don't even have to know DP" type DP problem
  * LC-118 https://leetcode.com/problems/pascals-triangle/description/
+ * difficulty: easy
  * constraints:
  *  • 1 <= targetRows <= 30.
  *
