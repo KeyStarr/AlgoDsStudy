@@ -30,6 +30,8 @@ class AllAncestorsOfANodeInADirectedAcyclicGraph {
 
     // TODO: all is good, but a little unstable, new angle in this problem => must as well reinforce, so repeat in 1-2 weeks
 
+    // TODO: try topological sorting after learning it
+
     /**
      * problem rephrase:
      *  - given:
