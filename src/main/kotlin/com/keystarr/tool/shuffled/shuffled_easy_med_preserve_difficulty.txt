@@ -31,7 +31,7 @@ Legend:
 +~ 917. Reverse Only Letters
 ~~~ 205. Isomorphic Strings
 + 1208. Get Equal Substrings Within Budget
-- 463. Island Perimeter
++~ 463. Island Perimeter
 - 2958. Length of Longest Subarray With at Most K Frequency
 - 2192. All Ancestors of a Node in a Directed Acyclic Graph
 - 735. Asteroid Collision
