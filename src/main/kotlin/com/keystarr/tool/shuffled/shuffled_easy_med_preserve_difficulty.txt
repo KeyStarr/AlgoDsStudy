@@ -29,7 +29,7 @@ Legend:
 +~ 1436. Destination City
 ~~ 1615. Maximal Network Rank
 +~ 917. Reverse Only Letters
-- 205. Isomorphic Strings
+~~~ 205. Isomorphic Strings
 - 1208. Get Equal Substrings Within Budget
 - 463. Island Perimeter
 - 2958. Length of Longest Subarray With at Most K Frequency
