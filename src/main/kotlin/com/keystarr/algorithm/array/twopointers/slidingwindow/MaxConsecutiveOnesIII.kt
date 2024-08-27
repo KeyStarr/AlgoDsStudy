@@ -3,7 +3,6 @@ package com.keystarr.algorithm.array.twopointers.slidingwindow
 /**
  * LC-1004 https://leetcode.com/problems/max-consecutive-ones-iii/description/
  * difficulty: medium
- *
  * constraints:
  *  • 1 <= nums.length <= 10^5;
  *  • nums\[i] is either 0 or 1;
