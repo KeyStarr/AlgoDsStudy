@@ -97,7 +97,7 @@ data class RunStats(
 fun main() {
     println(
         StatsCalculator().invoke(
-            runFilePath = "/Users/kirillstarostin/Study/AlgoDSStudy/src/main/kotlin/com/keystarr/tool/runs/shuffled_easy_med_preserve_difficulty.txt",
+            runFilePath = "src/main/kotlin/com/keystarr/tool/runs/shuffled_easy_med_preserve_difficulty.txt",
         )
     )
 }
