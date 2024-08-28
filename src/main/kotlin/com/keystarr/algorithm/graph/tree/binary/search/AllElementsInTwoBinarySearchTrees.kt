@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.graph.tree.binary.binarysearchtree
+package com.keystarr.algorithm.graph.tree.binary.search
 
 import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
 
@@ -30,7 +30,7 @@ import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
  *
  * Value gained:
  *  • practiced applying the BST sorted in-order DFS traversal property to efficiently solve a two BSTs problem;
- *  • for the first time ever learned in-order ITERATIVE binary tree traversal, first in isolation [com.keystarr.algorithm.graph.tree.binary.binarysearchtree.BinaryTreeInorderTraversal],
+ *  • for the first time ever learned in-order ITERATIVE binary tree traversal, first in isolation [com.keystarr.algorithm.graph.tree.binary.search.BinaryTreeInorderTraversal],
  *   then applied it here.
  */
 class AllElementsInTwoBinarySearchTrees {
@@ -43,7 +43,7 @@ class AllElementsInTwoBinarySearchTrees {
     /**
      * Additional constraint - a pass through two trees at once => in-traversal adding to results, no merge at the end.
      *
-     * Core = iterative binary tree DFS, basically same from [com.keystarr.algorithm.graph.tree.binary.binarysearchtree.BinaryTreeInorderTraversal].
+     * Core = iterative binary tree DFS, basically same from [com.keystarr.algorithm.graph.tree.binary.search.BinaryTreeInorderTraversal].
      * The rest in general is exactly how I laid out in [twoDfsAndMerge], but couldn't implement quickly due to never having
      * implemented iterative in-order dfs on a binary tree before. And now I have, so:
      *  - initialize both currentRoot1 and currentRoot2 with corresponding tree roots;

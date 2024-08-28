@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.graph.tree.binary.binarysearchtree
+package com.keystarr.algorithm.graph.tree.binary.search
 
 import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
 

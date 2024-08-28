@@ -12,7 +12,9 @@ import java.util.*
  * Final notes:
  *  • done [efficient] by myself in 7 mins;
  *  • a very straight-forward problem for the BFS solution. DFS would be more tricky but not much - checked Editorial:
- *   just compute the sum of all levels, then find the smallest level max sum.
+ *   just compute the sum of all levels, then find the smallest level max sum. Huh, I probably would've tried to go for a
+ *   "smart" solution straight away and attempt to find the max sum as we go, without that temp all level sums list.
+ *   Really, go for easier solutions first if its a matter of like n factor of space, you can always optimize later.
  *
  * Value gained:
  *  • practiced solving a level-oriented binary tree property calculation type problem via BFS.
