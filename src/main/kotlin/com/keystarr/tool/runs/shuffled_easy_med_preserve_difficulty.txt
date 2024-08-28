@@ -54,12 +54,12 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 990. Satisfiability of Equality Equations
 - 283. Move Zeroes
 - 2182. Construct String With Repeat Limit
-++~ 1305. All Elements in Two Binary Search Trees
+-F 1305. All Elements in Two Binary Search Trees
 - 2462. Total Cost to Hire K Workers
 - 872. Leaf-Similar Trees
 - 235. Lowest Common Ancestor of a Binary Search Tree
 - 2405. Optimal Partition of String
-~ 11. Container With Most Water
+-F 11. Container With Most Water
 - 494. Target Sum
 - 450. Delete Node in a BST
 - 213. House Robber II
@@ -82,13 +82,13 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 930. Binary Subarrays With Sum
 - 2384. Largest Palindromic Number
 - 491. Non-decreasing Subsequences
-~~ 907. Sum of Subarray Minimums
+-F 907. Sum of Subarray Minimums
 - 437. Path Sum III
-~ 1372. Longest ZigZag Path in a Binary Tree
+-F 1372. Longest ZigZag Path in a Binary Tree
 - 1406. Stone Game III
 - 2000. Reverse Prefix of Word
 - 328. Odd Even Linked List
-~ 2104. Sum of Subarray Ranges
+-F 2104. Sum of Subarray Ranges
 - 1721. Swapping Nodes in a Linked List
 - 649. Dota2 Senate
 - 131. Palindrome Partitioning
@@ -99,15 +99,15 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 2141. Maximum Running Time of N Computers
 - 2402. Meeting Rooms III
 - 2250. Count Number of Rectangles Containing Each Point
-~ 1482. Minimum Number of Days to Make m Bouquets
+-F 1482. Minimum Number of Days to Make m Bouquets
 - 1533. Find the Index of the Large Integer
-~ 540. Single Element in a Sorted Array
+-F 540. Single Element in a Sorted Array
 - 1035. Uncrossed Lines
 - 707. Design Linked List
 - 2398. Maximum Number of Robots Within Budget
 - 632. Smallest Range Covering Elements from K Lists
 - 1732. Find the Highest Altitude
-~ 33. Search in Rotated Sorted Array
+-F 33. Search in Rotated Sorted Array
 - 980. Unique Paths III
 - 778. Swim in Rising Water
 - 2139. Minimum Moves to Reach Target Score
@@ -118,7 +118,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 139. Word Break
 - 2457. Minimum Addition to Make Integer Beautiful
 - 2258. Escape the Spreading Fire
-~ 1024. Video Stitching
+F 1024. Video Stitching
 - 337. House Robber III
 - 1155. Number of Dice Rolls With Target Sum
 - 2136. Earliest Possible Day of Full Bloom
