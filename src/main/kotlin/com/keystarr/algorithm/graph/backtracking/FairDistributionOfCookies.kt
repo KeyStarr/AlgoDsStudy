@@ -1,4 +1,4 @@
-package com.keystarr.algorithm
+package com.keystarr.algorithm.graph.backtracking
 
 /**
  * ⭐️ a problem that looks like it might have a square/nlogn solution at least, maybe greedy, but actually is only backtracking!
@@ -9,18 +9,18 @@ package com.keystarr.algorithm
  * LC-2305 https://leetcode.com/problems/fair-distribution-of-cookies/description/
  * difficulty: medium
  * constraints:
- *  - 2 <= cookies.size <= 8;
- *  - 1 <= cookies\[i] <= 10^5;
- *  - 2 <= childrenAmount <= cookies.size.
+ *  • 2 <= cookies.size <= 8;
+ *  • 1 <= cookies\[i] <= 10^5;
+ *  • 2 <= childrenAmount <= cookies.size.
  *
  * Final notes:
- *  - done [backtrack] in 15 mins;
- *  - ⚠️ gave up for the efficient solution at 32 mins, don't see any threads unfortunately;
- *  - turns out the backtracking IS the most efficient (reasonable) approach expected here! We could only do some more
+ *  • done [backtrack] in 15 mins;
+ *  • ⚠️ gave up for the efficient solution at 32 mins, don't see any threads unfortunately;
+ *  • turns out the backtracking IS the most efficient (reasonable) approach expected here! We could only do some more
  *   optimization for a const improvement, but that's about it.
  *
  * Value gained:
- *  - wow, unlike some, khm, other problems I went straight for the brute force solution first, cause couldn't straight away
+ *  • wow, unlike some, khm, other problems I went straight for the brute force solution first, cause couldn't straight away
  *   see leads to a better one + reasoned with such small constraints backtracking would be accepted => we could then
  *   go from there. Turns out there isn't a better (reasonable) one! I still would have to prove it though, i guess, in a
  *   real interview setting, but that already quite good.
@@ -108,10 +108,9 @@ class FairDistributionOfCookies {
      * formula division/modulo wouldnt work cause we cant split the bags
      *
      * // TODO: why do some estimate it at k^n?
-     * Time: always O((n!/m!) * m)
+     * Time: always O(n^m)
      *  - n=bags.size and m=childrenAmount
-     *  - number of combinations = n * (n-1) * (n-2) * .. * (n-m), so around n!/m! ?
-     *   and for each combination we must find the minimum total child value => ~(n!/m!) * m
+     *  - number of combinations = n * (n-1) * (n-2) * .. * (n-m), so O(n^m)
      * Space: always O(n+m)
      *  - childrenToTotalSum always takes O(m) space;
      *  - backtracking callstack height is worst always O(n).

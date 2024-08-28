@@ -42,8 +42,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 ++~ 1673. Find the Most Competitive Subsequence
 + 1161. Maximum Level Sum of a Binary Tree
 + 700. Search in a Binary Search Tree
-- 2305. Fair Distribution of Cookies
-- 2486. Append Characters to String to Make Subsequence
++ 2305. Fair Distribution of Cookies
++ 2486. Append Characters to String to Make Subsequence
 - 100. Same Tree
 - 374. Guess Number Higher or Lower
 - 155. Min Stack
