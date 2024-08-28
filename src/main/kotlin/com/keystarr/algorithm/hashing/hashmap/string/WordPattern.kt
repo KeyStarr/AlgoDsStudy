@@ -8,25 +8,25 @@ package com.keystarr.algorithm.hashing.hashmap.string
  * LC-290 https://leetcode.com/problems/word-pattern/description/
  * difficulty: easy (LOOOOOOOOOOOOOOOOOOOOOOOL)
  * constraints:
- *  - 1 <= pattern.length <= 300;
- *  - pattern contains only lowercase English;
- *  - 1 <= text.length <= 3000;
- *  - text contains only lowercase English and spaces;
- *  - text doesnt have neither trailing nor leading spaces;
- *  - all words in text are separated by a single space.
+ *  • 1 <= pattern.length <= 300;
+ *  • pattern contains only lowercase English;
+ *  • 1 <= text.length <= 3000;
+ *  • text contains only lowercase English and spaces;
+ *  • text doesnt have neither trailing nor leading spaces;
+ *  • all words in text are separated by a single space.
  *
  * Final notes:
- *  - ⚠️⚠️⚠️ done [efficientAbomination] by myself in 50 mins;
- *  - ⚠️ FAILED 4 edge cases!!! and made an obviously overcomplicated solution;
- *  - there gotta be a better basic approach, better core design choices for simpler more maintainable logic.
+ *  • ⚠️⚠️⚠️ done [efficientAbomination] by myself in 50 mins;
+ *  • ⚠️ FAILED 4 edge cases!!! and made an obviously overcomplicated solution;
+ *  • there gotta be a better basic approach, better core design choices for simpler more maintainable logic.
  *   UPD: and here it is [efficientClean], actually same most design choices, but just get all words first!
- *  - leet-easy problem. huh. apparently its not worth it going for a single pass straight away even for array/string type
+ *  • leet-easy problem. huh. apparently its not worth it going for a single pass straight away even for array/string type
  *   questions. It makes sense to go for the best solution (probable) asymptotically, but I guess lets not max optimize
  *   time/space consts straight away.
  *
  * Value gained:
- *  - practiced solving a strings matching type problem using 2 hashmaps for a single association for O(1) checks both ways;
- *  - learned that its better to do the simplest asymptotically best (probable) solution, don't bother too much with the const
+ *  • practiced solving a strings matching type problem using 2 hashmaps for a single association for O(1) checks both ways;
+ *  • learned that its better to do the simplest asymptotically best (probable) solution, don't bother too much with the const
  *   first. Even for array/strings type problem. Here I could've just split them words first, though I haven't even though of that
  *   absolutely. Hm;
  */
