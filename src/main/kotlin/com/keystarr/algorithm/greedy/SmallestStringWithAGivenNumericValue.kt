@@ -19,9 +19,15 @@ import kotlin.math.min
  *    went like "ah, that's fast enough, only 26 chars here backtracking might work!" BUT MAN HOW COULD I! Yep, probably
  *    low on sugar on something. ⚠️🔥 TOTALLY PREVENTABLE! BACKTRACKING IS NEVER THE ANSWER ON LENGTHS THAT LARGE CAUSE OF EXPONENT RELATIONSHIP WITH LENGTH!!!!
  *  • 🏅⚠️ done [efficient] by myself in 45 mins;
- *  • at first didn't see a solution other than backtracking whatsoever, then reduced the possible solution space to
+ *  • 🔥🔥 at first didn't see a solution other than backtracking whatsoever, then reduced the possible solution space to
  *   look for time complexity <= n^2, possibly n, and finally that probably there are some tricks/formulas given how narrow
- *   constraints we have on available numbers for generation and both exact length/total value.
+ *   constraints we have on available numbers for generation and both exact length/total value
+ *   => tried to reason from the SMALLEST INPUT SIZE, start at right/left, what is the best possible choice we can make
+ *    at a SINGLE STEP at the simplest input state? (full leftValue, empty result so far!!!!!)
+ *    🌟 what are the best choices for the first small step => build on it.
+ *  • if I hadn't gone the backtracking path, wouldn't even design it after checking it wouldn't fit the time constraints
+ *   on the max required length => I could save ~17 mins => finish the problem at about 30 mins mark => that would be
+ *   perfectly acceptable for a medium => 🔥 try to eliminate tools as early as possible.
  *
  * Value gained:
  *  • solved a "generate the best valid combination" type problem using greedy and not backtracking! greedy based on

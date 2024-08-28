@@ -36,8 +36,8 @@ Legend:
 ++~ 2192. All Ancestors of a Node in a Directed Acyclic Graph
 + 735. Asteroid Collision
 +~ 1663. Smallest String With A Given Numeric Value
-- 1063. Number of Valid Subarrays
-- 290. Word Pattern
+PREMIUM- 1063. Number of Valid Subarrays
+~~ 290. Word Pattern
 - 791. Custom Sort String
 ++~ 1673. Find the Most Competitive Subsequence
 - 1161. Maximum Level Sum of a Binary Tree

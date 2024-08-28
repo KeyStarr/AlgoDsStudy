@@ -1,7 +1,7 @@
-package com.keystarr.algorithm.graph
+package com.keystarr.algorithm.hashing.hashmap.string
 
 /**
- * ❌ honestly, its the first time in 230 problems that I'm just gonna skip this for now. I simply don't understand it
+ * ⭐️❌ honestly, its the first time in 230 problems that I'm just gonna skip this for now. I simply don't understand it
  *  right now no matter how I tried and its killing me.
  *
  *
