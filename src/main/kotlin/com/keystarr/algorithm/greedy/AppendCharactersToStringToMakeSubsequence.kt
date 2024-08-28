@@ -1,8 +1,8 @@
-package com.keystarr.algorithm.array.twopointers
+package com.keystarr.algorithm.greedy
 
 /**
  * LC-2486 https://leetcode.com/problems/append-characters-to-string-to-make-subsequence/description/
- * difficulty: easy
+ * difficulty: medium (imho leet-easy)
  * constraints:
  *  • 1 <= text.length, targetSubsequence.length <= 10^5;
  *  • text and targetSubsequence consist only of lowercase English.
@@ -10,11 +10,14 @@ package com.keystarr.algorithm.array.twopointers
  * Final notes:
  *  • implemented [efficient] by myself in 12 mins, good;
  *  • ⚠️ felt not full confidence in the algorithm after designing it, it felt like choosing the first occurrence of target\[i] char
- *  in \[text] might not be always the robust choice => tried to prove it by reasoning, kind of did, but still feel it unsteadily.
- *  Why? Gonna leave it right now, have bigger priorities.
+ *   in \[text] might not be always the robust choice => tried to prove it by reasoning, kind of did, but still feel it unsteadily.
+ *   Why? Gonna leave it right now, have bigger priorities;
+ *  • ah its actually we make a choice by a greedy rule: for each target\[i] find the first match in \[text] that equals
+ *   to it. And additionally: if not all were found => return the amount of chars that weren't found.
+ *   ⚠️ didn't realize I used greedy until read Editorial, kind of intuitive in here
  *
  * Value gained:
- *  • practiced solving a string matching problem using two pointers.
+ *  • practiced solving a string matching problem using two pointers & greedy.
  */
 class AppendCharactersToStringToMakeSubsequence {
 
