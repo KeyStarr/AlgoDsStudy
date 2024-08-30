@@ -46,7 +46,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 + 2486. Append Characters to String to Make Subsequence
 + 100. Same Tree
 + 374. Guess Number Higher or Lower
-- 155. Min Stack
++ 155. Min Stack
 - 1748. Sum of Unique Elements
 - 1415. The k-th Lexicographical String of All Happy Strings of Length n
 - 2540. Minimum Common Value
