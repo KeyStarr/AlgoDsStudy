@@ -2,7 +2,7 @@ package com.keystarr.algorithm.graph.backtracking
 
 /**
  * ⭐️ a great example of an "ambiguous luring efficient solution" type problem, where one should restrain themselves
- *  to brute first.
+ *  to brute first (especially if constraints hint that it would pass)
  *
  * LC-1415 https://leetcode.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/description/
  * difficulty: medium
