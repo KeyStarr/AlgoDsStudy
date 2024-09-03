@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.deque.priorityqueue
+package com.keystarr.algorithm.deque.priorityqueue.twoheaps
 
 import java.util.PriorityQueue
 
