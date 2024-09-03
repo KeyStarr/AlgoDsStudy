@@ -68,6 +68,9 @@ data class RunStats(
     private val bad: Int
         get() = dirty + fails
 
+    private val hardLearning: Int
+        get() = almostClean + bad
+
     override fun toString(): String {
         return """
             ---- run stats ----
@@ -82,6 +85,8 @@ data class RunStats(
               bad: ${percentDone(bad)} ($bad)
                 dirty: ${percentBad(dirty)} ($dirty)
                 failed: ${percentBad(fails)} ($fails)
+            real learning value: ${percentDone(hardLearning)} ($hardLearning) 
+            ---
         """.trimIndent()
     }
 
