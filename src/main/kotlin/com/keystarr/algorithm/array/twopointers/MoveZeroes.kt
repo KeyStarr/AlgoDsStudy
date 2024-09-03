@@ -17,7 +17,9 @@ package com.keystarr.algorithm.array.twopointers
  *
  * Value gained:
  *  • practiced solving an array in-place modification type problem efficiently using a tricky formula with swapping.
- *   technically it's like two pointers, but we calculate the 2nd pointer on-the-fly, don't keep it saved into a var
+ *   technically it's like two pointers, but we calculate the 2nd pointer on-the-fly, don't keep it saved into a var;
+ *  • practiced reducing the solution space by reasoning of within what additional constraints it would probably be,
+ *   and designing an algorithm based on the dry run observations within these constraints.
  */
 class MoveZeroes {
 
