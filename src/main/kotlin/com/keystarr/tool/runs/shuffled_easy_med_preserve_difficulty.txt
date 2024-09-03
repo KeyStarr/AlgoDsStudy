@@ -51,7 +51,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 + 1415. The k-th Lexicographical String of All Happy Strings of Length n
 + 2540. Minimum Common Value
 ~+ 1290. Convert Binary Number in a Linked List to Integer
-- 990. Satisfiability of Equality Equations
++ (Union Find, later) 990. Satisfiability of Equality Equations
 - 283. Move Zeroes
 - 2182. Construct String With Repeat Limit
 -F 1305. All Elements in Two Binary Search Trees
