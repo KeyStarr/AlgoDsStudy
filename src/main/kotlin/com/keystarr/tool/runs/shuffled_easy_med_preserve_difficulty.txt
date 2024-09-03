@@ -54,8 +54,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 + (Union Find, later) 990. Satisfiability of Equality Equations
 + 283. Move Zeroes
 + 2182. Construct String With Repeat Limit
--F 1305. All Elements in Two Binary Search Trees
-- 2462. Total Cost to Hire K Workers
+~ 1305. All Elements in Two Binary Search Trees
+~+ 2462. Total Cost to Hire K Workers
 - 872. Leaf-Similar Trees
 - 235. Lowest Common Ancestor of a Binary Search Tree
 - 2405. Optimal Partition of String
@@ -76,6 +76,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 226. Invert Binary Tree
 - 2074. Reverse Nodes in Even Length Groups
 - 474. Ones and Zeroes
+
+
 - 1944. Number of Visible People in a Queue
 - 637. Average of Levels in Binary Tree
 - 101. Symmetric Tree
@@ -95,6 +97,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 2178. Maximum Split of Positive Even Integers
 - 373. Find K Pairs with Smallest Sums
 - 2130. Maximum Twin Sum of a Linked List
+
+
 ~ 2517. Maximum Tastiness of Candy Basket
 - 2141. Maximum Running Time of N Computers
 - 2402. Meeting Rooms III
@@ -114,6 +118,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 1970. Last Day Where You Can Still Cross
 - 518. Coin Change II
 - 724. Find Pivot Index
+
 - 2251. Number of Flowers in Full Bloom
 - 139. Word Break
 - 2457. Minimum Addition to Make Integer Beautiful
