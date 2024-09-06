@@ -4,17 +4,17 @@ package com.keystarr.algorithm.greedy
  * LC-1323: https://leetcode.com/problems/maximum-69-number/description/
  * difficulty: medium
  * constraints:
- *  - 1 <= num <= 10^4
- *  - num consists of only 6 and 9 digits
+ *  • 1 <= num <= 10^4
+ *  • num consists of only 6 and 9 digits
  *
  * Final notes:
- *  - compare [strings] and [onlyIntegers]. Why did I do the latter? What am I spending my life on?
- *  - actually we could avoid computing the num of digits in [onlyIntegers] and simply go through all digits starting from
+ *  • compare [strings] and [onlyIntegers]. Why did I do the latter? What am I spending my life on?
+ *  • actually we could avoid computing the num of digits in [onlyIntegers] and simply go through all digits starting from
  *   the first one, and then return the highest one.
  *
  * Value gained:
- *  - practiced recognizing and solving the problem via greedy;
- *  - practiced multiple ways to work through int's digits.
+ *  • practiced recognizing and solving the problem via greedy;
+ *  • practiced multiple ways to work through int's digits.
  */
 class Maximum69Number {
 

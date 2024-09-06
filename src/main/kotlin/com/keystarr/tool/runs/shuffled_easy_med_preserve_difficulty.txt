@@ -57,8 +57,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~ 1305. All Elements in Two Binary Search Trees
 ~+ 2462. Total Cost to Hire K Workers
 +~ 872. Leaf-Similar Trees
-- 235. Lowest Common Ancestor of a Binary Search Tree
-- 2405. Optimal Partition of String
++ 235. Lowest Common Ancestor of a Binary Search Tree
++ 2405. Optimal Partition of String
 -F 11. Container With Most Water
 - 494. Target Sum
 - 450. Delete Node in a BST
