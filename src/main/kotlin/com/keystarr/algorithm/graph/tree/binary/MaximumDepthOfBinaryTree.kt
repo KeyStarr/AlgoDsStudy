@@ -1,5 +1,6 @@
 package com.keystarr.algorithm.graph.tree.binary
 
+import java.util.*
 import kotlin.math.max
 
 /**
@@ -126,7 +127,7 @@ class MaximumDepthOfBinaryTree {
 
 private const val ROOT_DEPTH = 1
 
-// WARNING - leetcode's environment uses a version of this DS AND EQUALITY BY IDENTITY
+// WARNING - leetcode's environment uses a version of this DS WITH EQUALITY BY IDENTITY
 // => before submitting => adapt.
 // TODO: remove equals/hashcode and fix solutions which relied on it?
 class IntBinaryTreeNode(
@@ -139,6 +140,30 @@ class IntBinaryTreeNode(
     override fun toString() = "$`val`"
 
     override fun hashCode() = `val`
+
+    companion object {
+        fun treeFrom(nodes: Array<Int?>): IntBinaryTreeNode? {
+            if (nodes.isEmpty()) return null
+
+            val root = IntBinaryTreeNode(nodes[0]!!)
+            val queue: Queue<IntBinaryTreeNode> = ArrayDeque<IntBinaryTreeNode>().apply { add(root) }
+            var currentInd = 1
+            while (currentInd < nodes.size) {
+                val node = queue.remove()
+                if (nodes[currentInd] != null) {
+                    node.left = IntBinaryTreeNode(nodes[currentInd]!!)
+                    queue.add(node.left)
+                }
+                currentInd++
+                if (currentInd < nodes.size && nodes[currentInd] != null) {
+                    node.right = IntBinaryTreeNode(nodes[currentInd]!!)
+                    queue.add(node.right)
+                }
+                currentInd++
+            }
+            return root
+        }
+    }
 }
 
 private class NodeToDepth(
