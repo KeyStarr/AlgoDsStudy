@@ -8,6 +8,10 @@ class IntBinaryTreeNode(
     var right: IntBinaryTreeNode? = null,
 ) {
 
+    /**
+     * Generate the tree back into the leet's environment default format, for debug. Earlier version for visualization,
+     * before [treeVisualizedString] hit.
+     */
     fun treeToArrayString(): String {
         val builder = StringBuilder("[")
         val queue: Queue<IntBinaryTreeNode?> = LinkedList()
@@ -22,6 +26,9 @@ class IntBinaryTreeNode(
         return builder.append("]").toString()
     }
 
+    /**
+     * Direct predecessor to [treeVisualizedString], a fallback in case of bugs for visual clarity.
+     */
     fun treeToLevelsString(): String {
         val output = StringBuilder()
         val nodesQueue: Queue<TreeNode?> = LinkedList()
@@ -42,29 +49,33 @@ class IntBinaryTreeNode(
         return output.toString()
     }
 
+    /**
+     * A crutchy 20% effort 80% result kinda attempt at visualizing the binary tree. Useful in problems that require
+     *  modification like [com.keystarr.algorithm.graph.tree.binary.search.DeleteNodeInABST] for intermediate/result tree
+     *  representation for debugging + in problems where leet's environment doesn't render the tree for some reason.
+     *
+     * Not the cleanest code, but works on simple cases - good enough for now.
+     */
     fun treeVisualizedString(): String {
         val levels = treeToNodeLevels()
         val lastLevel = StringBuilder()
         var prevPositions = mutableListOf<Int>()
-
         levels.last().forEach {
             prevPositions.add(lastLevel.length)
             lastLevel.append("$it  ")
         }
-        val lastLevelFormatted = lastLevel.toString()
 
-
-        val finalOutput = LinkedList<String>().apply { add(lastLevelFormatted) }
+        val finalOutput = LinkedList<String>().apply { add(lastLevel.toString()) }
+        val lastLevelLength = finalOutput.first.length
         for (j in levels.lastIndex - 1 downTo 0) {
             val level = levels[j]
 
             val builder = StringBuilder()
-            repeat(lastLevelFormatted.length) { builder.append(" ") }
+            repeat(lastLevelLength) { builder.append(" ") }
 
             val newPositions = mutableListOf<Int>()
             var currentPosInd = 0
             level.forEach { element ->
-
                 var currentInd = (prevPositions[currentPosInd] + prevPositions[currentPosInd + 1]) / 2
                 newPositions.add(currentInd)
                 "$element  ".forEach { char ->
@@ -77,8 +88,6 @@ class IntBinaryTreeNode(
 
             finalOutput.addFirst(builder.toString())
         }
-
-
         return finalOutput.joinToString(separator = "\n")
     }
 
@@ -107,6 +116,11 @@ class IntBinaryTreeNode(
     private fun Queue<IntBinaryTreeNode?>.isNotAllNulls() = any { it != null }
 
     companion object {
+
+        /**
+         * Basically adapted to leetcode's default BT input format. Notice that in case some children values are null,
+         *  we don't specify children for it in the future, instead we just skip "excessive" nulls.
+         */
         fun treeFrom(nodes: Array<Int?>): IntBinaryTreeNode? {
             if (nodes.isEmpty()) return null
 
