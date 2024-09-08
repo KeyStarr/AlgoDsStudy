@@ -1,5 +1,6 @@
 package com.keystarr.algorithm.graph.tree.binary
 
+import com.keystarr.datastructure.graph.tree.IntBinaryTreeNode
 import kotlin.math.min
 
 /**

@@ -1,6 +1,6 @@
 package com.keystarr.algorithm.graph.tree.binary.search
 
-import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
+import com.keystarr.datastructure.graph.tree.IntBinaryTreeNode
 
 /**
  * LC-701 https://leetcode.com/problems/insert-into-a-binary-search-tree/

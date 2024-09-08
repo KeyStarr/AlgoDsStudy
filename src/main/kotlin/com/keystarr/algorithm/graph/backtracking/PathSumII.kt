@@ -1,6 +1,6 @@
 package com.keystarr.algorithm.graph.backtracking
 
-import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
+import com.keystarr.datastructure.graph.tree.IntBinaryTreeNode
 
 /**
  * LC-113 https://leetcode.com/problems/path-sum-ii/description/

@@ -1,6 +1,6 @@
 package com.keystarr.algorithm.graph.tree.binary.search
 
-import com.keystarr.algorithm.graph.tree.binary.IntBinaryTreeNode
+import com.keystarr.datastructure.graph.tree.IntBinaryTreeNode
 
 /**
  * 💣 done a passable efficient solution, but haven't figured out how to do the clean efficient one => optionally repeat later

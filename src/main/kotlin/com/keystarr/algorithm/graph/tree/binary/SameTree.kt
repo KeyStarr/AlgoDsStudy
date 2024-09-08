@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.tree.binary
 
+import com.keystarr.datastructure.graph.tree.IntBinaryTreeNode
+
 /**
  * LC-100 https://leetcode.com/problems/same-tree/description/
  * difficulty: easy

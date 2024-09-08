@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.tree.binary
 
+import com.keystarr.datastructure.graph.tree.IntBinaryTreeNode
+
 /**
  * LC-1325 https://leetcode.com/problems/delete-leaves-with-a-given-value/description/
  * difficulty: medium
