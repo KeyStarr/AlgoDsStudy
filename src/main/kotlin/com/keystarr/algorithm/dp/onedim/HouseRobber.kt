@@ -93,3 +93,10 @@ class HouseRobber {
         return prev
     }
 }
+
+fun main(){
+    println(HouseRobber().bottomUp(
+
+        houseProfits = intArrayOf(1, 3, 1, 3, 100),
+    ))
+}
