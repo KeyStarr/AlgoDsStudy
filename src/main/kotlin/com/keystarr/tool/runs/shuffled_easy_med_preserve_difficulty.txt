@@ -63,7 +63,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~~~ 494. Target Sum
 ~~~ 450. Delete Node in a BST
 ~+ 213. House Robber II
-- 1512. Number of Good Pairs
++~ 1512. Number of Good Pairs
 - 1218. Longest Arithmetic Subsequence of Given Difference
 - 3005. Count Elements With Maximum Frequency
 - 1394. Find Lucky Integer in an Array

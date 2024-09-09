@@ -28,6 +28,7 @@ class HouseRobberII {
 
     fun bottomUpBest(houses: IntArray): Int {
         TODO("Understand and design the best solution with 1 pass, e.g. https://leetcode.com/problems/house-robber-ii/solutions/59934/simple-ac-solution-in-java-in-o-n-with-explanation/")
+         // (basically same complexities but a better const)
     }
 
     /**
