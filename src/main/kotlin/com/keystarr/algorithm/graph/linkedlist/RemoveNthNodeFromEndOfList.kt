@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+
 /**
  * ⭐️ an excellent linked list two pointers technique flexibility example
  * LC-19 https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/

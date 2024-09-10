@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+
 /**
  * LC-206 https://leetcode.com/problems/reverse-linked-list/description/
  * difficulty: easy

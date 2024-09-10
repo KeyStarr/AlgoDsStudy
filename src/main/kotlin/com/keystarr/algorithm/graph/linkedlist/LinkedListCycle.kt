@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+
 /**
  * LC-141 https://leetcode.com/problems/linked-list-cycle/description/
  * difficulty: easy

@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+
 /**
  * LC-83 https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
  * difficulty: easy

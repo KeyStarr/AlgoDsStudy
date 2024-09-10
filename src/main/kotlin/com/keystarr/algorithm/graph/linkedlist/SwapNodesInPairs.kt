@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+
 /**
  * LC-24 https://leetcode.com/problems/swap-nodes-in-pairs/description/
  * difficulty: medium

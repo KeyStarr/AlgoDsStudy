@@ -1,8 +1,8 @@
 package com.keystarr.algorithm.divideandconquer
 
-import com.keystarr.algorithm.graph.linkedlist.LinkedListNode
-import com.keystarr.algorithm.graph.linkedlist.formatToEnd
-import com.keystarr.algorithm.graph.linkedlist.linkedListOf
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+import com.keystarr.datastructure.graph.linkedlist.formatToEnd
+import com.keystarr.datastructure.graph.linkedlist.linkedListOf
 
 // 206 https://leetcode.com/problems/reverse-linked-list/description/
 class ReverseLinkedList {

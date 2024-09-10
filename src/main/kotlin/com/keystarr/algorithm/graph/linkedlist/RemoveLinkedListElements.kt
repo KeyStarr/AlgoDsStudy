@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+
 /**
  * LC-203 https://leetcode.com/problems/remove-linked-list-elements/description/
  * difficulty: easy

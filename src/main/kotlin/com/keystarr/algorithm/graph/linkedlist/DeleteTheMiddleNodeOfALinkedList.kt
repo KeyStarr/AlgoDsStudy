@@ -1,5 +1,7 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+
 /**
  * LC-2095 https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/description/
  * difficulty: medium

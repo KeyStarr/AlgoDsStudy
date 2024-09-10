@@ -67,7 +67,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~~ 1218. Longest Arithmetic Subsequence of Given Difference
 + 3005. Count Elements With Maximum Frequency
 ++~ 1394. Find Lucky Integer in an Array
-- 82. Remove Duplicates from Sorted List II
++ 82. Remove Duplicates from Sorted List II
 - 234. Palindrome Linked List
 - 1657. Determine if Two Strings Are Close
 - 1855. Maximum Distance Between a Pair of Values

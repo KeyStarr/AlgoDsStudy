@@ -1,5 +1,8 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
+import com.keystarr.datastructure.graph.linkedlist.linkedListOf
+
 /**
  * LC-1290 https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/description/
  * difficulty: easy

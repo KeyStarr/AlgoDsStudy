@@ -1,5 +1,6 @@
 package com.keystarr.algorithm.graph.linkedlist
 
+import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
 import kotlin.math.max
 
 /**
