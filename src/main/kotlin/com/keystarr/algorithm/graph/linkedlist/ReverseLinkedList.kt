@@ -48,7 +48,7 @@ class ReverseLinkedList {
      *  - oldHead.next=null.
      *
      * Time: O(n)
-     * Space: O(1), though the const is impacted by the callstack.
+     * Space: O(n)
      * ---
      * Cool, instead of using a temp buffer reference variable to remember the originalNext node like in [iterativeCleaner]
      * we don't have that problem here at all. When  we unwrap the callstack, we always arrive precisely at the original
