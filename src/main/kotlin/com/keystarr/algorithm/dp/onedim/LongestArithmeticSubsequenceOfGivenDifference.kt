@@ -6,6 +6,10 @@ import kotlin.math.max
  * ⭐️ a unique (so far) example of a DP problem where top-down is only O(n^2), but bottom-up trivially gives O(n) time!
  * LC-1218 https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/description/
  * difficulty: medium
+ * constraints:
+ *  • 1 <= nums.length <= 10^5;
+ *  • -10^4 <= nums\[i], targetDiff <= 10^4.
+ *
  * Final notes:
  *  • done [startsAtTopDownDp] in 40 mins, got TLE on 38th/41 tests. Improved the time but only const => submit success at 51 mins :D
  *   But basically its just improved brute force, there obviously is a much better solution asymptotically. Since I'm near
