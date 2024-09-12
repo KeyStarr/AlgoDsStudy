@@ -102,7 +102,7 @@ class IntBinaryTreeNode(
             val level = mutableListOf<String>()
             repeat(levelSize) {
                 val node = nodesQueue.remove()
-                level.add("${node?.`val` ?: "X"}")
+                level.add("${node?.`val` ?: NON_EXISTENT_NODE_SYMBOL}")
                 nodesQueue.add(node?.left)
                 nodesQueue.add(node?.right)
             }
@@ -145,5 +145,13 @@ class IntBinaryTreeNode(
     }
 }
 
+private const val NON_EXISTENT_NODE_SYMBOL = " "
+
 // a terrible naming, but required in order to comply to Leet's environment and not change names every time when running the code there
 typealias TreeNode = IntBinaryTreeNode
+
+fun main() {
+    println(
+        TreeNode.treeFrom(arrayOf(16, 14, null, 4, 15, 1))?.treeVisualizedString()
+    )
+}
