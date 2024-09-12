@@ -105,4 +105,6 @@ fun main() {
             runFilePath = "src/main/kotlin/com/keystarr/tool/runs/shuffled_easy_med_preserve_difficulty.txt",
         )
     )
+
+    // TODO: implement also stats by topics! for the final stats of the run (where had most struggles => learned the most)
 }

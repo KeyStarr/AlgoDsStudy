@@ -59,7 +59,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 +~ 872. Leaf-Similar Trees
 + 235. Lowest Common Ancestor of a Binary Search Tree
 + 2405. Optimal Partition of String
--F 11. Container With Most Water
+~~~ 11. Container With Most Water
 ~~~ 494. Target Sum
 ~~~ 450. Delete Node in a BST
 ~+ 213. House Robber II
@@ -69,8 +69,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 ++~ 1394. Find Lucky Integer in an Array
 + 82. Remove Duplicates from Sorted List II
 +~ 234. Palindrome Linked List
-- 1657. Determine if Two Strings Are Close
-- 1855. Maximum Distance Between a Pair of Values
+~+ 1657. Determine if Two Strings Are Close
+~+ 1855. Maximum Distance Between a Pair of Values
 - 2476. Closest Nodes Queries in a Binary Search Tree
 - 994. Rotting Oranges
 - 226. Invert Binary Tree
