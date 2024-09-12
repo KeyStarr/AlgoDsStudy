@@ -5,7 +5,7 @@ import com.keystarr.datastructure.graph.linkedlist.singlyLinkedListOf
 
 /**
  * LC-2074 https://leetcode.com/problems/reverse-nodes-in-even-length-groups/description/
- * difficulty: medium (100% leet-hard)
+ * difficulty: medium (100% leet-hard!)
  * constraints:
  *  • 1 <= number of nodes <= 10^5;
  *  • 0 <= node.val <= 10^5.
@@ -19,16 +19,94 @@ import com.keystarr.datastructure.graph.linkedlist.singlyLinkedListOf
  *   I do agree the O(1) space here is leet-hard, and hards are not our focus right now;
  *  • ⚠️ done [withTempList] at the 1h25m mark in total;
  *  • still, I don't feel it makes sense to schedule this problem for later resolve, since it is out of the current practice
- *   scope => just mark it as done and to later use it for the hard practice, add to that list.
+ *   scope => just mark it as done and to later use it for the hard practice, add to that list;
+ *  • [inPlace] is quite beautiful despite being somewhat messy. Simply reverse ONLY the required list's PART in ISOLATION
+ *   via [reverse], then the new start to the end of the last group and the first node of the next group to the new end node.
+ *   Learn about whether the current group is the last and its nodes count all the same!
+ *  • quite a complex problem.
  *
  * Value gained:
- *  • practiced solving a LinkedList leet-hard question with O(n) time but O(n) space, left O(1) space solution for the future session.
+ *  • practiced solving a LinkedList leet-hard question with O(n) time but O(n) space, then optimized the bottleneck part
+ *   from O(n) space to O(1)!
  */
 class ReverseNodesInEvenLengthGroups {
 
-    // TODO: try to do the O(n) time O(1) space solution. Postponed cause its clearly more of a leet-hard, and now
-    //  the focus is solely on medium interleaving practice
-    //  https://leetcode.com/problems/reverse-nodes-in-even-length-groups/solutions/1577372/constant-memory/
+    // TODO: resolve in 2-3 weeks
+
+    /**
+     * Same core idea as [withTempList], but simply change the list reversal subproblem.
+     *  before: keep a list of the current group nodes and reverse it when the target condition hits
+     *  after: keep a POINTER to the current group's start, when the target condition hits -> reverse all required nodes
+     *   in very much the same fashion, but instead of traversing through a temp list traverse from the currentGroupStart
+     *   node's pointer.
+     *
+     * Time: always O(n)
+     * Space: always O(n)
+     */
+    fun inPlace(head: ListNode): ListNode {
+        var group = 1
+        var inGroup = 0
+
+        var currentNode: ListNode? = head
+        var prevNode: ListNode?
+
+        var lastGroupEnd = head
+        var currentGroupStart = head
+        while (currentNode != null) {
+            prevNode = currentNode
+            currentNode = prevNode.next
+
+            inGroup++
+            if (inGroup == group || currentNode == null) {
+                if ((currentNode == null && inGroup % 2 == 0) || (currentNode != null && group % 2 == 0)) {
+                    val newGroupStart = reverse(start = currentGroupStart, size = inGroup)
+                    val newGroupEnd = currentGroupStart
+                    lastGroupEnd.next = newGroupStart
+                    newGroupEnd.next = currentNode
+
+                    lastGroupEnd = newGroupEnd
+                } else {
+                    lastGroupEnd = prevNode
+                }
+                if (currentNode != null) {
+                    currentGroupStart = currentNode
+                    inGroup = 0
+                    group++
+                }
+            }
+        }
+
+        return head
+    }
+
+    /**
+     * e.g. original list:
+     *  1 -> 2 -> 3 -> 4
+     *
+     * init:
+     *  start=2  size=2
+     *  pN=null  cN=2  count=0
+     *
+     * loop:
+     *  pN=2  cN=3  count=1
+     *  pN=3  cN=4  count=2
+     *
+     * result:
+     *  1 2 <- 3 4
+     */
+    private fun reverse(start: ListNode, size: Int): ListNode {
+        var prevNode: ListNode? = null
+        var currentNode: ListNode? = start
+        var count = 0
+        while (currentNode != null && count < size) {
+            val originalNext = currentNode.next
+            currentNode.next = prevNode
+            prevNode = currentNode
+            currentNode = originalNext
+            count++
+        }
+        return prevNode!!
+    }
 
     /**
      *
@@ -162,7 +240,7 @@ class ReverseNodesInEvenLengthGroups {
 }
 
 fun main() {
-    ReverseNodesInEvenLengthGroups().withTempList(
+    ReverseNodesInEvenLengthGroups().inPlace(
         head = singlyLinkedListOf(4, 3, 0, 5, 1, 2, 7, 8, 6)!!,
     ).debugPrintContents()
 }
