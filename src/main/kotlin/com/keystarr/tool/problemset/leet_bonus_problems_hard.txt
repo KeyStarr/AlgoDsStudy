@@ -15,4 +15,3 @@ https://leetcode.com/problems/unique-paths-iii/
 https://leetcode.com/problems/stone-game-iii/description/
 https://leetcode.com/problems/sliding-window-median/description/
 https://leetcode.com/problems/build-a-matrix-with-conditions/description/?envType=daily-question&envId=2024-07-21
-2074. Reverse Nodes in Even Length Groups (implicit hard from the med bonus list)

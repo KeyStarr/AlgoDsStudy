@@ -23,7 +23,11 @@ import com.keystarr.datastructure.graph.linkedlist.singlyLinkedListOf
  *  • [inPlace] is quite beautiful despite being somewhat messy. Simply reverse ONLY the required list's PART in ISOLATION
  *   via [reverse], then the new start to the end of the last group and the first node of the next group to the new end node.
  *   Learn about whether the current group is the last and its nodes count all the same!
- *  • quite a complex problem.
+ *  • quite a complex problem. Funny how I literally gave up on the O(n) time O(1) space solution after learning that its
+ *   more like leet-hard and having invested so much effort already, but then it struck me after like 15 mins from the moment
+ *   I laid the problem down => we could simply reverse the portion of the list by keeping a pointer to its start, no need
+ *   to copy the entire portion to a temp list!
+ *   🐙 marvelous diffused thinking in action here
  *
  * Value gained:
  *  • practiced solving a LinkedList leet-hard question with O(n) time but O(n) space, then optimized the bottleneck part
