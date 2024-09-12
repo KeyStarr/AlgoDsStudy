@@ -22,7 +22,7 @@ fun LinkedListNode.formatToEnd(output: StringBuilder = StringBuilder()): String 
     return next?.formatToEnd(output) ?: output.toString()
 }
 
-fun linkedListOf(vararg nums: Int): LinkedListNode? {
+fun singlyLinkedListOf(vararg nums: Int): LinkedListNode? {
     if (nums.isEmpty()) return null
     return LinkedListNode(nums[0]).apply {
         var currentNode = this
