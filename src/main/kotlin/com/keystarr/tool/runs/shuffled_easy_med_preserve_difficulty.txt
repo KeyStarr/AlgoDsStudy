@@ -79,7 +79,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 
 
 ~~+ 1944. Number of Visible People in a Queue
-- 637. Average of Levels in Binary Tree
++ 637. Average of Levels in Binary Tree
 - 101. Symmetric Tree
 - 930. Binary Subarrays With Sum
 - 2384. Largest Palindromic Number
