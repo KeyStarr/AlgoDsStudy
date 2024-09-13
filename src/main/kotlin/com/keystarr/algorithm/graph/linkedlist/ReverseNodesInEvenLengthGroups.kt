@@ -4,6 +4,7 @@ import com.keystarr.datastructure.graph.linkedlist.ListNode
 import com.keystarr.datastructure.graph.linkedlist.singlyLinkedListOf
 
 /**
+ * 🔥 a good example of a complex partial reversal Linked List type problem
  * LC-2074 https://leetcode.com/problems/reverse-nodes-in-even-length-groups/description/
  * difficulty: medium (100% leet-hard!)
  * constraints:
@@ -32,6 +33,8 @@ import com.keystarr.datastructure.graph.linkedlist.singlyLinkedListOf
  * Value gained:
  *  • practiced solving a LinkedList leet-hard question with O(n) time but O(n) space, then optimized the bottleneck part
  *   from O(n) space to O(1)!
+ *  • funny how when one abstracts the problem and observes the last group special condition, it simply becomes a list
+ *   partial reversal default subproblem with reversal initiation special conditions.
  */
 class ReverseNodesInEvenLengthGroups {
 
