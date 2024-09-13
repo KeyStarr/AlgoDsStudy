@@ -39,7 +39,6 @@ class SymmetricTree {
         if (root1?.`val` != root2?.`val`) return false
         if (root1 == null || root2 == null) return true
 
-        if (!dfsRecursive(root1 = root1.left, root2 = root2.right) || !dfsRecursive(root1 = root1.right, root2 = root2.left)) return false
-        return true
+        return dfsRecursive(root1 = root1.left, root2 = root2.right) && dfsRecursive(root1 = root1.right, root2 = root2.left)
     }
 }
