@@ -80,21 +80,17 @@ data class RunStats(
               todo: ${percent(remaining, total)} ($remaining)
             done:
               good: ${percentDone(good)} ($good)
-                clean: ${percentGood(cleanSolves)} ($cleanSolves)
-                almostClean: ${percentGood(almostClean)} ($almostClean) 
+                clean: ${percentDone(cleanSolves)} ($cleanSolves)
+                almostClean: ${percentDone(almostClean)} ($almostClean) 
               bad: ${percentDone(bad)} ($bad)
-                dirty: ${percentBad(dirty)} ($dirty)
-                failed: ${percentBad(fails)} ($fails)
-            real learning value: ${percentDone(hardLearning)} ($hardLearning) 
+                dirty: ${percentDone(dirty)} ($dirty)
+                failed: ${percentDone(fails)} ($fails)
+            learning value: ${percentDone(hardLearning)} ($hardLearning) 
             ---
         """.trimIndent()
     }
 
     private fun percentDone(part: Int) = percent(part, total = done)
-
-    private fun percentGood(part: Int) = percent(part, total = good)
-
-    private fun percentBad(part: Int) = percent(part, total = bad)
 
     private fun percent(part: Int, total: Int) = "${((part.toFloat() / total) * 100).toInt()}%"
 }
@@ -106,5 +102,5 @@ fun main() {
         )
     )
 
-    // TODO: implement also stats by topics! for the final stats of the run (where had most struggles => learned the most)
+    // TODO: implement also stats by topics - for the final stats of the run (where had most struggles => learned the most)
 }
