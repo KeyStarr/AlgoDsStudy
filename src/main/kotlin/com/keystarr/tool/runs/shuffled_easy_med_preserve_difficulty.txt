@@ -83,8 +83,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 + 101. Symmetric Tree
 ~~+ 930. Binary Subarrays With Sum
 +~ 2384. Largest Palindromic Number
-- 491. Non-decreasing Subsequences
--F 907. Sum of Subarray Minimums
+~ 491. Non-decreasing Subsequences
+~~ 907. Sum of Subarray Minimums
 - 437. Path Sum III
 -F 1372. Longest ZigZag Path in a Binary Tree
 - 1406. Stone Game III
