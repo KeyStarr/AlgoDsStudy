@@ -85,8 +85,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 +~ 2384. Largest Palindromic Number
 ~ 491. Non-decreasing Subsequences
 ~~ 907. Sum of Subarray Minimums
-- 437. Path Sum III
--F 1372. Longest ZigZag Path in a Binary Tree
+~~ 437. Path Sum III
+~~ 1372. Longest ZigZag Path in a Binary Tree
 - 1406. Stone Game III
 - 2000. Reverse Prefix of Word
 - 328. Odd Even Linked List
@@ -123,7 +123,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 139. Word Break
 - 2457. Minimum Addition to Make Integer Beautiful
 - 2258. Escape the Spreading Fire
-F 1024. Video Stitching
+-F 1024. Video Stitching
 - 337. House Robber III
 - 1155. Number of Dice Rolls With Target Sum
 - 2136. Earliest Possible Day of Full Bloom
