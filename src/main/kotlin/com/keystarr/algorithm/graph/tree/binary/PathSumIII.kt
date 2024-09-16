@@ -4,6 +4,8 @@ import com.keystarr.datastructure.graph.tree.TreeNode
 
 /**
  * ⭐️⭐️ a stark example of a "prefix sum" being the key to an efficient solution for not an array input (binary tree here)
+ *  - realize that prefix sum must be used here;
+ *  - adapt the classic prefix sum pattern to tree traversal.
  *
  * LC-437 https://leetcode.com/problems/path-sum-iii/description/
  * difficulty: medium (one of the hardest mediums I've encountered, with so much going on)
