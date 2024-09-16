@@ -32,7 +32,8 @@ import com.keystarr.datastructure.graph.tree.TreeNode
  *   sequences of elements) not for just arrays, but really any consecutive collections of elements, including trees (which, in retrospect, is super
  *   obvious. I could've recognized the tool here if I abstracted the goal right as "count all valid consecutive parts of the collection
  *   valid = target sum";
- *  • practiced solving a "count all valid full/partial paths in the binary tree" type problem.
+ *  • practiced solving a "count all valid full/partial paths in the binary tree" type problem using:
+ *   prefix sum all valid continuous sub-sequences count pattern, dfs and a hashmap.
  */
 class PathSumIII {
 
@@ -98,6 +99,10 @@ class PathSumIII {
             prefixSumToFreqMap = mutableMapOf(0L to 1), // to count paths that start from root (when entire currentSum == targetSum)
         )
 
+    /**
+     * Goal - return the count of all continuous sub-sequences of nodes of the original tree that sum up to [targetSum]
+     *  and end with node [root].
+     */
     private fun efficientDfs(
         root: TreeNode?,
         currentSum: Long,
