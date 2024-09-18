@@ -21,8 +21,11 @@ import kotlin.math.min
  *   UPD: after a night well-slept I think I see it better. Basically its like a game of chess, i.o. Alice tries to model
  *    all possible turns when both choose optimally, but instead of the default dumb human "1-2 turns ahead" she can actually
  *    model literally all possible turns in advance using DP;
+
  *  • 🔥 my first ever encounter with a DP problem that requires switching maximization/minimization in the decision function
- *   based on some rule;
+ *   based on some rule. ⚠️⚠️ my brain still breaks some when I try to model out why and how exactly this works, like,
+ *   how does the first agent see the world to be able to reason like that, in full depth - too many inter-dependent branches!
+
  *  • 🔥 my first ever encounter on leetcode with a problem that's solved basically efficiently just by reasoning, with
  *   no real algorithm [efficient]. ⚠️ the proof sounded completely alien to me at first, but now I get it more, I wonder
  *   if I'll ever be able to such acutely observe distinct properties of the problems and quickly in a live setting come up
