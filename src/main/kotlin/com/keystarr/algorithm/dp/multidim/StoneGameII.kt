@@ -30,7 +30,7 @@ class StoneGameII {
     // TODO: optimize top-down, use prefix sum + cut short when the remaining player takes all stones + get rid of Array(size=2)
     // TODO: do bottom-up, at least with a 2D state (optionally - 1D)
     //  tried, for now failed to understand in reasonable time and effort why we may not keep track of whose turn it is and simply max
-
+    // TODO: is top-down here better? why? when is generally then bottom-up better, and when is top-down?
 
     /**
      * initially:

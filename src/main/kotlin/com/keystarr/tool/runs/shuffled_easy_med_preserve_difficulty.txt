@@ -88,8 +88,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~~ 437. Path Sum III
 ~~ 1372. Longest ZigZag Path in a Binary Tree
 ~ 877. Stone Game (! added myself, basically a prerequisite of III)
-- 1140. Stone Game (! added later, basically a prerequisite of III)
-- 1406. Stone Game III
+~ 1140. Stone Game II (! added later, basically a prerequisite of III)
+~ 1406. Stone Game III
 - 2000. Reverse Prefix of Word
 - 328. Odd Even Linked List
 -F 2104. Sum of Subarray Ranges
