@@ -95,7 +95,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~ 2104. Sum of Subarray Ranges
 ~ 1721. Swapping Nodes in a Linked List
 ~~ 649. Dota2 Senate
-- 131. Palindrome Partitioning
++~ 131. Palindrome Partitioning
 - 2178. Maximum Split of Positive Even Integers
 - 373. Find K Pairs with Smallest Sums
 - 2130. Maximum Twin Sum of a Linked List
