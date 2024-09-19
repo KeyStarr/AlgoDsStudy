@@ -90,7 +90,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~ 877. Stone Game (! added myself, basically a prerequisite of III)
 ~ 1140. Stone Game II (! added later, basically a prerequisite of III)
 ~ 1406. Stone Game III
-- 2000. Reverse Prefix of Word
++ 2000. Reverse Prefix of Word
 - 328. Odd Even Linked List
 -F 2104. Sum of Subarray Ranges
 - 1721. Swapping Nodes in a Linked List
