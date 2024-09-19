@@ -16,7 +16,10 @@ import com.keystarr.datastructure.graph.linkedlist.singlyLinkedListOf
  *  • 🔥 dry running helped a lot here, I assumed we'd use multiple pointers since its O(n) time single pass and O(1) space
  *   and tried to emulate by reason what the steps should be via dry running. These leetcode final videos of mock interviews
  *   and the author reasoning were instrumental to understand how clean and easy dry runs can be done in code editors on the input data!
- *   Never though to do it that way! (drew mostly).
+ *   Never though to do it that way! (drew mostly);
+ *  • 💡 despite this question somewhat resembling swapping since we move nodes, we don't do any swapping, we actually
+ *   rewrite links and completely reordering the list simply reusing the already existing nodes and building kind of
+ *   two separate lists from these to merge them. So working with values here would be much harder unlike say [SwappingNodesInALinkedList].
  *
  * Value gained:
  *  • practiced solving a singly LinkedList modification type problem using multiple pointers (core = two pairs of 2 pointers).

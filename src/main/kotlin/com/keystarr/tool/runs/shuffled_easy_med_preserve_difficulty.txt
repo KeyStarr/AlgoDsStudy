@@ -91,9 +91,9 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~ 1140. Stone Game II (! added later, basically a prerequisite of III)
 ~ 1406. Stone Game III
 + 2000. Reverse Prefix of Word
-- 328. Odd Even Linked List
--F 2104. Sum of Subarray Ranges
-- 1721. Swapping Nodes in a Linked List
++ 328. Odd Even Linked List
+~ 2104. Sum of Subarray Ranges
+~ 1721. Swapping Nodes in a Linked List
 - 649. Dota2 Senate
 - 131. Palindrome Partitioning
 - 2178. Maximum Split of Positive Even Integers
