@@ -29,6 +29,8 @@ package com.keystarr.algorithm.deque.queue
  */
 class Dota2Senate {
 
+    // TODO: full resolve in 1-3 weeks
+
     /**
      * Observations:
      *  1. the order matters, since the earlier senator may remove the latter one;
