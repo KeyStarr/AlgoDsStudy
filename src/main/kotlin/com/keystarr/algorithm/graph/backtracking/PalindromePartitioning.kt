@@ -16,7 +16,12 @@ package com.keystarr.algorithm.graph.backtracking
  *   yet I feel this distinct uncertainty like I don't understand it fully. Maybe that's because almost no one I've checked estimated
  *   time&space properly? Yes, and also cause I feel like palindrome checking could be possibly improved and maybe that mutable string
  *   deep copy could be done better. But its good enough right now, let's accept that uncertainty - I understand the core algorithm
- *   and that's good enough.
+ *   and that's good enough;
+ *  • 🏆 good thing I've forced myself to implement the palindrome checking just for O(n) time straight-forward and finished
+ *   the algo first before trying to optimize this sub-solution. Turns out that seems to be the most efficient way to do this!
+ *   (at least I've found no such, but I havent checked ALL top solutions)
+ *   => 💡 indeed, apparently by default going for straight-forward suboptimal ESPECIALLY for subproblems solutions may
+ *    be good enough.
  *
  * Value gained:
  *  • practiced solving an "all valid substring combinations" type problem using backtracking and a StringBuilder;

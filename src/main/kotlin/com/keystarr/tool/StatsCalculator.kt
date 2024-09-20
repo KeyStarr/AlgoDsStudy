@@ -82,7 +82,7 @@ data class RunStats(
               good: ${percentDone(good)} ($good)
                 clean: ${percentDone(cleanSolves)} ($cleanSolves)
                 almostClean: ${percentDone(almostClean)} ($almostClean) 
-              bad: ${percentDone(bad)} ($bad)
+              to improve: ${percentDone(bad)} ($bad)
                 dirty: ${percentDone(dirty)} ($dirty)
                 failed: ${percentDone(fails)} ($fails)
             learning value: ${percentDone(hardLearning)} ($hardLearning) 
