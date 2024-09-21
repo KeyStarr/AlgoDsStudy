@@ -98,7 +98,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 +~ 131. Palindrome Partitioning
 ~~ 2178. Maximum Split of Positive Even Integers
 ~~ 373. Find K Pairs with Smallest Sums
-- 2130. Maximum Twin Sum of a Linked List
++ 2130. Maximum Twin Sum of a Linked List
 
 
 ~ 2517. Maximum Tastiness of Candy Basket

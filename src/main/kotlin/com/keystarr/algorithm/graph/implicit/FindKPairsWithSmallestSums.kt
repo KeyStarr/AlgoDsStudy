@@ -3,8 +3,8 @@ package com.keystarr.algorithm.graph.implicit
 import java.util.PriorityQueue
 
 /**
- * ⭐️ a spectacular greedy top(k) heap implicit graph (Dijkstra's) like efficient solution problem!
- *  (I feel like "what the heck just happened" rn)
+ * ⭐️ a spectacular greedy top(k) heap implicit DAG (Dijkstra's like) efficient solution problem!
+ *  also, what the heck just I just write
  *
  * LC-373 https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/
  * difficulty: medium
