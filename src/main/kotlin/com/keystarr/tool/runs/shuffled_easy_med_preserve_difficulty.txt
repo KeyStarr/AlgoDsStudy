@@ -77,7 +77,6 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~~+ 2074. Reverse Nodes in Even Length Groups
 ~~ 474. Ones and Zeroes
 
-
 ~~+ 1944. Number of Visible People in a Queue
 + 637. Average of Levels in Binary Tree
 + 101. Symmetric Tree
@@ -100,10 +99,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~~ 373. Find K Pairs with Smallest Sums
 + 2130. Maximum Twin Sum of a Linked List
 
-
 ~ 2517. Maximum Tastiness of Candy Basket
-- 2141. Maximum Running Time of N Computers
-- 2402. Meeting Rooms III
 - 2250. Count Number of Rectangles Containing Each Point
 -F 1482. Minimum Number of Days to Make m Bouquets
 - 1533. Find the Index of the Large Integer
