@@ -68,6 +68,10 @@ import java.util.PriorityQueue
  * Value gained:
  *  • practiced solving a "find top k pairs out of 2 arrays" type problem using greedy and a Dijkstra's like DAG traversal
  *   algorithm based on the minHeap and a seen hashSet (another angle - topk minheap with a seen hashset) 🙉
+ *  • apparently topk heap and an implicit DAG Dijkstra's like are both valid ways from different angles to describe a single solution???
+ *  • 🏆 learned that we can derive our own efficient graph traversal algorithms based on the tools available, its not
+ *   always reasonable to stick to the stock DFS/BFS/Dijkstra's etc even at the fundamental level (with minheap but not seen etc)
+ *   more freedom, more uncertainty => rational creativity wins.
  */
 class FindKPairsWithSmallestSums {
 
