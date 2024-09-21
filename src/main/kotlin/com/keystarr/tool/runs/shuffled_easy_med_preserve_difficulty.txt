@@ -100,8 +100,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 + 2130. Maximum Twin Sum of a Linked List
 
 ~ 2517. Maximum Tastiness of Candy Basket
-- 2250. Count Number of Rectangles Containing Each Point
--F 1482. Minimum Number of Days to Make m Bouquets
+~ 2250. Count Number of Rectangles Containing Each Point
+~~ 1482. Minimum Number of Days to Make m Bouquets
 - 1533. Find the Index of the Large Integer
 -F 540. Single Element in a Sorted Array
 - 1035. Uncrossed Lines
