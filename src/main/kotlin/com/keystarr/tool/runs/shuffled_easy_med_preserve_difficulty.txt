@@ -102,14 +102,15 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~ 2517. Maximum Tastiness of Candy Basket
 ~ 2250. Count Number of Rectangles Containing Each Point
 ~~ 1482. Minimum Number of Days to Make m Bouquets
-- 1533. Find the Index of the Large Integer
--F 540. Single Element in a Sorted Array
+PREMIUM- 1533. Find the Index of the Large Integer
+~ 540. Single Element in a Sorted Array
 - 1035. Uncrossed Lines
-- 707. Design Linked List
+~ 1143. Longest Common Subsequence (added as a precursor to 1035)
++ 707. Design Linked List
 - 2398. Maximum Number of Robots Within Budget
 - 632. Smallest Range Covering Elements from K Lists
 - 1732. Find the Highest Altitude
--F 33. Search in Rotated Sorted Array
+~ 33. Search in Rotated Sorted Array
 - 980. Unique Paths III
 - 778. Swim in Rising Water
 - 2139. Minimum Moves to Reach Target Score
@@ -121,7 +122,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 - 139. Word Break
 - 2457. Minimum Addition to Make Integer Beautiful
 - 2258. Escape the Spreading Fire
--F 1024. Video Stitching
+~~ 1024. Video Stitching
 - 337. House Robber III
 - 1155. Number of Dice Rolls With Target Sum
 - 2136. Earliest Possible Day of Full Bloom

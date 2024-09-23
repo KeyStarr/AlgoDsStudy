@@ -1,8 +1,11 @@
 package com.keystarr.algorithm.dp.multidim
 
+import com.keystarr.algorithm.UncrossedLines
 import kotlin.math.max
 
 /**
+ * 1st encounter, 2nd is [LongestCommonSubsequence2].
+ *
  * ⭐️ a very general basic problem beautifully solved with efficient DP.
  * LC-1143 https://leetcode.com/problems/longest-common-subsequence/description/
  * difficulty: medium
@@ -242,6 +245,175 @@ class LongestCommonSubsequence {
             }
         }
         return results[0][0]
+    }
+}
+
+/**
+ * Context: failed to solve [UncrossedLines], learned that it is fundamentally the same problem as this one and tried to
+ *  first re-solve this one (~2 months after the first time I solved it).
+ *
+ * Final notes:
+ *  • ⚠️ failed to solve it under ~1h AGAIN! AGAIN made the SAME mistake of going too literal on DP and designing an inefficient
+ *   DP algorithm [dpSlow]:
+ *
+ *    what I got right:
+ *     • realized that problem's efficient solution is DP since the subproblems may overlap.
+ *
+ *    where I went wrong:
+ *     • came up with an inherently slow DP approach, cause we had to look for matches of the same characters many-many times
+ *      without caching.
+ *
+ *  • ⚠️ AGAIN had a hard time understanding [dpEfficient], had to full dry-run it and take a break for the design to settle in;
+ *  • well, now I'm sure that [dpSlow] is actually DP but just super slow, and I'm pretty sure I understand exactly how [dpEfficient]
+ *   works deeply as I've set my mind on these rails the 2nd time;
+ *  • 🔥 when will I learn??)))) What does this approach feel like black magic still?
+ *   ⚠️ did I not retain that other approach cause I had trouble the first time and didn't reinforce it with a re-solve
+ *    after some time???? Or just didn't go deep enough into understanding it?
+ *
+ * Value gained:
+ *  • practiced solving a tricky multi-dim DP problem via an efficient bottom-up solution;
+ *  • learned that, apparently, if I don't reinforce a failed problem via a re-solve after in some close timeframe
+ *   => I fail to retain the approach. Or maybe that I didn't dig deep enough into it the first time 🤔
+ */
+class LongestCommonSubsequence2 {
+
+    // TODO: full re-solve in 1-2 weeks MANDATORY (or do u want the 3rd fail????))
+
+    /**
+     * Also note that actually for every ith row we only use the cache for the (i+1)th row => we can reduce the space
+     * from O(m) to O(1)
+     *
+     * Time: always O(n*m)
+     * Space: always O(1)
+     */
+    fun dpEfficient(text1: String, text2: String): Int {
+        val rowSize = text2.length + 1
+        var prevRow = IntArray(size = rowSize)
+        var currentRow = IntArray(size = rowSize)
+        for (i in text1.lastIndex downTo 0) {
+            for (j in text2.lastIndex downTo 0) {
+                currentRow[j] = if (text1[i] == text2[j]) {
+                    prevRow[j + 1] + 1
+                } else {
+                    max(prevRow[j], currentRow[j + 1])
+                }
+            }
+            val temp = prevRow
+            prevRow = currentRow
+            currentRow = temp
+        }
+        return prevRow[0]
+    }
+
+    /**
+     * ⚠️ gave up after 50m (being very tired also) => checked my July solution [LongestCommonSubsequence] => caught the "a-ha!" moment. Again. Lol.
+     *
+     * -------------
+     *
+     * leave the goal the same: return the length of the longest common subsequence of text1\[start1:] and text\[start2:]
+     * BUT change the recurrence relation:
+     *  dp(i,j) = if (text1\[i] == text2\[j]) dp(i+1,j+1) + 1   else max(dp(i+1,j), dp(i,j+1)
+     *
+     * motivation is very simple:
+     *  1. if letters match, we always take them into the subsequence (since we maximize its length) => we can no longer
+     *   consider both letters => move both pointers next;
+     *
+     *   (we always take the earliest match for some letter k cause it guarantees the max available further choices. and if we
+     *   have duplicates of k further, then taking any reduces choices without any benefit)
+     *
+     *  2. if letters don't match => try moving either pointer. that way we will consider all possibilities for finding a match
+     *   for text1[i+1] and text2[j+1] and the next.
+     *
+     * Time: always O(n*m)
+     *  - n*m states;
+     *  - O(1) work for each state.
+     * Space: always O(n*m)
+     *
+     * go for the bottom-up straight-away
+     */
+    fun dpSuboptimal(text1: String, text2: String): Int {
+        val cache = Array(size = text1.length + 1) { IntArray(size = text2.length + 1) }
+        for (i in text1.lastIndex downTo 0) {
+            for (j in text2.lastIndex downTo 0) {
+                cache[i][j] = if (text1[i] == text2[j]) {
+                    cache[i + 1][j + 1] + 1
+                } else {
+                    max(
+                        cache[i + 1][j],
+                        cache[i][j + 1],
+                    )
+                }
+            }
+        }
+        return cache[0][0]
+    }
+
+    /**
+     * wrong design
+     *
+     * ----
+     *
+     * can we do O(n*m) time dp?
+     *
+     * change the goal?
+     *  new goal: return the length of hte LCS for text1\[start1], text2\[start2] such that it must start with text1\[start1].
+     *
+     * - work for a single state:
+     *  - find the first letter in text2[start2:] == text1\[start1], say with index j. Only the first, cause if further in text2
+     *   there are more text1\[start1], say one is at the index g > k, then we loose access to all elements text2[k+1:g)
+     *   yet if we chose j then we'd have access to all elements text2[g+1:] => greedily choose the first occurrence
+     *   to be efficient and preserve the max amount of further options.
+     * - select the max LCS among all starting positions in [text1] since, say, we could start with start1=0th and
+     *  have an LCS of only length 1, but start at 1th and have a better result, e.g.:
+     *    abcde
+     *    bcdea
+     *
+     * Time: O(n*m^2)
+     *
+     */
+    fun dpWrong(text1: String, text2: String): Int {
+        val cache = Array(size = text1.length + 1) { IntArray(size = text2.length + 1) }
+        var totalMaxLength = 0
+        for (start1 in text1.lastIndex downTo 0) {
+            for (start2 in text2.lastIndex downTo 0) {
+                for (j in start2 until text2.length) {
+                    if (text1[start1] != text2[j]) continue
+                    cache[start1][start2] = cache[start1 + 1][j + 1] + 1
+                    totalMaxLength = max(cache[start1][start2], totalMaxLength)
+                    break
+                }
+            }
+        }
+        return totalMaxLength
+    }
+
+    /**
+     * we try starting a subsequence from each matching letter => try all matching for the next etc
+     * DP start1, start2
+     *
+     * dp goal: return the longest subsequence length for strings text1\[start1:], text2\[start2:]
+     *
+     * Time: O(n^2 * m^2)
+     *  - n*m states;
+     *  - for each state we do ~n*m work.
+     * => TLE 42th/47
+     */
+    fun dpSlow(text1: String, text2: String): Int {
+        val cache = Array(size = text1.length + 1) { IntArray(size = text2.length + 1) }
+        for (start1 in text1.lastIndex downTo 0) {
+            for (start2 in text2.lastIndex downTo 0) {
+                var maxLength = 0
+                for (i in start1 until text1.length) {
+                    for (j in start2 until text2.length) {
+                        if (text1[i] != text2[j]) continue
+                        maxLength = max(cache[i + 1][j + 1] + 1, maxLength)
+                        break
+                    }
+                }
+                cache[start1][start2] = maxLength
+            }
+        }
+        return cache[0][0]
     }
 }
 
