@@ -34,6 +34,14 @@ import kotlin.math.max
  *    - failed to recognize the goal combination of nums1 and nums2 elements as a subsequence;
  *   - went for the wrong DP approach, exactly how I did 2 freaking times in both [LongestCommonSubsequence] and [LongestCommonSubsequence2].
  *
+ *  • ⚠️ lol, I till don't have the full confidence in that I understood the solution deeply and the difference between
+ *   [slowTopDownDp] and [efficientDp], like, why exactly did we got for one approach and not the other, like, I understand
+ *   these separately but not in relation to one another, if that makes sense?
+ *    but gotta move on, already invested 4h here!
+ *   but basically its just that we optimize the lookup part of the [slowTopDownDp] since we don't look for the next match
+ *   for each ith char, but instead consider both matches for ith and jth and only 2 max directions at each state.
+ *   still didn't make it clear, oh man
+ *
  * Value gained:
  *  • practiced solving a doppelganger problem, story meaning just a masked longest subsequence type question: both with
  *   a space-optimized efficient bottom-up and another too slow dp approach.
@@ -68,7 +76,7 @@ class UncrossedLines {
      * Time: always O(n*m)
      * Space: always O(m)
      */
-    fun efficient(nums1: IntArray, nums2: IntArray): Int {
+    fun efficientDp(nums1: IntArray, nums2: IntArray): Int {
         val rowSize = nums2.size + 1
         var prevRow = IntArray(size = rowSize)
         var currentRow = IntArray(size = rowSize)

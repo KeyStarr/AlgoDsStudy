@@ -88,7 +88,6 @@
 1944. Number of Visible People in a Queue
 907. Sum of Subarray Minimums
 2104. Sum of Subarray Ranges
-2398. Maximum Number of Robots Within Budget
 
 
 // Trees and graphs
