@@ -72,7 +72,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~+ 1657. Determine if Two Strings Are Close
 ~+ 1855. Maximum Distance Between a Pair of Values
 ~ 2476. Closest Nodes Queries in a Binary Search Tree
-+ (FINALLY!) 994. Rotting Oranges
++ (FINALLY a clear solve! broke the bad streak) 994. Rotting Oranges
 + 226. Invert Binary Tree
 ~~+ 2074. Reverse Nodes in Even Length Groups
 ~~ 474. Ones and Zeroes
@@ -86,7 +86,7 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~~ 907. Sum of Subarray Minimums
 ~~ 437. Path Sum III
 ~~ 1372. Longest ZigZag Path in a Binary Tree
-~ 877. Stone Game (! added myself, basically a prerequisite of III)
+~ 877. Stone Game (! added later, basically a prerequisite of III)
 ~ 1140. Stone Game II (! added later, basically a prerequisite of III)
 ~ 1406. Stone Game III
 + 2000. Reverse Prefix of Word
@@ -104,8 +104,8 @@ PREMIUM- 1063. Number of Valid Subarrays
 ~~ 1482. Minimum Number of Days to Make m Bouquets
 PREMIUM- 1533. Find the Index of the Large Integer
 ~ 540. Single Element in a Sorted Array
-- 1035. Uncrossed Lines
-~ 1143. Longest Common Subsequence (added as a precursor to 1035)
+~ 1143. Longest Common Subsequence (! added later as a precursor to 1035)
+~ 1035. Uncrossed Lines
 + 707. Design Linked List
 - 2398. Maximum Number of Robots Within Budget
 - 632. Smallest Range Covering Elements from K Lists

@@ -1,6 +1,5 @@
 package com.keystarr.algorithm.dp.multidim
 
-import com.keystarr.algorithm.UncrossedLines
 import kotlin.math.max
 
 /**
@@ -274,6 +273,8 @@ class LongestCommonSubsequence {
  *  • practiced solving a tricky multi-dim DP problem via an efficient bottom-up solution;
  *  • learned that, apparently, if I don't reinforce a failed problem via a re-solve after in some close timeframe
  *   => I fail to retain the approach. Or maybe that I didn't dig deep enough into it the first time 🤔
+ *
+ * did I not understand it deep enough? how to tell?
  */
 class LongestCommonSubsequence2 {
 
@@ -281,10 +282,10 @@ class LongestCommonSubsequence2 {
 
     /**
      * Also note that actually for every ith row we only use the cache for the (i+1)th row => we can reduce the space
-     * from O(m) to O(1)
+     * from O(n*m) to O(m)
      *
      * Time: always O(n*m)
-     * Space: always O(1)
+     * Space: always O(m)
      */
     fun dpEfficient(text1: String, text2: String): Int {
         val rowSize = text2.length + 1
