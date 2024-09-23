@@ -107,7 +107,7 @@ PREMIUM- 1533. Find the Index of the Large Integer
 ~ 1143. Longest Common Subsequence (! added later as a precursor to 1035)
 ~ 1035. Uncrossed Lines
 + 707. Design Linked List
-- 1732. Find the Highest Altitude
++ 1732. Find the Highest Altitude
 ~ 33. Search in Rotated Sorted Array
 - 2139. Minimum Moves to Reach Target Score
 - 518. Coin Change II
