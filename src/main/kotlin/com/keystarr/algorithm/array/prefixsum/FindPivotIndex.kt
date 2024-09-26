@@ -1,4 +1,4 @@
-package com.keystarr.algorithm
+package com.keystarr.algorithm.array.prefixsum
 
 /**
  * LC-724 https://leetcode.com/problems/find-pivot-index/description/

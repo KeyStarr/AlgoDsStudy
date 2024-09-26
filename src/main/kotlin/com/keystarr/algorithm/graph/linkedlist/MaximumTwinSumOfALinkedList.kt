@@ -1,113 +1,114 @@
 package com.keystarr.algorithm.graph.linkedlist
 
-import com.keystarr.datastructure.graph.linkedlist.LinkedListNode
-import kotlin.math.max
+import com.keystarr.datastructure.graph.linkedlist.ListNode
+import com.keystarr.datastructure.graph.linkedlist.singlyLinkedListOf
 
 /**
  * LC-2130 https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/description/
  * difficulty: medium
  * constraints:
- *  • 2 <= number of nodes <= 10^5, only even;
- *  • 1 <= Node.val <= 10^5;
- *  • no explicit time/space.
+ *  • 2 <= number of nodes <= 10^5;
+ *  • 1 <= node.val <= 10^5.
  *
  * Final notes:
- *  • implemented [recursiveSuboptimal] by myself, discovered [iterativeEfficient] thanks to the leetcode DSA course explanation.
+ *  • unintentionally had a few hints at the start of this problem:
+ *   1. earlier today checked which topics I still had left to solve bonus problems for and caught this problem's name in the
+ *    "reverse LL" section => knew it was supposed to involve the reversal;
+ *   2. a couple of days ago learned at the first time (or something) and solved a similar problem where we had to traverse
+ *    the list by "twins" => reversed the 2nd part of the list as well, so had the context in short memory.
+ *   => better resolve in some future just to make sure that I can do that in the wild
+ *
+ *  • 🏅 solved via [efficient] by myself in 24 mins - great result:
+ *   • recognized the need for reversal straight away;
+ *   • recognized that we need to find the second middle node to reverse;
+ *   • recalled the efficient reversal algorithm correctly, and the finding the 2nd middle node, informally proved it
+ *    on the spot via dry-running (not memorization but deep understanding and mastery I try to do here).
  *
  * Value gained:
- *  • interestingly enough, implemented [recursiveSuboptimal] sorta intuitively, skipped the usual procedure of designing in pseudocode
- *      first and then edge cases and complexities estimation, only then implementing. Instead, went straight onto
- *      implementation cause I had this "feeling" that I already know how it's gonna go, didn't even do a rigorous
- *      edge cases analysis => submitted successfully 1st try. Might it be useful to go like that sometimes during real
- *      interviews? (with meta-commentary why, ofc)
- *  • practiced combining multiple common linear list algos (finding the middle node + reversing the list) to achieve
- *      a solution within a single bigger algorithm. Is that dynamic programming??
- *  • practiced recursion on linear lists, here it is much more elegant than [iterativeEfficient] though less space efficient
+ *  • practiced solving a "compute metric of the singly LL" type problem using standard tools:
+ *   • find the middle node;
+ *   • LL reversal;
+ *   • traversal via 2 pointers.
  */
 class MaximumTwinSumOfALinkedList {
 
-    /**
-     * goal rephrase: "return the maximum valid subset sum"
-     * hint: the amount of nodes is always even.
-     * hint: linked list, elegant solution => two pointer?
-     *
-     * intuition: traverse the list until the tail, then, when unwrapping the callstack, start in-parallel traversing
-     *  the list from the head onward, and calculate the twin sums like current.value+recursive(..).value;
-     *
-     * in other words, make two pointers, one at start, another at end (thanks to callstack unwrapping) and move them
-     * towards each other
-     *
-     * naive, D&C:
-     *  - base case: current==null => return the head;
-     *  - recursive case:
-     *      - divide: progress forward, recursive(current);
-     *      - conquer: calculate the sum of current.value (ith node from end) and returnedNode.value (ith note from start),
-     *          if it's bigger than the current max => assign it to max;
-     *      - combine: return returnedNode.next (progress the node from start forward to match with the twin
-     *          `current` node from end of the previous call).
-     *
-     * Time: O(n), though we make unnecessary n/2 checks for duplicate sums (ith node from start and end just get reversed);
-     * Space: O(n) due to the stack?
-     */
-    fun recursiveSuboptimal(head: LinkedListNode): Int {
-        val (_, maxSum) = recursiveInternal(head, head)
-        return maxSum
-    }
-
-    private fun recursiveInternal(current: LinkedListNode?, head: LinkedListNode): Pair<LinkedListNode?, Int> {
-        if (current == null) return head to 0
-
-        val (twinFromBeginning, lastMaxSum) = recursiveInternal(current.next, head)
-        val currentSum = twinFromBeginning!!.`val` + current.`val`
-        val maxSum = max(currentSum, lastMaxSum)
-        return twinFromBeginning.next to maxSum
-    }
+    // TODO: optionally resolve in 2-4 weeks (cause of the unintentional hints)
 
     /**
-     * Idea:
-     *  - find the second middle node (the size is always even) - classic LL reverse algo; time O(n/2)
-     *  - reverse the linked list starting from the second middle node; time O(n/2)
-     *  - init slow=head, fast=secondMiddleNode (the original tail);
-     *  - while slow!=secondMiddleNode: time O(n/2)
-     *      - maxSum=max(slow.value+fast.value, maxSum)
-     *      - slow=slow.next, fast=fast.next
-     *  - return maxSum
+     * the LL is always of even size - what does that imply?
+     *  along with minNodesAmount == 2 => every node always has exactly 1 twin.
      *
-     * Edge cases: none, since we always have even an amount of nodes, and the min amount is 2.
+     * singly LL problems are usually solved within O(n) time and O(1) space
+     * => basically the O(n) time solution would involve iterating at the same time with 2 pointers one left-to-right
+     *  another right-to-left converging in the middle
      *
-     * Time: O(n)
-     * Space: O(1)
+     * BUT since the list is singly linked we can't traverse right-to-left without storing nodes in the memory (like a stack)
+     *
+     * BUT if we're allowed to modify the input we can reverse the second half of the list => init the first pointer
+     * at the first node and the second and the second middle node => trivially move both by 1 and find the max sum.
+     *
+     * so, can we modify the input? no one to ask, assume so (if not - use a stack)
+     *
+     * approach:
+     *  - find the second middle node;
+     *  - reverse the second half of the LL using that;
+     *  - traverse via 2 pointers and find the max twin sum.
+     *
+     * Edge cases:
+     *  - sum => max sum = 10^5 * 2 => fits into Int.
+     *
+     * Time: always O(n)
+     * Space: always O(1)
+     *
+     * 1 2
+     * 1 2 3 4
      */
-    fun iterativeEfficient(head: LinkedListNode): Int {
-        // find the second middle node
-        var slow: LinkedListNode? = head
-        var fast: LinkedListNode? = head
+    fun efficient(head: ListNode): Int {
+        val secondMiddleNode = findSecondMiddleNode(head)
+        val lastNode = reverse(secondMiddleNode)
+        return findMaxSumPair(firstHead = head, secondHead = lastNode)
+    }
+
+    /**
+     * @param head - the LL must be of even size, at least 2.
+     */
+    private fun findSecondMiddleNode(head: ListNode): ListNode {
+        var slow: ListNode = head
+        var fast: ListNode? = head
         while (fast != null) {
-            slow = slow!!.next
+            slow = slow.next!!
             fast = fast.next?.next
         }
+        return slow
+    }
 
-        // reverse the second half of the list
-        var prev: LinkedListNode? = null
-        val secondMiddleNode = slow!!
-        var current: LinkedListNode? = secondMiddleNode
+    /**
+     * @param head - the LL must be of size at least 1.
+     */
+    private fun reverse(head: ListNode): ListNode {
+        var prev: ListNode? = null
+        var current: ListNode? = head
         while (current != null) {
             val originalNext = current.next
             current.next = prev
             prev = current
             current = originalNext
         }
+        return prev!!
+    }
 
-        // find the max twin sum
-        val secondHalfNewHead = prev
-        var twinFromStart: LinkedListNode? = head
-        var twinFromEnd: LinkedListNode? = secondHalfNewHead!!
+    /**
+     * The linked lists [firstHead] and [secondHead] must be of equal length and of size at least 1.
+     */
+    private fun findMaxSumPair(firstHead: ListNode, secondHead: ListNode): Int {
+        var firstNode: ListNode? = firstHead
+        var secondNode: ListNode? = secondHead
         var maxSum = 0
-        while (twinFromStart != null && twinFromEnd != null) {
-            val sum = twinFromStart.`val` + twinFromEnd.`val`
+        while (firstNode != null && secondNode != null) {
+            val sum = firstNode.`val` + secondNode.`val`
             if (sum > maxSum) maxSum = sum
-            twinFromStart = twinFromStart.next
-            twinFromEnd = twinFromEnd.next
+            firstNode = firstNode.next
+            secondNode = secondNode.next
         }
         return maxSum
     }
@@ -115,13 +116,8 @@ class MaximumTwinSumOfALinkedList {
 
 fun main() {
     println(
-        MaximumTwinSumOfALinkedList().iterativeEfficient(
-            LinkedListNode(
-                `val` = 1,
-                next = LinkedListNode(
-                    `val` = 2,
-                )
-            )
+        MaximumTwinSumOfALinkedList().efficient(
+            head = singlyLinkedListOf(1, 2, 3, 20, 5, 8)!!,
         )
     )
 }

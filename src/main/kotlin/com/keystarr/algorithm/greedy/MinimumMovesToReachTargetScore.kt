@@ -1,4 +1,4 @@
-package com.keystarr.algorithm
+package com.keystarr.algorithm.greedy
 
 /**
  * LC-2139 https://leetcode.com/problems/minimum-moves-to-reach-target-score/description/
