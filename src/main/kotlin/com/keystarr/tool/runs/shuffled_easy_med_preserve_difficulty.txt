@@ -113,7 +113,7 @@ PREMIUM- 1533. Find the Index of the Large Integer
 ~~ 518. Coin Change II
 + 724. Find Pivot Index
 
-- 139. Word Break
++ 139. Word Break
 - 2457. Minimum Addition to Make Integer Beautiful
 ~~ 1024. Video Stitching
 - 337. House Robber III
