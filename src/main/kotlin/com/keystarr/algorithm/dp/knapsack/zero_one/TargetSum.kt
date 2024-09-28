@@ -6,20 +6,20 @@ package com.keystarr.algorithm.dp.knapsack.zero_one
  * LC-494 https://leetcode.com/problems/target-sum/description/
  * difficulty: medium (imho, leet-hard)
  * constraints:
- *  - 1 <= nums.size <= 20;
- *  - 0 <= nums\[i] <= 10^3;
- *  - 0 <= sum(nums\[i]) <= 10^3;
- *  - -10^3 <= target <= 10^3.
+ *  • 1 <= nums.size <= 20;
+ *  • 0 <= nums\[i] <= 10^3;
+ *  • 0 <= sum(nums\[i]) <= 10^3;
+ *  • -10^3 <= target <= 10^3.
  *
  * Final notes:
- *  - done [bruteBacktracking] pretty quickly by myself, but failed to design a more efficient solution in combined total at 50 mins;
- *  - ⚠️ turned down DP initially, cause I thought that the input state must include both `currentInd` and `leftSum` =>
+ *  • done [bruteBacktracking] pretty quickly by myself, but failed to design a more efficient solution in combined total at 50 mins;
+ *  • ⚠️ turned down DP initially, cause I thought that the input state must include both `currentInd` and `leftSum` =>
  *   we'd have too little overlapping subproblems on average to change time complexity drastically;
- *  - it turns out that the efficient solution here is DP bottom-up space-optimized after all, and I still didn't quite get it why and how
+ *  • it turns out that the efficient solution here is DP bottom-up space-optimized after all, and I still didn't quite get it why and how
  *   => postponed that solution design.
  *
  * Value gained:
- *  -
+ *  • practiced solving a "count all valid combinations (with subproblem overlapping)" type problem using 0-1 Knapsack top-down DP.
  */
 class TargetSum {
 

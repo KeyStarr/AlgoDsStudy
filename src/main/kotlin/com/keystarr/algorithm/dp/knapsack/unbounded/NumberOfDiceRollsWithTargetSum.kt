@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.dp.knapsack.zero_one
+package com.keystarr.algorithm.dp.knapsack.unbounded
 
 import kotlin.math.min
 
@@ -17,13 +17,21 @@ import kotlin.math.min
  *   kept failing: found 1 bug in like 15 mins, failed to find the others under 1h => checked the solution as per rules ⚠️
  *   (LOL, just missed the current[0]=0 after swapping for initial prev[0]==1, and we don't touch current[0] ever in the inner loop,
  *    but prev[0] must always be == 0 (base case leftSum==0 but not all nums used))
+ *
  *  • 🔥 intuitively straight away went on to focus on each element's possible variations, since learned to do that recently for the
- *   valid combination (knapsack) type DP problems. ⚠️ but didn't recognize this as the 0-1 knapsack until reading https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/solutions/355940/c-coin-change-2/
- *   well, if its solved right (and I can prove why that is correct) is what counts.
+ *   valid combination (knapsack) type DP problems.
+ *   ⚠️ but didn't recognize this as the knapsack type until reading
+ *   https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/solutions/355940/c-coin-change-2/
+ *
+ *   even though author claims this problem's closeness to CoinChangeII I disagree => I think it's closer to the 0-1 knapsack.
+ *   thinking of it through the unbounded knapsack lens result in something similar to [topDownDpUnboundedKnaspack], which is not optimal.
+ *   in [bottomUpSpaceOptimized] we focus on each slot, trying every possible valid value for it => this is closer
+ *   to the 0-1 knapsack approach, its just that every slot is not static single value but a value of some set.
+ *   so its closer to [com.keystarr.algorithm.dp.knapsack.zero_one.TargetSum2]
  *
  * Value gained:
  *  • practiced solving a "count all valid combinations (with multiple choices + consequences => subproblem overlapping"
- *   type problem using top-down/bottom-up space-optimized DP via a pattern knapsack 0-1.
+ *   type problem using top-down/bottom-up space-optimized DP via a 0-1 knapsack pattern.
  */
 class NumberOfDiceRollsWithTargetSum {
 
@@ -181,6 +189,50 @@ class NumberOfDiceRollsWithTargetSum {
             totalCombinations = (totalCombinations + combinations) % MODULO
         }
         return totalCombinations.also { cache[diceLeft][leftSum] = it }
+    }
+
+    /**
+     * (WRONG)
+     *
+     * Tried more of an Unbounded Knapsack focused approach after solving via [bottomUpSpaceOptimized] as a learning experiment.
+     *
+     * Fails on 2nd and 3rd test cases, failed to fix fast enough, let it go for now.
+     */
+    fun topDownDpUnboundedKnaspack(diceAmount: Int, maxFace: Int, targetSum: Int): Int =
+        topDownDpRecursiveUnboundedKnapsack(
+            diceLeft = diceAmount,
+            leftSum = targetSum,
+            currentFace = 1,
+            maxFace = maxFace,
+            cache = Array(size = diceAmount + 1) { Array(size = maxFace + 1) { IntArray(size = targetSum + 1) { CACHE_EMPTY_VAL } } },
+        )
+
+    private fun topDownDpRecursiveUnboundedKnapsack(
+        diceLeft: Int,
+        leftSum: Int,
+        currentFace: Int,
+        maxFace: Int,
+        cache: Array<Array<IntArray>>,
+    ): Int {
+        if (diceLeft == 0) return if (leftSum == 0) 1 else 0
+        if (leftSum <= 0 || currentFace == maxFace + 1) return 0
+
+        val cachedResult = cache[diceLeft][currentFace][leftSum]
+        if (cachedResult != CACHE_EMPTY_VAL) return cachedResult
+
+        val take = topDownDpRecursiveUnboundedKnapsack(
+            diceLeft = diceLeft - 1,
+            leftSum = leftSum - currentFace,
+            currentFace = currentFace,
+            maxFace, cache,
+        )
+        val skip = topDownDpRecursiveUnboundedKnapsack(
+            diceLeft = diceLeft,
+            leftSum = leftSum,
+            currentFace = currentFace + 1,
+            maxFace, cache
+        )
+        return (take + skip).also { cache[diceLeft][currentFace][leftSum] = it }
     }
 }
 
