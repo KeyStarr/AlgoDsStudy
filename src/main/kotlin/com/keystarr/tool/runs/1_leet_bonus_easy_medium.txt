@@ -1,5 +1,5 @@
 Notes:
-    - after 1-2 weeks => shuffle problems marked with "~" and reinforce-solve them (RETRY).
+  - after 1-2 weeks shuffle problems marked with "~" and reinforce-solve them (RETRY).
 
 
 ---- final run stats ----

@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.dp.other.onedim
+package com.keystarr.algorithm.dp.subsequence
 
 import kotlin.math.max
 
@@ -30,6 +30,8 @@ import kotlin.math.max
  *  • i.o. done [startsAtTopDownDp] optimized a const but got stuck at O(n^2) and gave up. It turns out that top down from another
  *   direction has basically same time complexity [endsAtTopDownDp], BUT bottom-up from both direction is efficient O(n)
  *   [startsAtBottomUpDp] [endsAtBottomUpDp]!!!
+ *
+ *  • basically a subproblem of [LongestArithmeticSubsequence] almost as-is.
  *
  * Value gained:
  *  • for the first time encountered a case where bottom-up is trivially drastically faster than top-down! And when starting

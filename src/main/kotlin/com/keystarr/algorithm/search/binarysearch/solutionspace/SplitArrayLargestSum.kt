@@ -12,6 +12,7 @@ package com.keystarr.algorithm.search.binarysearch.solutionspace
  *  • done via [efficient] by myself in ~50 mins (to prove binary search applicability and to adapt the pattern here);
  *  • the core of the problem is the same as [DivideChocolate], but the goal is reversed (here it's minimized largest sum,
  *   there it's maximized smallest sum).
+ *
  * Value gained:
  *  • during an interview, I'm confident with 146% probability, that is it possible to solve a problem on binary search
  *   solution spaces ONLY having learnt and really practiced the binary search solution spaces pattern numerous times!

@@ -1,0 +1,74 @@
+Notes:
+  - all problems that I haven't understood and solved cleanly first try within time budget from "1_leet_bonus_easy_medium.txt";
+  - after 1-2 weeks shuffle problems marked with "~" and reinforce-solve them (RETRY).
+
+- 491. Non-decreasing Subsequences
+- 1305. All Elements in Two Binary Search Trees
+- 557. Reverse Words in a String III
+- 1372. Longest ZigZag Path in a Binary Tree
+- 2192. All Ancestors of a Node in a Directed Acyclic Graph
+- 540. Single Element in a Sorted Array
+- 1482. Minimum Number of Days to Make m Bouquets
+- 11. Container With Most Water
+- 1673. Find the Most Competitive Subsequence
+- 567. Permutation in String
+- 2095. Delete the Middle Node of a Linked List
+- 40. Combination Sum II
+- 1218. Longest Arithmetic Subsequence of Given Difference
+- 205. Isomorphic Strings
+- 1512. Number of Good Pairs
+- 1035. Uncrossed Lines
+- 2384. Largest Palindromic Number
+- 450. Delete Node in a BST
+- 907. Sum of Subarray Minimums (added later as a side step to understand LC-2104)
+- 1027. Longest Arithmetic Subsequence
+- 290. Word Pattern
+- 2434. Using a Robot to Print the Lexicographically Smallest String
+- 451. Sort Characters By Frequency
+- 2250. Count Number of Rectangles Containing Each Point
+- 19. Remove Nth Node From End of List
+- 930. Binary Subarrays With Sum
+- 1436. Destination City
+- 1657. Determine if Two Strings Are Close
+- 1663. Smallest String With A Given Numeric Value
+- 1305. All Elements in Two Binary Search Trees
+- 1290. Convert Binary Number in a Linked List to Integer
+- 2226. Maximum Candies Allocated to K Children
+- 1143. Longest Common Subsequence (! added later as a precursor to 1035)
+- 373. Find K Pairs with Smallest Sums
+- 1394. Find Lucky Integer in an Array
+- 474. Ones and Zeroes
+- 2139. Minimum Moves to Reach Target Score
+- 131. Palindrome Partitioning
+- 213. House Robber II
+- 518. Coin Change II
+- 997. Find the Town Judge
+- 2178. Maximum Split of Positive Even Integers
+- 1325. Delete Leaves With a Given Value
+- 337. House Robber III
+- 2104. Sum of Subarray Ranges
+- 1406. Stone Game III
+- 1944. Number of Visible People in a Queue
+- 2074. Reverse Nodes in Even Length Groups
+- 234. Palindrome Linked List
+- 203. Remove Linked List Elements
+- 1721. Swapping Nodes in a Linked List
+- 221. Maximal Square
+- 437. Path Sum III
+- 877. Stone Game (! added later, basically a prerequisite of III)
+- 2457. Minimum Addition to Make Integer Beautiful
+- 1855. Maximum Distance Between a Pair of Values
+- 649. Dota2 Senate
+- 494. Target Sum
+- 2476. Closest Nodes Queries in a Binary Search Tree
+- 567. Permutation in String
+- 463. Island Perimeter
+- 2462. Total Cost to Hire K Workers
+- 1024. Video Stitching
+- 872. Leaf-Similar Trees
+- 917. Reverse Only Letters
+- 1140. Stone Game II (! added later, basically a prerequisite of III)
+- 1615. Maximal Network Rank
+- 2517. Maximum Tastiness of Candy Basket
+- 455. Assign Cookies
+- 33. Search in Rotated Sorted Array
