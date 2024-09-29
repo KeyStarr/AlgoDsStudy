@@ -1,3 +1,4 @@
+TODO: split by topics + verify that all bonus hards are really here
 https://leetcode.com/problems/word-search-ii/description/
 https://leetcode.com/problems/number-of-visible-people-in-a-queue/description/
 https://leetcode.com/problems/number-of-valid-subarrays/
