@@ -1,6 +1,23 @@
 Notes:
     - after 1-2 weeks => shuffle problems marked with "~" and reinforce-solve them (RETRY).
 
+
+---- final run stats ----
+problems: 134
+progress:
+  done: 100% (134)
+  to do: 0% (0)
+done:
+  good: 64% (86)
+    clean: 47% (64)
+    almostClean: 16% (22)
+  to improve: 35% (48)
+    dirty: 9% (13)
+    failed: 26% (35)
+learning value: 52% (70)
+---
+
+
 Old solves before the difficulty-aware shuffle (just pure shuffle of all):
 
 + 946. Validate Stack Sequences
@@ -147,19 +164,3 @@ PREMIUM- 1063. Number of Valid Subarrays
 + 1155. Number of Dice Rolls With Target Sum
 + 303. Range Sum Query - Immutable
 ~~ 1027. Longest Arithmetic Subsequence
-
-
----- run stats ----
-problems: 134
-progress:
-  done: 100% (134)
-  to do: 0% (0)
-done:
-  good: 64% (86)
-    clean: 47% (64)
-    almostClean: 16% (22)
-  to improve: 35% (48)
-    dirty: 9% (13)
-    failed: 26% (35)
-learning value: 52% (70)
----
