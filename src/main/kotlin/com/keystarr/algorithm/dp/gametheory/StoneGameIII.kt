@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.dp.other.onedim
+package com.keystarr.algorithm.dp.gametheory
 
 import kotlin.math.max
 import kotlin.math.min
