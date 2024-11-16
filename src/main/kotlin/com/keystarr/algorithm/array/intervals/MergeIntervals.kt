@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.other.intervals
+package com.keystarr.algorithm.array.intervals
 
 import kotlin.math.max
 

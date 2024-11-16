@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.other.intervals
+package com.keystarr.algorithm.array.intervals
 
 /**
  * ⭐️ LC-57 https://leetcode.com/problems/insert-interval/editorial/

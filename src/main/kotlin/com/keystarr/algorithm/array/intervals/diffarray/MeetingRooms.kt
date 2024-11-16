@@ -1,4 +1,4 @@
-package com.keystarr.algorithm.other.intervals
+package com.keystarr.algorithm.array.intervals.diffarray
 
 /**
  * LC-252 https://leetcode.com/problems/meeting-rooms/
@@ -52,21 +52,16 @@ class MeetingRooms {
      */
     fun diffArrayTimeLine(intervals: Array<IntArray>): Boolean {
         val maxTime = intervals.maxOf { it[1] }
-        val timeline = Array(size = maxTime + 1) { BooleanArray(size = 2) }
+        val timeline = IntArray(size = maxTime + 1)
         intervals.forEach { interval ->
             val (start, end) = interval
-            timeline[start][0] = true
-            timeline[end][1] = true
+            timeline[start] += 1
+            timeline[end] -= 1
         }
-        var isMeetingOn = false
-        timeline.forEach { hourStatus ->
-            val (doesMeetingStart, doesMeetingEnd) = hourStatus
-            if (doesMeetingStart) {
-                if (isMeetingOn && !doesMeetingEnd) return false
-                isMeetingOn = true
-            } else {
-                if (doesMeetingEnd) isMeetingOn = false
-            }
+        var meetingsInProgress = 0
+        timeline.forEach { diff ->
+            meetingsInProgress += diff
+            if (meetingsInProgress > 1)  return false
         }
         return true
     }
@@ -98,11 +93,11 @@ class MeetingRooms {
 
 fun main() {
     println(
-        MeetingRooms().diffArraySort(
+        MeetingRooms().diffArrayTimeLine(
             intervals = arrayOf(
-                intArrayOf(0, 30),
+                intArrayOf(19, 30),
                 intArrayOf(5, 10),
-                intArrayOf(15, 20),
+                intArrayOf(10, 20),
             )
         )
     )
